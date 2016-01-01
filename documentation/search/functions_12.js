@@ -1,0 +1,28 @@
+var searchData=
+[
+  ['sametest',['SameTest',['../classTerm.html#ac160081b1e8a6cdf3cf5bc897552dc5f',1,'Term']]],
+  ['scatter',['Scatter',['../structutilities_1_1MpiWrapper.html#af9673581213e6b9e43fc847f02fc5698',1,'utilities::MpiWrapper']]],
+  ['script',['Script',['../classutilities_1_1Script.html#a3163ae808b50f38b60a7d70905df704c',1,'utilities::Script']]],
+  ['scripttofile',['ScriptToFile',['../classutilities_1_1Script.html#aff9fd5e54ab20e3014c3d14e4438da53',1,'utilities::Script']]],
+  ['secondaryoutput',['SecondaryOutput',['../classutilities_1_1Cout.html#a6219e39487852117bfc3c83dd1b073b1',1,'utilities::Cout']]],
+  ['seed',['Seed',['../classutilities_1_1Random.html#afc24163f03d8a53019f5a2bedc0210f3',1,'utilities::Random']]],
+  ['seedrandomnumbergenerator',['SeedRandomNumberGenerator',['../fqhe__entanglement__spectrum_8cpp.html#a0bcf772cdf39bd1be5b6a2e9a00c7f6e',1,'fqhe_entanglement_spectrum.cpp']]],
+  ['set',['Set',['../classutilities_1_1HpWrap.html#a0611ef9da7c87698cc83b0bbd2c10b1d',1,'utilities::HpWrap::Set(dcmplx in)'],['../classutilities_1_1HpWrap.html#ac066c96cf157c4b5d4f61f0d7b66a04e',1,'utilities::HpWrap::Set(double in)'],['../classutilities_1_1HpWrap_3_01double_00_01P_01_4.html#a620b356ccf29045812470e202dfde338',1,'utilities::HpWrap&lt; double, P &gt;::Set(dcmplx in)'],['../classutilities_1_1HpWrap_3_01double_00_01P_01_4.html#ab02d2eba3e25a91a7156ace628185bf2',1,'utilities::HpWrap&lt; double, P &gt;::Set(double in)'],['../classutilities_1_1HpWrap_3_01mpc__t_00_01P_01_4.html#aa3e0d5760fb24864e49dce66236f63f8',1,'utilities::HpWrap&lt; mpc_t, P &gt;::Set()'],['../classutilities_1_1HpWrap_3_01mpfr__t_00_01P_01_4.html#a1b4f651402a7ec09d066254ffc86a613',1,'utilities::HpWrap&lt; mpfr_t, P &gt;::Set()'],['../classutilities_1_1HpWrap_3_01mpf__t_00_01P_01_4.html#a5c233d2ed5dd8f11ecd01e6f40644519',1,'utilities::HpWrap&lt; mpf_t, P &gt;::Set()'],['../classutilities_1_1HpWrap_3_01mpfCmplx_00_01P_01_4.html#a6340bd099fcce58df33c555140f8d90d',1,'utilities::HpWrap&lt; mpfCmplx, P &gt;::Set()'],['../classutilities_1_1ColouredPartition.html#aa3c530eca543c5528c100ccb7589404a',1,'utilities::ColouredPartition::Set(int index, int integer)'],['../classutilities_1_1ColouredPartition.html#a1d81d3eeeeeda10abd5c5595dee04b22',1,'utilities::ColouredPartition::Set(int index, char colour)']]],
+  ['setcoefficient',['SetCoefficient',['../classTerm.html#a55b2a624334e0ed1920ea49431a9f5e3',1,'Term']]],
+  ['setfilenamestem',['SetFileNameStem',['../classutilities_1_1Script.html#a1c488b6dedc332f204e71f27bf3b13ad',1,'utilities::Script']]],
+  ['setlldata',['SetLLdata',['../classFQHE_1_1CompositeFermion.html#a6a90575257ed8d5867263cb0e177e484',1,'FQHE::CompositeFermion']]],
+  ['setscript',['SetScript',['../classutilities_1_1Script.html#af021d99ea6176a02e4affcead01fb4d2',1,'utilities::Script']]],
+  ['setverbosity',['SetVerbosity',['../classutilities_1_1Cout.html#ab8a49777c3ee10a0d280f6609b75ea0f',1,'utilities::Cout']]],
+  ['sign_5fbinary',['sign_binary',['../hilbert__ewf_8h.html#a8585cd6ab9fecfc4fb012db8d373967a',1,'sign_binary(std::vector&lt; std::vector&lt; int &gt; &gt;, int *, int, int, int):&#160;hilbert_ewf.h'],['../hilbert__ewf_8cpp.html#a3a7fd32666f95735a9a49ef3d8b28414',1,'sign_binary(vector&lt; vector&lt; int &gt; &gt; bin, int *sgn_bin, int ne, int dim, int LL):&#160;hilbert_ewf.cpp']]],
+  ['singularvaluedecomposition',['SingularValueDecomposition',['../namespaceutilities_1_1linearAlgebra.html#adfd7c6663df6055e5ba9a289c2624fd5',1,'utilities::linearAlgebra']]],
+  ['sizeof',['SizeOf',['../namespaceutilities.html#a2dd63552e5e0ddf1735b427459222a91',1,'utilities']]],
+  ['sortallvectors',['SortAllVectors',['../classListOfTerms.html#a497cf7cb4b23298c83939e82ecf43dd0',1,'ListOfTerms']]],
+  ['sortvector',['SortVector',['../classTerm.html#ae4693cf551ace0e2815cf5cf352d9549',1,'Term']]],
+  ['spectrumtofile',['SpectrumToFile',['../classIqheRses.html#a5cd54bb106152d3dc0a0aacfb5361a72',1,'IqheRses::SpectrumToFile()'],['../classEntanglementEnergyModel.html#abd941ec79dc645caf76e5a5808f03027',1,'EntanglementEnergyModel::SpectrumToFile()']]],
+  ['start',['Start',['../classutilities_1_1Timer.html#afff3251c2ec33327b87b0121f54571eb',1,'utilities::Timer']]],
+  ['stop',['Stop',['../classutilities_1_1Timer.html#a876fe6588d92354e3f0fca85f4f88227',1,'utilities::Timer']]],
+  ['stringtok',['stringtok',['../gnuplot__i_8cpp.html#a1a96d6f33e0d7225eaaf015313e53a4c',1,'gnuplot_i.cpp']]],
+  ['swap',['Swap',['../namespaceutilities.html#aa4186e485e8332d7bdeca00b7ce89cc6',1,'utilities']]],
+  ['symmetricmatrixpower',['SymmetricMatrixPower',['../namespaceutilities_1_1linearAlgebra.html#ad8d4f449a55062bb33ce9193a8d53461',1,'utilities::linearAlgebra']]],
+  ['sync',['Sync',['../structutilities_1_1MpiWrapper.html#ab7c5634cdbed7e4436b54b9ef619f85b',1,'utilities::MpiWrapper::Sync(std::string &amp;buffer, int syncNode) const '],['../structutilities_1_1MpiWrapper.html#a1e400c848363167d6c5f12366f7c5351',1,'utilities::MpiWrapper::Sync(T *buffer, int bufferSize, int syncNode) const '],['../structutilities_1_1MpiWrapper.html#a6cb2347090684f35f99a2c8343541466',1,'utilities::MpiWrapper::Sync(std::vector&lt; T &gt; *buffer, int syncNode) const ']]]
+];

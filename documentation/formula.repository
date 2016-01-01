@@ -1,0 +1,17 @@
+\form#0:\[ k e_k (|z|)/|e_k| \]
+\form#1:$ - $
+\form#2:\[ \Phi(L_z^A,Z_A,Z_B) = \int d \phi exp(-2I\pi L_z^A \phi) \psi(z_1 exp(2I\pi \phi),\ldots,z_k exp(2I\pi \phi), z_k+1,\ldots z_N) \]
+\form#3:$ \Phi $
+\form#4:\[ \rho_A(Z_A;Z_A')=\int dZ_B \Phi(L_z^A,Z_A,Z_B) \Phi^*(L_Z^A,Z'_A,Z_B) \]
+\form#5:$ Z_A $
+\form#6:$ Z_B $
+\form#7:$ Z_A' $
+\form#8:$ \rho_A $
+\form#9:$ l^i_A $
+\form#10:$ |z_i|^2 $
+\form#11:$ \sum_i l^i_A = L_z^A $
+\form#12:$ l_z^A $
+\form#13:$ r_A $
+\form#14:$ l^i_A = |z|^2 $
+\form#15:$ \sum_i l^i_A=l_z^S $
+\form#16:$ \sum_{-\infty}^{\infty} exp(-\pi*t*(n+a)^2+2*I*\pi(n+a)(z+b)) $

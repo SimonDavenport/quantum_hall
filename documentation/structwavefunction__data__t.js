@@ -1,0 +1,25 @@
+var structwavefunction__data__t =
+[
+    [ "bosons", "structwavefunction__data__t.html#a660dc33ce8a5a5d1dcbb61fbec5520ff", null ],
+    [ "fill", "structwavefunction__data__t.html#afcd9da6813a9e5249a58e91bd0aa0760", null ],
+    [ "fillDenominator", "structwavefunction__data__t.html#af14306155e25e2b32e0e6b0cee7bbf10", null ],
+    [ "fillNumerator", "structwavefunction__data__t.html#a4e95cfb1f52927aaca2b1977f4c792e1", null ],
+    [ "flux", "structwavefunction__data__t.html#a6d5e0ed8cf839a51834fbf2d9902001c", null ],
+    [ "geometry", "structwavefunction__data__t.html#a62946326aaab46a0c75c1a6aad37d229", null ],
+    [ "LLdown", "structwavefunction__data__t.html#a74ff54da6b6bbeac5388ebc282170e82", null ],
+    [ "LLup", "structwavefunction__data__t.html#a0cd006ce065e076ab306ce56964c45e4", null ],
+    [ "Lx", "structwavefunction__data__t.html#a575d8e459ae702fb1a4543cc0c1a67bf", null ],
+    [ "Ly", "structwavefunction__data__t.html#a3819c297fc4fc110091490fbf13e482e", null ],
+    [ "nbr", "structwavefunction__data__t.html#a8c63ee8bfab9d830cf7e650bf07b30b7", null ],
+    [ "ndown", "structwavefunction__data__t.html#a0ea70e4164862c30135b54328bb9e994", null ],
+    [ "NEF", "structwavefunction__data__t.html#a74ec04be554e9a81065c62e12b1cc300", null ],
+    [ "nup", "structwavefunction__data__t.html#aaf54258ff17a66f915fe7c15c67cf623", null ],
+    [ "power", "structwavefunction__data__t.html#aec908ac7b09efb3892a5230989cfbea9", null ],
+    [ "Q", "structwavefunction__data__t.html#a47326c7825a8ea6444d9d646ab956666", null ],
+    [ "rSphere", "structwavefunction__data__t.html#a129ee60dcd72f8655f05ffcc71730c6e", null ],
+    [ "shift", "structwavefunction__data__t.html#a07fb52f038e994c80989c3fd047e14c8", null ],
+    [ "spinPolarised", "structwavefunction__data__t.html#aa1b9e8b744e27659fd70f47d8de908a2", null ],
+    [ "torusState", "structwavefunction__data__t.html#a7b63ecf078d0b50622a5ace62e99c5d0", null ],
+    [ "type", "structwavefunction__data__t.html#a1423cefd3669263edb3d19e562bcd010", null ],
+    [ "wfFileName", "structwavefunction__data__t.html#ade92d72f3915c812f41ee2f0254313a6", null ]
+];

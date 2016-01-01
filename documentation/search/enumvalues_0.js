@@ -1,0 +1,25 @@
+var searchData=
+[
+  ['_5fadditional_5finfo_5f',['_ADDITIONAL_INFO_',['../namespaceutilities.html#ab91e73704a0edaa02e48c3aaf68b1e13a06c96eabb42a12a9377cd5a6c2622f52',1,'utilities']]],
+  ['_5fascending_5forder_5f',['_ASCENDING_ORDER_',['../quick__sort_8h.html#a6c7dd10fb53eaa1cb9705e4ee36f5fcbaea9537dccc6fe0a37f95cb07414cd090',1,'quick_sort.h']]],
+  ['_5fbonderson_5fslingerland_5f',['_BONDERSON_SLINGERLAND_',['../namespaceFQHE.html#a3d54f65fb4b3aac13d4f55269fdba331a06516dab31ca752733042e9ed20d9c9e',1,'FQHE']]],
+  ['_5fbosons_5f',['_BOSONS_',['../namespaceFQHE.html#a3f9a8e19815918cf7b5c815350c9d61ea15a3c0d40b0742c7ff9e471f5b9282c2',1,'FQHE']]],
+  ['_5fcomposite_5ffermion_5f',['_COMPOSITE_FERMION_',['../namespaceFQHE.html#a3d54f65fb4b3aac13d4f55269fdba331a4e4313cb3d86f4bb4752871adb0662e2',1,'FQHE']]],
+  ['_5fdebugging_5finfo_5f',['_DEBUGGING_INFO_',['../namespaceutilities.html#ab91e73704a0edaa02e48c3aaf68b1e13a9f19fd5fdb2d15fa16757d29ef5121b6',1,'utilities']]],
+  ['_5fdescending_5forder_5f',['_DESCENDING_ORDER_',['../quick__sort_8h.html#a6c7dd10fb53eaa1cb9705e4ee36f5fcbadf6156e71385401cb8a13a08691e0328',1,'quick_sort.h']]],
+  ['_5fdisc_5f',['_DISC_',['../namespaceFQHE.html#a72930fae38d8076b26b5e75a3424e810a23690eee0e4c4b4595f3079114372fc9',1,'FQHE']]],
+  ['_5ffermions_5f',['_FERMIONS_',['../namespaceFQHE.html#a3f9a8e19815918cf7b5c815350c9d61ea357806d8b89d714cfb52ebf5caf970b6',1,'FQHE']]],
+  ['_5flaughlin_5f',['_LAUGHLIN_',['../namespaceFQHE.html#a3d54f65fb4b3aac13d4f55269fdba331a85283611dcd7128afb0916ce5ca967ed',1,'FQHE']]],
+  ['_5fmain_5foutput_5f',['_MAIN_OUTPUT_',['../namespaceutilities.html#ab91e73704a0edaa02e48c3aaf68b1e13a4df5e1ccafc7d717a6ceee83ec7731e6',1,'utilities']]],
+  ['_5fmoore_5fread_5f',['_MOORE_READ_',['../namespaceFQHE.html#a3d54f65fb4b3aac13d4f55269fdba331a5fda2e95141c05769f4b2b3ea0482433',1,'FQHE']]],
+  ['_5fnass_5f',['_NASS_',['../namespaceFQHE.html#a3d54f65fb4b3aac13d4f55269fdba331a42c239cabdda11568dbc7169a9e22bfb',1,'FQHE']]],
+  ['_5foutput_5foff_5f',['_OUTPUT_OFF_',['../namespaceutilities.html#ab91e73704a0edaa02e48c3aaf68b1e13a78d55c3f18a751bd8cf0b8bc591d22d3',1,'utilities']]],
+  ['_5fparafermion_5f',['_PARAFERMION_',['../namespaceFQHE.html#a3d54f65fb4b3aac13d4f55269fdba331afd6f43a67efe7d4e886dea72b74471d4',1,'FQHE']]],
+  ['_5fprec_5flevel1_5f',['_PREC_LEVEL1_',['../namespaceFQHE.html#ac9a5a176b73884ed6520df88a8a84e7aa7f3b97452832c77009b841a6d01eb9b8',1,'FQHE']]],
+  ['_5fprec_5flevel2_5f',['_PREC_LEVEL2_',['../namespaceFQHE.html#ac9a5a176b73884ed6520df88a8a84e7aae5f590a14ce7e1e528326ebafd9037f2',1,'FQHE']]],
+  ['_5fprec_5flevel3_5f',['_PREC_LEVEL3_',['../namespaceFQHE.html#ac9a5a176b73884ed6520df88a8a84e7aa3bce35731e8e9fc43ec541bdc7220aa6',1,'FQHE']]],
+  ['_5fprec_5flevel4_5f',['_PREC_LEVEL4_',['../namespaceFQHE.html#ac9a5a176b73884ed6520df88a8a84e7aa76011bdb0434878db835fefe9be1a3ac',1,'FQHE']]],
+  ['_5fsecondary_5foutput_5f',['_SECONDARY_OUTPUT_',['../namespaceutilities.html#ab91e73704a0edaa02e48c3aaf68b1e13af305aef246db9a9f4424bcf0dcef71d8',1,'utilities']]],
+  ['_5fsphere_5f',['_SPHERE_',['../namespaceFQHE.html#a72930fae38d8076b26b5e75a3424e810ac023547055f5c2e603160dff4bc74ea2',1,'FQHE']]],
+  ['_5ftorus_5f',['_TORUS_',['../namespaceFQHE.html#a72930fae38d8076b26b5e75a3424e810a7d9367b8d6ef7c84b832d0639b956d5d',1,'FQHE']]]
+];

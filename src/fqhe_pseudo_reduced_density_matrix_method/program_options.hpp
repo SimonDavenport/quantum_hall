@@ -1,8 +1,6 @@
 ////////////////////////////////////////////////////////////////////////////////
 //!
-//!                         \author Simon C. Davenport 
-//!
-//!                         \date Last Modified: 30/12/2014
+//!                         \author Simon C. Davenport
 //!
 //!  \file 
 //!		This file contains a declaration of the program options and data
@@ -28,24 +26,15 @@
 #define _PROGRAM_OPTIONS_HPP_INCLUDED_
 
 ///////		LIBRARY INCLUSIONS		////////////////////////////////////////////
-
-#include <boost/program_options.hpp>        //	Include program options library
-#include "../utilities/wrappers/mpi_wrapper.hpp"    
-                                            //  Wrapper for MPI functionality
-
+#include <boost/program_options.hpp>
+#include "../utilities/wrappers/mpi_wrapper.hpp"
 #if _DEBUG_
 #include "../utilities/general/debug.hpp"
 #endif
 
-//////      DECLARATION OF PROGRAM OPTIONS      ////////////////////////////////
-
-//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\//
-
-////////////////////////////////////////////////////////////////////////////////
-//! \brief Generate a list of entanglement spectrum program options
 //!
-////////////////////////////////////////////////////////////////////////////////
-
+//! Generate a list of entanglement spectrum program options
+//!
 inline boost::program_options::options_description GetEntanglementSpectrumOptions()
 {
     boost::program_options::options_description entanglementSpectrumOpt("Entanglement Spectrum Options");
@@ -68,17 +57,12 @@ inline boost::program_options::options_description GetEntanglementSpectrumOption
      "Set the number of columns in the reduced density matrix\n")
     ("renorm",boost::program_options::value<int>()->default_value(0),
      "Specfy x, where we renormalise the wave function value by a factor of 10^(x)\n");
-
     return entanglementSpectrumOpt;
 };
 
-//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\//
-
-////////////////////////////////////////////////////////////////////////////////
-//! \brief Generate a list of metropolis sampling program options
 //!
-////////////////////////////////////////////////////////////////////////////////
-
+//! Generate a list of metropolis sampling program options
+//!
 inline boost::program_options::options_description GetMetropolisOptions()
 {
     boost::program_options::options_description metropOptions("Metropolis Options");
@@ -90,21 +74,14 @@ inline boost::program_options::options_description GetMetropolisOptions()
     ("therms,t",boost::program_options::value<int>()->default_value(5000),
      "Number of thermalizing Monte Carlo samples\n")
     ("maxd", boost::program_options::value<double>()->default_value(0.5),
-    "Proportion of maximum MC move distance\n");
-
+     "Proportion of maximum MC move distance\n");
     return metropOptions;
 }
 
-//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\//
-
-//////      DEFINE DATA STRUCTS TO HOLD PROGRAM OPTION PARAMETERS      /////////
-
-////////////////////////////////////////////////////////////////////////////////
-//! \brief This struct contains all parameters that are parsed from the 
+//!
+//! This struct contains all parameters that are parsed from the 
 //! command line option set. 
 //!
-////////////////////////////////////////////////////////////////////////////////
-
 struct GeneralOptions
 {
     std::string path;		//!<   	Specify path to file directory for input/output
@@ -130,14 +107,12 @@ struct GeneralOptions
 	int renormFactor;		//!<	10^Factor by which to renormalise the wave function
 	                        //!     to avoid overflows
 	
-	////////////////////////////////////////////////////////////////////////////////
-    //! \brief Set parameters from command line argument list
-	//!
-	////////////////////////////////////////////////////////////////////////////////
-	                        
+    //!
+    //! Set parameters from command line argument list
+	//!                     
 	inline void InitFromCommandLine(
 	    boost::program_options::variables_map* options, //!<    Command line argument list
-	    const utilities::MpiWrapper& mpi)   //!<    MPI wrapper class
+	    const utilities::MpiWrapper& mpi)               //!<    MPI wrapper class
 	{
 	    if(0 == mpi.m_id)    //  For the master node
 	    {
@@ -152,51 +127,41 @@ struct GeneralOptions
 	        columns      = (*options)["columns"].as<int>();
 	        renormFactor = (*options)["renorm"].as<int>();
         }
-        
         //  Synchronize all values with those set on the master node
-        
-        this->MpiSync(0,mpi);
-        
+        this->MpiSync(0, mpi);
         if(0 == choice)
         {
             exit(EXIT_SUCCESS);
         }
-        
 	    return;
 	}
 	     
-	////////////////////////////////////////////////////////////////////////////////
-    //! \brief Function to synchronise all these variables
+    //!
+    //! Function to synchronise all these variables
 	//! with the value set on syncNode
-	//!  
-	////////////////////////////////////////////////////////////////////////////////
-                                              
+	//!                                       
 	inline void MpiSync(
 	    const int syncNode,                 //!<    Node to sync with
 	    const utilities::MpiWrapper& mpi)   //!<    MPI wrapper class
 	{   
-	    mpi.Sync(path,syncNode);
-	    mpi.Sync(&choice,1,syncNode);
-	    mpi.Sync(&lzA,1,syncNode);
-	    mpi.Sync(&realCut,1,syncNode);
-	    mpi.Sync(&nbrFixed,1,syncNode);
-	    mpi.Sync(&nbrSect,1,syncNode);
-	    mpi.Sync(&nbrFourier,1,syncNode);
-	    mpi.Sync(&rows,1,syncNode);
-	    mpi.Sync(&columns,1,syncNode);
-	    mpi.Sync(&renormFactor,1,syncNode);
+	    mpi.Sync(path, syncNode);
+	    mpi.Sync(&choice, 1, syncNode);
+	    mpi.Sync(&lzA, 1, syncNode);
+	    mpi.Sync(&realCut, 1, syncNode);
+	    mpi.Sync(&nbrFixed, 1, syncNode);
+	    mpi.Sync(&nbrSect, 1, syncNode);
+	    mpi.Sync(&nbrFourier, 1, syncNode);
+	    mpi.Sync(&rows, 1, syncNode);
+	    mpi.Sync(&columns, 1, syncNode);
+	    mpi.Sync(&renormFactor, 1, syncNode);
 	}       
 };
 
-//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\//
-
-////////////////////////////////////////////////////////////////////////////////
-//! \brief This struct contains parameters associated with the metropolis.
+//!
+//! This struct contains parameters associated with the metropolis.
 //! sampling part of the code (mode 1). These parameters are parsed from the
 //! command line and are only required on the master node
 //!
-////////////////////////////////////////////////////////////////////////////////
-
 struct MetropOptions
 {
 	double width;			//!<	Max displacement in metropolis. move
@@ -207,15 +172,12 @@ struct MetropOptions
 	                        //!
 	int nbrTherms;			//!<	Number of thermalizing samples
 	                        //!<
-
-	////////////////////////////////////////////////////////////////////////////////
-    //! \brief Set parameters from command line argument list
-	//!  
-	////////////////////////////////////////////////////////////////////////////////
-	                        
+    //!
+    //! Set parameters from command line argument list
+	//!                   
 	inline void InitFromCommandLine(
 	    boost::program_options::variables_map* options, //!<    Command line argument list
-	    const utilities::MpiWrapper& mpi)   //!<    MPI wrapper class
+	    const utilities::MpiWrapper& mpi)               //!<    MPI wrapper class
 	{
 	    if(0 == mpi.m_id)    //  For the master node
 	    {
@@ -224,11 +186,7 @@ struct MetropOptions
 	        nbrSamples   = (*options)["samples"].as<int>();
 	        nbrTherms    = (*options)["therms"].as<int>();
         }
-
 	    return;
 	}                               
 };
-
-//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\//
-
 #endif

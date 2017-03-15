@@ -2,13 +2,11 @@
 //!
 //!                         \author Simon C. Davenport 
 //!
-//!                         \date Last Modified: 10/04/2014
-//!
 //!  \file 
 //!		The ListOfTerms class contains a list of
 //!     Term objects and functions to perform commutations.
 //!
-//!                    Copyright (C) 2014 Simon C Davenport
+//!                    Copyright (C) Simon C Davenport
 //!
 //!		This program is free software: you can redistribute it and/or modify
 //!		it under the terms of the GNU General Public License as published by
@@ -34,12 +32,9 @@
 #include <vector>
 #include <iostream>
 #include <iomanip>
-
 #if _DEBUG_
 #include "../../utilities/general/debug.hpp"
 #endif
-
-//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\//
 
 ////////////////////////////////////////////////////////////////////////////////
 //!	\brief The ListOfTerms class contains functions to perform recursive commutation
@@ -56,15 +51,11 @@
 //!      - J_0 |0> = N   
 //!      - [Y_n,Y_m] = delta_{n+m,0}   for all Majorana operators (cahrged currents)
 //!      = [Y_n,J_m] = 0
-//!
 ////////////////////////////////////////////////////////////////////////////////
-
 class ListOfTerms
 {
 	private:
-
 	std::vector<Term> m_operator;     //!<   The Hamiltonian is represented by a vector of Term objects 
-
 	bool FullyCommutedTest() const;
 	void FullRightCommute();
 	void ClearRightZeroTerms();
@@ -75,30 +66,16 @@ class ListOfTerms
 	friend double InnerProduct(const Term&  bra,const ListOfTerms&  ket);
 	
 	public:
-
-	//ListOfTerms(Term& basisBra,std::vector<Term>& op,Term& basisKet);
-	//ListOfTerms(Term& basisBra,Term& basisKet);
-	
-	//	Default (empty) constructor
 	ListOfTerms();
-	
-	//	Copy constructor
-	
 	ListOfTerms(const ListOfTerms& other);
 	ListOfTerms(const std::vector<Term>& op);
-	
-	//  Destructor
 	~ListOfTerms();
-
 	void CombineSameTerms();
 	std::vector<ListOfTerms> OperateOnKet(std::vector<Term>& basisKet);
 	std::vector<Term> GetOperator();
-
 	void PrintOperator() const;
 	void PrintMatrixElement(const bool asKet) const;
-
 	ListOfTerms operator+=(const Term& rhs);
 	ListOfTerms operator+=(const ListOfTerms& rhs);
 };
-
 #endif

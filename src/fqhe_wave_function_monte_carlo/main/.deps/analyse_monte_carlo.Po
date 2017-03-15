@@ -127,58 +127,15 @@ fqhe_wave_function_monte_carlo/main/analyse_monte_carlo.o: \
  /usr/include/x86_64-linux-gnu/bits/mathinline.h \
  /usr/include/c++/4.8/cstring /usr/include/string.h \
  /usr/include/x86_64-linux-gnu/bits/string3.h \
- fqhe_wave_function_monte_carlo/main/../analysis/../../utilities/wrappers/murmur_hash_wrapper.hpp \
- fqhe_wave_function_monte_carlo/main/../analysis/../../utilities/wrappers/../mathematics/murmur_hash2.hpp \
- fqhe_wave_function_monte_carlo/main/../analysis/../../utilities/wrappers/../mathematics/murmur_hash3.hpp \
- /usr/local/include/sparsehash/dense_hash_map \
- /usr/local/include/sparsehash/internal/sparseconfig.h \
- /usr/include/c++/4.8/algorithm /usr/include/c++/4.8/utility \
- /usr/include/c++/4.8/bits/stl_relops.h \
- /usr/include/c++/4.8/bits/stl_algo.h \
- /usr/include/c++/4.8/bits/algorithmfwd.h \
- /usr/include/c++/4.8/bits/stl_heap.h \
- /usr/include/c++/4.8/bits/stl_tempbuf.h \
- /usr/include/c++/4.8/bits/stl_construct.h \
- /usr/include/c++/4.8/ext/alloc_traits.h \
- /usr/include/c++/4.8/bits/alloc_traits.h \
- /usr/include/c++/4.8/bits/ptr_traits.h /usr/include/c++/4.8/random \
- /usr/include/c++/4.8/limits /usr/include/c++/4.8/bits/random.h \
- /usr/include/c++/4.8/vector \
- /usr/include/c++/4.8/bits/stl_uninitialized.h \
- /usr/include/c++/4.8/bits/stl_vector.h \
- /usr/include/c++/4.8/bits/stl_bvector.h \
- /usr/include/c++/4.8/bits/vector.tcc \
- /usr/include/x86_64-linux-gnu/c++/4.8/bits/opt_random.h \
- /usr/lib/gcc/x86_64-linux-gnu/4.8/include/x86intrin.h \
- /usr/lib/gcc/x86_64-linux-gnu/4.8/include/ia32intrin.h \
- /usr/lib/gcc/x86_64-linux-gnu/4.8/include/mmintrin.h \
- /usr/lib/gcc/x86_64-linux-gnu/4.8/include/xmmintrin.h \
- /usr/lib/gcc/x86_64-linux-gnu/4.8/include/mm_malloc.h \
- /usr/lib/gcc/x86_64-linux-gnu/4.8/include/emmintrin.h \
- /usr/lib/gcc/x86_64-linux-gnu/4.8/include/immintrin.h \
- /usr/lib/gcc/x86_64-linux-gnu/4.8/include/fxsrintrin.h \
- /usr/lib/gcc/x86_64-linux-gnu/4.8/include/adxintrin.h \
- /usr/include/c++/4.8/bits/random.tcc /usr/include/c++/4.8/numeric \
- /usr/include/c++/4.8/bits/stl_numeric.h /usr/include/c++/4.8/functional \
- /usr/include/c++/4.8/typeinfo /usr/include/c++/4.8/tuple \
+ /usr/include/c++/4.8/unordered_map /usr/include/c++/4.8/utility \
+ /usr/include/c++/4.8/bits/stl_relops.h /usr/include/c++/4.8/tuple \
  /usr/include/c++/4.8/array /usr/include/c++/4.8/stdexcept \
- /usr/include/c++/4.8/bits/uses_allocator.h /usr/include/c++/4.8/memory \
- /usr/include/c++/4.8/bits/stl_raw_storage_iter.h \
- /usr/include/c++/4.8/ext/concurrence.h \
- /usr/include/c++/4.8/bits/unique_ptr.h \
- /usr/include/c++/4.8/bits/shared_ptr.h \
- /usr/include/c++/4.8/bits/shared_ptr_base.h \
- /usr/include/c++/4.8/backward/auto_ptr.h \
- /usr/local/include/sparsehash/internal/densehashtable.h \
- /usr/include/assert.h /usr/include/c++/4.8/iterator \
- /usr/include/c++/4.8/bits/stream_iterator.h \
- /usr/local/include/sparsehash/internal/hashtable-common.h \
- /usr/local/include/sparsehash/internal/libc_allocator_with_realloc.h \
- /usr/local/include/sparsehash/type_traits.h \
- /usr/local/include/sparsehash/template_util.h \
- /usr/include/c++/4.8/tr1/functional /usr/include/c++/4.8/tr1/tuple \
- /usr/include/c++/4.8/tr1/type_traits \
- /usr/include/c++/4.8/tr1/functional_hash.h \
+ /usr/include/c++/4.8/bits/uses_allocator.h \
+ /usr/include/c++/4.8/bits/alloc_traits.h \
+ /usr/include/c++/4.8/bits/ptr_traits.h \
+ /usr/include/c++/4.8/bits/hashtable.h \
+ /usr/include/c++/4.8/bits/hashtable_policy.h \
+ /usr/include/c++/4.8/bits/unordered_map.h \
  fqhe_wave_function_monte_carlo/main/../analysis/../../fqhe_wave_function_algorithms/fqhe_wave_function.hpp \
  /usr/local/include/boost/program_options.hpp \
  /usr/local/include/boost/program_options/options_description.hpp \
@@ -202,11 +159,34 @@ fqhe_wave_function_monte_carlo/main/analyse_monte_carlo.o: \
  /usr/local/include/boost/version.hpp \
  /usr/local/include/boost/config/auto_link.hpp \
  /usr/local/include/boost/program_options/errors.hpp \
- /usr/include/c++/4.8/map /usr/include/c++/4.8/bits/stl_tree.h \
- /usr/include/c++/4.8/bits/stl_map.h \
+ /usr/include/c++/4.8/vector /usr/include/c++/4.8/bits/stl_construct.h \
+ /usr/include/c++/4.8/ext/alloc_traits.h \
+ /usr/include/c++/4.8/bits/stl_uninitialized.h \
+ /usr/include/c++/4.8/bits/stl_vector.h \
+ /usr/include/c++/4.8/bits/stl_bvector.h \
+ /usr/include/c++/4.8/bits/vector.tcc /usr/include/c++/4.8/map \
+ /usr/include/c++/4.8/bits/stl_tree.h /usr/include/c++/4.8/bits/stl_map.h \
  /usr/include/c++/4.8/bits/stl_multimap.h \
  /usr/local/include/boost/program_options/value_semantic.hpp \
- /usr/local/include/boost/any.hpp \
+ /usr/local/include/boost/any.hpp /usr/include/c++/4.8/algorithm \
+ /usr/include/c++/4.8/bits/stl_algo.h \
+ /usr/include/c++/4.8/bits/algorithmfwd.h \
+ /usr/include/c++/4.8/bits/stl_heap.h \
+ /usr/include/c++/4.8/bits/stl_tempbuf.h /usr/include/c++/4.8/random \
+ /usr/include/c++/4.8/limits /usr/include/c++/4.8/bits/random.h \
+ /usr/include/x86_64-linux-gnu/c++/4.8/bits/opt_random.h \
+ /usr/lib/gcc/x86_64-linux-gnu/4.8/include/x86intrin.h \
+ /usr/lib/gcc/x86_64-linux-gnu/4.8/include/ia32intrin.h \
+ /usr/lib/gcc/x86_64-linux-gnu/4.8/include/mmintrin.h \
+ /usr/lib/gcc/x86_64-linux-gnu/4.8/include/xmmintrin.h \
+ /usr/lib/gcc/x86_64-linux-gnu/4.8/include/mm_malloc.h \
+ /usr/lib/gcc/x86_64-linux-gnu/4.8/include/emmintrin.h \
+ /usr/lib/gcc/x86_64-linux-gnu/4.8/include/immintrin.h \
+ /usr/lib/gcc/x86_64-linux-gnu/4.8/include/fxsrintrin.h \
+ /usr/lib/gcc/x86_64-linux-gnu/4.8/include/adxintrin.h \
+ /usr/include/c++/4.8/bits/random.tcc /usr/include/c++/4.8/numeric \
+ /usr/include/c++/4.8/bits/stl_numeric.h /usr/include/c++/4.8/functional \
+ /usr/include/c++/4.8/typeinfo \
  /usr/local/include/boost/type_traits/remove_reference.hpp \
  /usr/local/include/boost/type_traits/broken_compiler_spec.hpp \
  /usr/local/include/boost/mpl/aux_/lambda_support.hpp \
@@ -331,9 +311,16 @@ fqhe_wave_function_monte_carlo/main/analyse_monte_carlo.o: \
  /usr/local/include/boost/function/detail/maybe_include.hpp \
  /usr/local/include/boost/function/function_template.hpp \
  /usr/local/include/boost/function/detail/prologue.hpp \
- /usr/include/c++/4.8/cassert \
+ /usr/include/c++/4.8/cassert /usr/include/assert.h \
  /usr/local/include/boost/config/no_tr1/functional.hpp \
  /usr/local/include/boost/function/function_base.hpp \
+ /usr/include/c++/4.8/memory \
+ /usr/include/c++/4.8/bits/stl_raw_storage_iter.h \
+ /usr/include/c++/4.8/ext/concurrence.h \
+ /usr/include/c++/4.8/bits/unique_ptr.h \
+ /usr/include/c++/4.8/bits/shared_ptr.h \
+ /usr/include/c++/4.8/bits/shared_ptr_base.h \
+ /usr/include/c++/4.8/backward/auto_ptr.h \
  /usr/local/include/boost/detail/sp_typeinfo.hpp \
  /usr/local/include/boost/assert.hpp /usr/local/include/boost/integer.hpp \
  /usr/local/include/boost/integer_fwd.hpp /usr/include/c++/4.8/climits \
@@ -390,6 +377,8 @@ fqhe_wave_function_monte_carlo/main/analyse_monte_carlo.o: \
  /usr/local/include/boost/array.hpp /usr/local/include/boost/swap.hpp \
  /usr/local/include/boost/utility/swap.hpp \
  /usr/local/include/boost/detail/iterator.hpp \
+ /usr/include/c++/4.8/iterator \
+ /usr/include/c++/4.8/bits/stream_iterator.h \
  /usr/local/include/boost/functional/hash_fwd.hpp \
  /usr/local/include/boost/functional/hash/hash_fwd.hpp \
  /usr/local/include/boost/numeric/conversion/cast.hpp \
@@ -1167,83 +1156,11 @@ fqhe_wave_function_monte_carlo/main/../analysis/fqhe_monte_carlo_analysis.hpp:
 
 /usr/include/x86_64-linux-gnu/bits/string3.h:
 
-fqhe_wave_function_monte_carlo/main/../analysis/../../utilities/wrappers/murmur_hash_wrapper.hpp:
-
-fqhe_wave_function_monte_carlo/main/../analysis/../../utilities/wrappers/../mathematics/murmur_hash2.hpp:
-
-fqhe_wave_function_monte_carlo/main/../analysis/../../utilities/wrappers/../mathematics/murmur_hash3.hpp:
-
-/usr/local/include/sparsehash/dense_hash_map:
-
-/usr/local/include/sparsehash/internal/sparseconfig.h:
-
-/usr/include/c++/4.8/algorithm:
+/usr/include/c++/4.8/unordered_map:
 
 /usr/include/c++/4.8/utility:
 
 /usr/include/c++/4.8/bits/stl_relops.h:
-
-/usr/include/c++/4.8/bits/stl_algo.h:
-
-/usr/include/c++/4.8/bits/algorithmfwd.h:
-
-/usr/include/c++/4.8/bits/stl_heap.h:
-
-/usr/include/c++/4.8/bits/stl_tempbuf.h:
-
-/usr/include/c++/4.8/bits/stl_construct.h:
-
-/usr/include/c++/4.8/ext/alloc_traits.h:
-
-/usr/include/c++/4.8/bits/alloc_traits.h:
-
-/usr/include/c++/4.8/bits/ptr_traits.h:
-
-/usr/include/c++/4.8/random:
-
-/usr/include/c++/4.8/limits:
-
-/usr/include/c++/4.8/bits/random.h:
-
-/usr/include/c++/4.8/vector:
-
-/usr/include/c++/4.8/bits/stl_uninitialized.h:
-
-/usr/include/c++/4.8/bits/stl_vector.h:
-
-/usr/include/c++/4.8/bits/stl_bvector.h:
-
-/usr/include/c++/4.8/bits/vector.tcc:
-
-/usr/include/x86_64-linux-gnu/c++/4.8/bits/opt_random.h:
-
-/usr/lib/gcc/x86_64-linux-gnu/4.8/include/x86intrin.h:
-
-/usr/lib/gcc/x86_64-linux-gnu/4.8/include/ia32intrin.h:
-
-/usr/lib/gcc/x86_64-linux-gnu/4.8/include/mmintrin.h:
-
-/usr/lib/gcc/x86_64-linux-gnu/4.8/include/xmmintrin.h:
-
-/usr/lib/gcc/x86_64-linux-gnu/4.8/include/mm_malloc.h:
-
-/usr/lib/gcc/x86_64-linux-gnu/4.8/include/emmintrin.h:
-
-/usr/lib/gcc/x86_64-linux-gnu/4.8/include/immintrin.h:
-
-/usr/lib/gcc/x86_64-linux-gnu/4.8/include/fxsrintrin.h:
-
-/usr/lib/gcc/x86_64-linux-gnu/4.8/include/adxintrin.h:
-
-/usr/include/c++/4.8/bits/random.tcc:
-
-/usr/include/c++/4.8/numeric:
-
-/usr/include/c++/4.8/bits/stl_numeric.h:
-
-/usr/include/c++/4.8/functional:
-
-/usr/include/c++/4.8/typeinfo:
 
 /usr/include/c++/4.8/tuple:
 
@@ -1253,43 +1170,15 @@ fqhe_wave_function_monte_carlo/main/../analysis/../../utilities/wrappers/../math
 
 /usr/include/c++/4.8/bits/uses_allocator.h:
 
-/usr/include/c++/4.8/memory:
+/usr/include/c++/4.8/bits/alloc_traits.h:
 
-/usr/include/c++/4.8/bits/stl_raw_storage_iter.h:
+/usr/include/c++/4.8/bits/ptr_traits.h:
 
-/usr/include/c++/4.8/ext/concurrence.h:
+/usr/include/c++/4.8/bits/hashtable.h:
 
-/usr/include/c++/4.8/bits/unique_ptr.h:
+/usr/include/c++/4.8/bits/hashtable_policy.h:
 
-/usr/include/c++/4.8/bits/shared_ptr.h:
-
-/usr/include/c++/4.8/bits/shared_ptr_base.h:
-
-/usr/include/c++/4.8/backward/auto_ptr.h:
-
-/usr/local/include/sparsehash/internal/densehashtable.h:
-
-/usr/include/assert.h:
-
-/usr/include/c++/4.8/iterator:
-
-/usr/include/c++/4.8/bits/stream_iterator.h:
-
-/usr/local/include/sparsehash/internal/hashtable-common.h:
-
-/usr/local/include/sparsehash/internal/libc_allocator_with_realloc.h:
-
-/usr/local/include/sparsehash/type_traits.h:
-
-/usr/local/include/sparsehash/template_util.h:
-
-/usr/include/c++/4.8/tr1/functional:
-
-/usr/include/c++/4.8/tr1/tuple:
-
-/usr/include/c++/4.8/tr1/type_traits:
-
-/usr/include/c++/4.8/tr1/functional_hash.h:
+/usr/include/c++/4.8/bits/unordered_map.h:
 
 fqhe_wave_function_monte_carlo/main/../analysis/../../fqhe_wave_function_algorithms/fqhe_wave_function.hpp:
 
@@ -1341,6 +1230,20 @@ fqhe_wave_function_monte_carlo/main/../analysis/../../fqhe_wave_function_algorit
 
 /usr/local/include/boost/program_options/errors.hpp:
 
+/usr/include/c++/4.8/vector:
+
+/usr/include/c++/4.8/bits/stl_construct.h:
+
+/usr/include/c++/4.8/ext/alloc_traits.h:
+
+/usr/include/c++/4.8/bits/stl_uninitialized.h:
+
+/usr/include/c++/4.8/bits/stl_vector.h:
+
+/usr/include/c++/4.8/bits/stl_bvector.h:
+
+/usr/include/c++/4.8/bits/vector.tcc:
+
 /usr/include/c++/4.8/map:
 
 /usr/include/c++/4.8/bits/stl_tree.h:
@@ -1352,6 +1255,52 @@ fqhe_wave_function_monte_carlo/main/../analysis/../../fqhe_wave_function_algorit
 /usr/local/include/boost/program_options/value_semantic.hpp:
 
 /usr/local/include/boost/any.hpp:
+
+/usr/include/c++/4.8/algorithm:
+
+/usr/include/c++/4.8/bits/stl_algo.h:
+
+/usr/include/c++/4.8/bits/algorithmfwd.h:
+
+/usr/include/c++/4.8/bits/stl_heap.h:
+
+/usr/include/c++/4.8/bits/stl_tempbuf.h:
+
+/usr/include/c++/4.8/random:
+
+/usr/include/c++/4.8/limits:
+
+/usr/include/c++/4.8/bits/random.h:
+
+/usr/include/x86_64-linux-gnu/c++/4.8/bits/opt_random.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/4.8/include/x86intrin.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/4.8/include/ia32intrin.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/4.8/include/mmintrin.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/4.8/include/xmmintrin.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/4.8/include/mm_malloc.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/4.8/include/emmintrin.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/4.8/include/immintrin.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/4.8/include/fxsrintrin.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/4.8/include/adxintrin.h:
+
+/usr/include/c++/4.8/bits/random.tcc:
+
+/usr/include/c++/4.8/numeric:
+
+/usr/include/c++/4.8/bits/stl_numeric.h:
+
+/usr/include/c++/4.8/functional:
+
+/usr/include/c++/4.8/typeinfo:
 
 /usr/local/include/boost/type_traits/remove_reference.hpp:
 
@@ -1603,9 +1552,25 @@ fqhe_wave_function_monte_carlo/main/../analysis/../../fqhe_wave_function_algorit
 
 /usr/include/c++/4.8/cassert:
 
+/usr/include/assert.h:
+
 /usr/local/include/boost/config/no_tr1/functional.hpp:
 
 /usr/local/include/boost/function/function_base.hpp:
+
+/usr/include/c++/4.8/memory:
+
+/usr/include/c++/4.8/bits/stl_raw_storage_iter.h:
+
+/usr/include/c++/4.8/ext/concurrence.h:
+
+/usr/include/c++/4.8/bits/unique_ptr.h:
+
+/usr/include/c++/4.8/bits/shared_ptr.h:
+
+/usr/include/c++/4.8/bits/shared_ptr_base.h:
+
+/usr/include/c++/4.8/backward/auto_ptr.h:
 
 /usr/local/include/boost/detail/sp_typeinfo.hpp:
 
@@ -1728,6 +1693,10 @@ fqhe_wave_function_monte_carlo/main/../analysis/../../fqhe_wave_function_algorit
 /usr/local/include/boost/utility/swap.hpp:
 
 /usr/local/include/boost/detail/iterator.hpp:
+
+/usr/include/c++/4.8/iterator:
+
+/usr/include/c++/4.8/bits/stream_iterator.h:
 
 /usr/local/include/boost/functional/hash_fwd.hpp:
 

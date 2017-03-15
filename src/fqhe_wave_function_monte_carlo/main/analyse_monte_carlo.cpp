@@ -1,18 +1,11 @@
 //////////////////////////////////////////////////////////////////////////////////
 //!
-//!						    analyseMonteCarlo.cpp
-//!
 //!							Author: Simon Davenport
-//!
-//!								Version 3.0
-//!
-//!							Last Modified: 19/12/2012
-//!
 //!
 //!		The purpose of this program is to analyse data produced by the Monte
 //!		Carlo program fqheMonteCarlo.cpp
 //!
-//! 				Copyright (C) 2012 Simon C Davenport
+//! 				Copyright (C) Simon C Davenport
 //!
 //!		This program is free software: you can redistribute it and/or modify
 //!		it under the terms of the GNU General Public License as published by
@@ -30,279 +23,232 @@
 ////////////////////////////////////////////////////////////////////////////////
 
 ///////     LIBRARY INCLUSIONS     /////////////////////////////////////////////
-
 #include "../analysis/fqhe_monte_carlo_analysis.hpp"
-
-utilities::Cout utilities::cout;
-
-///////		FUNCTION FORWARD DELCATATIONS		    ////////////////////////////
-
-void PrintWelcomeMessage();
-boost::program_options::variables_map ParseComandLine(int argc,char *argv[]);
-
 #if _ENABLE_MPI_
 #include "../../utilities/wrappers/mpi_wrapper.hpp"
-//  Declare an instance of the global mpi variables struct
+#endif
+utilities::Cout utilities::cout;
+///////		FUNCTION FORWARD DELCATATIONS		    ////////////////////////////
+void PrintWelcomeMessage();
+boost::program_options::variables_map ParseComandLine(int argc,char *argv[]);
+#if _ENABLE_MPI_
 utilities::MpiWrapper mpi(utilities::cout);
 #endif
 
-//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\//
-
-int main(int argc,char *argv[])
+int main(int argc, char *argv[])
 {
     #if _ENABLE_MPI_ 
-
-    //////  	START PARALLEL PROCESSES      //////////////////////////////////////
-
 	mpi.Init(argc,argv);
-
     #endif
-
-    //////  	PRINT WELCOME MESSAGAE      ////////////////////////////////////////
 	utilities::cout.MainOutput().precision(8);
 	PrintWelcomeMessage();
-	
-	//////      PARSE COMMAND LINE OPTIONS      ////////////////////////////////////
-	
 	boost::program_options::variables_map optionList;
-	optionList = ParseComandLine(argc,argv);
-
-	//	Initilize analysis methods class
+	optionList = ParseComandLine(argc, argv);
     AnalysisMethods analyse;
-    
     #if _ENABLE_MPI_
-    analyse.InitFromCommandLine(&optionList,mpi);
+    analyse.InitFromCommandLine(&optionList, mpi);
     #else
     analyse.InitFromCommandLine(&optionList);
     #endif
-    
 	if(analyse.options.getFileName)
 	{
 		analyse.PrintName();
 		return 0;
 	}
-
-	//	Determine the number of configuration samples available in data files
-	
-	if(analyse.LookForConfigurationDataFiles()==EXIT_FAILURE) return EXIT_FAILURE;
-	
-	std::cout<<std::endl<<utilities::cout.HyphenLine()<<std::endl<<utilities::cout.HyphenLine()<<std::endl;
-	
-	std::cout<<"\n\tAnalyzing data..."<<std::endl;
-
+	if(analyse.LookForConfigurationDataFiles()==EXIT_FAILURE) 
+	{
+	    return EXIT_FAILURE;
+	}
+	std::cout << std::endl << utilities::cout.HyphenLine() << std::endl 
+	          << utilities::cout.HyphenLine() << std::endl;
+	std::cout << "\n\tAnalyzing data..." << std::endl;
 	analyse.InitializeMethods();
-	
-	std::cout<<std::endl<<utilities::cout.HyphenLine()<<std::endl<<utilities::cout.HyphenLine()<<std::endl;
-
-    //////      Gather data set and process data        ///////////////////////
+	std::cout << std::endl << utilities::cout.HyphenLine() << std::endl#
+	          << utilities::cout.HyphenLine() << std::endl;
 	int maxk;
 	size_t size=0;
 	double timer=clock();	
-	int s = 0;
+	int sample = 0;
 	int runNo = 1;
 	std::cout.precision(15);
-	
 	while(runNo<=analyse.maxRuns)
 	{
-		std::cout<<"\n\tImporting data set "<<runNo<<" of "<<analyse.maxRuns<<std::endl;
-		//open files for reading data
-		
-		analyse.OpenConfigurationDataFile(analyse.options.dataDirIn,runNo);
-		std::cout<<std::endl;
-		
-		if(analyse.wfData.geometry==FQHE::_TORUS_)
+		std::cout << "\n\tImporting data set " << runNo << " of " << analyse.maxRuns << std::endl;
+		analyse.OpenConfigurationDataFile(analyse.options.dataDirIn, runNo);
+		std::cout << std::endl;
+		if(analyse.wfData.geometry == FQHE::_TORUS_)
 		{
-			analyse.f_config.seekg (0, std::ios::end);
+			analyse.f_config.seekg(0, std::ios::end);
 			size = analyse.f_config.tellg();
-			maxk=size/(analyse.wfData.nbr*sizeof(std::complex<int>))-analyse.options.skip;
+			maxk = size/(analyse.wfData.nbr*sizeof(std::complex<int>))-analyse.options.skip;
 			analyse.f_config.seekg (0, std::ios::beg);
 		}
 		else
 		{
 			analyse.f_phi.seekg (0, std::ios::end);
 			size = analyse.f_phi.tellg();
-			maxk=size/(analyse.wfData.nbr*sizeof(double))-analyse.options.skip;
+			maxk = size/(analyse.wfData.nbr*sizeof(double))-analyse.options.skip;
 			analyse.f_phi.seekg (0, std::ios::beg);
 		}
-		
 		//	TODO set the file stream pointer rather than needlessly reading values
-
-		for(int k=0;k<analyse.options.skip;k++)
+		for(int k=0; k<analyse.options.skip; ++k)
 		{
 			analyse.GetConfigFromFileSphere();
 		}
 		//	if skip>0, skip samples
-
-		std::cout<<"\tContains "<<maxk+analyse.options.skip<<" sample configurations of which "<<analyse.options.skip<<" are skipped"<<std::endl<<std::endl;
-		
+		std::cout << "\tContains " << maxk+analyse.options.skip 
+		          << " sample configurations of which " << analyse.options.skip
+		          << " are skipped" << std::endl << std::endl;
 		if(analyse.wfData.geometry==FQHE::_TORUS_ || analyse.wfData.geometry==FQHE::_DISC_)
 		{
-			std::cout<<"\tFATAL ERROR: torus and disc goemetry not completed yet!"<<std::endl;
+			std::cerr << "\tFATAL ERROR: torus and disc goemetry not completed yet!" << std::endl;
 			return EXIT_FAILURE;
 			//	TODO fix this
 		}
-		
-		for(int k=0;k<maxk;k++)
+		for(int k=0; k<maxk; ++k)
 		{
-			//std::cout<<"attempt to read in configuration "<<k<<std::endl;
 			analyse.GetConfigFromFileSphere();
-
-			//	convert to u,v variables
 			analyse.PolarToSpinor();
-		
-			//	Check that particles did not get stuck at the north pole
-			if(analyse.options.check)	analyse.CheckConfig(k);
-	
-			//	Implement the selected types of analysis
-			
-			if(analyse.options.pairCorrel)		analyse.PairCorrelation(analyse.wfData.nbrUp,analyse.wfData.nbrDown,analyse.u,analyse.v);
-		
-			if(analyse.options.dens)			analyse.Density(analyse.wfData.nbr,analyse.u);
-			
-			if(analyse.options.coulomb)			analyse.coulombEnergy[s]=analyse.CoulombEnergy(analyse.wfData.nbr,analyse.u,analyse.v);
-			
+			if(analyse.options.check)	
+			{
+			    analyse.CheckConfig(k);
+			}
+			if(analyse.options.pairCorrel)
+			{
+			    analyse.PairCorrelation(analyse.wfData.nbrUp, analyse.wfData.nbrDown, 
+			                            analyse.u, analyse.v);
+			}
+			if(analyse.options.dens)			
+			{
+			    analyse.Density(analyse.wfData.nbr, analyse.u);
+		    }
+			if(analyse.options.coulomb)			
+			{
+			    analyse.coulombEnergy[sample] = analyse.CoulombEnergy(analyse.wfData.nbr, 
+			                                                          analyse.u, analyse.v);
 			if(analyse.options.secllCoulomb)	
 			{
-				analyse.secondEnergy[s]=analyse.SecondLLEnergy(analyse.wfData.nbr,analyse.u,analyse.v);
+				analyse.secondEnergy[sample] = analyse.SecondLLEnergy(analyse.wfData.nbr, 
+				                                                      analyse.u, analyse.v);
 			}
-			
 			if(analyse.options.finiteThickness) 
 			{
-				double thicknessValue=analyse.options.minThickness;
-				int counter=0;
-				
-				while(thicknessValue<=analyse.options.maxThickness)
+				double thicknessValue = analyse.options.minThickness;
+				int counter = 0;
+				while(thicknessValue <= analyse.options.maxThickness)
 				{
-					analyse.thicknessEnergy[counter]+=analyse.FiniteThicknessEnergy(analyse.wfData.nbr,thicknessValue,analyse.u,analyse.v);
-					thicknessValue+=analyse.options.thicknessStepSize;
-					counter++;
+					analyse.thicknessEnergy[counter] += analyse.FiniteThicknessEnergy(
+					    analyse.wfData.nbr, thicknessValue, analyse.u, analyse.v);
+					thicknessValue += analyse.options.thicknessStepSize;
+					++counter;
 				}
 			}
-			
 			if(analyse.options.bilayer)
 			{
-				double bilayerValue=analyse.options.minBilayer;
-				int counter=0;
-				
-				while(bilayerValue<=analyse.options.maxBilayer)
+				double bilayerValue = analyse.options.minBilayer;
+				int counter = 0;
+				while(bilayerValue <= analyse.options.maxBilayer)
 				{
-					analyse.bilayerEnergy[counter]+=analyse.BilayerEnergy(analyse.wfData.nbrUp,analyse.wfData.nbrDown,bilayerValue,analyse.u,analyse.v);
-					bilayerValue+=analyse.options.bilayerStepSize;
-					counter++;
+					analyse.bilayerEnergy[counter] += analyse.BilayerEnergy(
+					    analyse.wfData.nbrUp, analyse.wfData.nbrDown, bilayerValue, analyse.u, analyse.v);
+					bilayerValue += analyse.options.bilayerStepSize;
+					++counter;
 				}
 			}
-			
 			if(analyse.options.chargePlate)
 			{
-				double chargePlateValue=analyse.options.minPlate;
-				int counter=0;
-				
-				while(chargePlateValue<=analyse.options.maxPlate)
+				double chargePlateValue = analyse.options.minPlate;
+				int counter = 0;
+				while(chargePlateValue <= analyse.options.maxPlate)
 				{
-					analyse.chargePlateEnergy[counter]+=analyse.ChargePlateEnergy(analyse.wfData.nbr,chargePlateValue,analyse.u,analyse.v);
-					chargePlateValue+=analyse.options.plateStepSize;
-					counter++;
+					analyse.chargePlateEnergy[counter] += analyse.ChargePlateEnergy(
+					    analyse.wfData.nbr, chargePlateValue, analyse.u, analyse.v);
+					chargePlateValue += analyse.options.plateStepSize;
+					++counter;
 				}
 			}
-			
 			if(analyse.options.biChargePlate)
 			{
-				int counter=0;
-				for(int d=0;d<25;d++)
+				int counter = 0;
+				for(int d=0; d<25; ++d)
 				{
-					for(int D=0;D<20;D++)
+					for(int D=0; D<20; ++D)
 					{
-						analyse.biChargePlateEnergy[counter]+=analyse.BiChargePlateEnergy(analyse.wfData.nbrUp,analyse.wfData.nbrDown,D,d,counter,analyse.u,analyse.v);
-						counter++;	
+						analyse.biChargePlateEnergy[counter] += analyse.BiChargePlateEnergy(
+						    analyse.wfData.nbrUp, analyse.wfData.nbrDown, D, d, counter, analyse.u, analyse.v);
+						++counter;	
 					}
 				}
 			}
-			
 			if(analyse.options.partialCoulomb)
 			{
-				analyse.partialEnergy[s]=analyse.PartialCoulombEnergy(analyse.wfData.nbrUp,analyse.wfData.nbrDown,analyse.options.partialCoulombType,analyse.u,analyse.v);
+				analyse.partialEnergy[sample] = analyse.PartialCoulombEnergy(analyse.wfData.nbrUp, 
+				    analyse.wfData.nbrDown, analyse.options.partialCoulombType, analyse.u, analyse.v);
 			}
-		
 			if((k+1)%(maxk/10)==0)
 			{
 				std::cout.precision(3);
-				std::cout<<"\t"<<(double)(100*(k+1))/maxk<<"% completed\t"<<"Time remaining (hours):\t";
+				std::cout << "\t" << (double)(100*(k+1))/maxk << "% completed\t" << "Time remaining (hours):\t";
 				std::cout.precision(4);
-				std::cout<<(((double)maxk/(k+1))-1)/3600*( double )( clock() - timer ) / CLOCKS_PER_SEC<<std::endl;
+				std::cout << (((double)maxk/(k+1))-1)/3600*(double)(clock() - timer) / CLOCKS_PER_SEC << std::endl;
 				fflush(stdout);
 				std::cout.precision(12);
 			}
-			s++;
+			++sample;
 		}
-		//std::cout<<"got here"<<std::endl;
-		runNo++;
+		++runNo;
 	}
-
 //////      Resample energy data in order to determine proper standard      //////
 //////      deviation for correlated MC sampling.	                        /////
-	
 	if(analyse.options.resample)
 	{
-		std::cout<<"\n\tDone!"<<std::endl;
-		
-		std::cout<<std::endl<<utilities::cout.HyphenLine()<<std::endl<<utilities::cout.HyphenLine()<<std::endl;	
-		
+		std::cout << "\n\tDone!" << std::endl;
+		std::cout << std::endl << utilities::cout.HyphenLine() << std::endl 
+		          << utilities::cout.HyphenLine() << std::endl;	
 		if(analyse.options.coulomb)			
 		{
-			std::cout<<std::endl<<"\tRe-sampling coulomb energy...\n"<<std::endl;
+			std::cout << std::endl << "\tRe-sampling coulomb energy...\n" << std::endl;
 			analyse.Resample(analyse.coulombEnergy,analyse.options.nbrResamples,analyse.coulombStdev,analyse.coulombMeanEnergy);
 		}
 		if(analyse.options.secllCoulomb)
 		{
 			std::cout<<std::endl<<"\tRe-sampling 2nd LL coulomb energy...\n"<<std::endl;
-			analyse.Resample(analyse.secondEnergy,analyse.options.nbrResamples,analyse.secondStdev,analyse.secondMeanEnergy);
+			analyse.Resample(analyse.secondEnergy, analyse.options.nbrResamples, 
+			                 analyse.secondStdev, analyse.secondMeanEnergy);
 		}
-		
 		if(analyse.options.partialCoulomb)
 		{
-			std::cout<<std::endl<<"\tRe-sampling partial coulomb potential energy...\n"<<std::endl;
-			analyse.Resample(analyse.partialEnergy,analyse.options.nbrResamples,analyse.partialStdev,analyse.partialMeanEnergy);
+			std::cout << std::endl << "\tRe-sampling partial coulomb potential energy...\n" << std::endl;
+			analyse.Resample(analyse.partialEnergy, analyse.options.nbrResamples, 
+			                 analyse.partialStdev, analyse.partialMeanEnergy);
 		}
 	}
 	else
 	{
-		std::cout<<"\n\tDone!\n\n\tSkipping resampling.\n"<<std::endl;
-		
-		//	Calculate only mean energy and estimated standard deviation
-		
+		std::cout << "\n\tDone!\n\n\tSkipping resampling.\n" << std::endl;
 		if(analyse.options.coulomb)			
 		{
-			analyse.MeanEnergy(analyse.coulombEnergy,analyse.coulombStdev,analyse.coulombMeanEnergy);
+			analyse.MeanEnergy(analyse.coulombEnergy, analyse.coulombStdev, analyse.coulombMeanEnergy);
 		}
-		if(analyse.options.secllCoulomb)	
+		if(analyse.options.secllCoulomb)
 		{
-			analyse.MeanEnergy(analyse.secondEnergy,analyse.secondStdev,analyse.secondMeanEnergy);
+			analyse.MeanEnergy(analyse.secondEnergy, analyse.secondStdev, analyse.secondMeanEnergy);
 		}
-		
 		if(analyse.options.partialCoulomb)
 		{
 			analyse.MeanEnergy(analyse.partialEnergy,analyse.partialStdev,analyse.partialMeanEnergy);
 		}
 	}
-	
-//////      Output files of energy, normalised pair correlation         //////////
-//////      and normalised density data	                                //////////	
-	
-	std::cout<<std::endl<<utilities::cout.HyphenLine()<<std::endl<<utilities::cout.HyphenLine()<<std::endl<<std::endl;	
-	
+	std::cout << std::endl << utilities::cout.HyphenLine() << std::endl << utilities::cout.HyphenLine() 
+	          << std::endl << std::endl;
 	analyse.FinaliseMethods();
-	
-	std::cout<<utilities::cout.HyphenLine()<<std::endl<<utilities::cout.HyphenLine()<<std::endl;	
+	std::cout << utilities::cout.HyphenLine() << std::endl << utilities::cout.HyphenLine() << std::endl;	
 	return 0;
 }
 
-//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\//
-
-////////////////////////////////////////////////////////////////////////////////
-//! \brief Print a message to display at start of program
 //!
-////////////////////////////////////////////////////////////////////////////////
-
+//! Print a message to display at start of program
+//!
 void PrintWelcomeMessage()
 {
 	std::string message=
@@ -324,65 +270,35 @@ void PrintWelcomeMessage()
     "---------------------------------------------\n"
     "---------------------------------------------"
     "---------------------------------------------\n";
-	
-	utilities::cout.MainOutput()<<message<<std::endl;
-	
+	utilities::cout.MainOutput() << message << std::endl;
 	return;
 }
 
-//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\//
-
-////////////////////////////////////////////////////////////////////////////////
-//! \brief Converts command line arguments into parameters values in global
+//!
+//! Converts command line arguments into parameters values in global
 //!	data structures. 
 //!
-////////////////////////////////////////////////////////////////////////////////
-
 boost::program_options::variables_map ParseComandLine(
 	int argc,	    //!<	Number of characters to parse
 	char *argv[])   //!<	Character array to parse
 {
 	namespace po = boost::program_options;
-
-	//  Declare general program options
-	
 	po::options_description general("General options");
 	general.add_options()
 	("help,h", 
 	 "Display this message\n")
 	("verbose,v",po::value<int>()->default_value(1),
-	"Set a value for the verbosity level:\n\t 0 output off (after command line parsed) \n\t 1 print brief information \n\t 2 print more detialed information \n\t 4 print debugging messages");
-	
-	//	Combine all the option groups into one
+	 "Set a value for the verbosity level:\n\t 0 output off (after command line parsed) \n\t 1 print brief information \n\t 2 print more detialed information \n\t 4 print debugging messages");
 	po::options_description all("\tThe program input options are as follows");
 	all.add(general).add(FQHE::GetWaveFunctionOptions()).add(FQHE::GetCompositeFermionOptions()).add(GetAnalysisOptions());
-	                                 
-	//	Map the command line argument onto the option set
 	po::variables_map vm;
-	po::store(po::parse_command_line(argc, argv,all), vm);
+	po::store(po::parse_command_line(argc, argv, all), vm);
 	po::notify(vm);
-	
-	//	Respond to help option declaration
-	if(vm.count("help")) 
+	if(vm.count("help"))
 	{
 		utilities::cout.MainOutput() << all << "\n";
 		exit(EXIT_SUCCESS);
 	}
-	
-	//  Set global verbosity level
-	
 	utilities::cout.SetVerbosity(vm["verbose"].as<int>());
-	
-	//////////////////////////////////////////////////////////////////////////////////
-	#if _DEBUG_
-
-    utilities::cout.SetVerbosity(4);
-
-	#endif
-	//////////////////////////////////////////////////////////////////////////////////
-
 	return vm;
 }
-
-//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\//
-

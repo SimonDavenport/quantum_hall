@@ -1,15 +1,13 @@
 ////////////////////////////////////////////////////////////////////////////////
 //!
-//!                         \author Simon C. Davenport 
-//!
-//!                         \date Last Modified: 11/04/2014
+//!                         \author Simon C. Davenport
 //!
 //!  \file 
 //!	 	Header file for the HilbertSpace class. Used to generate and diagonalize
 //!	 	a matrix representation of an entanglement Hamiltonian written in terms
 //!	 	of U(1) current operators.
 //!
-//!                    Copyright (C) 2014 Simon C Davenport
+//!                    Copyright (C) Simon C Davenport
 //!
 //!		This program is free software: you can redistribute it and/or modify
 //!		it under the terms of the GNU General Public License as published by
@@ -40,24 +38,18 @@
 #include <iostream>
 #include <fstream>
 #include <boost/program_options.hpp>
-
 #if _DEBUG_
 #include "../../utilities/general/debug.hpp"
 #endif
 
-//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\//
-
-//////////////////////////////////////////////////////////////////////////////////
-//!	\brief The HilbertSpace class contains data about the Hilbert space built from 
+//!
+//!	The HilbertSpace class contains data about the Hilbert space built from 
 //!	U(1) current operators, it provides functions to populate a matrix representation
 //!	of the Hamiltonian and to diagonalize it, writing the output data to files.
-//!	
-//////////////////////////////////////////////////////////////////////////////////
-
+//!
 class HilbertSpace
 {
 	private:
-	
 	std::vector<Term> m_hilbertSpace;     //!<   A vector of Hilbert space kets written
 	                                      //!    in terms of U(1) current operators and
 	                                      //!    stored as a vector of Term objects 		
@@ -82,32 +74,16 @@ class HilbertSpace
 	bool m_matrixGenerated;               //!<   Flag to specify that the matrix is generated
 	                                      //!
 	bool m_matrixDiagonalized;            //!<   Flag to specify that the matrix is diagonalized
-
     std::string GenFileName(boost::program_options::variables_map* optionList,
 	                        const int lzA) const; 
-
 	public:
-	
-	//  Default constructor
-	
 	HilbertSpace();
-	
-	//  Destructor
-		
 	~HilbertSpace();
-
 	void BuildHilbertSpace(boost::program_options::variables_map* optionList,
 	                       const int lzA);
-	
 	void GenerateMatrixElements(ListOfTerms hamiltonian);
-	
 	void Diagonalize();
-	
     void EigenvaluesToFile(boost::program_options::variables_map* optionList,
                            const int lzA) const;
-   
 };
-
 #endif
-
-//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\//

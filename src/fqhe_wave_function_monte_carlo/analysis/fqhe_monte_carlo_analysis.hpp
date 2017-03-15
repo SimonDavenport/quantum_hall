@@ -4,8 +4,6 @@
 //!
 //!						  Author: Simon C. Davenport
 //!
-//!							Last Modified: 01/11/2015
-//!
 //! \file
 //!		This is the header file for the analyseMonteCarlo.cpp program
 //!		Basic compilation will only include the file i/o functions
@@ -13,7 +11,7 @@
 //!		This is done to save compilation time on projects that only need to use
 //!		the file i.o and re-sampling functions
 //!
-//!					Copyright (C) 2012-2015 Simon C Davenport
+//!					Copyright (C) Simon C Davenport
 //!
 //!		This program is free software: you can redistribute it and/or modify
 //!		it under the terms of the GNU General Public License as published by
@@ -40,21 +38,16 @@
 #include <iomanip>
 #include <complex>
 #include <cstring>
-
 #if _SPEED_OPTIMIZED_MAP_ || _MEMORY_OPTIMIZED_MAP_
-#include "../../utilities/wrappers/murmur_hash_wrapper.hpp"//  For MurmurHasher128Wrapper
+#include "../../utilities/wrappers/murmur_hash_wrapper.hpp"
 #endif
-
 #if _SPEED_OPTIMIZED_MAP_
-#include <sparsehash/dense_hash_map>    //  for google::dense_hash_map
+#include <sparsehash/dense_hash_map>
 #elif _MEMORY_OPTIMIZED_MAP_
-#include <sparsehash/sparse_hash_map>   //  for google::sparse_hash_map
+#include <sparsehash/sparse_hash_map>
 #else
-#include <unordered_map>                //  STL unordered map if other
-                                        //  implementations not available
-                                        //  (requires c++11)
+#include <unordered_map>
 #endif
-
 #include "../../fqhe_wave_function_algorithms/fqhe_wave_function.hpp"
 #include "../../fqhe_wave_function_algorithms/laughlin.hpp"
 #include "../../fqhe_wave_function_algorithms/moore_read.hpp"
@@ -66,19 +59,15 @@
 #include "../../utilities/mathematics/mt.hpp"
 #include "../../utilities/general/dcmplx_type_def.hpp"
 #include "../../utilities/general/pi_const_def.hpp"
-
 #if _ENABLE_MPI_
 #include "../../utilities/wrappers/mpi_wrapper.hpp"
 #endif
-
 static const int DISC_BG_FUNC_DIM  = 50000;
 static const int THICKNESS_POTENTIAL_FILE_SIZE = 88000;
 static const int THICKNESS_BG_SIZE = 1000;
 static const int INIT_ARRAY_SIZE   = 100;
 static const int SIZE_OF_DOUBLE    = sizeof(double);
 static const int SIZE_OF_INT       = sizeof(int);
-
-//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\//
 
 inline boost::program_options::options_description GetAnalysisOptions()
 {
@@ -174,17 +163,12 @@ inline boost::program_options::options_description GetAnalysisOptions()
 	 "  6 - Graphene 2LL Coulomb (up-down pairs only)\n" 
 	 "  7--13 - Effective potential (r)^(arg-6)*e^-r (up-up pairs only)\n"
 	 "  14--20 - Effective potential (r)^(arg-13)*e^-r (up-down pairs only)\n");
-	 
-	//	Combine all the option groups into one
+
 	po::options_description all("");
 	all.add(files_opt).add(analysis_opt).add(finite_opt).add(bilayer_opt).add(plate_opt).add(partial_opt);
-	
 	return all;
 }
 
-//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\//
-
-//	Variables dealing with anslysis method selections from command line options
 struct AnalysisOptions
 {
 	bool pairCorrel;            //!<	Option to calculate pair correlation function
@@ -224,21 +208,14 @@ struct AnalysisOptions
 	                            //!     interaction to work with
 	bool getFileName;           //!<	Option to print out only the file names, 
                                 //!<    then exit
-	
 	AnalysisOptions();
-	
 	void InitFromCommandLine(boost::program_options::variables_map* options);
 };
-
-//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\//
 
 class AnalysisMethods
 {
 	private:
-	
-	//////////////////////////////////////////////////////////////////////////////////
 	#if _ENABLE_ANALYSIS_METHODS_
-
 	double *pairFreqUp;     //!<    Array of sample frequencies for
                             //!     discretised pair chord distances - up-up data
 	double *pairFreqDown;   //!<    Array of sample frequencies for
@@ -288,17 +265,9 @@ class AnalysisMethods
 	                        //!<    Filestream to store calculated partial Coulomb 
 	                        //!     interaction energy
 	#endif
-	//////////////////////////////////////////////////////////////////////////////////
-	
 	public:
-	
-	//////////////////////////////////////////////////////////////////////////////////
 	#if _ENABLE_ANALYSIS_METHODS_
-		
-	//	Analysis options data structure
 	AnalysisOptions options;
-
-	//	Variables required for analysis of data
 	double *coulombEnergy;  //!<    Array to store all values of the energy
 	double *secondEnergy;   //!<	Array to store all values of the second LL energy
 	double *partialEnergy;  //!<	Array to store all values of the partial coulomb energy
@@ -319,11 +288,7 @@ class AnalysisMethods
 	double secondMeanEnergy;//!<    Mean 2nd LL Coulomb energy
 	double partialMeanEnergy;
 	                        //!<    Mean partial Coulomb energy
-	
 	#endif
-	//////////////////////////////////////////////////////////////////////////////////
-	
-	//	Variables required for configuration data file handling
 	dcmplx *u;              //!<    Array to store spinor coordinates u (sphere geometry)
 	dcmplx *v;              //!<    Array to store spinor coordinates v (sphere geometry)
 	dcmplx *z;              //!<    Array to store disc geometry coordinate
@@ -344,12 +309,9 @@ class AnalysisMethods
 	                        //!<    Object holding wave function metadata
     FQHE::CompositeFermionData cfData;
                             //!<    Object holding composite fermion wave function metadata
-    
-	//	Constructor, destructor and functions to do the file handling
 	AnalysisMethods();
 	AnalysisMethods(AnalysisOptions& options);
 	~AnalysisMethods();
-	
 	void InitFromCommandLine(	
 	#if _ENABLE_MPI_
         boost::program_options::variables_map* options,
@@ -366,11 +328,7 @@ class AnalysisMethods
 	void PrintName();
 	int  LookForConfigurationDataFiles();	
 	void Resample(double*,int,double&,double&);
-    
-    //////////////////////////////////////////////////////////////////////////////////
 	#if _ENABLE_ANALYSIS_METHODS_
-
-	//	Functions do do various kinds of analysis
 	void InitializeMethods();
 	double CoulombEnergy(int, dcmplx*, dcmplx*);
 	double CoulombEnergy(int, dcmplx*);
@@ -384,11 +342,6 @@ class AnalysisMethods
 	double BiChargePlateEnergy(int,int, int, int,int, dcmplx*,dcmplx *);
 	void MeanEnergy(double*,double&,double&);
 	void FinaliseMethods();
-	
 	#endif
-	//////////////////////////////////////////////////////////////////////////////////
 };
-
-//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\//
-
 #endif

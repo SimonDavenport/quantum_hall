@@ -143,8 +143,8 @@ dcmplx FQHE::Laughlin::EvaluateWfDisc(
 	dcmplx* z)	    //!<	The memory address of the start of an array of disc coordinates
 	const
 {
-	dcmplxwfValue = dcmplx(0,0);
-	for(int i=0; i<n; int ++i)
+	dcmplx wfValue = dcmplx(0,0);
+	for(int i=0; i<n; ++i)
 	{
 		for(int j=i+1; j<n; ++j)
 		{
@@ -449,17 +449,17 @@ dcmplx FQHE::Laughlin::EvaluateWfTorus(
 	double fluxFactor = (PI)*(double)(m_wfData->flux)/(Lx*Ly);
 	for(int i=0; i<n; ++i)
 	{
-		dcmplx tmpDcmplx = latticeConfig[i];
-		wfValue -= fluxFactor*imag(tmpDcmplx)*imag(tmpDcmplx);
+		std::complex<int> tmpConfig = latticeConfig[i];
+		wfValue -= fluxFactor*imag(tmpConfig)*imag(tmpConfig);
 	}
     #endif
     #if _WITH_COM_ZEROES
 	double fluxFactor = (PI/2.0)*(double)(m_wfData->flux)/(Lx*Ly);
 	for(int i=0; i<n; ++i)
 	{
-		dcmplx tmpDcmplx = latticeConfig[i];
-		wfValue -= fluxFactor*abs(tmpDcmplx)*abs(tmpDcmplx);
-		wfValue += fluxFactor*tmpDcmplx*tmpDcmplx;
+		std::complex<int> tmpConfig = latticeConfig[i];
+		wfValue -= fluxFactor*abs(tmpConfig)*abs(tmpConfig);
+		wfValue += fluxFactor*tmpConfig*tmpConfig;
 	}
     #endif
 	#if _TEST_MODE_
@@ -570,7 +570,7 @@ dcmplx FQHE::Laughlin::EvaluateQuasiholeWfTorus(
 		          << "whichState argument must be between 0 and jastrowExponent-1" << std::endl;
 		exit(EXIT_FAILURE);
 	}
-	wfValue = dcmplx(0, 0);
+	dcmplx wfValue = dcmplx(0, 0);
     //  Implement Jastrow factor part
 	for(int i=0; i<n; ++i)
 	{
@@ -605,7 +605,7 @@ dcmplx FQHE::Laughlin::EvaluateQuasiholeWfTorus(
 			}
             else if(diffx<0 && diffy<0)
 			{
-            	tmpDcmplx = *(m_thetaFuncs->thetaLookUpTable-diffx*Ly-diffy);
+            	dcmplx tmpDcmplx = *(m_thetaFuncs->thetaLookUpTable-diffx*Ly-diffy);
             	wfValue += dcmplx(real(tmpDcmplx), imag(tmpDcmplx)-PI);
             	#if _TEST_MODE_ == 2
             	    m_testValA = dcmplx(real(tmpDcmplx), imag(tmpDcmplx)-PI);
@@ -633,17 +633,17 @@ dcmplx FQHE::Laughlin::EvaluateQuasiholeWfTorus(
 	double fluxFactor = (PI)*(double)(flux)/(Lx*Ly);
 	for(int i=0; i<n; ++i)
 	{
-		dcmplx tmpDcmplx = latticeConfig[i];
-		wfValue -= fluxFactor*imag(tmpDcmplx)*imag(tmpDcmplx);
+		std::complex<int> tmpConfig = latticeConfig[i];
+		wfValue -= fluxFactor*imag(tmpConfig)*imag(tmpConfig);
 	}
     #endif
     #if _WITH_COM_ZEROES
 	double fluxFactor = (PI/2.0)*(double)(flux)/(Lx*Ly);
 	for(int i=0; i<n; ++i)
 	{
-		dcmplx tmpDcmplx = latticeConfig[i];
-		wfValue -= fluxFactor*abs(tmpDcmplx)*abs(tmpDcmplx);
-		wfValue += fluxFactor*tmpDcmplx*tmpDcmplx;
+		std::complex<int> tmpConfig = latticeConfig[i];
+		wfValue -= fluxFactor*abs(tmpConfig)*abs(tmpConfig);
+		wfValue += fluxFactor*tmpConfig*tmpConfig;
 	}
     #endif
 	#if _TEST_MODE_
@@ -709,6 +709,19 @@ dcmplx FQHE::Laughlin::EvaluateQuasiholeWfTorus(
 	m_timer = clock();
 	#endif
     //  Implement centre of mass part
+    dcmplx thetaArgWithQuasiHole;
+    dcmplx thetaArgNoQuasiHole;
+    dcmplx zcm = 0.0;
+    for(int i=0; i<n; ++i)
+	{
+		zcm += latticeConfig[i];
+	}
+	thetaArgNoQuasiHole = ((double)m_wfData->jastrowExponent/Lx)*zcm;
+    for(int j=0; j<nbrQh; ++j)
+	{
+		zcm += zQh[j]/(double)m_wfData->jastrowExponent;
+	}
+    thetaArgWithQuasiHole = ((double)m_wfData->jastrowExponent/Lx)*zcm;
     #if _WITH_COM_ZEROES
 	//	Define COM zeros:
 	dcmplx laughlinComZeros[m_wfData->jastrowExponent];
@@ -723,15 +736,6 @@ dcmplx FQHE::Laughlin::EvaluateQuasiholeWfTorus(
         std::cout << "\n\tCenter-of-mass zeros are: " << laughlinComZeros[0] << " " 
                   << laughlinComZeros[1] << std::endl;
     #endif
-	dcmplx zcm = 0.0;	
-	for(int i=0; i<n; ++i)
-	{
-		zcm += latticeConfig[i];
-	}
-	for(int j=0; j<nbrQh; ++j)
-	{
-		zcm += zQh[j]/(double)m_wfData->jastrowExponent;
-	}    
 	for(int i=0; i<m_wfData->jastrowExponent; ++i)
 	{
 		wfValue += utilities::thetaFunction::GeneralisedJacobi(0.5, -0.5, (zcm-laughlinComZeros[i])/(double)Lx,(double)Lx/Ly);
@@ -759,19 +763,6 @@ dcmplx FQHE::Laughlin::EvaluateQuasiholeWfTorus(
         std::cout << "\n\tLocation of w1+w2+... in list " << currCom << std::endl;
         std::cout << "\tcheck: " << m_uniqueCom[currCom] << " compare with " << zQh[0]+zQh[1] << std::endl;
 	    #endif
-        dcmplx thetaArgWithQuasiHole;
-        dcmplx thetaArgNoQuasiHole;
-        dcmplx zcm = 0.0;  		
-		for(int i=0; i<n; ++i)
-		{
-			zcm += latticeConfig[i];
-		}
-		thetaArgNoQuasiHole = ((double)m_wfData->jastrowExponent/Lx)*zcm;
-		for(int j=0; j<nbrQh; ++j)
-		{
-			zcm += zQh[j]/(double)m_wfData->jastrowExponent;
-		}
-		thetaArgWithQuasiHole = ((double)m_wfData->jastrowExponent/Lx)*zcm;
 		//  Shift sum of z_i such that the theta function has an argument 
 		//	within the range 0<sum_i z_i /Lx <1 (the allows us to use a 
 		//	look-up table

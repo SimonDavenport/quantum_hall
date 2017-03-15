@@ -191,8 +191,8 @@ dcmplx FQHE::MooreRead::EvaluateWfSphere(
 	}
 	//	Calculate Pfaffian part
 	//	Set upper triangular parts to be 1/(u[i]v[j]-u[j]v[i])
-	dcmplx* p_row;
-	for(int i=0, p_row = m_pfaff; i<n; ++i, p_row+=n)
+	dcmplx* p_row = m_pfaff;
+	for(int i=0; i<n; ++i, p_row+=n)
 	{
 		for(int j=i+1; j<n; ++j)
 		{
@@ -233,8 +233,8 @@ dcmplx FQHE::MooreRead::EvaluateWfDisc(
 	}
 	//Calculate Pfaffian part
 	//	Set upper triangular parts to be 1/(z[i]-z[j])
-	dcmplx* p_row;
-	for(int i=0, p_row = m_pfaff; i<n-1; ++i, p_row+=n)
+	dcmplx* p_row = m_pfaff;
+	for(int i=0; i<n-1; ++i, p_row+=n)
 	{
 		for(int j=i+1; j<n; ++j)
 		{
@@ -689,10 +689,10 @@ dcmplx FQHE::MooreRead::EvaluateWfTorus(
 		std::complex<int> tmpIntCmplx = latticeConfig[i];
 		for(int j=i+1; j<n; ++j)
 		{
-			diff = tmpIntCmplx-latticeConfig[j];
+			std::complex<int> diff = tmpIntCmplx-latticeConfig[j];
 			//	Map the domain [-Lx to Lx ] onto the domain [0 to 2 Lx] and similarly for Ly
-			diffx = real(diff)+Lx;
-			diffy = imag(diff)+Ly;
+			int diffx = real(diff)+Lx;
+			int diffy = imag(diff)+Ly;
 			wfValue += *(m_thetaFuncs[0]->thetaLookUpTable+diffx*(2*Ly)+diffy);
 			#if _TEST_MODE_ == 2
 				m_testValA = *(m_thetaFuncs[0]->thetaLookUpTable+diffx*(2*Ly)+diffy);
@@ -745,16 +745,16 @@ dcmplx FQHE::MooreRead::EvaluateWfTorus(
 	#endif
 	//  Implement Pfaffian part
 	//	Set upper triangular parts to be theta_a(z[i]-z[j])/theta_1(z[i]-z[j])
-	dcmplx* p_row;
-	for(int i=0, p_row=m_pfaff; i<n-1; ++i, p_row+=n)
+	dcmplx* p_row=m_pfaff;
+	for(int i=0; i<n-1; ++i, p_row+=n)
 	{
 		std::complex<int> tmpIntCmplx=latticeConfig[i];
 		for(int j=i+1; j<n; ++j)
 		{
-			diff=tmpIntCmplx-latticeConfig[j];
+			std::complex<int> diff = tmpIntCmplx-latticeConfig[j];
 			//	Map the domain [-Lx to Lx ] onto the domain [0 to 2 Lx] and similarly for Ly	
-			diffx = real(diff)+Lx;
-			diffy = imag(diff)+Ly;
+			int diffx = real(diff)+Lx;
+			int diffy = imag(diff)+Ly;
 			//	There are 4 cases to consider, depending on the signs of diffx and diffy
 			#if _TEST_MODE_ == 2
 			    std::cout << "\n\tCheck z" << i << "-z" << j << " table value (should match)" << std::endl;
@@ -866,9 +866,10 @@ dcmplx FQHE::MooreRead::EvaluateWfTorus(
 	double fluxFactor = (PI/2.0)*(double)(m_wfData->flux)/(Lx*Ly);
 	for(int i=0; i<n; ++i)
 	{
-		dcmplx tmpDcmplx = latticeConfig[i];
-		wfValue -= fluxFactor*abs(tmpDcmplx)*abs(tmpDcmplx);
-		wfValue += fluxFactor*tmpDcmplx*tmpDcmplx;
+		std::complex<int> tmpConfig = latticeConfig[i];
+		wfValue -= fluxFactor*abs(tmpConfig)*abs(tmpConfig);
+		wfValue += fluxFactor*std::complex<double>(real(tmpConfig)*real(tmpConfig)-
+		    imag(tmpConfig)*imag(tmpConfig), 2*real(tmpConfig)*imag(tmpConfig));
 	}
 	#if _TEST_MODE_
     std::cout << "\n\tWave function value after Gaussian part: " << wfValue << std::endl;
@@ -985,7 +986,7 @@ dcmplx FQHE::MooreRead::EvaluateQuasiholeWfTorus(
 		std::complex<int> tmpIntCmplx = latticeConfig[i];
 		for(int j=i+1; j<n; ++j)
 		{
-			std::compplex<int> diff = tmpIntCmplx-latticeConfig[j];
+			std::complex<int> diff = tmpIntCmplx-latticeConfig[j];
 			//	Map the domain [-Lx to Lx ] onto the domain [0 to 2 Lx] and similarly for Ly
 			int diffx = real(diff)+Lx;
 			int diffy = imag(diff)+Ly;
@@ -1099,22 +1100,22 @@ dcmplx FQHE::MooreRead::EvaluateQuasiholeWfTorus(
 	            dcmplx* p_row = m_pfaff;
 	            for(int i=0; i<n-1; ++i, p_row+=n)
 	            {
-		            tmpIntCmplx = latticeConfig[i];
+		            std::complex<int> tmpConfig = latticeConfig[i];
 		            //  termW1 = theta_1(z[i]-w1)
-		            termW1 = *(m_thetaFuncsQh[currW1]->thetaLookUpTable+real(latticeConfig[i])*Ly+imag(latticeConfig[i]));
+		            termW1 = *(m_thetaFuncsQh[currW1]->thetaLookUpTable+real(tmpConfig)*Ly+imag(tmpConfig));
 		            //  termW2 = theta_1(z[i]-w2)
-		            termW2 = *(m_thetaFuncsQh[currW2]->thetaLookUpTable+real(latticeConfig[i])*Ly+imag(latticeConfig[i]));
+		            termW2 = *(m_thetaFuncsQh[currW2]->thetaLookUpTable+real(tmpConfig)*Ly+imag(tmpConfig));
                     #if _TEST_MODE_ == 2
                     std::cout << "\n\tCheck z" << i << "-w1 table value (should match)" << std::endl;
                     std::cout << "\n\t" << termW1 << "\t" << utilities::thetaFunction::GeneralisedJacobi(
-                    0.5, -0.5, (dcmplx(real(latticeConfig[i]),imag(latticeConfig[i]))-zQh[0]+smallShift)/(double)Lx,(double)Ly/Lx) << std::endl;
+                    0.5, -0.5, (dcmplx(real(tmpConfig), imag(tmpConfig))-zQh[0]+smallShift)/(double)Lx,(double)Ly/Lx) << std::endl;
                     std::cout << "\n\tCheck z" << i << "-w2 table value (should match)" << std::endl;
                     std::cout << "\n\t" << termW2 << "\t" << utilities::thetaFunction::GeneralisedJacobi(
-                    0.5, -0.5, (dcmplx(real(latticeConfig[i]),imag(latticeConfig[i]))-zQh[1]+smallShift)/(double)Lx,(double)Ly/Lx) << std::endl;
+                    0.5, -0.5, (dcmplx(real(tmpConfig), imag(tmpConfig))-zQh[1]+smallShift)/(double)Lx,(double)Ly/Lx) << std::endl;
                     #endif
 		            for(int j=i+1; j<n; ++j)
 		            {
-				        std::complex<int> diff=tmpIntCmplx-latticeConfig[j];
+				        std::complex<int> diff = tmpConfig -latticeConfig[j];
                         //  termIJ = theta_a(z[i]-z[j]+(w1-w2)/2)
 				        int diffx = real(diff)+Lx;            //  map the index [-Lx,Lx] to [0,2Lx]
 				        int diffy = imag(diff)+Ly;            //  map the index [-Ly,Ly] to [0,2Ly]
@@ -1203,7 +1204,7 @@ dcmplx FQHE::MooreRead::EvaluateQuasiholeWfTorus(
 						(dcmplx(real(latticeConfig[j]), imag(latticeConfig[j]))-zQh[1]+smallShift)/(double)Lx,(double)Ly/Lx) << std::endl;
 						#endif
                         //  combine all of the terms
-				        tmpDcmplx = 
+				        dcmplx tmpDcmplx = 
 				        //  theta_a(z[i]-z[j]+(w1-w2)/2)*theta_1(z[i]-w1)*theta_1(z[j]-w2)
                         exp(termIJ+termW1+*(m_thetaFuncsQh[currW2]->thetaLookUpTable+real(latticeConfig[j])*Ly+imag(latticeConfig[j])))
                         +
@@ -1226,7 +1227,7 @@ dcmplx FQHE::MooreRead::EvaluateQuasiholeWfTorus(
 	            {
 		            for(int j=i+1; j<n; ++j)
 		            {
-			            diff = dcmplx(real(latticeConfig[i]), imag(latticeConfig[i])) 
+			            dcmplx diff = dcmplx(real(latticeConfig[i]), imag(latticeConfig[i])) 
 			                 - dcmplx(real(latticeConfig[j]), imag(latticeConfig[j]));
 				        switch(whichState)
 				        {
@@ -1246,7 +1247,7 @@ dcmplx FQHE::MooreRead::EvaluateQuasiholeWfTorus(
 				                termJI = utilities::thetaFunction::GeneralisedJacobi(0.0, 0.5, (-dcmplx(real(diff),imag(diff)) + qhDiff+smallShift)/(double)Lx, (double)Ly/Lx);
 				                break;
 				        }
-                        tmpDcmplx = 
+                        dcmplx tmpDcmplx = 
                         exp(termIJ 
                         // theta_1 (z_i - w_1)  
                         +utilities::thetaFunction::GeneralisedJacobi(0.5, -0.5, (dcmplx(real(latticeConfig[i]), imag(latticeConfig[i]))-zQh[0]+smallShift)/(double)Lx, (double)Ly/Lx)
@@ -1511,7 +1512,7 @@ dcmplx FQHE::MooreRead::EvaluateQuasiholeWfTorus(
                         }
                         */
                         //  combine all of the terms
-			            tmpDcmplx = 
+			            dcmplx tmpDcmplx = 
 			            //theta_a(z_i-z_j+(w1+w2-w3-w4)/2) * theta_1(z_i-w1) * theta_1(z_i-w2) * theta_1(z_j-w3) * theta_1(z_j-w4)
                         exp(
                         termIJ+termW1W2
@@ -1535,13 +1536,14 @@ dcmplx FQHE::MooreRead::EvaluateQuasiholeWfTorus(
             else    //  calculate directly from theta functions
             {
                 dcmplx qhDiffA = (zQh[0]+zQh[1]-zQh[2]-zQh[4])/2.0;     //  gives (w1+w2-w3-w4)/2
-                dcmplxqhDiffB = (zQh[0]-zQh[1]+zQh[2]-zQh[4])/2.0;     //  gives (w1-w2+w3-w4)/2
-                dcmplx* p_row=m_pfaff;
+                dcmplx qhDiffB = (zQh[0]-zQh[1]+zQh[2]-zQh[4])/2.0;     //  gives (w1-w2+w3-w4)/2
+                dcmplx* p_row = m_pfaff;
                 for(int i=0; i<n-1; ++i, p_row+=n)
                 {
 	                for(int j=i+1; j<n; ++j)
 	                {
-		                diff = dcmplx(real(latticeConfig[i]),imag(latticeConfig[i])) - dcmplx(real(latticeConfig[j]), imag(latticeConfig[j]));
+		                dcmplx diff = dcmplx(real(latticeConfig[i]), imag(latticeConfig[i])) 
+		                                     -dcmplx(real(latticeConfig[j]), imag(latticeConfig[j]));
 			            switch(whichState)
 			            {
 			                case 0:
@@ -1575,7 +1577,7 @@ dcmplx FQHE::MooreRead::EvaluateQuasiholeWfTorus(
 			                    termJI = utilities::thetaFunction::GeneralisedJacobi(0.5, 0.0, (-dcmplx(real(diff), imag(diff)) + qhDiffB+smallShift)/(double)Lx, (double)Ly/Lx);
 			                    break; 
 			            }
-                        tmpDcmplx = 
+                        dcmplx tmpDcmplx = 
                         exp(termIJ 
                         // theta_1 (z_i - w_1)  
                         +utilities::thetaFunction::GeneralisedJacobi(0.5, -0.5, (dcmplx(real(latticeConfig[i]), 
@@ -1638,9 +1640,10 @@ dcmplx FQHE::MooreRead::EvaluateQuasiholeWfTorus(
 	double fluxFactor = (PI/2.0)*(double)(flux)/(Lx*Ly);
 	for(int i=0; i<n; ++i)
 	{
-		dcmplx tmpDcmplx = latticeConfig[i];
-		wfValue -= fluxFactor*abs(tmpDcmplx)*abs(tmpDcmplx);
-		wfValue += fluxFactor*tmpDcmplx*tmpDcmplx;
+		std::complex<int> tmpConfig = latticeConfig[i];
+		wfValue -= fluxFactor*abs(tmpConfig)*abs(tmpConfig);
+		wfValue += fluxFactor*std::complex<double>(real(tmpConfig)*real(tmpConfig)-
+		    imag(tmpConfig)*imag(tmpConfig), 2*real(tmpConfig)*imag(tmpConfig));
 	}
 	#if	_BENCHMARK_MODE_
 	m_timeGauss += 1.0/3600.0*( double )( clock() - m_timer ) / CLOCKS_PER_SEC;
@@ -1653,6 +1656,20 @@ dcmplx FQHE::MooreRead::EvaluateQuasiholeWfTorus(
     std::cout << "\n\tCalculating COM term..." << std::endl;
 	#endif
     //  Implement centre of mass part
+    dcmplx thetaArgWithQuasiHole;
+	dcmplx thetaArgNoQuasiHole;
+	dcmplx zcm = 0.0;				
+	for(int i=0; i<n; ++i)
+	{
+		zcm += latticeConfig[i];
+	}
+	thetaArgNoQuasiHole = (1.0/Lx)*zcm;
+	for(int j=0; j<nbrQh; ++j)
+	{
+		zcm += zQh[j]/2.0;
+	}
+	//	subtract off COM zero from argument
+	zcm -= mooreReadComZero;
 	if(m_thetaFuncsCom!=0)        //  if a table of value is stored, use that
 	{
 		//  determine current (w1+w2+...)/2.0 value
@@ -1681,20 +1698,6 @@ dcmplx FQHE::MooreRead::EvaluateQuasiholeWfTorus(
 			std::cout << "\tcheck: " << m_uniqueCom[currCom] << " compare with " << (zQh[0]+zQh[1]+zQh[2]+zQh[3])/2.0 << std::endl;
 		}
 		#endif
-		dcmplx thetaArgWithQuasiHole;
-		dcmplx thetaArgNoQuasiHole;
-		dcmplx zcm = 0.0;				
-		for(int i=0; i<n; ++i)
-		{
-			zcm += latticeConfig[i];
-		}
-		thetaArgNoQuasiHole = (1.0/Lx)*zcm;
-		for(int j=0; j<nbrQh; ++j)
-		{
-			zcm += zQh[j]/2.0;
-		}
-		//	subtract off COM zero from argument
-		zcm -= mooreReadComZero;
 		thetaArgWithQuasiHole = ((1.0/Lx)*(zcm+smallShift));
 		//  Shift sum of z_i such that the theta function has an argument 
 		//	within the range 0<sum_i z_i /Lx <1 (the allows us to use a 

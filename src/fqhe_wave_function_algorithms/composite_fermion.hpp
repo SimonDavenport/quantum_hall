@@ -491,7 +491,7 @@ class ArbitraryPrecisionCfWavefunctions
 			for(int j=std::min((int)k, n-1); j>=1; --j)
 			{
 				temp = m_z[k-1];
-				temp* = m_esp[j-1];
+				temp *= m_esp[j-1];
 				m_esp[j] += temp;
 			}
 		}

@@ -166,8 +166,7 @@ void FQHE::Parafermion::BuildSubset(
             this->BuildSubset(nbrRemain-nCluster,nClusterList,&subRemainList,currPerm,clusterPermutations,level+1);
         }
 	    mask = utilities::binary::NextHammingNumber64(mask);
-    } 
-    #endif
+    }
 }
 
 ////////////////////////////////////////////////////////////////////////////////

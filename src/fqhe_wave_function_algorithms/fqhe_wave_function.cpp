@@ -194,11 +194,12 @@ void FQHE::WaveFunctionData::GenerateFileName()
     if(this->geometry == _SPHERE_)	
     {
         name << "sphere";
+    }
     #endif
     #if _ENABLE_DISC_GEOMETRY_
     if(this->geometry == _DISC_)		
     {
-        name<<"disc";
+        name << "disc";
     }
     #endif
     #if _ENABLE_TORUS_GEOMETRY_
@@ -267,8 +268,7 @@ void FQHE::WaveFunctionData::CheckAndPrint() const
     return;
 }
 
-#if _ENABLE_MPI_     
-                                  
+#if _ENABLE_MPI_                      
 //!
 //!	MPI - communicate values required on parallel processes to the other
 //! nodes

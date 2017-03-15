@@ -265,27 +265,28 @@ dcmplx FQHE::NonAbelianSpinSinglet::EvaluateWfSphere(
 	    dcmplx cmplxCtrB = cmplxCtrE;
 	    p_currPerm = m_permsList;
 	    dcmplx* p_cmplxCtr1 = m_cmplxCtr1;
-	    dcmplx*p_zPerm_sizeA = m_sizeListA;
-	    dcmplx*p_zPerm_sizeB = m_sizeListB;
-	    dcmplx*p_zPerm_indexA1 = m_indexA1;
-	    dcmplx*p_zPerm_indexA2 = m_indexA2;
-	    dcmplx*p_zPerm_indexB1 = m_indexB1;
-	    dcmplx*p_zPerm_indexB2 = m_indexB2;
+	    int* p_zPerm_sizeA = m_sizeListA;
+	    int* p_zPerm_sizeB = m_sizeListB;
+	    int* p_zPerm_indexA1 = m_indexA1;
+	    int* p_zPerm_indexA2 = m_indexA2;
+	    int* p_zPerm_indexB1 = m_indexB1;
+	    int* p_zPerm_indexB2 = m_indexB2;
+	    dcmplx runTot;
 	    for(int zPerm=0; zPerm<m_nbrPerms/2; ++zPerm, p_currPerm+=m_nOverTwo, ++p_zPerm_sizeA, ++p_zPerm_sizeB, ++p_cmplxCtr1)
 	    {
 		    dcmplx cmplxCtrC = exp(cmplxCtrB+*(m_cmplxCtr2));
-		    p_cmplxCtr2 = m_cmplxCtr2+1;
-		    p_wPerm_sizeA = m_sizeListA;
-		    p_wPerm_sizeB = m_sizeListB;
-		    p_wPerm_indexA1 = m_indexA1;
-		    p_wPerm_indexA2 = m_indexA2;
-		    p_wPerm_indexB1 = m_indexB1;
-		    p_wPerm_indexB2 = m_indexB2;
+		    dcmplx* p_cmplxCtr2 = m_cmplxCtr2+1;
+		    int* p_wPerm_sizeA = m_sizeListA;
+		    int* p_wPerm_sizeB = m_sizeListB;
+		    int* p_wPerm_indexA1 = m_indexA1;
+		    int* p_wPerm_indexA2 = m_indexA2;
+		    int* p_wPerm_indexB1 = m_indexB1;
+		    int* p_wPerm_indexB2 = m_indexB2;
 		    int lmax;
-		    dcmplx dcmplx;
+		    dcmplx cmplxCtrD;
 		    for(int wPerm=0; wPerm<m_nbrPerms-1; ++wPerm, ++p_wPerm_sizeA, ++p_wPerm_sizeB, ++p_cmplxCtr2)
 		    {
-			    cmplxCtrD = 0.0;
+			    dcmplx cmplxCtrD = 0.0;
 			    //	Multiply by the ratios of adjacent terms,
 			    //	for fixed z perm and changing w perm
 			    lmax = *p_wPerm_sizeA;
@@ -295,7 +296,7 @@ dcmplx FQHE::NonAbelianSpinSinglet::EvaluateWfSphere(
 				    currDiff2 = m_zwDiff+*(p_wPerm_indexA2)*m_nOverTwo;
 				    ++p_wPerm_indexA1;
 				    ++p_wPerm_indexA2;
-				    dcmplx* p_tmp = p_currPerm;
+				    int* p_tmp = p_currPerm;
 				    for(int i=0; i<n/4; ++i, ++p_tmp)
 				    {
 					    cmplxCtrD += *(currDiff2+*(p_tmp))-*(currDiff1+*(p_tmp));
@@ -308,7 +309,7 @@ dcmplx FQHE::NonAbelianSpinSinglet::EvaluateWfSphere(
 				    currDiff2 = m_zwDiff+*(p_wPerm_indexB2)*m_nOverTwo;
 				    ++p_wPerm_indexB1;
 				    ++p_wPerm_indexB2;
-				    dcmplx* p_tmp = p_currPerm;
+				    int* p_tmp = p_currPerm;
 				    for(int i=n/4; i<n/2; ++i, ++p_tmp)
 				    {
 					    cmplxCtrD += *(currDiff2+*(p_tmp))-*(currDiff1+*(p_tmp));
@@ -349,8 +350,8 @@ dcmplx FQHE::NonAbelianSpinSinglet::EvaluateWfSphere(
 		    lmax = *p_zPerm_sizeB;
 		    for(int l=0; l<lmax; ++l)
 		    {
-			    b1 = *p_zPerm_indexB1;
-			    b2 = *p_zPerm_indexB2;
+			    int b1 = *p_zPerm_indexB1;
+			    int b2 = *p_zPerm_indexB2;
 			    ++p_zPerm_indexB1;
 			    ++p_zPerm_indexB2;
 			    currDiff2 = m_zwDiff+n/4*m_nOverTwo;
@@ -383,31 +384,6 @@ dcmplx FQHE::NonAbelianSpinSinglet::EvaluateWfDisc(
 	dcmplx* z)	    //!<	The memory address of the start of an array of disc coordinates
 	const
 {
-	//////////////////////////////////////////////////////////////////////////////
-	//	declare local variables													//
-	//////////////////////////////////////////////////////////////////////////////
-	int i,j,k,l;		//	generic loop counters
-	int zPerm,wPerm;	//	index of the z or w permutation
-	dcmplx cmplxCtrA,cmplxCtrB,cmplxCtrC,cmplxCtrD,cmplxCtrE;
-	//		Some Counters to organise the data in the NASS algorithm
-	dcmplx	runTot;		//		Store running total	
-	dcmplx	dotProd;	//		Store dot product between vector of z only
-						//		permutations with matrix of z	
-	int lmax;
-	int a1,a2,b1,b2;
-	int *p_tmp;
-	int *p_currPerm;
-	dcmplx	*p_cmplxCtr1,*p_cmplxCtr2;
-	int *p_zPerm_sizeA,*p_wPerm_sizeA;
-	int *p_zPerm_sizeB,*p_wPerm_sizeB;
-	int *p_zPerm_indexA1,*p_wPerm_indexA1;
-	int *p_zPerm_indexA2,*p_wPerm_indexA2;
-	int *p_zPerm_indexB1,*p_wPerm_indexB1;
-	int *p_zPerm_indexB2,*p_wPerm_indexB2;
-	dcmplx *currDiff1,*currDiff2;
-	dcmplx wfValue;
-	//////////////////////////////////////////////////////////////////////////////
-	
 	dcmplx wfValue = dcmplx(0, 0);
 	//	Multiply by the Jastrow factor (z_i-z_j)^m_wfData->jastrowExponent
 	if(m_wfData->jastrowExponent>0)
@@ -461,9 +437,9 @@ dcmplx FQHE::NonAbelianSpinSinglet::EvaluateWfDisc(
 		}
 	}
 	//	Start by fully calculating the first term:
-	cmplxCtrA = 0.0;
+	dcmplx cmplxCtrA = 0.0;
 	dcmplx* currDiff1 = m_zwDiff;
-	dcmplx* currDiff2 = m_zwDiff+n/4*m_nOverTwo
+	dcmplx* currDiff2 = m_zwDiff+n/4*m_nOverTwo;
 	for(int i=0; i<n/4; ++i, currDiff1+=m_nOverTwo, currDiff2+=m_nOverTwo)
 	{
         for(int j=0; j<n/4; ++j)
@@ -475,26 +451,28 @@ dcmplx FQHE::NonAbelianSpinSinglet::EvaluateWfDisc(
 	dcmplx cmplxCtrB = cmplxCtrE;
 	p_currPerm = m_permsList;
 	dcmplx* p_cmplxCtr1 = m_cmplxCtr1;
-	dcmplx* p_zPerm_sizeA = m_sizeListA;
-	dcmplx* p_zPerm_sizeB = m_sizeListB;
-	dcmplx* p_zPerm_indexA1 = m_indexA1;
-	dcmplx* p_zPerm_indexA2 = m_indexA2;
-	dcmplx* p_zPerm_indexB1 = m_indexB1;
-	dcmplx* p_zPerm_indexB2 = m_indexB2;
+	int* p_zPerm_sizeA = m_sizeListA;
+	int* p_zPerm_sizeB = m_sizeListB;
+	int* p_zPerm_indexA1 = m_indexA1;
+	int* p_zPerm_indexA2 = m_indexA2;
+	int* p_zPerm_indexB1 = m_indexB1;
+	int* p_zPerm_indexB2 = m_indexB2;
+	dcmplx runTot;
 	for(int zPerm=0; zPerm<m_nbrPerms/2; ++zPerm, p_currPerm += m_nOverTwo, ++p_zPerm_sizeA, ++p_zPerm_sizeB, ++p_cmplxCtr1)
 	{
 		dcmplx cmplxCtrC = exp(cmplxCtrB+*(m_cmplxCtr2));
 		dcmplx* p_cmplxCtr2 = m_cmplxCtr2+1;
-		dcmplx* p_wPerm_sizeA = m_sizeListA;
-		dcmplx* p_wPerm_sizeB = m_sizeListB;
-		dcmplx* p_wPerm_indexA1 = m_indexA1;
-		dcmplx* p_wPerm_indexA2 = m_indexA2;
-		dcmplx* p_wPerm_indexB1 = m_indexB1;
-		dcmplx* p_wPerm_indexB2 = m_indexB2;
+		int* p_wPerm_sizeA = m_sizeListA;
+		int* p_wPerm_sizeB = m_sizeListB;
+		int* p_wPerm_indexA1 = m_indexA1;
+		int* p_wPerm_indexA2 = m_indexA2;
+		int* p_wPerm_indexB1 = m_indexB1;
+		int* p_wPerm_indexB2 = m_indexB2;
 		int lmax;
+		dcmplx cmplxCtrD;
 		for(int wPerm=0; wPerm<m_nbrPerms-1; ++wPerm, ++p_wPerm_sizeA, ++p_wPerm_sizeB, ++p_cmplxCtr2)
 		{
-			dcmplx cmplxCtrD = 0.0;
+			cmplxCtrD = 0.0;
 			//	Multiply by the ratios of adjacent terms,
 			//	for fixed z perm and changing w perm
 			lmax = *p_wPerm_sizeA;
@@ -504,7 +482,7 @@ dcmplx FQHE::NonAbelianSpinSinglet::EvaluateWfDisc(
 				currDiff2 = m_zwDiff+*(p_wPerm_indexA2)*m_nOverTwo;
 				++p_wPerm_indexA1;
 				++p_wPerm_indexA2;
-				dcmplx* p_tmp = p_currPerm;
+				int* p_tmp = p_currPerm;
 				for(int i=0; i<n/4; ++i, ++p_tmp)
 				{
 					cmplxCtrD += *(currDiff2+*(p_tmp))-*(currDiff1+*(p_tmp));
@@ -517,7 +495,7 @@ dcmplx FQHE::NonAbelianSpinSinglet::EvaluateWfDisc(
 				currDiff2 = m_zwDiff+*(p_wPerm_indexB2)*m_nOverTwo;
 				++p_wPerm_indexB1;
 				++p_wPerm_indexB2;
-				dcmplx* p_tmp = p_currPerm;
+				int* p_tmp = p_currPerm;
 				for(int i=n/4; i<n/2; ++i, ++p_tmp)
 				{
 					cmplxCtrD += *(currDiff2+*(p_tmp))-*(currDiff1+*(p_tmp));

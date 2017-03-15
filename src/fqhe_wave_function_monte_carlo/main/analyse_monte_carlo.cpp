@@ -63,7 +63,7 @@ int main(int argc, char *argv[])
 	          << utilities::cout.HyphenLine() << std::endl;
 	std::cout << "\n\tAnalyzing data..." << std::endl;
 	analyse.InitializeMethods();
-	std::cout << std::endl << utilities::cout.HyphenLine() << std::endl#
+	std::cout << std::endl << utilities::cout.HyphenLine() << std::endl
 	          << utilities::cout.HyphenLine() << std::endl;
 	int maxk;
 	size_t size=0;
@@ -126,6 +126,7 @@ int main(int argc, char *argv[])
 			{
 			    analyse.coulombEnergy[sample] = analyse.CoulombEnergy(analyse.wfData.nbr, 
 			                                                          analyse.u, analyse.v);
+			}
 			if(analyse.options.secllCoulomb)	
 			{
 				analyse.secondEnergy[sample] = analyse.SecondLLEnergy(analyse.wfData.nbr, 
@@ -205,10 +206,11 @@ int main(int argc, char *argv[])
 		std::cout << "\n\tDone!" << std::endl;
 		std::cout << std::endl << utilities::cout.HyphenLine() << std::endl 
 		          << utilities::cout.HyphenLine() << std::endl;	
-		if(analyse.options.coulomb)			
+		if(analyse.options.coulomb)
 		{
 			std::cout << std::endl << "\tRe-sampling coulomb energy...\n" << std::endl;
-			analyse.Resample(analyse.coulombEnergy,analyse.options.nbrResamples,analyse.coulombStdev,analyse.coulombMeanEnergy);
+			analyse.Resample(analyse.coulombEnergy, analyse.options.nbrResamples, analyse.coulombStdev, 
+			                 analyse.coulombMeanEnergy);
 		}
 		if(analyse.options.secllCoulomb)
 		{

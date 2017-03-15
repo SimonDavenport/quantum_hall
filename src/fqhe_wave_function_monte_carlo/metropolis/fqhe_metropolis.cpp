@@ -125,7 +125,7 @@ FQHE::Metropolis::Metropolis(
 		initArray[i] = rand();
 	}
 	mt.init_by_array(initArray, initArraySize);
-	utilities::cout.MainOutput() << "\tInitializing Metropolis algorithm...\n\n\t"
+	utilities::cout.MainOutput() << "\tInitializing Metropolis algorithm...\n\n\t";
 	switch(wfData->geometry)
 	{
 	    
@@ -252,7 +252,7 @@ FQHE::Metropolis::Metropolis(
 			z = new (std::nothrow) dcmplx[wfData->nbr];
 			if(mcData->useInitFile)
 			{
-				utilities::cout.MainOutput()<<"\Loading initial configuration from files:";
+				utilities::cout.MainOutput() << "\n\tLoading initial configuration from files:";
 				thetaFile = mcData->initFileName;
 				thetaFile.append("_theta.dat");
 				f_init.open(thetaFile.c_str(), std::ios::binary);
@@ -696,7 +696,7 @@ void FQHE::Metropolis::MetropolisTestSphere()
 	}
 	else
 	{
-		for(unsigned int k=0; k<mcData->nbrToMove++k)
+		for(unsigned int k=0; k<mcData->nbrToMove; ++k)
 		{
 			*(u+*(toMove+k)) = *(uTmp+k);	
 			*(v+*(toMove+k)) = *(vTmp+k);	
@@ -908,14 +908,14 @@ bool FQHE::Metropolis::CheckOccupancy(
 {
 	std::vector<std::complex<int> > list;
 	std::vector<std::complex<int> >::iterator k;
-	int counter=1;
+	int counter = 1;
 	list.push_back(config[0]);
 	for(int i=1; i<wfData->nbr; ++i)
 	{
-		dcmplx element = config[i];
+		std::complex<int> element = config[i];
+		int flag = 0;
 		for(int j=0; j<counter; ++j)
 		{
-			int flag = 0;
 			if(real(element)==real(list[j]) && imag(element)==imag(list[j]))
 			{
 				flag = 1;
@@ -935,7 +935,7 @@ bool FQHE::Metropolis::CheckOccupancy(
 	}
 	for(int i=0; i<wfData->nbr; ++i)
 	{
-		element = config[i];
+		std::complex<int> element = config[i];
 		for(int j=0; j<counter; ++j)
 		{
 			if(real(element)==real(list[j]) && imag(element)==imag(list[j]))

@@ -2,12 +2,10 @@
 //!
 //!                         \author Simon C. Davenport 
 //!
-//!                         \date Last Modified: 15/02/2015
-//!
 //!  \file 
 //!		This is the header file for the Parafermion wave function class
 //!
-//!                    Copyright (C) 2015 Simon C Davenport
+//!                    Copyright (C) Simon C Davenport
 //!
 //!		This program is free software: you can redistribute it and/or modify
 //!		it under the terms of the GNU General Public License as published by
@@ -29,76 +27,44 @@
 
 ///////     LIBRARY INCLUSIONS     /////////////////////////////////////////////
 #include "fqhe_wave_function.hpp"
-#include <utilities/mathematics/binomial_table.hpp> 
-                    //  For binomials
-#include <utilities/mathematics/binary_number_tools.hpp>    
-                    //  For Hamming number permutations
-#include <utilities/mathematics/dense_linear_algebra.hpp>         
-                    //  For Pfaffian algorithm
-#include <vector>   //  For std::vector to store cluster permutations
-#include <sstream>  //  For std::stringstream
-
+#include <utilities/mathematics/binomials.hpp>
+#include <utilities/mathematics/binary_number_tools.hpp>
+#include <utilities/mathematics/dense_linear_algebra.hpp>
+#include <vector> 
+#include <sstream>
 #if _DEBUG_
 #include <utilities/general/debug.hpp>
 #include <bitset>
 #endif
 
-//////////////////////////////////////////////////////////////////////////////
-//!	\brief	A namespace containing all functions and classes used in 
-//!	fractional quantum Hall effect calculations. 
-//////////////////////////////////////////////////////////////////////////////
 namespace FQHE
 {
-
-////////////////////////////////////////////////////////////////////////////////
-//!	\brief	This class defines the basics data associated with, and functions 
-//!	to evaluate, parafermion type FQHE wave functions.
-//!	
-//!	For more information see e.g. 
-//!
-////////////////////////////////////////////////////////////////////////////////
-
-class Parafermion : public WaveFunction
-{
-    private:
-    
-    unsigned int m_nCluster;
-    unsigned int m_nLastCluster;
-    dcmplx* m_pfaff;
-    
-    std::vector<std::vector<unsigned char> > m_clusterPermutations;
-
-    void BuildSubset(const unsigned int nRemain,std::vector<unsigned int>* nCluster,std::vector<unsigned char>* remainList,
-    std::vector<unsigned char>* currPerm,std::vector<std::vector<unsigned char> >* clusterPermutations,const unsigned int level) const;
-
-    public:
-
-	//	constructor
-	Parafermion(WaveFunctionData*);	
-	
-	//	destructor
-	~Parafermion();
-	
-	//////////////////////////////////////////////////////////////////////////////////
-	#if _ENABLE_SPHERE_GEOMETRY_
-	
-	//	Evaluate the parafermion wave function in the sphere geometry
-	dcmplx EvaluateWfSphere(const int,dcmplx*,dcmplx*) const;
-	    
-	#endif
-	//////////////////////////////////////////////////////////////////////////////			    
-	
-	//////////////////////////////////////////////////////////////////////////////////
-	#if _ENABLE_DISC_GEOMETRY_		
-			
-	//	Evaluate the parafermion wave function in the disc geometry			    
-	dcmplx EvaluateWfDisc(const int,dcmplx*) const;
-	
-	#endif
-	//////////////////////////////////////////////////////////////////////////////					
-
-};
-
-}
-
+    ////////////////////////////////////////////////////////////////////////////////
+    //!	\brief	This class defines the basics data associated with, and functions 
+    //!	to evaluate, parafermion type FQHE wave functions.
+    //!	
+    //!	For more information see e.g. 
+    ////////////////////////////////////////////////////////////////////////////////
+    class Parafermion : public WaveFunction
+    {
+        private:
+        unsigned int m_nCluster;
+        unsigned int m_nLastCluster;
+        dcmplx* m_pfaff;
+        std::vector<std::vector<unsigned char> > m_clusterPermutations;
+        void BuildSubset(const unsigned int nRemain, std::vector<unsigned int>* nCluster, 
+                         std::vector<unsigned char>* remainList, std::vector<unsigned char>* currPerm, 
+                         std::vector<std::vector<unsigned char> >* clusterPermutations,
+                         const unsigned int level) const;
+        public:
+	    Parafermion(WaveFunctionData*);	
+	    ~Parafermion();
+	    #if _ENABLE_SPHERE_GEOMETRY_
+	    dcmplx EvaluateWfSphere(const int, dcmplx*, dcmplx*) const;
+	    #endif
+	    #if _ENABLE_DISC_GEOMETRY_	    
+	    dcmplx EvaluateWfDisc(const int, dcmplx*) const;
+	    #endif
+    };
+}   //  End namespace FQHE
 #endif

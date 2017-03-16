@@ -2,14 +2,12 @@
 //!
 //!                         \author Simon C. Davenport 
 //!
-//!                         \date Last Modified: 10/04/2014
-//!
 //!  \file 
 //!		Header file for the Term class. Used to represent terms in an
 //!		entanglement Hamiltonian written in terms of Virasoro algebra U(1)
 //!		current operators.
 //!
-//!                    Copyright (C) 2014 Simon C Davenport
+//!                    Copyright (C) Simon C Davenport
 //!
 //!		This program is free software: you can redistribute it and/or modify
 //!		it under the terms of the GNU General Public License as published by
@@ -37,18 +35,26 @@
 #include <algorithm>    //  for std::reverse
 #include <iostream>
 #include <iomanip>
-
 #if _DEBUG_
 #include "../../utilities/general/debug.hpp"
 #endif
-
 //	Some U(1) and charged current labels are defined to distinguish 
 //	between different integer partition colours
-
 #define _U1_LABEL_1_ 'J'    //!<    Define the first U(1) label
 #define _U1_LABEL_2_ 'K'    //!<    Define a second U(1) label
 #define _U1_LABEL_3_ 'I'    //!<    Define a third U(1) label
 #define _MAJORANA_CURRENT_ 'Y'//!<  Also define a majorana current operator
+
+////////////////////////////////////////////////////////////////////////////////
+#if _BENCHMARK_MODE_==1	
+//	Count of function calls
+extern int g_callsCtor;
+extern int g_callsCommuteRight;
+extern int g_callsSameTest;
+extern int g_callsZeroTest;
+extern int g_callsCommutator;
+#endif
+////////////////////////////////////////////////////////////////////////////////
 
 ////////////////////////////////////////////////////////////////////////////////
 //!	\brief The Term class contains data to represent a single term in the
@@ -70,27 +76,10 @@
 //!		- m_opArray = {1,1,-2,-3}
 //!		- m_opType = {J,K,K,J}
 //!		- m_deltaNa0 = {4}
-//!
 ////////////////////////////////////////////////////////////////////////////////
-
-////////////////////////////////////////////////////////////////////////////////
-#if _BENCHMARK_MODE_==1	
-
-//	Count of function calls
-
-extern int g_callsCtor;
-extern int g_callsCommuteRight;
-extern int g_callsSameTest;
-extern int g_callsZeroTest;
-extern int g_callsCommutator;
-
-#endif
-////////////////////////////////////////////////////////////////////////////////
-
 class Term
 {
 	private:
-
 	double 	m_coefficient;	                //!< Numerical coefficient for the stored term
 											//!
 	std::vector <short int> m_opArray;		//!< A list of integers representing the U(1) indices	
@@ -108,7 +97,6 @@ class Term
 											//!	 with the lowest pseudo-energy
 	bool m_isOperator;  	                //!< Specify whether we're representing an operator 
 											//!  or a bra/ket vector with our Term
-	
 	bool SameTest(const Term& rhs) const;
 	bool ZeroTest() const;
 	bool RightZeroTest() const;
@@ -120,49 +108,25 @@ class Term
 	bool IsAscendingForm();
 	void ExactResult();
 	void SortVector();
-    double Commutator(const char label1,const int index1,const char label2,const int index2) const;
-    void CountOperators(std::vector<int>& labelCounterPositive,std::vector<int>& labelCounterNegative,
-                        std::vector<int>& shiftIndex,int* nbrColours,int* maxIndex) const;
-    
-	friend double InnerProduct(const Term& bra,const Term& ket);
-	//double InnerProduct(const std::vector<Term>& bra,const std::vector<Term>& ket)
-	
-	//  Allow the ListOfTerms and HilbertSpace classes to access 
-	//  Term class functions and values			
-	  
+    double Commutator(const char label1, const int index1, const char label2, const int index2) const;
+    void CountOperators(std::vector<int>& labelCounterPositive, std::vector<int>& labelCounterNegative,
+                        std::vector<int>& shiftIndex, int* nbrColours, int* maxIndex) const;
+	friend double InnerProduct(const Term& bra, const Term& ket);		
 	friend class ListOfTerms;
-	friend class HilbertSpace;			
-														
+	friend class HilbertSpace;														
 	public:
-
-	//	Empty term constructor
-	Term(const double coefficient,const std::vector<int>& occupations,const std::vector<int>& deltaNa0);	
-	
-	//	Constant term constructor
-	
+	Term(const double coefficient, const std::vector<int>& occupations, const std::vector<int>& deltaNa0);	
 	Term(const double coefficient);
-	
-	//	Operator term constructor
-	Term(const double coefficient,const std::vector<short int>& opArray,const std::vector<char>& opType);
-	
-	//  Full constuctor
-	Term(const double coefficient,const std::vector<short int>& opArray,const std::vector<char>& opType,
-			const std::vector<int>& occupations,const std::vector<int>& deltaNa0);
-
-	//	Copy constructor
+	Term(const double coefficient, const std::vector<short int>& opArray, const std::vector<char>& opType);
+	Term(const double coefficient, const std::vector<short int>& opArray, const std::vector<char>& opType,
+		 const std::vector<int>& occupations, const std::vector<int>& deltaNa0);
 	Term(const Term& other);
-
-    //  Destructor
 	~Term();
-	
 	Term operator*=(const Term& rhs);
-
 	void PrintTerm() const;
 	void PrintDeltaNa0() const;
 	void SetCoefficient(double value);
 	double GetCoefficient() const;
 	int GetNbrU1() const;
-
 };
-
 #endif

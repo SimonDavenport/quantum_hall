@@ -25,67 +25,67 @@
 ////////////////////////////////////////////////////////////////////////////////
 
 ///////     LIBRARY INCLUSIONS     /////////////////////////////////////////////
-
 #include "mt_wrapper.hpp"
 
 namespace utilities
 {
+    //!
+    //! Generate a random seed and use that to seed the Mersenne Twister
+    //! random number generator
+    //!
     void Random::Seed(
         int seedOffset) //!<    Offset in the random seed compared to the default
                         //!      obtained from the job ID or system time
     {
-        //	Seed the standard random number generator
-			
         int seed;
-
         if(getenv("PBS_JOBID")!=NULL)
         {
-            seed=atoi(getenv("PBS_JOBID"));
+            seed = atoi(getenv("PBS_JOBID"));
         }
         else if(getenv("SLURM_JOB_ID")!=NULL)
         {
-            seed=atoi(getenv("SLURM_JOB_ID"));
+            seed = atoi(getenv("SLURM_JOB_ID"));
         }
         else
         {
-            seed=time(0);
-        }					
-        
+            seed = time(0);
+        }		
         seed += seedOffset;
-        
         srand(seed);
-        
         //	Now seed the Mersenne Twister random number generator using
         //	an array of these standard random numbers
-
-        int initArraySize=100;
+        int initArraySize = 100;
         long unsigned int initArray[initArraySize];
-
-        for(int i=0;i<initArraySize;i++)
+        for(int i=0; i<initArraySize; ++i)
         {
-	        initArray[i]=rand();
+	        initArray[i] = rand();
         }
-
-        mt.init_by_array(initArray,initArraySize);
+        mt.init_by_array(initArray, initArraySize);
     }
-
+    
+    //!
+    //! Generate a random double using the Merseene Twister method
+    //!
     double Random::GenerateDouble()
     {
         return mt.random();
     }
 
+    //!
+    //! Generate a random complex double using the Merseene Twister method
+    //!
     dcmplx Random::GenerateComplex()
     {
         double arg = mt.random();
-            double phase = mt.random()*2.0*PI;
-        
-            return dcmplx(arg*cos(phase),arg*sin(phase));
+        double phase = mt.random()*2.0*PI;
+        return dcmplx(arg*cos(phase), arg*sin(phase));
     }
 
+    //!
+    //! Generate a random integer using the Merseene Twister method
+    //!
     int Random::GenerateInt()
     {
         return mt.genrand_int31();
     }
-
 }   //  End namespace utilities
-

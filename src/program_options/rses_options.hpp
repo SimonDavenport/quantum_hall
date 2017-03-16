@@ -1,14 +1,12 @@
 ////////////////////////////////////////////////////////////////////////////////
 //!                                                                             
-//!                        \author Simon C. Davenport                           
-//!                                                                             
-//!                      \date Last Modified: 31/01/2015                        
+//!                        \author Simon C. Davenport     
 //!                                                                             
 //!	 \file
 //!     This file declares the program options associated with calculation of 
 //!     the RSES
 //!                                                            
-//!                    Copyright (C) 2015 Simon C Davenport
+//!                    Copyright (C) Simon C Davenport
 //!                                                                             
 //!     This program is free software: you can redistribute it and/or modify
 //!     it under the terms of the GNU General Public License as published by
@@ -28,16 +26,13 @@
 #ifndef _RSES_OPTIONS_HPP_INCLUDED_
 #define _RSES_OPTIONS_HPP_INCLUDED_
 
-//  For command line options parsing
 #include <boost/program_options.hpp>
 
 namespace myOptions
 {
     namespace po = boost::program_options;
-
     inline po::options_description GetEntanglementSpectrumOptions()
     {
-        //	Entanglement spectrum options
         po::options_description rsesOpt("RSES options");
         rsesOpt.add_options()
         ("nbr-n,n", po::value<int>()->default_value(12),
@@ -54,11 +49,7 @@ namespace myOptions
         "Specify the minimum sector to obtain\n")
         ("nbr-ll,l", po::value<int>()->default_value(1),
         "specify the number of Landau levels (maximum 3 levels currently programmed)\n");
-
         return rsesOpt;
     };
-
 }   //  End myOptions namespace
-
 #endif
-

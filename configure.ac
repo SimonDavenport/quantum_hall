@@ -2,7 +2,7 @@
 
 # Process this file with autoconf to produce a configure script.
 
-AC_INIT(Quantum Hall Entanglement program suite, 1.0, simon.davenport2@gmail.com or ivan_ok2000@yahoo.com)
+AC_INIT(Quantum Hall Entanglement and Monte Carlo programs, 1.0, simon.davenport2@gmail.com or ivan_ok2000@yahoo.com)
 AC_CONFIG_SRCDIR(src/)
 AC_CONFIG_AUX_DIR(config)
 AM_INIT_AUTOMAKE([subdir-objects])

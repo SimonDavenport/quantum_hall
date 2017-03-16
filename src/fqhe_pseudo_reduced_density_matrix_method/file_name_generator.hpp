@@ -1,8 +1,6 @@
 ////////////////////////////////////////////////////////////////////////////////
 //!
-//!                         \author Simon C. Davenport 
-//!
-//!                         \date Last Modified: 31/12/2014
+//!                         \author Simon C. Davenport
 //!
 //!  \file 
 //!		This file contains functions to build file names for input/output
@@ -27,30 +25,23 @@
 #define _FILE_NAME_GENERATOR_HPP_INCLUDED_
 
 ///////		LIBRARY INCLUSIONS		////////////////////////////////////////////
-
 #include "../fqhe_wave_function_algorithms/fqhe_wave_function.hpp"
-//	Base class for the wave function algorithms
 #include "../fqhe_wave_function_algorithms/composite_fermion.hpp"
-//	Jain and BS wave function algorithms
-
-//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\//
 
 ////////////////////////////////////////////////////////////////////////////////
 //! \brief Generate the wave function label for a given file
 //!	
 //!	\return Wave function label
-//!
 ////////////////////////////////////////////////////////////////////////////////
-
 inline std::string GenerateWaveFunctionName(
     const FQHE::CompositeFermionData* cfData,   //!<    Pointer to composite fermion wave function data
     const FQHE::WaveFunctionData* wfData)       //!<    Pointer to wave function data
 {
-    if(wfData->type==FQHE::_LAUGHLIN_)
+    if(wfData->type == FQHE::_LAUGHLIN_)
 	{
 		return "laughlin_";
 	}
-	else if(wfData->type==FQHE::_COMPOSITE_FERMION_)
+	else if(wfData->type == FQHE::_COMPOSITE_FERMION_)
 	{
 	    if(cfData->NEF)
 	    {
@@ -61,11 +52,11 @@ inline std::string GenerateWaveFunctionName(
 		    return "pef_";
 		}
 	}
-	else if(wfData->type==FQHE::_BONDERSON_SLINGERLAND_)
+	else if(wfData->type == FQHE::_BONDERSON_SLINGERLAND_)
 	{
 		return "bonderson_slingerland_";
 	}
-	else if(wfData->type==FQHE::_MOORE_READ_)
+	else if(wfData->type == FQHE::_MOORE_READ_)
 	{
 		return "moore_read_";
 	}
@@ -75,15 +66,11 @@ inline std::string GenerateWaveFunctionName(
 	}
 }
 
-//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\//
-
 ////////////////////////////////////////////////////////////////////////////////
 //! \brief Generate the base file name labelling the output data
 //!	
 //!	\return base file name
-//!
 ////////////////////////////////////////////////////////////////////////////////
-
 inline std::string GenerateBaseFileName(
     const GeneralOptions* parameters,           //!<    Pointer to set of program parameters
     const FQHE::CompositeFermionData* cfData,   //!<    Pointer to composite fermion wave function data
@@ -91,21 +78,17 @@ inline std::string GenerateBaseFileName(
 {
     std::stringstream name;
 	name.str("");
-	name<<parameters->path<<"/"<<GenerateWaveFunctionName(cfData,wfData);
-	name<<wfData->fillNumerator<<"_"<<wfData->fillDenominator<<"_n_"<<wfData->nbr<<"_size_"<<parameters->rows<<"x"<<parameters->columns;
-    
+	name << parameters->path << "/" << GenerateWaveFunctionName(cfData, wfData);
+	name << wfData->fillNumerator << "_" << wfData->fillDenominator << "_n_" << wfData->nbr 
+	     << "_size_" << parameters->rows << "x" << parameters->columns;
     return name.str();
 }
-
-//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\//
 
 ////////////////////////////////////////////////////////////////////////////////
 //! \brief Generate index file name
 //!	
 //!	\return indexes file name
-//!
 ////////////////////////////////////////////////////////////////////////////////
-
 inline std::string GenerateIndexesFileName(
     const GeneralOptions* parameters,           //!<    Pointer to set of program parameters
     const FQHE::CompositeFermionData* cfData,   //!<    Pointer to composite fermion wave function data
@@ -113,22 +96,16 @@ inline std::string GenerateIndexesFileName(
 {
     std::stringstream name;
 	name.str("");
-    
-    name<<parameters->path<<"/"<<GenerateWaveFunctionName(cfData,wfData);
-	name<<wfData->fillNumerator<<"_"<<wfData->fillDenominator<<"_n_"<<wfData->nbr<<"_indexes.dat";
-    
+    name << parameters->path << "/" << GenerateWaveFunctionName(cfData, wfData);
+	name << wfData->fillNumerator << "_" << wfData->fillDenominator << "_n_" << wfData->nbr << "_indexes.dat";
     return name.str();
 }
-
-//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\//
 
 ////////////////////////////////////////////////////////////////////////////////
 //! \brief Generate plot file name
 //!	
 //!	\return plot file name
-//!
 ////////////////////////////////////////////////////////////////////////////////
-
 inline std::string GeneratePlotFileName(
     const GeneralOptions* parameters,           //!<    Pointer to set of program parameters
     const FQHE::CompositeFermionData* cfData,   //!<    Pointer to composite fermion wave function data
@@ -136,22 +113,16 @@ inline std::string GeneratePlotFileName(
 {
     std::stringstream name;
 	name.str("");
-    
-    name<<GenerateBaseFileName(parameters,cfData,wfData)<<"_plot.pdf";
-    
+    name << GenerateBaseFileName(parameters, cfData, wfData) << "_plot.pdf";
     return name.str();
 }
-
-//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\//
 
 ////////////////////////////////////////////////////////////////////////////////
 //! \brief Generate the file name labelling the output data produced by each
 //!	parallel process.
 //!	
 //!	\return File name
-//!
 ////////////////////////////////////////////////////////////////////////////////
-
 inline std::string GenerateNodeFileName(
     const int id,	                            //!<	Node label
     const GeneralOptions* parameters,           //!<    Pointer to set of program parameters
@@ -159,26 +130,20 @@ inline std::string GenerateNodeFileName(
     const FQHE::WaveFunctionData* wfData)       //!<    Pointer to wave function data
 {
 	std::stringstream name;
-	
 	name.str("");
-	
-	name<<parameters->path<<"/"<<"process_"<<id<<"_"<<GenerateWaveFunctionName(cfData,wfData);
-	
-	name<<wfData->fillNumerator<<"_"<<wfData->fillDenominator<<"_n_"<<wfData->nbr<<"_realcut_"<<parameters->realCut<<"_nbr_sectors_"<<parameters->nbrSect<<"_lza_"<<parameters->lzA<<"_size_"<<parameters->rows<<"x"<<parameters->columns<<".tmp";
-
+	name << parameters->path << "/" << "process_" << id << "_" << GenerateWaveFunctionName(cfData, wfData);
+	name << wfData->fillNumerator << "_" << wfData->fillDenominator << "_n_" << wfData->nbr << "_realcut_" 
+	     << parameters->realCut << "_nbr_sectors_" << parameters->nbrSect << "_lza_" << parameters->lzA 
+	     << "_size_" << parameters->rows << "x" << parameters->columns << ".tmp";
 	return name.str();
 }
-
-//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\//
 
 ////////////////////////////////////////////////////////////////////////////////
 //! \brief Generate the file name labelling the output data associated with
 //!	each angular momentum sector.
 //!	
 //!	\return File name
-//!
 ////////////////////////////////////////////////////////////////////////////////
-
 inline std::string GenerateSectorFileName(
     const int sector,	                        //!<	Sector label
     const GeneralOptions* parameters,           //!<    Pointer to set of program parameters
@@ -187,21 +152,17 @@ inline std::string GenerateSectorFileName(
 {
 	std::stringstream name;
 	name.str("");
-	name<<GenerateBaseFileName(parameters,cfData,wfData)<<"_sector_"<<sector+parameters->lzA<<"_matrix.dat";
-	
+	name << GenerateBaseFileName(parameters, cfData, wfData) 
+	     << "_sector_" << sector+parameters->lzA << "_matrix.dat";
 	return name.str();
 }
-
-//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\//
 
 ////////////////////////////////////////////////////////////////////////////////
 //! \brief Generate the file name labelling the output data associated with
 //!	each angular momentum sector.
 //!	
 //!	\return File name
-//!
 ////////////////////////////////////////////////////////////////////////////////
-
 inline std::string GenerateEigenvaluesFileName(
     const int sector,	                        //!<	Sector label
     const GeneralOptions* parameters,           //!<    Pointer to set of program parameters
@@ -210,11 +171,8 @@ inline std::string GenerateEigenvaluesFileName(
 {
 	std::stringstream name;
 	name.str("");
-	name<<GenerateBaseFileName(parameters,cfData,wfData)<<"_sector_"<<sector+parameters->lzA<<"_eigenvalues.dat";
-
+	name << GenerateBaseFileName(parameters, cfData, wfData) 
+	     << "_sector_" << sector+parameters->lzA << "_eigenvalues.dat";
 	return name.str();
 }
-
-//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\//
-
 #endif

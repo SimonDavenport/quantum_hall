@@ -2,8 +2,8 @@
 // MurmurHash2 was written by Austin Appleby, and is placed in the public
 // domain. The author hereby disclaims copyright to this source code.
 
-#ifndef _MURMURHASH2_HPP_INCLUDED_
-#define _MURMURHASH2_HPP_INCLUDED_
+#ifndef _MURMURHASH2_HPP_
+#define _MURMURHASH2_HPP_
 
 //-----------------------------------------------------------------------------
 // Platform-specific functions and macros

@@ -1,15 +1,13 @@
 ////////////////////////////////////////////////////////////////////////////////
 //!
-//!                         \author Simon C. Davenport 
-//!
-//!                         \date Last Modified: 04/09/2014
+//!                         \author Simon C. Davenport
 //!
 //!  \file
 //!		Various dense linear algebra functions. This .h file contains a number
 //!     a function templates. Several additional functions are implemented
 //!     in the file linearAlgebra.cpp.
 //!
-//!                    Copyright (C) 2014 Simon C Davenport
+//!                    Copyright (C) Simon C Davenport
 //!
 //!		This program is free software: you can redistribute it and/or modify
 //!		it under the terms of the GNU General Public License as published by
@@ -30,44 +28,23 @@
 #define _DENSE_LINEAR_ALGEBRA_HPP_INCLUDED_
 
 ///////     LIBRARY INCLUSIONS     /////////////////////////////////////////////
-
 #include <string.h>                         //  For memcpy function
 #include "../general/dcmplx_type_def.hpp"   //  Define double complex type as dcmplx
 #include "../general/pi_const_def.hpp"      //  Define a value for the constant PI
 #include "../general/template_tools.hpp"    //  For is_same template argument checker
-
 #if _DEBUG_
 #include "../general/debug.hpp"
 #endif
 
-////////////////////////////////////////////////////////////////////////////////
 #if _ENABLE_HIGH_PRECISION_
-
-//	Include high precision c-libraries (see http://gmplib.org/ , http://www.mpfr.org/ 
-//	and http://www.multiprecision.org/ )
 #include "../wrappers/high_precision_wrapper.hpp"
-
 #endif
-////////////////////////////////////////////////////////////////////////////////
-
-//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\//
 
 namespace utilities
 {
-
-////////////////////////////////////////////////////////////////////////////////
-//!	\brief A function Namespace for linear algebra routines
-//!
-////////////////////////////////////////////////////////////////////////////////
-
 namespace linearAlgebra
 {
-
-//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\//
-
-////////////////////////////////////////////////////////////////////////////////
 #if _ENABLE_HIGH_PRECISION_
-
 	//////////////////////////////////////////////////////////////////////////////////
 	//!	\brief This function performs a LU decomposition of the matrix A using the
 	//!	Crout algorithm. This template uses arbitrary precision functions.
@@ -89,9 +66,7 @@ namespace linearAlgebra
 	//!	Template argument P corresponds to the precision level. 
 	//!	
 	//!	\return The number of pivoting operators that took place
-	//!	
 	//////////////////////////////////////////////////////////////////////////////////
-
 	template <typename U,int P>
 	int CroutLuDecomposition(
 		HpWrap<U,P>* A, 	//!<	Pointer to stored matrix (using HpWrap wrapper)
@@ -100,72 +75,61 @@ namespace linearAlgebra
 							//!		when pivoting occurs: i-th element is pivot row 
 							//!		interchanged with row i	
 	{
-
-		//	Declare local variables	
-		int i,j,k;							//	Generic loop variables
-		HpWrap<U,P> *p_k=0,*p_row=0,*p_col=0;//	Pointers to a row k, or a given row or 
-											//	column of the LU matrix
-		HpWrap<U,P> myMax;					//	Max absolute value of a LU element - use
-											//	to check for pivoting
-		HpWrap<U,P> tmp;					//	a temporary value	
-		HpWrap<U,P> myAbs,myAbs1;			//	Absolute values of elements of LU rows -
-											//	use to check for pivoting
-		int pivotCount=0;					//	Counts the number of pivot permutations
-											//	to keep track of the sign of LU
-											
-		//	For each row and column, k = 0, ..., dim-1,
-
-		for(k = 0, p_k = A; k < dim; p_k += dim, k++) {
-
-			//	Find the pivot row
-
-			pivot[k] = k;myMax=*(p_k + k);
-			for(j = k + 1, p_row = p_k + dim; j < dim; j++, p_row += dim)
+		HpWrap<U,P> *p_col = 0;
+		HpWrap<U,P> rowMax;
+		HpWrap<U,P> tmp;
+		HpWrap<U,P> absMax,absRow;
+		int pivotCount = 0;
+		HpWrap<U,P> *p_k = A;
+		for(int k = 0; k < dim; p_k += dim, ++k) 
+		{
+		    //	Find the pivot row
+			pivot[k] = k;
+			rowMax = *(p_k + k);
+			HpWrap<U, P> *p_row = p_k + dim;
+			for(int j = k + 1; j < dim; ++j, p_row += dim)
 			{
-				myAbs.AbsOf(myMax);
-				myAbs1.AbsOf(*(p_row+k));
-
-				if(myAbs<myAbs1)
+				absMax.AbsOf(rowMax);
+				absRow.AbsOf(*(p_row+k));
+				if(absMax<absRow)
 				{
-					myMax=*(p_row + k);pivot[k] = j;p_col = p_row;
+					rowMax = *(p_row + k);
+					pivot[k] = j;
+					p_col = p_row;
 				}
 			}
-
-			//	And if the pivot row differs from the current row, then interchange the two rows.
-
-			if(pivot[k] != k){pivotCount++;
-				for (j = 0; j < dim; j++) {
-					myMax=*(p_k + j);
-					*(p_k + j)=*(p_col + j);
-					*(p_col + j)=myMax;
+			//	If the pivot row differs from the current row, then interchange the two rows.
+			if(pivot[k] != k)
+			{
+			    ++pivotCount;
+				for(int j = 0; j < dim; ++j) 
+				{
+					rowMax = *(p_k + j);
+					*(p_k + j) = *(p_col + j);
+					*(p_col + j) = rowMax;
 				}
 			}
-
 			//	Find the upper triangular matrix elements for row k.
-
-			for(j = k+1; j < dim; j++) {*(p_k + j)/=*(p_k + k);}
-
-			//	Update remaining matrix
-
-			for(i = k+1, p_row = p_k + dim; i < dim; p_row += dim, i++)
+			for(int j = k+1; j < dim; ++j) 
 			{
-				for(j = k+1; j < dim; j++)
+			    *(p_k + j) /= *(p_k + k);
+			}
+			//	Update remaining matrix
+			p_row = p_k + dim;
+			for(int i = k+1; i < dim; p_row += dim, ++i)
+			{
+				for(int j = k+1; j < dim; ++j)
 				{
-					tmp=*(p_row + k);
-					tmp*=*(p_k + j);
-					*(p_row + j)-=tmp;;
+					tmp = *(p_row + k);
+					tmp *= *(p_k + j);
+					*(p_row + j) -= tmp;
 				}
 			}
 		}
-
 		return pivotCount;
 	}
 	
 #endif
-////////////////////////////////////////////////////////////////////////////////	
-
-//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\//
-
 	//////////////////////////////////////////////////////////////////////////////////
 	//!	\brief This function performs a LU decomposition of the matrix A using the
 	//!	Crout algorithm. This template uses type U variables. 
@@ -178,9 +142,7 @@ namespace linearAlgebra
 	//!	Template argument U corresponds to the type of the variables
 	//!	
 	//!	\return The number of pivoting operators that took place
-	//!	
 	//////////////////////////////////////////////////////////////////////////////////
-
 	template <typename U>
 	int CroutLuDecomposition(
 		U *A,			//!<	Type U template variable
@@ -189,68 +151,55 @@ namespace linearAlgebra
 						//!		when pivoting occurs: i-th element is pivot row 
 						//!		interchanged with row i	
 	{
-		//	Declare local variables	
-		int i,j,k;							//	Generic loop variables
-		U *p_k,*p_row,*p_col;				//	Pointers to a row k, or a given row or 
-											//	column of the LU matrix	
-		U myMax;							//	Max absolute value of a LU element - use
-											//	to check for pivoting
-		double myAbs,myAbs1;				//	Absolute values of elements of LU rows -
-											//	use to check for pivoting
-		int pivotCount=0;					//	Counts the number of pivot permutations
-											//	to keep track of the sign of LU	
-										
-		//	For each row and column, k = 0, ..., dim-1,
-
-		for (k = 0, p_k = A; k < dim; p_k += dim, k++) {
-
+		int pivotCount = 0;
+		U* p_k = A;
+		U* p_col = 0;
+		for(int k = 0; k < dim; p_k += dim, ++k) 
+		{
 			//	Find the pivot row
-
-			pivot[k] = k;myMax=*(p_k + k);
-			for (j = k + 1, p_row = p_k + dim; j < dim; j++, p_row += dim)
+			pivot[k] = k;
+			U rowMax = *(p_k + k);
+			U* p_row = p_k + dim;
+			for(int j = k + 1; j < dim; ++j, p_row += dim)
 			{
-				myAbs=abs(myMax);
-				myAbs1=abs(*(p_row+k));
-
-				if(myAbs<myAbs1)
+				U absMax = abs(rowMax);
+				U absRow = abs(*(p_row+k));
+				if(absMax<absRow)
 				{
-					myMax=*(p_row + k);pivot[k] = j;p_col = p_row;
+					rowMax = *(p_row + k);pivot[k] = j;
+					p_col = p_row;
 				}
 			}
-
-			//	And if the pivot row differs from the current row, then interchange the two rows.
-
-			if (pivot[k] != k){pivotCount++;
-				for (j = 0; j < dim; j++) {
-					myMax=*(p_k + j);
-					*(p_k + j)=*(p_col + j);
-					*(p_col + j)=myMax;
+			//	If the pivot row differs from the current row, then interchange the two rows.
+			if (pivot[k] != k)
+			{
+			    ++pivotCount;
+				for(int j = 0; j < dim; ++j) 
+				{
+					rowMax = *(p_k + j);
+					*(p_k + j) = *(p_col + j);
+					*(p_col + j) = rowMax;
 				}
 			}
-
 			//	Find the upper triangular matrix elements for row k.
-
-			for (j = k+1; j < dim; j++) {*(p_k + j)/=*(p_k + k);}
-
-			//	Update remaining matrix
-
-			for (i = k+1, p_row = p_k + dim; i < dim; p_row += dim, i++)
+			for(int j = k+1; j < dim; ++j) 
 			{
-				for (j = k+1; j < dim; j++)
+			    *(p_k + j) /= *(p_k + k);
+			}
+			//	Update remaining matrix
+			p_row = p_k + dim;
+			for(int i = k+1; i < dim; p_row += dim, ++i)
+			{
+				for(int j = k+1; j < dim; ++j)
 				{
-					*(p_row + j)-=*(p_row + k)**(p_k + j);
+					*(p_row + j) -= *(p_row + k)**(p_k + j);
 				}
 			}
 		}
-
 		return pivotCount;
 	}
 
-//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\//
-
-////////////////////////////////////////////////////////////////////////////////
 #if _ENABLE_HIGH_PRECISION_	
-	
 	//////////////////////////////////////////////////////////////////////////////////
 	//!	\brief Calculate the log of the determinant of a matrix stored with HpWrap class
 	//!	Variables. 
@@ -267,52 +216,28 @@ namespace linearAlgebra
 	//!	Template argument P corresponds to the precision level. 
 	//!
 	//!	\return The (complex) value of the log of determinant.
-	//!
 	//////////////////////////////////////////////////////////////////////////////////	
-		
-	template <typename U,int P>
+	template <typename U, int P>
 	dcmplx LogDeterminant(
-		HpWrap<U,P>* A,	//!<	Memory address of the stored matrix
+		HpWrap<U,P>* A,	    //!<	Memory address of the stored matrix
 		const int dim)		//!<	Dimension of the matrix
 	{
-		//	Declare local variables
-
-		int pivotCount; 	//  Count the number of pivot permutations of the matrix.
-							//  Each permutation multiplies the determinant by -1.
-		int pivot[dim];	    //	Pivoting vector
-		HpWrap<U,P> det;	//	To store the value of the determinant
-		dcmplx returnVal;	//	Value to return
-
-		//	First perform an LU decomposition of the matrix A
-
-		pivotCount=CroutLuDecomposition<U,P>(A,dim,pivot);
-
-		//	Calculate the determinant from the trace
-
+		int pivot[dim];
+		HpWrap<U, P> det;
+		int pivotCount = CroutLuDecomposition<U, P>(A, dim, pivot);
 		det.Set(1.0);
-
-		for(int i=0;i<dim;i++)
+		for(int i=0; i<dim; ++i)
 		{
-			det*=*(A+i*dim+i);
+			det *= *(A+i*dim+i);
 		}
-
-		//	Take the log
-
 		det.LogOf(det);
-
-		returnVal=det.Get();
-
+		dcmplx returnVal = det.Get();
 		//	Include contribution from pivoting steps
-
-		returnVal+=dcmplx(0,PI*pivotCount);
-
+		returnVal += dcmplx(0, PI*pivotCount);
 		return returnVal;
 	}
 
 #endif
-////////////////////////////////////////////////////////////////////////////////
-	
-//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\//
 
 	//////////////////////////////////////////////////////////////////////////////////
 	//!	\brief Calculates the log of the determinant of a matrix.
@@ -323,48 +248,24 @@ namespace linearAlgebra
 	//!	Note that the input matrix A will be overwritten with the LU output.
 	//!
 	//!	\return The (complex) value of the log of determinant
-	//!
 	//////////////////////////////////////////////////////////////////////////////////
-
 	template <typename U>
 	dcmplx LogDeterminant(
 		U* A,			//!<	Memory address of the stored matrix
 		const int dim)	//!<	Dimension of the matrix
 	{
-		//	Declare local variables	
-		int pivotCount; 	//  Count the number of pivot permutations of the matrix.
-							//  Each permutation multiplies the determinant by -1.
-		int pivot[dim];	    //	Pivoting vector	
-		U det;				//	To store the value of the determinant
-		dcmplx returnVal;	//	Value to return 
-
-		//	First perform an LU decomposition of the matrix A
-
-		pivotCount=CroutLuDecomposition<U>(A,dim,pivot);
-
-		//	Calculate the determinant from the trace
-
-		det = 1.0;
-
-		for(int i=0;i<dim;i++)
+		int pivot[dim];
+		int pivotCount = CroutLuDecomposition<U>(A, dim, pivot);
+		U det = 1.0;
+		for(int i=0; i<dim; ++i)
 		{
-			det*=*(A+i*dim+i);
+			det *= *(A+i*dim+i);
 		}
-
-		//	Take the log
-
-		det=log(det);
-
-		returnVal=det;
-
-		//	Include contribution from pivoting steps
-
-		returnVal+=dcmplx(0,PI*pivotCount);
-
+		det = log(det);
+		dcmplx returnVal = det;
+		returnVal += dcmplx(0, PI*pivotCount);
 		return returnVal;
 	}
-
-//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\//
 
 	//////////////////////////////////////////////////////////////////////////////////
 	//!	\brief This function performs a PJP^T decomposition of the matrix A for 
@@ -386,52 +287,37 @@ namespace linearAlgebra
 	//!	Note that the input matrix A will be overwritten with the PJP output.
 	//!	
 	//!	Template argument U corresponds to the type.
-	//!
 	//////////////////////////////////////////////////////////////////////////////////
-
 	template <typename U>
 	void PjpDecomposition(
 		U* A,			//!<	Memory address of the stored matrix
 		const int dim)	//!<	Dimension of the matrix
 	{
-		//	Declare Local Variables	
-		int i,j,k;				//	Generic loop variables
-		U *p_k,*p_k1;			//	Pointers to the k and k+1 th row in the matrix
-		U *p_row;				//	Pointer to a row in the Pfaffian matrix	
-		U temp,temp2;			//	Temporary stored values in matrix (for swapping matrix rows)
-		
-		// For k = 1, 3,..., dim-1,
-		
-		for (k = 0, p_k = A; k < dim; p_k += 2*dim, k+=2) 
+		U* p_k = A;
+		U* p_k1;
+		for(int k = 0; k < dim; p_k += 2*dim, k+=2) 
 		{
-			p_k1=p_k+dim; 
-			
+			p_k1 = p_k+dim;
 			// swap pairs of rows and do the division
-			
-			temp=-*(p_k+k+1);		
-			
-			for (j = k+1; j < dim; j++) 
+			U temp = -*(p_k+k+1);		
+			for(int j = k+1; j < dim; ++j) 
 			{
-				temp2=*(p_k1+j);
-				*(p_k1+j)=*(p_k+j);
-				*(p_k + j)=temp2/temp;
+				U temp2 = *(p_k1+j);
+				*(p_k1+j) = *(p_k+j);
+				*(p_k + j) = temp2/temp;
 			}
-			
 			// Update remaining matrix
-			
-			for (i = k+2, p_row = p_k + 2*dim; i < dim; p_row += dim, i++)
+			U* p_row = p_k + 2*dim;
+			for(int i = k+2; i < dim; p_row += dim, ++i)
 			{
-				for (j = i+1; j < dim; j++)
+				for(int j = i+1; j < dim; ++j)
 				{
-					*(p_row + j)+=*(p_k+ j)**(p_k1 + i)-*(p_k1 + j)**(p_k + i);
+					*(p_row + j) += *(p_k+ j)**(p_k1 + i)-*(p_k1 + j)**(p_k + i);
 				}
 			}
 		}
-		
 		return;
 	}
-
-//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\//
 
 	//////////////////////////////////////////////////////////////////////////////////
 	//!	\brief Calculates the log of the Pfaffian of a matrix.
@@ -444,53 +330,31 @@ namespace linearAlgebra
 	//!	Template argument U corresponds to the type.
 	//!
 	//!	\return The (complex) value of the log of Pfaffian  
-	//!	
 	//////////////////////////////////////////////////////////////////////////////////
-
 	template <typename U>
 	dcmplx LogPfaffian(
 		U* A,			//!<	Memory address of the stored matrix
 		const int dim)	//!<	Dimension of the matrix
 	{
-		//	Declare local variables	
-		int i;				//	Generic loop variables
-		U *p_row;			//	Pointer to a row in the matrix	
-		U pfaff;			//	To store the value of the pfaffian
-		dcmplx returnVal;	//	Value to return 
-
 		//	First Set diagonal elements to be 1,0,1,...
 		//	This renders the factorization to be unique
-			
-		for(i=0,p_row=A;i<dim;i+=2,p_row+=2*dim)
+		U* p_row = A;
+		for(int i=0; i<dim; i+=2, p_row += 2*dim)
 		{
-			*(p_row+i)=dcmplx(1,0);
-			*(p_row+i+dim+1)=dcmplx(0,0);
+			*(p_row+i) = dcmplx(1, 0);
+			*(p_row+i+dim+1) = dcmplx(0, 0);
 		}
-		
 		//	Then perform an PJP decomposition of the matrix A
-
-		PjpDecomposition<U>(A,dim);
-
+		PjpDecomposition<U>(A, dim);
 		//	Calculate the determinant from the trace
-
-		pfaff = 1.0;
-
-		for(int i=0;i<dim;i++)
+		U pfaff = 1.0;
+		for(int i=0; i<dim; ++i)
 		{
-			pfaff*=*(A+i*dim+i);
+			pfaff *= *(A+i*dim+i);
 		}
-
-		//	Take the log
-
-		pfaff=log(pfaff);
-
-		returnVal=pfaff;
-
-		return returnVal;
+		return log(pfaff);
 	}
 
-//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\//							
-	
 	////////////////////////////////////////////////////////////////////////////////
 	//!	\brief This routine calculates the inverse of the lower triangular matrix L.
 	//!
@@ -511,10 +375,8 @@ namespace linearAlgebra
 	//!
 	//!  \return
 	//!   -  0  Success 
-	//!   - -1  Failure - The matrix L is singular.
-	//! 
+	//!   - -1  Failure - The matrix L is singular. 
 	////////////////////////////////////////////////////////////////////////////////	
-		
 	template <typename T>
 	int LowerTriangularInverse(
 		T *L,				//!<	On input, the pointer to the first element of the matrix
@@ -524,39 +386,38 @@ namespace linearAlgebra
 							//!		not modified. 
 		const int dim)		//!<	The number of rows and/or columns of the matrix L.  
 	{
-		int i, j, k;
-		T *p_i, *p_j, *p_k;
-		T sum;
-
 		//	Invert the diagonal elements of the lower triangular matrix L.
-
-		for (k = 0, p_k = L; k < dim; p_k += (dim + 1), k++) {
-			if (*p_k == 0.0) return -1;
-			else *p_k = 1.0 / *p_k;
-		}
-
-		//	Invert the remaining lower triangular matrix L row by row.
-
-		for (i = 1, p_i = L + dim; i < dim; i++, p_i += dim) 
+        T* p_k = L;
+		for(int k = 0; k < dim; p_k += (dim + 1), ++k) 
 		{
-			for (j = 0, p_j = L; j < i; p_j += dim, j++) 
+			if (*p_k == 0.0) 
 			{
-				sum = 0.0;
-				
-				for (k = j, p_k = p_j; k < i; k++, p_k += dim)
+			    return -1;
+			}
+			else 
+			{
+			    *p_k = 1.0 / *p_k;
+			}
+		}
+		//	Invert the remaining lower triangular matrix L row by row.
+		T* p_i = L + dim;
+		for(int i = 1; i < dim; ++i, p_i += dim) 
+		{
+		    T* p_j = L;
+			for(int j = 0; j < i; p_j += dim, ++j) 
+			{
+				T sum = 0.0;
+				T* p_k = p_j;
+				for(int k = j; k < i; ++k, p_k += dim)
 				{
 					sum += *(p_i + k) * *(p_k + j);
 				}
-				
 				*(p_i + j) = - *(p_i + i) * sum;
 			}
 		}
-	  
 		return 0;
 	}
 
-//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\//								
-	
 	////////////////////////////////////////////////////////////////////////////////
 	//!	\brief This routine calculates the inverse of the upper triangular matrix U.
 	//!
@@ -577,10 +438,8 @@ namespace linearAlgebra
 	//!
 	//!  \return
 	//!   -  0  Success 
-	//!   - -1  Failure - The matrix U is singular.
-	//!	
+	//!   - -1  Failure - The matrix U is singular.	
 	////////////////////////////////////////////////////////////////////////////////
-
 	template <typename T>
 	int UpperTriangularInverse(
 		T *U,				//!<	On input, the pointer to the first element of the matrix 
@@ -590,40 +449,36 @@ namespace linearAlgebra
 							//!		not modified. 
 		const int dim)		//!<	The number of rows and/or columns of the matrix U.
 	{
-		
-		int i, j, k;
-		T *p_i, *p_j, *p_k;
-		T sum;
-		
 		//	Invert the diagonal elements of the upper triangular matrix U.
-		
-		for (k = 0, p_k = U; k < dim; p_k += (dim + 1), k++) 
+		T* p_k = U;
+		for(int k = 0; k < dim; p_k += (dim + 1), ++k) 
 		{
-		   if (*p_k == 0.0) return -1;
-		   else *p_k = 1.0 / *p_k;
+            if (*p_k == 0.0) 
+            {
+                return -1;
+            }
+            else 
+            {
+                *p_k = 1.0 / *p_k;
+            }
 		}
-		
 		//	Invert the remaining upper triangular matrix U.
-		
-		for (i = dim - 2, p_i = U + dim * (dim - 2); i >=0; p_i -= dim, i-- ) 
+		T* p_i = U + dim * (dim - 2);
+		for(int i = dim - 2; i >=0; p_i -= dim, --i) 
 		{
-		  for (j = dim - 1; j > i; j--)
+		  for(int j = dim - 1; j > i; --j)
 		  {
-			 sum = 0.0;
-			 
-			 for (k = i + 1, p_k = p_i + dim; k <= j; p_k += dim, k++ ) 
+			 T sum = 0.0;
+			 T* p_k = p_i + dim;
+			 for(int k = i + 1; k <= j; p_k += dim, ++k) 
 			 {
 				sum += *(p_i + k) * *(p_k + j);
 			 }
-			 
 			 *(p_i + j) = - *(p_i + i) * sum;
 		  }
 		}
-		
 		return 0;
-	}
-	
-//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\//							
+	}					
 	
 	////////////////////////////////////////////////////////////////////////////////
 	//!	\brief Post multiply the nrows x ncols matrix A by the ncols x mcols matrix 
@@ -636,9 +491,7 @@ namespace linearAlgebra
 	//!	Template argument T corresponds to the type.
 	//!
 	//!	Source http://www.mymathlib.com/matrices/linearsystems/triangular.html
-	//!	
 	////////////////////////////////////////////////////////////////////////////////
-		
 	template <typename T>
 	void MultiplyMatrices(
 		T *C,				//!<	Pointer to the first element of the matrix C.
@@ -649,27 +502,20 @@ namespace linearAlgebra
 		T *B,				//!<	Pointer to the first element of the matrix B.
 		const int mcols)	//!<	The number of columns of the matrices B and C.
 	{
-		
-		T *pB;
-		T *p_B;
-		int i,j,k;
-
-		for (i = 0; i < nrows; A += ncols, i++)
+		for(int i = 0; i < nrows; A += ncols, ++i)
 		{
-			for (p_B = B, j = 0; j < mcols; C++, p_B++, j++)
+		    T* p_B = B;
+			for(int j = 0; j < mcols; ++C, ++p_B, ++j)
 			{
-				pB = p_B;
+				T* pB = p_B;
 				*C = 0.0;
-
-				for (k = 0; k < ncols; pB += mcols, k++)
+				for(int k = 0; k < ncols; pB += mcols, ++k)
 				{
 					*C += *(A+k) * *pB;
 				}
 			}
 		}
 	}
-
-//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\//
 
 	////////////////////////////////////////////////////////////////////////////////
 	//!	\brief Calculates the matrix inverse of matrix M and overwrites the original
@@ -683,89 +529,65 @@ namespace linearAlgebra
 	//!	M must be square matrix of dimension dim.
 	//!	
 	//!	Template argument T corresponds to the type.
-	//!
 	////////////////////////////////////////////////////////////////////////////////
-
 	template <typename T>
 	void DenseMatrixInverse(
 		T *M,			//!<	Memory address of the matrix to be inverted
 		const int dim)	//!<	Dimension of the matrix
 	{
-		int pivot[dim];	    //	Pivoting vector		
-		//	The i-th element is the pivot row interchanged with row i
-		
-		//	First perform an LU decomposition
-		
-		CroutLuDecomposition<T>(M,dim,pivot);
-		
+		int pivot[dim];	
+		CroutLuDecomposition<T>(M, dim, pivot);
 		T *upperMatrix = new T[dim*dim];
 		T *lowerMatrix = new T[dim*dim];
-		
-		int j1,j2;
-		
-		for(j1=0;j1<dim;j1++)
+		for(int j1=0; j1<dim; ++j1)
 		{
-			for(j2=0;j2<dim;j2++)
+			for(int j2=0; j2<dim; ++j2)
 			{
 				if(j2>j1)
 				{
-					upperMatrix[j1*dim+j2]=M[j1*dim+j2];
-					lowerMatrix[j1*dim+j2]=0.0;
+					upperMatrix[j1*dim+j2] = M[j1*dim+j2];
+					lowerMatrix[j1*dim+j2] = 0.0;
 				}
 				else if(j1==j2)
 				{
-					//upperMatrix[j1*dim+j2]=M[j1*dim+j2];
-					//lowerMatrix[j1*dim+j2]=1.0;
-					
-					upperMatrix[j1*dim+j2]=1.0;
-					lowerMatrix[j1*dim+j2]=M[j1*dim+j2];
+					upperMatrix[j1*dim+j2] = 1.0;
+					lowerMatrix[j1*dim+j2] = M[j1*dim+j2];
 				}
 				else
 				{
-					lowerMatrix[j1*dim+j2]=M[j1*dim+j2];
-					upperMatrix[j1*dim+j2]=0.0;
+					lowerMatrix[j1*dim+j2] = M[j1*dim+j2];
+					upperMatrix[j1*dim+j2] = 0.0;
 				}
 			}
 		}
-		
-		UpperTriangularInverse(upperMatrix,dim);
-		LowerTriangularInverse(lowerMatrix,dim);
-
-		MultiplyMatrices(M,upperMatrix,dim,dim,lowerMatrix,dim);
-		
+		UpperTriangularInverse(upperMatrix, dim);
+		LowerTriangularInverse(lowerMatrix, dim);
+		MultiplyMatrices(M,upperMatrix, dim, dim, lowerMatrix, dim);
 		//	Now we have L^-1 U^-1 but the final step is to undo the pivoting operation
-		
-		dcmplx exchange,*p_col;
-		
-		for (j1 = dim-1; j1>=0; j1--) 
+		for(int j1 = dim-1; j1>=0; --j1) 
 		{
-			if (pivot[j1] != j1)
+			if(pivot[j1] != j1)
 			{
-				for (j2 = 0,p_col=M; j2 < dim; j2++,p_col+=dim) 
+			    T* p_col = M;
+				for(int j2 = 0; j2 < dim; ++j2, p_col+=dim) 
 				{
-					exchange=*(p_col+j1);
-					*(p_col+j1)=*(p_col+pivot[j1]);
-					*(p_col+pivot[j1])=exchange;
+					T exchange = *(p_col+j1);
+					*(p_col+j1) = *(p_col+pivot[j1]);
+					*(p_col+pivot[j1]) = exchange;
 				}
 			}
 		}
-		
 		delete[] upperMatrix;
 		delete[] lowerMatrix;
-		
 		return;
 	}
-
-//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\//	
 
     ////////////////////////////////////////////////////////////////////////////////
     //!	\brief Replaces a rectangular complex matrix with its complex conjugate.
     //!
     //! This function only performs an operation when the tempalte parameter
     //! is a complex type.
-    //!
     ////////////////////////////////////////////////////////////////////////////////
-
     template <typename T>
     void MatrixConjugate(
         dcmplx* M,		    //!<	Memory address of the matrix
@@ -775,23 +597,18 @@ namespace linearAlgebra
         if(is_same<T,dcmplx>::value)
         {
             dcmplx *p_M;	//	Pointer to a matrix element
-
-            p_M=M;
-
-            for(int i=0;i<dim1;i++)
+            p_M = M;
+            for(int i=0; i<dim1; ++i)
             {
-                for(int j=0;j<dim2;j++,p_M++)
+                for(int j=0; j<dim2; ++j, ++p_M)
                 {
-                    *p_M=std::conj(*p_M);
+                    *p_M = std::conj(*p_M);
                 }
             }
         }
-
         return;
     }
 
-//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\//	
-    
     ////////////////////////////////////////////////////////////////////////////////
     //!	\brief Normalises a complex vector such that V^+ V = 1 or a real vector
     //! such that V^T V = 1
@@ -802,9 +619,7 @@ namespace linearAlgebra
     //! or inf results. 
     //!
     //! \return The norm of the vector 
-    //!
     ////////////////////////////////////////////////////////////////////////////////
-
     template <typename T>
     double NormalizeVector(
         T* V,				    //!<	Memory address of an array storing the 
@@ -813,93 +628,33 @@ namespace linearAlgebra
         bool useHighPrec)		//!<	Option to accumulate total value with 
                                 //!		high precision variables
     {
-        //	Declare local variables
         T *p_V = V;
         double total=0.0;
         double norm;
-
-        //	First try with standard precision functions
-
-        if(is_same<T,dcmplx>::value)
+        if(is_same<T, dcmplx>::value)
         {
-            for(int i=0;i<dim;i++,p_V++)
+            for(int i=0; i<dim; ++i, ++p_V)
             {
                 total += real( (*p_V) * std::conj(*p_V));
             }
         }
-        else if(is_same<T,double>::value)
+        else if(is_same<T, double>::value)
         {
-            for(int i=0;i<dim;i++,p_V++)
+            for(int i=0; i<dim; ++i, ++p_V)
             {
                 total += *p_V * *p_V;
             }
         }
-        
-        norm=sqrt(total);
-
-        ////////////////////////////////////////////////////////////////////////////////
-        #if 0
-        
-        //	If there was an issue, use a high precision implementation
-
-        if(std::isnan(norm) || std::isinf(norm))
-        {
-            useHighPrec=true;
-        }
-
-        if(useHighPrec)
-        {
-            int prec=128;
-        
-            if(is_same<T,dcmplx>::value)
-            {
-                mpfr_t convert;
-                mpfr_t mpfrTot;
-
-                mpfr_init2(convert,prec);
-                mpfr_init2(mpfrTot,prec);
-
-                mpfr_set_d(mpfrTot,0.0,MPFR_RNDN);
-
-                p_V=V;
-
-                for(int i=0;i<dim;i++,p_V++)
-                {
-                    mpfr_set_d(convert,real(*p_V*conj(*p_V)),MPFR_RNDN);
-
-                    mpfr_add(mpfrTot,mpfrTot,convert,MPFR_RNDN);
-                }
-
-                mpfr_sqrt(mpfrTot,mpfrTot,MPFR_RNDN);
-
-                norm=mpfr_get_d(mpfrTot,MPFR_RNDN);
-
-                mpfr_clear(convert);
-                mpfr_clear(mpfrTot);
-            }
-            else if(is_same<T,double>::value)
-            {
-                //  TODO
-            }
-        }
-
-        #endif
-        ////////////////////////////////////////////////////////////////////////////////
-        
+        norm = sqrt(total);
         //	Re-write the vector with the normalised values
-
-        p_V=V;
-
-        for(int i=0;i<dim;i++,p_V++)
+        p_V = V;
+        for(int i=0; i<dim; ++i, ++p_V)
         {
-            *p_V/=norm;
+            *p_V /= norm;
         }
-
         return norm;
     }
 
-//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\//    
-    
     ////////////////////////////////////////////////////////////////////////////////
     //!	\brief This function calculate the overlap between two complex vectors
     //!	leftVec and rightVec of length dim as <left|right>.	
@@ -908,9 +663,7 @@ namespace linearAlgebra
     //!	of nan or inf results.
     //!
     //!	\return The value of the overlap.
-    //! 
     ////////////////////////////////////////////////////////////////////////////////
-
     template <typename T>
     T VectorOverlap(
         T* leftVec,		        //!<	Memory address of the left vector
@@ -919,94 +672,25 @@ namespace linearAlgebra
         bool useHighPrec)		//!<	Option to accumulate total value with 
                                 //!		high precision variables
     {
-        //	Declare local variables
-        T *p_left,*p_right;
-        T overlap=0.0;
-        T tmp;
-
-        //	First try with standard precision functions
-
-        if(is_same<T,dcmplx>::value)
+        T* p_left = leftVec;
+        T* p_right = rightVec;
+        T overlap = 0.0;
+        if(is_same<T, dcmplx>::value)
         {
-            p_left=leftVec;
-            p_right=rightVec;
-            for(int i=0;i<dim;i++,p_left++,p_right++)
+            for(int i=0; i<dim; ++i, ++p_left, ++p_right)
             {
                 overlap += conj(*p_left)**p_right;
             }
         }
-        else if(is_same<T,double>::value)
+        else if(is_same<T, double>::value)
         {
-            p_left=leftVec;
-            p_right=rightVec;
-            for(int i=0;i<dim;i++,p_left++,p_right++)
+            for(int i=0; i<dim; ++i, ++p_left, ++p_right)
             {
                 overlap += *p_left* *p_right;
             }
         }
-
-        ////////////////////////////////////////////////////////////////////////////////
-        #if 0
-        
-        //	If there was an issue, use a high precision implementation
-
-        if(std::isnan(abs(overlap)) || std::isinf(abs(overlap)))
-        {
-            useHighPrec=true;
-        }
-
-        if(useHighPrec)
-        {
-            int prec=128;
-
-            if(is_same<T,dcmplx>::value)
-            {
-                mpfr_t convert_real;
-                mpfr_t convert_imag;
-                mpfr_t overlap_real;
-                mpfr_t overlap_imag;
-
-                mpfr_init2(convert_real,prec);
-                mpfr_init2(convert_imag,prec);
-                mpfr_init2(overlap_real,prec);
-                mpfr_init2(overlap_imag,prec);
-
-                mpfr_set_d(overlap_real,0.0,MPFR_RNDN);
-                mpfr_set_d(overlap_imag,0.0,MPFR_RNDN);
-
-                p_left=leftVec;
-                p_right=rightVec;
-                for(int i=0;i<dim;i++,p_left++,p_right++)
-                {
-                    tmp=conj(*p_left)**p_right;
-
-                    mpfr_set_d(convert_real,real(tmp),MPFR_RNDN);
-                    mpfr_set_d(convert_imag,imag(tmp),MPFR_RNDN);
-
-                    mpfr_add(overlap_real,overlap_real,convert_real,MPFR_RNDN);
-                    mpfr_add(overlap_imag,overlap_imag,convert_imag,MPFR_RNDN);
-                }
-
-                overlap=dcmplx(mpfr_get_d(overlap_real,MPFR_RNDN),mpfr_get_d(overlap_imag,MPFR_RNDN));
-
-                mpfr_clear(convert_real);
-                mpfr_clear(convert_imag);
-                mpfr_clear(overlap_real);
-                mpfr_clear(overlap_imag);
-            }
-            else if(is_same<T,double>::value)
-            {
-                //  TODO
-            } 
-        }
-        
-        #endif
-        ////////////////////////////////////////////////////////////////////////////////
-
         return overlap;
     }
-    
-//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\//
 
     ////////////////////////////////////////////////////////////////////////////////
     //!	\brief Function to orthogonalise a set of nbr vectors Vin of dimension dim
@@ -1028,9 +712,7 @@ namespace linearAlgebra
     //!
     //!	  \return Algorithm returns 1 if the wave functions are not orthogonal to 
     //!	  with the tolerance <j|k><tol. 0 is returned otherwise.
-    //!
     ////////////////////////////////////////////////////////////////////////////////
-
     template <typename T>
     int GramSchmidtOrthogonalize(
         T* Vin,			        //!<	Input array containing a list of all vectors
@@ -1041,80 +723,63 @@ namespace linearAlgebra
         bool useHighPrec)		//!<	Option to accumulate total value with 
                                 //!		high precision variables
     {
-        //	Declare local variables
-
         T overlap;
         int flag=0;
         double norm;
         T *p_orth,*p_in;
 
         //	Check vectors are normalised, and if not then do so now
-
-        for(int j=0;j<nbr;j++)
+        for(int j=0; j<nbr; ++j)
         {
-            //	Quick low precision check
-            norm=NormalizeVector<T>(Vin+j*dim,dim,false);
+            norm = NormalizeVector<T>(Vin+j*dim, dim, false);
 
             if(norm-1.0<tol)
             {
-                norm=NormalizeVector<T>(Vin+j*dim,dim,true);
+                norm = NormalizeVector<T>(Vin+j*dim, dim, true);
             }
         }
-
         //	Set |j>'=|j> and initialise the buffers
-
-        memcpy(Vorth,Vin,dim*nbr*sizeof(T));
-
+        memcpy(Vorth, Vin, dim*nbr*sizeof(T));
         //	Calculate |j>' = |j>-sum _ k=1 ^ j-1 '<k|j> |k>'
-
-        for(int j=1;j<nbr;j++)
+        for(int j=1; j<nbr; ++j)
         {
-            //std::cout<<"\tvec"<<j<<std::endl;
-
-            for(int k=0;k<j;k++)
+            for(int k=0; k<j; ++k)
             {
                 // calculate '<k|j>
-
-                overlap=VectorOverlap<T>(Vorth+k*dim,Vin+j*dim,dim,useHighPrec);
-
-                for(int m=0;m<dim;m++)
+                overlap = VectorOverlap<T>(Vorth+k*dim, Vin+j*dim, dim, useHighPrec);
+                for(int m=0; m<dim; ++m)
                 {
                     Vorth[j*dim+m] -= overlap*Vorth[k*dim+m];
                 }
             }
-
             //	normalize |j>'
-
-            overlap=NormalizeVector<T>(Vorth+j*dim,dim,useHighPrec);
-
-            overlap=NormalizeVector<T>(Vorth+j*dim,dim,useHighPrec);
-
+            overlap = NormalizeVector<T>(Vorth+j*dim, dim, useHighPrec);
+            overlap = NormalizeVector<T>(Vorth+j*dim, dim, useHighPrec);
             //	confirm orthogonality with all previous vectors
-
-            for(int j=0;j<nbr;j++)
+            for(int j=0; j<nbr; ++j)
             {
-                for(int k=0;k<j;k++)
+                for(int k=0; k<j; ++k)
                 {
-                    overlap=VectorOverlap<T>(Vorth+k*dim,Vorth+j*dim,dim,useHighPrec);
-
-                    if(is_same<T,dcmplx>::value)
+                    overlap = VectorOverlap<T>(Vorth+k*dim, Vorth+j*dim, dim, useHighPrec);
+                    if(is_same<T, dcmplx>::value)
                     {
-                        if(fabs(real(overlap))>tol)	flag=1;
+                        if(fabs(real(overlap))>tol)	
+                        {
+                            flag = 1;
+                        }
                     }
-                    else if(is_same<T,double>::value)
+                    else if(is_same<T, double>::value)
                     {
-                        if(fabs(overlap)>tol)	flag=1;
+                        if(fabs(overlap)>tol)	
+                        {
+                            flag = 1;
+                        }
                     }
                 }
             }
         }
-
         return flag;
     }
-
 }   //  End namespace linearAlgebra
-
 }   //  End namespace utilities
-
 #endif
-

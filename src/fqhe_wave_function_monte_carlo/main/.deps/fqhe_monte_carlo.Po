@@ -822,12 +822,11 @@ fqhe_wave_function_monte_carlo/main/fqhe_monte_carlo.o: \
  fqhe_wave_function_monte_carlo/main/../../fqhe_wave_function_algorithms/nass.hpp \
  fqhe_wave_function_monte_carlo/main/../../fqhe_wave_function_algorithms/composite_fermion.hpp \
  utilities/wrappers/high_precision_wrapper.hpp \
- utilities/mathematics/combinatorics.hpp utilities/general/debug.hpp \
- fqhe_wave_function_monte_carlo/main/../../fqhe_wave_function_algorithms/parafermion.hpp \
- utilities/mathematics/binomial_table.hpp \
  utilities/mathematics/combinatorics.hpp \
+ utilities/mathematics/binomials.hpp utilities/general/debug.hpp \
+ fqhe_wave_function_monte_carlo/main/../../fqhe_wave_function_algorithms/parafermion.hpp \
  utilities/mathematics/binary_number_tools.hpp \
- utilities/mathematics/binomial_table.hpp \
+ utilities/mathematics/binomials.hpp \
  fqhe_wave_function_monte_carlo/main/../../utilities/mathematics/mt.hpp \
  fqhe_wave_function_monte_carlo/main/../../utilities/general/cout_tools.hpp \
  fqhe_wave_function_monte_carlo/main/../../utilities/wrappers/mpi_wrapper.hpp
@@ -2598,17 +2597,15 @@ utilities/wrappers/high_precision_wrapper.hpp:
 
 utilities/mathematics/combinatorics.hpp:
 
+utilities/mathematics/binomials.hpp:
+
 utilities/general/debug.hpp:
 
 fqhe_wave_function_monte_carlo/main/../../fqhe_wave_function_algorithms/parafermion.hpp:
 
-utilities/mathematics/binomial_table.hpp:
-
-utilities/mathematics/combinatorics.hpp:
-
 utilities/mathematics/binary_number_tools.hpp:
 
-utilities/mathematics/binomial_table.hpp:
+utilities/mathematics/binomials.hpp:
 
 fqhe_wave_function_monte_carlo/main/../../utilities/mathematics/mt.hpp:
 

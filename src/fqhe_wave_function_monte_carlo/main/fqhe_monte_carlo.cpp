@@ -2,17 +2,13 @@
 //!
 //!					\author Simon C Davenport
 //!
-//!                 \date Last Modified: 19/12/2013
-//!
 //!  \mainpage 
 //!		The purpose of this program is to generate statistically random sample
 //!		configurations of particle co-ordinates, based on the probability
 //!		distribution |psi|^2 associated with a given ground state fractional 
 //!		quantum Hall wave function.	
 //!
-//!		Start by looking at the main function in fqheMonteCarlo.cpp.
-//!
-//!                    Copyright (C) 2013 Simon C Davenport
+//!                    Copyright (C) Simon C Davenport
 //!
 //!		This program is free software: you can redistribute it and/or modify
 //!		it under the terms of the GNU General Public License as published by
@@ -40,24 +36,16 @@
 #include <boost/program_options.hpp>
 #include "../../utilities/mathematics/mt.hpp"
 #include "../../utilities/general/cout_tools.hpp"
-
-utilities::Cout utilities::cout;
-
-///////		FUNCTION FORWARD DELCATATIONS		    ////////////////////////////
-
-void PrintWelcomeMessage();
-boost::program_options::variables_map ParseComandLine(int argc,char *argv[]);
-
 #if _ENABLE_MPI_  
-
 #include "../../utilities/wrappers/mpi_wrapper.hpp"
-
-//  Declare an instance of the global mpi variables struct
-utilities::MpiWrapper mpi(utilities::cout);
-
 #endif
-
-//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\//
+utilities::Cout utilities::cout;
+///////		FUNCTION FORWARD DELCATATIONS		    ////////////////////////////
+void PrintWelcomeMessage();
+boost::program_options::variables_map ParseComandLine(int argc, char *argv[]);
+#if _ENABLE_MPI_ 
+utilities::MpiWrapper mpi(utilities::cout);
+#endif
 
 ////////////////////////////////////////////////////////////////////////////////
 //! \brief The main function performs a number of tasks:
@@ -72,53 +60,31 @@ utilities::MpiWrapper mpi(utilities::cout);
 //!
 //!	With the Metropolis method employed here, sample configurations are taken from 
 //!	the probability	distribution |psi|^2 associated with a given ground state fractional 
-//!	quantum Hall wave function.	
-//! 
+//!	quantum Hall wave function.	 
 ////////////////////////////////////////////////////////////////////////////////
-
-int main(int argc,char *argv[])
+int main(int argc, char *argv[])
 {
     #if _ENABLE_MPI_ 
-
-    //////  	START PARALLEL PROCESSES      //////////////////////////////////////
-
-	mpi.Init(argc,argv);
-
+	mpi.Init(argc, argv);
     #endif
-	
-	//////  	PRINT WELCOME MESSAGAE      ////////////////////////////////////////
-	
 	utilities::cout.MainOutput().precision(8);
-	
 	PrintWelcomeMessage();
-
-    //////		DECLARE DATA SCTURCUTRES/CLASSES      //////////////////////////
-
-    FQHE::WaveFunction *wf=0;	    //  Object to hold wave function data/routines
-    FQHE::WaveFunctionData wfData;	//	Data struct to store wave function data	
+    FQHE::WaveFunction *wf = 0;
+    FQHE::WaveFunctionData wfData;
     FQHE::CompositeFermionData cfData;
-                                    //	Data struct to store composite fermion data	
-    FQHE::Metropolis *mc;           //  Object to run metropolis sampling algorithm
-    FQHE::MonteCarloData mcData;    //  Data struct to store metropolis sampling parameters
-    boost::program_options::variables_map optionList;   
-                                    // Command line argument list
-
-	//////      PARSE COMMAND LINE OPTIONS      ////////////////////////////////////
-	
-	optionList = ParseComandLine(argc,argv);
-	
-	//////		Initialise Monte Carlo simulation		////////////////////////////
-	
+    FQHE::Metropolis *mc;
+    FQHE::MonteCarloData mcData;
+    boost::program_options::variables_map optionList;
+	optionList = ParseComandLine(argc, argv);
 	#if _ENABLE_MPI_
-	wfData.InitFromCommandLine(&optionList,mpi);
-	cfData.InitFromCommandLine(&optionList,mpi);
-    mcData.InitFromCommandLine(&optionList,mpi);
+	wfData.InitFromCommandLine(&optionList, mpi);
+	cfData.InitFromCommandLine(&optionList, mpi);
+    mcData.InitFromCommandLine(&optionList, mpi);
 	#else
 	wfData.InitFromCommandLine(&optionList);
 	cfData.InitFromCommandLine(&optionList);
     mcData.InitFromCommandLine(&optionList);
 	#endif
-
 	if(wfData.type==FQHE::_LAUGHLIN_)
 	{	
 		wf = new FQHE::Laughlin(&wfData);
@@ -139,127 +105,109 @@ int main(int argc,char *argv[])
 	{
 	    wf = new FQHE::Parafermion(&wfData);
 	}
-
-	//	Pass program options to the Metropolis class
-
-	mc = new FQHE::Metropolis(&wfData,&mcData);
-
+	mc = new FQHE::Metropolis(&wfData, &mcData);
 	//	Do first evaluation of the wave function
-
 	switch (wfData.geometry)
 	{
 		case FQHE::_SPHERE_:	
-			mc->wfValOld=wf->EvaluateWfSphere(wfData.nbr,mc->u, mc->v);
+			mc->wfValOld = wf->EvaluateWfSphere(wfData.nbr, mc->u, mc->v);
 			break;
 		case FQHE::_DISC_:
-			mc->wfValOld=wf->EvaluateWfDisc(wfData.nbr,mc->z);
+			mc->wfValOld = wf->EvaluateWfDisc(wfData.nbr, mc->z);
 			break;
 		case FQHE::_TORUS_:
-			mc->wfValOld=wf->EvaluateWfTorus(wfData.nbr,mc->latticeConfig, wfData.torusState);
+			mc->wfValOld = wf->EvaluateWfTorus(wfData.nbr, mc->latticeConfig, wfData.torusState);
 			break;		
 	}			
-
-	mc->accumEnergy=0;
-	mc->accumEnergySquared=0;
-	mc->energyCounter=0;
-	
+	mc->accumEnergy = 0;
+	mc->accumEnergySquared = 0;
+	mc->energyCounter = 0;
 	if(!mcData.useInitFile)		//	Run thermalization unless an initial configuration file is found
 	{
-		//	Declare local variables
-	
 		double timer;		    //	Keep track of the time taken during the simulation
 		double energy=0;		//	Temporary energy value
-	
-		utilities::cout.MainOutput()<<"\n\tThermalising system...\n\n"<<utilities::cout.HyphenLine()<<std::endl;
-		utilities::cout.SecondaryOutput()<<"\tProgress\tRunning Average\t\tEstimated Time Remaining (hours)\n"<<utilities::cout.HyphenLine()<<std::endl;
+		utilities::cout.MainOutput() << "\n\tThermalising system...\n\n" << utilities::cout.HyphenLine() 
+		                             << std::endl;
+		utilities::cout.SecondaryOutput() << "\tProgress\tRunning Average\t\tEstimated Time Remaining (hours)\n" 
+		                                  << utilities::cout.HyphenLine() << std::endl;
 		fflush(stdout);
-		timer=clock();
-
+		timer = clock();
 		utilities::cout.SecondaryOutput().precision(6);
-
-		for(long unsigned int k=1;k<=mcData.nbrTherm;k++)
+		for(long unsigned int k=1; k<=mcData.nbrTherm; ++k)
 		{
 			switch (wfData.geometry)
 			{
 				case FQHE::_SPHERE_:
 					mc->RandomMoveSphere();
-					mc->wfValNew=wf->EvaluateWfSphere(wfData.nbr,mc->u, mc->v);
+					mc->wfValNew = wf->EvaluateWfSphere(wfData.nbr, mc->u, mc->v);
 					mc->MetropolisTestSphere();
-					energy=mc->CoulombEnergy(wfData.nbr,mc->u, mc->v);
+					energy=mc->CoulombEnergy(wfData.nbr, mc->u, mc->v);
 					break;
 				case FQHE::_DISC_:
 					mc->RandomMoveDisc();
-					mc->wfValNew=wf->EvaluateWfDisc(wfData.nbr,mc->z);
+					mc->wfValNew = wf->EvaluateWfDisc(wfData.nbr, mc->z);
 					mc->MetropolisTestDisc();
-					energy=mc->CoulombEnergy(wfData.nbr,mc->z);
+					energy = mc->CoulombEnergy(wfData.nbr, mc->z);
 					break;
 				case FQHE::_TORUS_:
 					mc->RandomMoveTorus();
-					mc->wfValNew=wf->EvaluateWfTorus(wfData.nbr,mc->latticeConfig,wfData.torusState);
+					mc->wfValNew = wf->EvaluateWfTorus(wfData.nbr, mc->latticeConfig, wfData.torusState);
 					mc->MetropolisTestTorus();
-					energy=real(mc->wfValOld);
+					energy = real(mc->wfValOld);
 					break;	
 			}
-			
-			mc->accumEnergy+=energy;
-			mc->accumEnergySquared+=energy*energy;
+			mc->accumEnergy += energy;
+			mc->accumEnergySquared += energy*energy;
 			mc->energyCounter++;
-
 			//	Progress monitor:		
 			if((k)%((int)ceil((double)mcData.nbrTherm/10))==0)
 			{
 				mc->CalculateRunningMean();
-				
-				utilities::cout.SecondaryOutput()<<"\t"<<(double)100*(k)/mcData.nbrTherm<<"%\t\t"<<mc->meanEnergy<<" +-";
+				utilities::cout.SecondaryOutput() << "\t" << (double)100*(k)/mcData.nbrTherm
+				                                  << "%\t\t" << mc->meanEnergy << " +-";
 				utilities::cout.SecondaryOutput().precision(3);
-				utilities::cout.SecondaryOutput()<<mc->stdDevEnergy;
+				utilities::cout.SecondaryOutput() << mc->stdDevEnergy;
 				utilities::cout.SecondaryOutput().precision(6);
-				utilities::cout.SecondaryOutput()<<"\t\t"<<(double)1/3600*(((double)mcData.nbrTherm/(k))-1)
-							 *(double) ( clock() - timer ) / CLOCKS_PER_SEC<<std::endl;
-				mc->accumEnergy=0;
-				mc->energyCounter=0;
-				mc->accumEnergySquared=0;
+				utilities::cout.SecondaryOutput() << "\t\t" << (double)1/3600*(((double)mcData.nbrTherm/(k))-1)
+							 *(double) (clock() - timer) / CLOCKS_PER_SEC <<std::endl;
+				mc->accumEnergy = 0;
+				mc->energyCounter = 0;
+				mc->accumEnergySquared = 0;
 			}
 		}
 		utilities::cout.MainOutput().precision(8);
-		utilities::cout.MainOutput()<<utilities::cout.HyphenLine()<<"\n\tDone!"<<std::endl;
+		utilities::cout.MainOutput() << utilities::cout.HyphenLine() << "\n\tDone!" << std::endl;
 	}
-	
-	utilities::cout.MainOutput()<<"\n\tSampling...\n\n"<<utilities::cout.HyphenLine()<<std::endl;
-	utilities::cout.SecondaryOutput()<<"\tProgress\tCombined Average\tEstimated Time Remaining (hours)\n"<<utilities::cout.HyphenLine()<<std::endl;
-	
+	utilities::cout.MainOutput() << "\n\tSampling...\n\n" << utilities::cout.HyphenLine() << std::endl;
+	utilities::cout.SecondaryOutput() << "\tProgress\tCombined Average\tEstimated Time Remaining (hours)\n" 
+	                                  << utilities::cout.HyphenLine() << std::endl;
 	double timer;		//	Keep track of the time taken during the simulation
-	
-	timer=clock();
-	mc->acceptCount=0;	//	reset the count of accepted moves
-	mc->accumEnergy=0;
-	mc->accumEnergySquared=0;
-	mc->energyCounter=0;
-
-	for(long int k=1;k<=mcData.nbrSteps;k++)
+	timer = clock();
+	mc->acceptCount = 0;	//	reset the count of accepted moves
+	mc->accumEnergy = 0;
+	mc->accumEnergySquared = 0;
+	mc->energyCounter = 0;
+	for(long int k=1; k<=mcData.nbrSteps; ++k)
 	{
-		//	Declare local variables
-		double energy=0;		//	Temporary energy value
-	
+		double energy = 0;		//	Temporary energy value
 		switch (wfData.geometry)
 		{
 			case FQHE::_SPHERE_:
 				mc->RandomMoveSphere();
-				mc->wfValNew=wf->EvaluateWfSphere(wfData.nbr,mc->u, mc->v);
+				mc->wfValNew = wf->EvaluateWfSphere(wfData.nbr, mc->u, mc->v);
 				mc->MetropolisTestSphere();
 				break;
 			case FQHE::_DISC_:
 				mc->RandomMoveDisc();
-				mc->wfValNew=wf->EvaluateWfDisc(wfData.nbr,mc->z);
+				mc->wfValNew = wf->EvaluateWfDisc(wfData.nbr, mc->z);
 				mc->MetropolisTestDisc(); 
 				break;
 			case FQHE::_TORUS_:
 				mc->RandomMoveTorus();
-				mc->wfValNew=wf->EvaluateWfTorus(wfData.nbr,mc->latticeConfig,wfData.torusState);
+				mc->wfValNew = wf->EvaluateWfTorus(wfData.nbr, mc->latticeConfig, wfData.torusState);
 				mc->MetropolisTestTorus();
 				break;		
 		}
-		
 		if(k%(mcData.sampleFreq*wfData.nbr)==0)
 		{
 			//	store sample configuration
@@ -267,88 +215,74 @@ int main(int argc,char *argv[])
 			{
 				case FQHE::_SPHERE_:
 					mc->ConfigurationToFileSphere();
-					energy=mc->CoulombEnergy(wfData.nbr,mc->u, mc->v);
+					energy = mc->CoulombEnergy(wfData.nbr, mc->u, mc->v);
 					break;
 				case FQHE::_DISC_:
 					mc->ConfigurationToFileDisc();
-					energy=mc->CoulombEnergy(wfData.nbr,mc->z);
+					energy = mc->CoulombEnergy(wfData.nbr, mc->z);
 					break;
 				case FQHE::_TORUS_:
 					mc->ConfigurationToFileTorus();
-					energy=real(mc->wfValOld);
+					energy = real(mc->wfValOld);
 				break;	
 			}
-			
-			mc->accumEnergy+=energy;
-			mc->accumEnergySquared+=energy*energy;
+			mc->accumEnergy += energy;
+			mc->accumEnergySquared += energy*energy;
 			mc->energyCounter++;
 		}
-		
 		//	Progress monitor:		
 		if((k)%((int)ceil((double)mcData.nbrSteps/100))==0)
 		{
 			mc->CalculateRunningMean();
-			
-			utilities::cout.SecondaryOutput()<<"\t"<<(double)100*(k)/mcData.nbrSteps<<"%\t\t"<<mc->meanEnergy;
-			utilities::cout.SecondaryOutput()<<"\t\t\t"<<(double)1/3600*(((double)mcData.nbrSteps/(k))-1)
-			*(double) ( clock() - timer ) / CLOCKS_PER_SEC<<std::endl;
+			utilities::cout.SecondaryOutput() << "\t" << (double)100*(k)/mcData.nbrSteps << "%\t\t" 
+			                                  << mc->meanEnergy;
+			utilities::cout.SecondaryOutput() << "\t\t\t" << (double)1/3600*(((double)mcData.nbrSteps/(k))-1)
+			    *(double) (clock() - timer) / CLOCKS_PER_SEC << std::endl;
 		}
 	}
-
-	utilities::cout.MainOutput()<<"\n"<<utilities::cout.HyphenLine()<<std::endl;
-	utilities::cout.MainOutput()<<"\tSimulation Completed. \n\n\tTotal time taken for the sampling steps was: ";
-	utilities::cout.MainOutput()<<(double)1/3600*( double )( clock() - timer ) / CLOCKS_PER_SEC<<" Hours.\n"<<std::endl;
+	utilities::cout.MainOutput() << "\n" << utilities::cout.HyphenLine() << std::endl;
+	utilities::cout.MainOutput() << "\tSimulation Completed. \n\n\tTotal time taken for the sampling steps was: ";
+	utilities::cout.MainOutput() << (double)1/3600*(double)(clock() - timer) / CLOCKS_PER_SEC
+	                             << " Hours.\n" << std::endl;
 	utilities::cout.MainOutput().precision(4);
-	utilities::cout.MainOutput()<<"\tProportion of moves accepted:\t"<<100*(double)mc->acceptCount/mcData.nbrSteps<<"%"<<std::endl<<std::endl;
+	utilities::cout.MainOutput() << "\tProportion of moves accepted:\t" 
+	                             << 100*(double)mc->acceptCount/mcData.nbrSteps << "%" << std::endl << std::endl;
 	utilities::cout.MainOutput().precision(8);
-	
 	mc->CalculateRunningMean();
-	
 	if(wfData.geometry==FQHE::_TORUS_)
 	{
-		utilities::cout.MainOutput()<<"\tMean (real part of) wave function:\t"<<mc->meanEnergy;
+		utilities::cout.MainOutput() << "\tMean (real part of) wave function:\t" << mc->meanEnergy;
 	}
 	else
 	{
-		utilities::cout.MainOutput()<<"\tMean Coulomb energy:\t"<<mc->meanEnergy;
+		utilities::cout.MainOutput() << "\tMean Coulomb energy:\t" << mc->meanEnergy;
 	}
-	
-	utilities::cout.MainOutput()<<"\n\tError estimate (+/-):\t ";
+	utilities::cout.MainOutput() << "\n\tError estimate (+/-):\t ";
 	utilities::cout.MainOutput().precision(4);
-	utilities::cout.MainOutput()<<mc->stdDevEnergy<<std::endl;
+	utilities::cout.MainOutput() << mc->stdDevEnergy << std::endl;
 	utilities::cout.MainOutput().precision(8);
-	
 	if(100*(double)mc->acceptCount/mcData.nbrSteps<49)
 	{
-		utilities::cout.MainOutput()<<"\n\tNOTE: low acceptance ratio (sampling accuracy might be poor)"<<std::endl;
-		utilities::cout.MainOutput()<<"\tConsider decreasing the number of moves per MC step,\n\t";
-		utilities::cout.MainOutput()<<"or decreasing the maximum move distance.\n"<<std::endl;
+		utilities::cout.MainOutput() << "\n\tNOTE: low acceptance ratio (sampling accuracy might be poor)" << std::endl;
+		utilities::cout.MainOutput() << "\tConsider decreasing the number of moves per MC step,\n\t";
+		utilities::cout.MainOutput() << "or decreasing the maximum move distance.\n" << std::endl;
 	}
 	if(100*(double)mc->acceptCount/mcData.nbrSteps>85)
 	{
-		utilities::cout.MainOutput()<<"\n\tNOTE: high acceptance ratio (check for sufficient thermalisation)"<<std::endl;
-		utilities::cout.MainOutput()<<"\tConsider increasing the number of moves per MC step,\n\t";
-		utilities::cout.MainOutput()<<"or increasing the maximum move distance.\n"<<std::endl;
+		utilities::cout.MainOutput() << "\n\tNOTE: high acceptance ratio (check for sufficient thermalisation)" << std::endl;
+		utilities::cout.MainOutput() << "\tConsider increasing the number of moves per MC step,\n\t";
+		utilities::cout.MainOutput() << "or increasing the maximum move distance.\n" << std::endl;
 	}
-	utilities::cout.MainOutput()<<utilities::cout.HyphenLine()<<std::endl<<utilities::cout.HyphenLine()<<std::endl;
-	
-	//	delete memory allocation, call the destructor to close files
-	
+	utilities::cout.MainOutput() << utilities::cout.HyphenLine() << std::endl 
+	                             << utilities::cout.HyphenLine() << std::endl;
 	delete wf;
 	delete mc;
-	
 	return 0;
 }
 
-//////	    FUNCTION DECLARATIONS      /////////////////////////////////////////
-
-//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\//
-
-////////////////////////////////////////////////////////////////////////////////
-//! \brief Print a message to display at start of program
 //!
-////////////////////////////////////////////////////////////////////////////////
-
+//! Print a message to display at start of program
+//!
 void PrintWelcomeMessage()
 {
 	std::string message=
@@ -372,64 +306,35 @@ void PrintWelcomeMessage()
 	"---------------------------------------------\n"
 	"---------------------------------------------"
 	"---------------------------------------------\n";
-
-	utilities::cout.MainOutput()<<message<<std::endl;
-	
+	utilities::cout.MainOutput() << message << std::endl;
 	return;
 }
 
-//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\//
-
-////////////////////////////////////////////////////////////////////////////////
-//! \brief Converts command line arguments into parameters values in global
+//!
+//! Converts command line arguments into parameters values in global
 //!	data structures. 
 //!
-////////////////////////////////////////////////////////////////////////////////
-
 boost::program_options::variables_map ParseComandLine(
 	int argc,	    //!<	Number of characters to parse
 	char *argv[])   //!<	Character array to parse
 {
 	namespace po = boost::program_options;
-
-	//  Declare general program options
-	
 	po::options_description general("General options");
 	general.add_options()
 	("help,h", 
 	 "Display this message\n")
 	("verbose,v",po::value<int>()->default_value(1),
-	"Set a value for the verbosity level:\n\t 0 output off (after command line parsed) \n\t 1 print brief information \n\t 2 print more detialed information \n\t 4 print debugging messages");
-
-	//	Combine all the option groups into one
+	 "Set a value for the verbosity level:\n\t 0 output off (after command line parsed) \n\t 1 print brief information \n\t 2 print more detialed information \n\t 4 print debugging messages");
 	po::options_description all("\tThe program input options are as follows");
 	all.add(general).add(FQHE::GetWaveFunctionOptions()).add(FQHE::GetCompositeFermionOptions()).add(FQHE::GetMetropolisOptions());
-	
-	//	Map the command line argument onto the option set
 	po::variables_map vm;
 	po::store(po::parse_command_line(argc, argv,all), vm);
 	po::notify(vm);
-	
-	//	Respond to help option declaration
 	if(vm.count("help")) 
 	{
 		utilities::cout.MainOutput() << all << "\n";
 		exit(EXIT_SUCCESS);
 	}
-	
-	//  Set global verbosity level
-	
 	utilities::cout.SetVerbosity(vm["verbose"].as<int>());
-	
-	//////////////////////////////////////////////////////////////////////////////////
-	#if _DEBUG_
-
-    utilities::cout.SetVerbosity(4);
-
-	#endif
-	//////////////////////////////////////////////////////////////////////////////////
-
 	return vm;
 }
-
-//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\//

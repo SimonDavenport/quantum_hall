@@ -202,8 +202,7 @@ iqhe_exact_entanglement_spectrum/iqhe_rses/iqhe_rses.o: \
  iqhe_exact_entanglement_spectrum/iqhe_rses/../../utilities/wrappers/../general/dcmplx_type_def.hpp \
  iqhe_exact_entanglement_spectrum/iqhe_rses/../../utilities/wrappers/../general/template_tools.hpp \
  iqhe_exact_entanglement_spectrum/iqhe_rses/../../utilities/general/pi_const_def.hpp \
- iqhe_exact_entanglement_spectrum/iqhe_rses/../../utilities/mathematics/binomial_table.hpp \
- iqhe_exact_entanglement_spectrum/iqhe_rses/../../utilities/mathematics/combinatorics.hpp \
+ iqhe_exact_entanglement_spectrum/iqhe_rses/../../utilities/mathematics/binomials.hpp \
  iqhe_exact_entanglement_spectrum/iqhe_rses/../../utilities/general/cout_tools.hpp \
  /usr/local/include/boost/program_options.hpp \
  /usr/local/include/boost/program_options/options_description.hpp \
@@ -1311,9 +1310,7 @@ iqhe_exact_entanglement_spectrum/iqhe_rses/../../utilities/wrappers/../general/t
 
 iqhe_exact_entanglement_spectrum/iqhe_rses/../../utilities/general/pi_const_def.hpp:
 
-iqhe_exact_entanglement_spectrum/iqhe_rses/../../utilities/mathematics/binomial_table.hpp:
-
-iqhe_exact_entanglement_spectrum/iqhe_rses/../../utilities/mathematics/combinatorics.hpp:
+iqhe_exact_entanglement_spectrum/iqhe_rses/../../utilities/mathematics/binomials.hpp:
 
 iqhe_exact_entanglement_spectrum/iqhe_rses/../../utilities/general/cout_tools.hpp:
 

@@ -58,7 +58,7 @@ fqhe_wave_function_algorithms/moore_read.cpp \
 fqhe_wave_function_algorithms/nass.cpp \
 fqhe_wave_function_algorithms/parafermion.cpp \
 utilities/mathematics/mt.cpp \
-utilities/mathematics/binomial_table.cpp \
+utilities/mathematics/binomials.cpp \
 utilities/mathematics/theta_functions.cpp \
 utilities/mathematics/binary_number_tools.cpp \
 utilities/wrappers/mpi_wrapper.cpp
@@ -73,7 +73,7 @@ fqhe_wave_function_algorithms/moore_read.cpp \
 fqhe_wave_function_algorithms/nass.cpp \
 fqhe_wave_function_algorithms/parafermion.cpp \
 utilities/mathematics/mt.cpp \
-utilities/mathematics/binomial_table.cpp \
+utilities/mathematics/binomials.cpp \
 utilities/mathematics/theta_functions.cpp \
 utilities/mathematics/binary_number_tools.cpp \
 utilities/mathematics/murmur_hash2.cpp \
@@ -106,7 +106,7 @@ fqhe_entanglement_spectrum_LINK = $(FC) $(LDFLAGS) -o fqhe_entanglement_spectrum
 iqhe_entanglement_spectrum_SOURCES = \
 iqhe_exact_entanglement_spectrum/main/iqhe_entanglement_spectrum.cpp \
 iqhe_exact_entanglement_spectrum/iqhe_rses/iqhe_rses.cpp \
-utilities/mathematics/binomial_table.cpp \
+utilities/mathematics/binomials.cpp \
 occupation_basis/occupation_basis.cpp \
 utilities/mathematics/integer_partitions.cpp
 

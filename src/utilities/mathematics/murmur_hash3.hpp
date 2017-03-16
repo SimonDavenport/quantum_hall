@@ -2,8 +2,8 @@
 // MurmurHash3 was written by Austin Appleby, and is placed in the public
 // domain. The author hereby disclaims copyright to this source code.
 
-#ifndef _MURMURHASH3_HPP_INCLUDED_
-#define _MURMURHASH3_HPP_INCLUDED_
+#ifndef _MURMURHASH3_HPP_
+#define _MURMURHASH3_HPP_
 
 //-----------------------------------------------------------------------------
 // Platform-specific functions and macros

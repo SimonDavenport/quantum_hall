@@ -1,4 +1,3 @@
-# quantum_hall_entanglement
 A collection of programs for the analysis of fractional quanutm Hall wave functions. 
 
 Applications of the code are described in more detail in these research papers:

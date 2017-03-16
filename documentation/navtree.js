@@ -1,6 +1,6 @@
 var NAVTREE =
 [
-  [ "Quantum Hall entanglement program suite", "index.html", [
+  [ "Quantum Hall Programs", "index.html", [
     [ "Todo List", "todo.html", null ],
     [ "Namespaces", null, [
       [ "Namespace List", "namespaces.html", "namespaces" ],
@@ -25,7 +25,7 @@ var NAVTREE =
     [ "Files", null, [
       [ "File List", "files.html", "files" ],
       [ "File Members", "globals.html", [
-        [ "All", "globals.html", null ],
+        [ "All", "globals.html", "globals_dup" ],
         [ "Functions", "globals_func.html", null ],
         [ "Variables", "globals_vars.html", null ],
         [ "Typedefs", "globals_type.html", null ],
@@ -40,11 +40,11 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "algebra_8cpp.html",
-"classFQHE_1_1NonAbelianSpinSinglet.html#a4369e5194f3232204c14b95b97b008be",
-"classutilities_1_1HpWrap.html#aeed82235818721a6bf3a69c94c01e6b4",
-"fqhe__entanglement__spectrum_8cpp_source.html",
-"metropolis_8cpp.html",
-"structutilities_1_1MpiWrapper.html#a1d31948bddf8be850cc7914c97138b1f"
+"classFQHE_1_1NonAbelianSpinSinglet.html#ac8a05ef1ff63010c27a4c59a83962cf9",
+"classutilities_1_1HpWrap.html#a01e308e4265f77f1277f532e8ee5cd38",
+"fqhe__entanglement__spectrum_8cpp.html",
+"lapack__wrapper_8hpp.html#a0aa53e0f6c5e51fb3ea9a461ac8787dd",
+"structFQHE_1_1WaveFunctionData.html#a362a29f085fcee58fa7a704ef25cd231"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

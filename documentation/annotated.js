@@ -1,14 +1,16 @@
 var annotated =
 [
-    [ "analysis", "namespaceanalysis.html", null ],
     [ "FQHE", "namespaceFQHE.html", "namespaceFQHE" ],
     [ "myOptions", "namespacemyOptions.html", null ],
     [ "occupationBasis", "namespaceoccupationBasis.html", null ],
     [ "utilities", "namespaceutilities.html", "namespaceutilities" ],
-    [ "analysis_options_t", "structanalysis__options__t.html", "structanalysis__options__t" ],
     [ "AnalysisMethods", "classAnalysisMethods.html", "classAnalysisMethods" ],
+    [ "AnalysisOptions", "structAnalysisOptions.html", "structAnalysisOptions" ],
+    [ "CMurmurHash2A", "classCMurmurHash2A.html", "classCMurmurHash2A" ],
     [ "EntanglementEnergyModel", "classEntanglementEnergyModel.html", "classEntanglementEnergyModel" ],
     [ "GeneralOptions", "structGeneralOptions.html", "structGeneralOptions" ],
+    [ "Gnuplot", "classGnuplot.html", "classGnuplot" ],
+    [ "GnuplotException", "classGnuplotException.html", "classGnuplotException" ],
     [ "HilbertSpace", "classHilbertSpace.html", "classHilbertSpace" ],
     [ "IqheRses", "classIqheRses.html", "classIqheRses" ],
     [ "ListOfTerms", "classListOfTerms.html", "classListOfTerms" ],
@@ -17,6 +19,5 @@ var annotated =
     [ "MetropOptions", "structMetropOptions.html", "structMetropOptions" ],
     [ "Params", "structParams.html", "structParams" ],
     [ "Term", "classTerm.html", "classTerm" ],
-    [ "Wave_Functions", "classWave__Functions.html", "classWave__Functions" ],
-    [ "wavefunction_data_t", "structwavefunction__data__t.html", "structwavefunction__data__t" ]
+    [ "Wave_Functions", "classWave__Functions.html", "classWave__Functions" ]
 ];

@@ -1,7 +1,10 @@
 var structFQHE_1_1WaveFunctionData =
 [
     [ "WaveFunctionData", "structFQHE_1_1WaveFunctionData.html#ae8e6e08175242e0f2eca3c0d7d08f8e7", null ],
+    [ "CheckAndPrint", "structFQHE_1_1WaveFunctionData.html#a9c0d08758a348228aa3de1c92dfa0001", null ],
+    [ "GenerateFileName", "structFQHE_1_1WaveFunctionData.html#aca5ece3ace9c3723e0750f4754427df7", null ],
     [ "InitFromCommandLine", "structFQHE_1_1WaveFunctionData.html#aab618ba919e9da3da6cefc9c9f7225cf", null ],
+    [ "InitRadius", "structFQHE_1_1WaveFunctionData.html#afaaf7b5cbfbf925e898e0ed791d8dff0", null ],
     [ "fillDenominator", "structFQHE_1_1WaveFunctionData.html#a2312c6ac7c34aa94fcc960cd273eacea", null ],
     [ "fillingFactor", "structFQHE_1_1WaveFunctionData.html#af60b2dce336abb39ee8e072be6d7e8f5", null ],
     [ "fillNumerator", "structFQHE_1_1WaveFunctionData.html#a94d41c668db3e1d13879b4bc54b22d04", null ],
@@ -17,6 +20,7 @@ var structFQHE_1_1WaveFunctionData =
     [ "nbrUp", "structFQHE_1_1WaveFunctionData.html#a9f6e5e5d6b4d9caed8f6ac6dc71c2c2f", null ],
     [ "path", "structFQHE_1_1WaveFunctionData.html#a7cf117cb3ee29bde8b6f1e54de674b87", null ],
     [ "shift", "structFQHE_1_1WaveFunctionData.html#ac16dca84bc87e8fdfc31dab0845af9e9", null ],
+    [ "sphereRadius", "structFQHE_1_1WaveFunctionData.html#a7d0ba343307beecc7f7ac1f8bfb9c4e5", null ],
     [ "statistics", "structFQHE_1_1WaveFunctionData.html#af01ebbe8e77d92cd96f28631c25062b9", null ],
     [ "type", "structFQHE_1_1WaveFunctionData.html#a362a29f085fcee58fa7a704ef25cd231", null ],
     [ "wfFileName", "structFQHE_1_1WaveFunctionData.html#a15147655f4e10d8c77ca05f4af427cb9", null ],

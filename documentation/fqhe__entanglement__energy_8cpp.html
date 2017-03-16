@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Quantum Hall entanglement program suite: fqhe_entanglement_energy.cpp File Reference</title>
+<title>Quantum Hall Programs: fqhe_entanglement_energy.cpp File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -29,7 +29,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Quantum Hall entanglement program suite
+   <div id="projectname">Quantum Hall Programs
    &#160;<span id="projectnumber">Version 1.0</span>
    </div>
   </td>
@@ -109,11 +109,11 @@ $(document).ready(function(){initNavTree('fqhe__entanglement__energy_8cpp.html',
 <div class="title">fqhe_entanglement_energy.cpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="entanglement__energy__model_8h_source.html">../entanglement_energy_model/entanglement_energy_model.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="general__options_8h_source.html">../../program_options/general_options.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="rses__options_8h_source.html">../../program_options/rses_options.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="cout__tools_8h_source.html">../../utilities/general/cout_tools.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="mpi__wrapper_8h_source.html">../../utilities/wrappers/mpi_wrapper.h</a>&quot;</code><br/>
+<div class="textblock"><code>#include &quot;<a class="el" href="entanglement__energy__model_8hpp_source.html">../entanglement_energy_model/entanglement_energy_model.hpp</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="general__options_8hpp_source.html">../../program_options/general_options.hpp</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="rses__options_8hpp_source.html">../../program_options/rses_options.hpp</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="cout__tools_8hpp_source.html">../../utilities/general/cout_tools.hpp</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="mpi__wrapper_8hpp_source.html">../../utilities/wrappers/mpi_wrapper.hpp</a>&quot;</code><br/>
 </div>
 <p><a href="fqhe__entanglement__energy_8cpp_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -168,72 +168,72 @@ Functions</h2></td></tr>
 <li>It generates the entanglement energies associated with that basis </li>
 </ul>
 
-<p>Definition at line <a class="el" href="fqhe__entanglement__energy_8cpp_source.html#l00060">60</a> of file <a class="el" href="fqhe__entanglement__energy_8cpp_source.html">fqhe_entanglement_energy.cpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;{<span class="comment"></span></div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="comment">    ///////     PARSE THE COMMAND LINE OPTIONS      ////////////////////////////</span></div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keywordtype">double</span> timer = clock();</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="comment">//  Declare a command line variables map</span></div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    boost::program_options::variables_map optionList;</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    optionList = <a class="code" href="fqhe__entanglement__energy_8cpp.html#ad527328b58a62b8cd63b738fbfcb607b">ParseComandLine</a>(argc,argv);</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    </div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="comment">//  Diagonalize the specified number of sectors</span></div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keywordtype">int</span> sector       = optionList[<span class="stringliteral">&quot;sector&quot;</span>].as&lt;<span class="keywordtype">int</span>&gt;(); </div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keywordtype">int</span> minSector    = optionList[<span class="stringliteral">&quot;min-sector&quot;</span>].as&lt;<span class="keywordtype">int</span>&gt;();</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keywordtype">int</span> maxSector    = optionList[<span class="stringliteral">&quot;max-sector&quot;</span>].as&lt;<span class="keywordtype">int</span>&gt;();</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keywordtype">bool</span> multiSector = optionList[<span class="stringliteral">&quot;multi-sector&quot;</span>].as&lt;<span class="keywordtype">bool</span>&gt;();</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="keywordflow">if</span>(maxSector!=minSector)</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    {</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        multiSector = <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    }</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="keywordflow">if</span>(multiSector)</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    {</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        <span class="keywordflow">if</span>(maxSector&lt;minSector)</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        {</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;            std::cerr&lt;&lt;<span class="stringliteral">&quot;WARNING: max-sector &lt; min-sector. Automatically swapped!&quot;</span>&lt;&lt;std::endl;</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;            </div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;            maxSector = minSector;</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        }</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    }</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    {</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        maxSector = sector;</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        minSector = sector;</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    }</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    </div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    <span class="comment">//  Print summary of program options</span></div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <a class="code" href="namespaceutilities.html#a8bd217ae821e52872836b15f651f5d9f">utilities::cout</a>.<a class="code" href="classutilities_1_1Cout.html#a903fe4ad596cdce91e00004bc21b7e6a">MainOutput</a>()&lt;&lt;<a class="code" href="namespaceutilities.html#a8bd217ae821e52872836b15f651f5d9f">utilities::cout</a>.<a class="code" href="classutilities_1_1Cout.html#a32816eb34876496e69d2c73461537c41">EqualsLine</a>()&lt;&lt;std::endl&lt;&lt;<a class="code" href="namespaceutilities.html#a8bd217ae821e52872836b15f651f5d9f">utilities::cout</a>.<a class="code" href="classutilities_1_1Cout.html#a32816eb34876496e69d2c73461537c41">EqualsLine</a>()&lt;&lt;std::endl;</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <a class="code" href="namespaceutilities.html#a8bd217ae821e52872836b15f651f5d9f">utilities::cout</a>.<a class="code" href="classutilities_1_1Cout.html#a903fe4ad596cdce91e00004bc21b7e6a">MainOutput</a>()&lt;&lt;<span class="stringliteral">&quot;\n\tPROGRAM OPTIONS&quot;</span>&lt;&lt;std::endl;</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    <a class="code" href="namespaceutilities.html#a8bd217ae821e52872836b15f651f5d9f">utilities::cout</a>.<a class="code" href="classutilities_1_1Cout.html#a903fe4ad596cdce91e00004bc21b7e6a">MainOutput</a>()&lt;&lt;<span class="stringliteral">&quot;\n\t\tNUMBER OF PARTICLES\t&quot;</span>&lt;&lt;optionList[<span class="stringliteral">&quot;nbr-n&quot;</span>].as&lt;<span class="keywordtype">int</span>&gt;()&lt;&lt;std::endl;</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    <a class="code" href="namespaceutilities.html#a8bd217ae821e52872836b15f651f5d9f">utilities::cout</a>.<a class="code" href="classutilities_1_1Cout.html#a903fe4ad596cdce91e00004bc21b7e6a">MainOutput</a>()&lt;&lt;<span class="stringliteral">&quot;\n\t\tN_A PARTICLE IN THE CUT\t&quot;</span>&lt;&lt;optionList[<span class="stringliteral">&quot;nbr-a&quot;</span>].as&lt;<span class="keywordtype">int</span>&gt;()&lt;&lt;std::endl;</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    <span class="keywordflow">if</span>(!multiSector)    <a class="code" href="namespaceutilities.html#a8bd217ae821e52872836b15f651f5d9f">utilities::cout</a>.<a class="code" href="classutilities_1_1Cout.html#a903fe4ad596cdce91e00004bc21b7e6a">MainOutput</a>()&lt;&lt;<span class="stringliteral">&quot;\n\t\tSECTOR\t\t\t&quot;</span>&lt;&lt;optionList[<span class="stringliteral">&quot;sector&quot;</span>].as&lt;<span class="keywordtype">int</span>&gt;()&lt;&lt;std::endl;</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    <span class="keywordflow">if</span>(multiSector)     <a class="code" href="namespaceutilities.html#a8bd217ae821e52872836b15f651f5d9f">utilities::cout</a>.<a class="code" href="classutilities_1_1Cout.html#a903fe4ad596cdce91e00004bc21b7e6a">MainOutput</a>()&lt;&lt;<span class="stringliteral">&quot;\n\t\tMAX SECTOR\t\t&quot;</span>&lt;&lt;optionList[<span class="stringliteral">&quot;max-sector&quot;</span>].as&lt;<span class="keywordtype">int</span>&gt;()&lt;&lt;std::endl;</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    <span class="keywordflow">if</span>(multiSector)     <a class="code" href="namespaceutilities.html#a8bd217ae821e52872836b15f651f5d9f">utilities::cout</a>.<a class="code" href="classutilities_1_1Cout.html#a903fe4ad596cdce91e00004bc21b7e6a">MainOutput</a>()&lt;&lt;<span class="stringliteral">&quot;\n\t\tMIN SECTOR\t\t&quot;</span>&lt;&lt;optionList[<span class="stringliteral">&quot;min-sector&quot;</span>].as&lt;<span class="keywordtype">int</span>&gt;()&lt;&lt;std::endl;</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;<span class="comment">    //////      Construct basic entanglement energy model</span></div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;<span class="comment"></span>    </div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    <a class="code" href="classEntanglementEnergyModel.html">EntanglementEnergyModel</a> model;</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    </div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    model.<a class="code" href="classEntanglementEnergyModel.html#a24b349ffc80158ffc17b4518cb1b981d">BuildEntanglementEnergyModel</a>(&amp;optionList,minSector,maxSector);</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    </div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    <a class="code" href="namespaceutilities.html#a8bd217ae821e52872836b15f651f5d9f">utilities::cout</a>.<a class="code" href="classutilities_1_1Cout.html#a903fe4ad596cdce91e00004bc21b7e6a">MainOutput</a>()&lt;&lt;<span class="stringliteral">&quot;\n\tPROGRAM TERMINATED &quot;</span>;</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    <a class="code" href="namespaceutilities.html#a8bd217ae821e52872836b15f651f5d9f">utilities::cout</a>.<a class="code" href="classutilities_1_1Cout.html#a903fe4ad596cdce91e00004bc21b7e6a">MainOutput</a>()&lt;&lt;<span class="stringliteral">&quot;\t\tTIME ELAPSED &quot;</span>&lt;&lt;( clock() - timer ) / CLOCKS_PER_SEC&lt;&lt;<span class="stringliteral">&quot; SECONDS.\n&quot;</span>&lt;&lt;std::endl;</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    <a class="code" href="namespaceutilities.html#a8bd217ae821e52872836b15f651f5d9f">utilities::cout</a>.<a class="code" href="classutilities_1_1Cout.html#a903fe4ad596cdce91e00004bc21b7e6a">MainOutput</a>()&lt;&lt;<a class="code" href="namespaceutilities.html#a8bd217ae821e52872836b15f651f5d9f">utilities::cout</a>.<a class="code" href="classutilities_1_1Cout.html#a32816eb34876496e69d2c73461537c41">EqualsLine</a>()&lt;&lt;std::endl&lt;&lt;<a class="code" href="namespaceutilities.html#a8bd217ae821e52872836b15f651f5d9f">utilities::cout</a>.<a class="code" href="classutilities_1_1Cout.html#a32816eb34876496e69d2c73461537c41">EqualsLine</a>()&lt;&lt;std::endl;</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    <span class="keywordflow">return</span> 0;</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;}</div>
-<div class="ttc" id="classEntanglementEnergyModel_html"><div class="ttname"><a href="classEntanglementEnergyModel.html">EntanglementEnergyModel</a></div><div class="ttdoc">This class implements an ansatz expression for the entanglement energy assigned to FQHE RSES...</div><div class="ttdef"><b>Definition:</b> <a href="entanglement__energy__model_8h_source.html#l00058">entanglement_energy_model.h:58</a></div></div>
-<div class="ttc" id="fqhe__entanglement__energy_8cpp_html_ad527328b58a62b8cd63b738fbfcb607b"><div class="ttname"><a href="fqhe__entanglement__energy_8cpp.html#ad527328b58a62b8cd63b738fbfcb607b">ParseComandLine</a></div><div class="ttdeci">boost::program_options::variables_map ParseComandLine(int argc, char *argv[])</div><div class="ttdoc">A function to parse the command line arguments. </div><div class="ttdef"><b>Definition:</b> <a href="fqhe__entanglement__energy_8cpp_source.html#l00133">fqhe_entanglement_energy.cpp:133</a></div></div>
-<div class="ttc" id="classutilities_1_1Cout_html_a903fe4ad596cdce91e00004bc21b7e6a"><div class="ttname"><a href="classutilities_1_1Cout.html#a903fe4ad596cdce91e00004bc21b7e6a">utilities::Cout::MainOutput</a></div><div class="ttdeci">std::ostream &amp; MainOutput()</div><div class="ttdef"><b>Definition:</b> <a href="cout__tools_8h_source.html#l00130">cout_tools.h:130</a></div></div>
-<div class="ttc" id="namespaceutilities_html_a8bd217ae821e52872836b15f651f5d9f"><div class="ttname"><a href="namespaceutilities.html#a8bd217ae821e52872836b15f651f5d9f">utilities::cout</a></div><div class="ttdeci">Cout cout</div><div class="ttdef"><b>Definition:</b> <a href="fqhe__entanglement__hamiltonian_8cpp_source.html#l00046">fqhe_entanglement_hamiltonian.cpp:46</a></div></div>
-<div class="ttc" id="classutilities_1_1Cout_html_a32816eb34876496e69d2c73461537c41"><div class="ttname"><a href="classutilities_1_1Cout.html#a32816eb34876496e69d2c73461537c41">utilities::Cout::EqualsLine</a></div><div class="ttdeci">std::string EqualsLine()</div><div class="ttdef"><b>Definition:</b> <a href="cout__tools_8h_source.html#l00188">cout_tools.h:188</a></div></div>
-<div class="ttc" id="classEntanglementEnergyModel_html_a24b349ffc80158ffc17b4518cb1b981d"><div class="ttname"><a href="classEntanglementEnergyModel.html#a24b349ffc80158ffc17b4518cb1b981d">EntanglementEnergyModel::BuildEntanglementEnergyModel</a></div><div class="ttdeci">void BuildEntanglementEnergyModel(boost::program_options::variables_map *optionList, const int lzaMin, const int lzaMax) const </div><div class="ttdoc">Apply a 1st order perturbation to the current energy levels. </div><div class="ttdef"><b>Definition:</b> <a href="entanglement__energy__model_8cpp_source.html#l00548">entanglement_energy_model.cpp:548</a></div></div>
+<p>Definition at line <a class="el" href="fqhe__entanglement__energy_8cpp_source.html#l00059">59</a> of file <a class="el" href="fqhe__entanglement__energy_8cpp_source.html">fqhe_entanglement_energy.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;{<span class="comment"></span></div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="comment">    ///////     PARSE THE COMMAND LINE OPTIONS      ////////////////////////////</span></div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keywordtype">double</span> timer = clock();</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="comment">//  Declare a command line variables map</span></div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    boost::program_options::variables_map optionList;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    optionList = <a class="code" href="fqhe__entanglement__energy_8cpp.html#ad527328b58a62b8cd63b738fbfcb607b">ParseComandLine</a>(argc,argv);</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    </div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="comment">//  Diagonalize the specified number of sectors</span></div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keywordtype">int</span> sector       = optionList[<span class="stringliteral">&quot;sector&quot;</span>].as&lt;<span class="keywordtype">int</span>&gt;(); </div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keywordtype">int</span> minSector    = optionList[<span class="stringliteral">&quot;min-sector&quot;</span>].as&lt;<span class="keywordtype">int</span>&gt;();</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keywordtype">int</span> maxSector    = optionList[<span class="stringliteral">&quot;max-sector&quot;</span>].as&lt;<span class="keywordtype">int</span>&gt;();</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keywordtype">bool</span> multiSector = optionList[<span class="stringliteral">&quot;multi-sector&quot;</span>].as&lt;<span class="keywordtype">bool</span>&gt;();</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="keywordflow">if</span>(maxSector!=minSector)</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    {</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        multiSector = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    }</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <span class="keywordflow">if</span>(multiSector)</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    {</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        <span class="keywordflow">if</span>(maxSector&lt;minSector)</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        {</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;            std::cerr&lt;&lt;<span class="stringliteral">&quot;WARNING: max-sector &lt; min-sector. Automatically swapped!&quot;</span>&lt;&lt;std::endl;</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;            </div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;            maxSector = minSector;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        }</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    }</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    {</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        maxSector = sector;</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        minSector = sector;</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    }</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    </div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    <span class="comment">//  Print summary of program options</span></div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    <a class="code" href="namespaceutilities.html#a8bd217ae821e52872836b15f651f5d9f">utilities::cout</a>.<a class="code" href="classutilities_1_1Cout.html#a903fe4ad596cdce91e00004bc21b7e6a">MainOutput</a>()&lt;&lt;<a class="code" href="namespaceutilities.html#a8bd217ae821e52872836b15f651f5d9f">utilities::cout</a>.<a class="code" href="classutilities_1_1Cout.html#a32816eb34876496e69d2c73461537c41">EqualsLine</a>()&lt;&lt;std::endl&lt;&lt;<a class="code" href="namespaceutilities.html#a8bd217ae821e52872836b15f651f5d9f">utilities::cout</a>.<a class="code" href="classutilities_1_1Cout.html#a32816eb34876496e69d2c73461537c41">EqualsLine</a>()&lt;&lt;std::endl;</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <a class="code" href="namespaceutilities.html#a8bd217ae821e52872836b15f651f5d9f">utilities::cout</a>.<a class="code" href="classutilities_1_1Cout.html#a903fe4ad596cdce91e00004bc21b7e6a">MainOutput</a>()&lt;&lt;<span class="stringliteral">&quot;\n\tPROGRAM OPTIONS&quot;</span>&lt;&lt;std::endl;</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <a class="code" href="namespaceutilities.html#a8bd217ae821e52872836b15f651f5d9f">utilities::cout</a>.<a class="code" href="classutilities_1_1Cout.html#a903fe4ad596cdce91e00004bc21b7e6a">MainOutput</a>()&lt;&lt;<span class="stringliteral">&quot;\n\t\tNUMBER OF PARTICLES\t&quot;</span>&lt;&lt;optionList[<span class="stringliteral">&quot;nbr-n&quot;</span>].as&lt;<span class="keywordtype">int</span>&gt;()&lt;&lt;std::endl;</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    <a class="code" href="namespaceutilities.html#a8bd217ae821e52872836b15f651f5d9f">utilities::cout</a>.<a class="code" href="classutilities_1_1Cout.html#a903fe4ad596cdce91e00004bc21b7e6a">MainOutput</a>()&lt;&lt;<span class="stringliteral">&quot;\n\t\tN_A PARTICLE IN THE CUT\t&quot;</span>&lt;&lt;optionList[<span class="stringliteral">&quot;nbr-a&quot;</span>].as&lt;<span class="keywordtype">int</span>&gt;()&lt;&lt;std::endl;</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    <span class="keywordflow">if</span>(!multiSector)    <a class="code" href="namespaceutilities.html#a8bd217ae821e52872836b15f651f5d9f">utilities::cout</a>.<a class="code" href="classutilities_1_1Cout.html#a903fe4ad596cdce91e00004bc21b7e6a">MainOutput</a>()&lt;&lt;<span class="stringliteral">&quot;\n\t\tSECTOR\t\t\t&quot;</span>&lt;&lt;optionList[<span class="stringliteral">&quot;sector&quot;</span>].as&lt;<span class="keywordtype">int</span>&gt;()&lt;&lt;std::endl;</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    <span class="keywordflow">if</span>(multiSector)     <a class="code" href="namespaceutilities.html#a8bd217ae821e52872836b15f651f5d9f">utilities::cout</a>.<a class="code" href="classutilities_1_1Cout.html#a903fe4ad596cdce91e00004bc21b7e6a">MainOutput</a>()&lt;&lt;<span class="stringliteral">&quot;\n\t\tMAX SECTOR\t\t&quot;</span>&lt;&lt;optionList[<span class="stringliteral">&quot;max-sector&quot;</span>].as&lt;<span class="keywordtype">int</span>&gt;()&lt;&lt;std::endl;</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    <span class="keywordflow">if</span>(multiSector)     <a class="code" href="namespaceutilities.html#a8bd217ae821e52872836b15f651f5d9f">utilities::cout</a>.<a class="code" href="classutilities_1_1Cout.html#a903fe4ad596cdce91e00004bc21b7e6a">MainOutput</a>()&lt;&lt;<span class="stringliteral">&quot;\n\t\tMIN SECTOR\t\t&quot;</span>&lt;&lt;optionList[<span class="stringliteral">&quot;min-sector&quot;</span>].as&lt;<span class="keywordtype">int</span>&gt;()&lt;&lt;std::endl;</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;<span class="comment">    //////      Construct basic entanglement energy model</span></div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;<span class="comment"></span>    </div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    <a class="code" href="classEntanglementEnergyModel.html">EntanglementEnergyModel</a> model;</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    </div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    model.<a class="code" href="classEntanglementEnergyModel.html#a24b349ffc80158ffc17b4518cb1b981d">BuildEntanglementEnergyModel</a>(&amp;optionList,minSector,maxSector);</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    </div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    <a class="code" href="namespaceutilities.html#a8bd217ae821e52872836b15f651f5d9f">utilities::cout</a>.<a class="code" href="classutilities_1_1Cout.html#a903fe4ad596cdce91e00004bc21b7e6a">MainOutput</a>()&lt;&lt;<span class="stringliteral">&quot;\n\tPROGRAM TERMINATED &quot;</span>;</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    <a class="code" href="namespaceutilities.html#a8bd217ae821e52872836b15f651f5d9f">utilities::cout</a>.<a class="code" href="classutilities_1_1Cout.html#a903fe4ad596cdce91e00004bc21b7e6a">MainOutput</a>()&lt;&lt;<span class="stringliteral">&quot;\t\tTIME ELAPSED &quot;</span>&lt;&lt;( clock() - timer ) / CLOCKS_PER_SEC&lt;&lt;<span class="stringliteral">&quot; SECONDS.\n&quot;</span>&lt;&lt;std::endl;</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    <a class="code" href="namespaceutilities.html#a8bd217ae821e52872836b15f651f5d9f">utilities::cout</a>.<a class="code" href="classutilities_1_1Cout.html#a903fe4ad596cdce91e00004bc21b7e6a">MainOutput</a>()&lt;&lt;<a class="code" href="namespaceutilities.html#a8bd217ae821e52872836b15f651f5d9f">utilities::cout</a>.<a class="code" href="classutilities_1_1Cout.html#a32816eb34876496e69d2c73461537c41">EqualsLine</a>()&lt;&lt;std::endl&lt;&lt;<a class="code" href="namespaceutilities.html#a8bd217ae821e52872836b15f651f5d9f">utilities::cout</a>.<a class="code" href="classutilities_1_1Cout.html#a32816eb34876496e69d2c73461537c41">EqualsLine</a>()&lt;&lt;std::endl;</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;}</div>
+<div class="ttc" id="classEntanglementEnergyModel_html"><div class="ttname"><a href="classEntanglementEnergyModel.html">EntanglementEnergyModel</a></div><div class="ttdoc">This class implements an ansatz expression for the entanglement energy assigned to FQHE RSES...</div><div class="ttdef"><b>Definition:</b> <a href="entanglement__energy__model_8hpp_source.html#l00051">entanglement_energy_model.hpp:51</a></div></div>
+<div class="ttc" id="fqhe__entanglement__energy_8cpp_html_ad527328b58a62b8cd63b738fbfcb607b"><div class="ttname"><a href="fqhe__entanglement__energy_8cpp.html#ad527328b58a62b8cd63b738fbfcb607b">ParseComandLine</a></div><div class="ttdeci">boost::program_options::variables_map ParseComandLine(int argc, char *argv[])</div><div class="ttdoc">A function to parse the command line arguments. </div><div class="ttdef"><b>Definition:</b> <a href="fqhe__entanglement__energy_8cpp_source.html#l00132">fqhe_entanglement_energy.cpp:132</a></div></div>
+<div class="ttc" id="classutilities_1_1Cout_html_a903fe4ad596cdce91e00004bc21b7e6a"><div class="ttname"><a href="classutilities_1_1Cout.html#a903fe4ad596cdce91e00004bc21b7e6a">utilities::Cout::MainOutput</a></div><div class="ttdeci">std::ostream &amp; MainOutput()</div><div class="ttdef"><b>Definition:</b> <a href="cout__tools_8hpp_source.html#l00118">cout_tools.hpp:118</a></div></div>
+<div class="ttc" id="namespaceutilities_html_a8bd217ae821e52872836b15f651f5d9f"><div class="ttname"><a href="namespaceutilities.html#a8bd217ae821e52872836b15f651f5d9f">utilities::cout</a></div><div class="ttdeci">Cout cout</div><div class="ttdef"><b>Definition:</b> <a href="fqhe__entanglement__hamiltonian_8cpp_source.html#l00041">fqhe_entanglement_hamiltonian.cpp:41</a></div></div>
+<div class="ttc" id="classutilities_1_1Cout_html_a32816eb34876496e69d2c73461537c41"><div class="ttname"><a href="classutilities_1_1Cout.html#a32816eb34876496e69d2c73461537c41">utilities::Cout::EqualsLine</a></div><div class="ttdeci">std::string EqualsLine()</div><div class="ttdef"><b>Definition:</b> <a href="cout__tools_8hpp_source.html#l00164">cout_tools.hpp:164</a></div></div>
+<div class="ttc" id="classEntanglementEnergyModel_html_a24b349ffc80158ffc17b4518cb1b981d"><div class="ttname"><a href="classEntanglementEnergyModel.html#a24b349ffc80158ffc17b4518cb1b981d">EntanglementEnergyModel::BuildEntanglementEnergyModel</a></div><div class="ttdeci">void BuildEntanglementEnergyModel(boost::program_options::variables_map *optionList, const int lzaMin, const int lzaMax) const </div><div class="ttdoc">Apply a 1st order perturbation to the current energy levels. </div><div class="ttdef"><b>Definition:</b> <a href="entanglement__energy__model_8cpp_source.html#l00372">entanglement_energy_model.cpp:372</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -264,59 +264,59 @@ Functions</h2></td></tr>
 <p>A function to parse the command line arguments. </p>
 <dl class="section return"><dt>Returns</dt><dd>An instance of the boost program options variables map containing the parsed command line arguments </dd></dl>
 
-<p>Definition at line <a class="el" href="fqhe__entanglement__energy_8cpp_source.html#l00133">133</a> of file <a class="el" href="fqhe__entanglement__energy_8cpp_source.html">fqhe_entanglement_energy.cpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;{</div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;    <span class="keyword">namespace </span>po = boost::program_options;</div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;</div>
-<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;    <span class="comment">//  Combine all the option groups into one</span></div>
-<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;    po::options_description allOpt(<span class="stringliteral">&quot;\n\n\tThis program is designed to calculate an entanglement energy spectrum due to a single particle entanglement energy model. \n\n\tThe program input options are as follows&quot;</span>);</div>
-<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;    <span class="comment">//allOpt.add_options()</span></div>
-<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;    <span class="comment">//(&quot;use-perturbation&quot;,po::value&lt;bool&gt;()-&gt;default_value(false),</span></div>
-<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;    <span class="comment">//&quot;Set to 1 in order to include 1st order perturbation correction\n&quot;);</span></div>
-<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;    </div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;    allOpt.add(<a class="code" href="namespacemyOptions.html#a678b4f6d1ea2b2814283e6fbb21c50b7">myOptions::GetGeneralOptions</a>()).add(<a class="code" href="namespacemyOptions.html#a9f8e2a15c168fc3e40dde8b98a7b5cce">myOptions::GetEntanglementSpectrumOptions</a>());</div>
-<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;</div>
-<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;    po::variables_map vm;</div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;    </div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;    <span class="keywordflow">try</span></div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;    {</div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;        <span class="comment">//  Map the command line argument onto the option set</span></div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;        po::store(po::parse_command_line(argc, argv,allOpt), vm);</div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;        </div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;        <span class="comment">//  Respond to help option declaration</span></div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;        <span class="keywordflow">if</span> (vm.count(<span class="stringliteral">&quot;help&quot;</span>))</div>
-<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;        {</div>
-<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;            <a class="code" href="namespaceutilities.html#a8bd217ae821e52872836b15f651f5d9f">utilities::cout</a>.<a class="code" href="classutilities_1_1Cout.html#a903fe4ad596cdce91e00004bc21b7e6a">MainOutput</a>() &lt;&lt; allOpt &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;            exit(EXIT_SUCCESS);</div>
-<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;        }</div>
-<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;        </div>
-<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;        po::notify(vm);</div>
-<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;    }</div>
-<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;    <span class="keywordflow">catch</span>(po::error&amp; e)</div>
-<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;    {</div>
-<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;        <a class="code" href="namespaceutilities.html#a8bd217ae821e52872836b15f651f5d9f">utilities::cout</a>.<a class="code" href="classutilities_1_1Cout.html#a903fe4ad596cdce91e00004bc21b7e6a">MainOutput</a>()&lt;&lt;allOpt&lt;&lt;std::endl;</div>
-<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;        </div>
-<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;        std::cerr&lt;&lt;<a class="code" href="namespaceutilities.html#a8bd217ae821e52872836b15f651f5d9f">utilities::cout</a>.<a class="code" href="classutilities_1_1Cout.html#a7005fe66e9fa7629785fbb8ed0615ab0">HyphenLine</a>()&lt;&lt;std::endl;</div>
-<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;        </div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;        std::cerr&lt;&lt;std::endl&lt;&lt;<span class="stringliteral">&quot;\tERROR:\t&quot;</span>&lt;&lt;e.what()&lt;&lt;std::endl;</div>
-<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;        </div>
-<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;        std::cerr&lt;&lt;std::endl&lt;&lt;<a class="code" href="namespaceutilities.html#a8bd217ae821e52872836b15f651f5d9f">utilities::cout</a>.<a class="code" href="classutilities_1_1Cout.html#a7005fe66e9fa7629785fbb8ed0615ab0">HyphenLine</a>()&lt;&lt;std::endl;</div>
-<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;        </div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;        exit(EXIT_FAILURE);</div>
-<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;    }</div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;            </div>
-<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;    <span class="comment">//  Set global verbosity level</span></div>
-<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;    </div>
-<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;    <a class="code" href="namespaceutilities.html#a8bd217ae821e52872836b15f651f5d9f">utilities::cout</a>.<a class="code" href="classutilities_1_1Cout.html#ab8a49777c3ee10a0d280f6609b75ea0f">SetVerbosity</a>(vm[<span class="stringliteral">&quot;verbose&quot;</span>].as&lt;int&gt;());</div>
-<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;</div>
-<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;    <span class="keywordflow">return</span> vm;</div>
-<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;}</div>
-<div class="ttc" id="classutilities_1_1Cout_html_a903fe4ad596cdce91e00004bc21b7e6a"><div class="ttname"><a href="classutilities_1_1Cout.html#a903fe4ad596cdce91e00004bc21b7e6a">utilities::Cout::MainOutput</a></div><div class="ttdeci">std::ostream &amp; MainOutput()</div><div class="ttdef"><b>Definition:</b> <a href="cout__tools_8h_source.html#l00130">cout_tools.h:130</a></div></div>
-<div class="ttc" id="namespaceutilities_html_a8bd217ae821e52872836b15f651f5d9f"><div class="ttname"><a href="namespaceutilities.html#a8bd217ae821e52872836b15f651f5d9f">utilities::cout</a></div><div class="ttdeci">Cout cout</div><div class="ttdef"><b>Definition:</b> <a href="fqhe__entanglement__hamiltonian_8cpp_source.html#l00046">fqhe_entanglement_hamiltonian.cpp:46</a></div></div>
-<div class="ttc" id="classutilities_1_1Cout_html_a7005fe66e9fa7629785fbb8ed0615ab0"><div class="ttname"><a href="classutilities_1_1Cout.html#a7005fe66e9fa7629785fbb8ed0615ab0">utilities::Cout::HyphenLine</a></div><div class="ttdeci">std::string HyphenLine()</div><div class="ttdef"><b>Definition:</b> <a href="cout__tools_8h_source.html#l00178">cout_tools.h:178</a></div></div>
-<div class="ttc" id="namespacemyOptions_html_a9f8e2a15c168fc3e40dde8b98a7b5cce"><div class="ttname"><a href="namespacemyOptions.html#a9f8e2a15c168fc3e40dde8b98a7b5cce">myOptions::GetEntanglementSpectrumOptions</a></div><div class="ttdeci">po::options_description GetEntanglementSpectrumOptions()</div><div class="ttdef"><b>Definition:</b> <a href="rses__options_8h_source.html#l00038">rses_options.h:38</a></div></div>
-<div class="ttc" id="namespacemyOptions_html_a678b4f6d1ea2b2814283e6fbb21c50b7"><div class="ttname"><a href="namespacemyOptions.html#a678b4f6d1ea2b2814283e6fbb21c50b7">myOptions::GetGeneralOptions</a></div><div class="ttdeci">po::options_description GetGeneralOptions()</div><div class="ttdef"><b>Definition:</b> <a href="general__options_8h_source.html#l00038">general_options.h:38</a></div></div>
-<div class="ttc" id="classutilities_1_1Cout_html_ab8a49777c3ee10a0d280f6609b75ea0f"><div class="ttname"><a href="classutilities_1_1Cout.html#ab8a49777c3ee10a0d280f6609b75ea0f">utilities::Cout::SetVerbosity</a></div><div class="ttdeci">void SetVerbosity(const short int verbosityLevel)</div><div class="ttdef"><b>Definition:</b> <a href="cout__tools_8h_source.html#l00092">cout_tools.h:92</a></div></div>
+<p>Definition at line <a class="el" href="fqhe__entanglement__energy_8cpp_source.html#l00132">132</a> of file <a class="el" href="fqhe__entanglement__energy_8cpp_source.html">fqhe_entanglement_energy.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;{</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;    <span class="keyword">namespace </span>po = boost::program_options;</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;    <span class="comment">//  Combine all the option groups into one</span></div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;    po::options_description allOpt(<span class="stringliteral">&quot;\n\n\tThis program is designed to calculate an entanglement energy spectrum due to a single particle entanglement energy model. \n\n\tThe program input options are as follows&quot;</span>);</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;    <span class="comment">//allOpt.add_options()</span></div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;    <span class="comment">//(&quot;use-perturbation&quot;,po::value&lt;bool&gt;()-&gt;default_value(false),</span></div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;    <span class="comment">//&quot;Set to 1 in order to include 1st order perturbation correction\n&quot;);</span></div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;    </div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;    allOpt.add(<a class="code" href="namespacemyOptions.html#a678b4f6d1ea2b2814283e6fbb21c50b7">myOptions::GetGeneralOptions</a>()).add(<a class="code" href="namespacemyOptions.html#a9f8e2a15c168fc3e40dde8b98a7b5cce">myOptions::GetEntanglementSpectrumOptions</a>());</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;    po::variables_map vm;</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;    </div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;    <span class="keywordflow">try</span></div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;    {</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;        <span class="comment">//  Map the command line argument onto the option set</span></div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;        po::store(po::parse_command_line(argc, argv,allOpt), vm);</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;        </div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;        <span class="comment">//  Respond to help option declaration</span></div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;        <span class="keywordflow">if</span> (vm.count(<span class="stringliteral">&quot;help&quot;</span>))</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;        {</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;            <a class="code" href="namespaceutilities.html#a8bd217ae821e52872836b15f651f5d9f">utilities::cout</a>.<a class="code" href="classutilities_1_1Cout.html#a903fe4ad596cdce91e00004bc21b7e6a">MainOutput</a>() &lt;&lt; allOpt &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;            exit(EXIT_SUCCESS);</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;        }</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;        </div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;        po::notify(vm);</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;    }</div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;    <span class="keywordflow">catch</span>(po::error&amp; e)</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;    {</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;        <a class="code" href="namespaceutilities.html#a8bd217ae821e52872836b15f651f5d9f">utilities::cout</a>.<a class="code" href="classutilities_1_1Cout.html#a903fe4ad596cdce91e00004bc21b7e6a">MainOutput</a>()&lt;&lt;allOpt&lt;&lt;std::endl;</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;        </div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;        std::cerr&lt;&lt;<a class="code" href="namespaceutilities.html#a8bd217ae821e52872836b15f651f5d9f">utilities::cout</a>.<a class="code" href="classutilities_1_1Cout.html#a7005fe66e9fa7629785fbb8ed0615ab0">HyphenLine</a>()&lt;&lt;std::endl;</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;        </div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;        std::cerr&lt;&lt;std::endl&lt;&lt;<span class="stringliteral">&quot;\tERROR:\t&quot;</span>&lt;&lt;e.what()&lt;&lt;std::endl;</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;        </div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;        std::cerr&lt;&lt;std::endl&lt;&lt;<a class="code" href="namespaceutilities.html#a8bd217ae821e52872836b15f651f5d9f">utilities::cout</a>.<a class="code" href="classutilities_1_1Cout.html#a7005fe66e9fa7629785fbb8ed0615ab0">HyphenLine</a>()&lt;&lt;std::endl;</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;        </div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;        exit(EXIT_FAILURE);</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;    }</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;            </div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;    <span class="comment">//  Set global verbosity level</span></div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;    </div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;    <a class="code" href="namespaceutilities.html#a8bd217ae821e52872836b15f651f5d9f">utilities::cout</a>.<a class="code" href="classutilities_1_1Cout.html#ab8a49777c3ee10a0d280f6609b75ea0f">SetVerbosity</a>(vm[<span class="stringliteral">&quot;verbose&quot;</span>].as&lt;int&gt;());</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;    <span class="keywordflow">return</span> vm;</div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;}</div>
+<div class="ttc" id="classutilities_1_1Cout_html_a903fe4ad596cdce91e00004bc21b7e6a"><div class="ttname"><a href="classutilities_1_1Cout.html#a903fe4ad596cdce91e00004bc21b7e6a">utilities::Cout::MainOutput</a></div><div class="ttdeci">std::ostream &amp; MainOutput()</div><div class="ttdef"><b>Definition:</b> <a href="cout__tools_8hpp_source.html#l00118">cout_tools.hpp:118</a></div></div>
+<div class="ttc" id="namespaceutilities_html_a8bd217ae821e52872836b15f651f5d9f"><div class="ttname"><a href="namespaceutilities.html#a8bd217ae821e52872836b15f651f5d9f">utilities::cout</a></div><div class="ttdeci">Cout cout</div><div class="ttdef"><b>Definition:</b> <a href="fqhe__entanglement__hamiltonian_8cpp_source.html#l00041">fqhe_entanglement_hamiltonian.cpp:41</a></div></div>
+<div class="ttc" id="classutilities_1_1Cout_html_a7005fe66e9fa7629785fbb8ed0615ab0"><div class="ttname"><a href="classutilities_1_1Cout.html#a7005fe66e9fa7629785fbb8ed0615ab0">utilities::Cout::HyphenLine</a></div><div class="ttdeci">std::string HyphenLine()</div><div class="ttdef"><b>Definition:</b> <a href="cout__tools_8hpp_source.html#l00156">cout_tools.hpp:156</a></div></div>
+<div class="ttc" id="namespacemyOptions_html_a9f8e2a15c168fc3e40dde8b98a7b5cce"><div class="ttname"><a href="namespacemyOptions.html#a9f8e2a15c168fc3e40dde8b98a7b5cce">myOptions::GetEntanglementSpectrumOptions</a></div><div class="ttdeci">po::options_description GetEntanglementSpectrumOptions()</div><div class="ttdef"><b>Definition:</b> <a href="rses__options_8hpp_source.html#l00034">rses_options.hpp:34</a></div></div>
+<div class="ttc" id="namespacemyOptions_html_a678b4f6d1ea2b2814283e6fbb21c50b7"><div class="ttname"><a href="namespacemyOptions.html#a678b4f6d1ea2b2814283e6fbb21c50b7">myOptions::GetGeneralOptions</a></div><div class="ttdeci">po::options_description GetGeneralOptions()</div><div class="ttdef"><b>Definition:</b> <a href="general__options_8hpp_source.html#l00034">general_options.hpp:34</a></div></div>
+<div class="ttc" id="classutilities_1_1Cout_html_ab8a49777c3ee10a0d280f6609b75ea0f"><div class="ttname"><a href="classutilities_1_1Cout.html#ab8a49777c3ee10a0d280f6609b75ea0f">utilities::Cout::SetVerbosity</a></div><div class="ttdeci">void SetVerbosity(const short int verbosityLevel)</div><div class="ttdef"><b>Definition:</b> <a href="cout__tools_8hpp_source.html#l00084">cout_tools.hpp:84</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -325,7 +325,7 @@ Functions</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_33f546ffef7a131d933d8bb7558b3921.html">src</a></li><li class="navelem"><a class="el" href="dir_8a6499b4f12c7b4c32a7cabfbbddc846.html">fqhe_entanglement_energy_method</a></li><li class="navelem"><a class="el" href="dir_efaf19a9feda5c4d2788868616a7439b.html">main</a></li><li class="navelem"><a class="el" href="fqhe__entanglement__energy_8cpp.html">fqhe_entanglement_energy.cpp</a></li>
+    <li class="navelem"><a class="el" href="dir_1eca84005c97d3b15b646b4fdfe728e2.html">src</a></li><li class="navelem"><a class="el" href="dir_2fd1d99c971ab960c59111003605f0c1.html">fqhe_entanglement_energy_method</a></li><li class="navelem"><a class="el" href="dir_a2c924c1b78ae4689b32d67e8b6a8c10.html">main</a></li><li class="navelem"><a class="el" href="fqhe__entanglement__energy_8cpp.html">fqhe_entanglement_energy.cpp</a></li>
     <li class="footer">Generated by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>

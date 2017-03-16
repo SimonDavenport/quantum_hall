@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Quantum Hall entanglement program suite: list_of_terms.cpp File Reference</title>
+<title>Quantum Hall Programs: list_of_terms.cpp File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -29,7 +29,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Quantum Hall entanglement program suite
+   <div id="projectname">Quantum Hall Programs
    &#160;<span id="projectnumber">Version 1.0</span>
    </div>
   </td>
@@ -109,7 +109,7 @@ $(document).ready(function(){initNavTree('list__of__terms_8cpp.html','');});
 <div class="title">list_of_terms.cpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="list__of__terms_8h_source.html">list_of_terms.h</a>&quot;</code><br/>
+<div class="textblock"><code>#include &quot;<a class="el" href="list__of__terms_8hpp_source.html">list_of_terms.hpp</a>&quot;</code><br/>
 </div>
 <p><a href="list__of__terms_8cpp_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -121,9 +121,8 @@ Functions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><dl class="section author"><dt>Author</dt><dd>Simon C. Davenport</dd></dl>
-<dl class="section date"><dt>Date</dt><dd>Last Modified: 11/04/2014</dd></dl>
 <p>The <a class="el" href="classListOfTerms.html" title="The ListOfTerms class contains functions to perform recursive commutation operations on matrix elemen...">ListOfTerms</a> class contains a list of <a class="el" href="classTerm.html" title="The Term class contains data to represent a single term in the entanglement Hamiltonian, or a bra or ket vector in its Hilbert space. ">Term</a> objects and functions to perform commutations. </p>
-<pre class="fragment">          Copyright (C) 2014 Simon C Davenport
+<pre class="fragment">          Copyright (C) Simon C Davenport
 </pre><p>This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.</p>
 <p>This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.</p>
 <p>You should have received a copy of the GNU General Public License along with this program. If not, see <a href="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</a>. </p>
@@ -164,31 +163,26 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="list__of__terms_8cpp_source.html#l00039">39</a> of file <a class="el" href="list__of__terms_8cpp_source.html">list_of_terms.cpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;{</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="comment">//  if the operators are the same (not including their coefficient)</span></div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="comment">//  then we can exactly evaluate their inner product</span></div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    </div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">int</span> size = ket.<a class="code" href="classListOfTerms.html#a297a1152dce3880ad70f6c3c08202808">m_operator</a>.size();</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    </div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordtype">double</span> innerProduct = 0.0;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">double</span> zeroTol = 0.0000000000000001;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    </div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keywordflow">if</span>(!fabs(ket.<a class="code" href="classListOfTerms.html#a297a1152dce3880ad70f6c3c08202808">m_operator</a>[0].GetCoefficient())&lt;zeroTol)</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    {</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        <span class="comment">//  Add terms to the inner product only if the ket is non-zero</span></div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    </div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">int</span> <a class="code" href="gamma_8cpp.html#acb559820d9ca11295b4500f179ef6392">i</a>=0;<a class="code" href="gamma_8cpp.html#acb559820d9ca11295b4500f179ef6392">i</a>&lt;size;<a class="code" href="gamma_8cpp.html#acb559820d9ca11295b4500f179ef6392">i</a>++)</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        {</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;            innerProduct += <a class="code" href="list__of__terms_8cpp.html#aab13aa74fabd32a8232ccb84eaff3eb7">InnerProduct</a>(bra,(ket.<a class="code" href="classListOfTerms.html#a297a1152dce3880ad70f6c3c08202808">m_operator</a>[<a class="code" href="gamma_8cpp.html#acb559820d9ca11295b4500f179ef6392">i</a>]));        </div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        }</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    }</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    </div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keywordflow">return</span> innerProduct;</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;}</div>
-<div class="ttc" id="classListOfTerms_html_a297a1152dce3880ad70f6c3c08202808"><div class="ttname"><a href="classListOfTerms.html#a297a1152dce3880ad70f6c3c08202808">ListOfTerms::m_operator</a></div><div class="ttdeci">std::vector&lt; Term &gt; m_operator</div><div class="ttdoc">The Hamiltonian is represented by a vector of Term objects. </div><div class="ttdef"><b>Definition:</b> <a href="list__of__terms_8h_source.html#l00066">list_of_terms.h:66</a></div></div>
+<p>Definition at line <a class="el" href="list__of__terms_8cpp_source.html#l00033">33</a> of file <a class="el" href="list__of__terms_8cpp_source.html">list_of_terms.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;{</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="comment">//  if the operators are the same (not including their coefficient)</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="comment">//  then we can exactly evaluate their inner product</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">int</span> size = ket.<a class="code" href="classListOfTerms.html#a297a1152dce3880ad70f6c3c08202808">m_operator</a>.size();</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordtype">double</span> innerProduct = 0.0;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">double</span> zeroTol = 0.0000000000000001;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keywordflow">if</span>(!fabs(ket.<a class="code" href="classListOfTerms.html#a297a1152dce3880ad70f6c3c08202808">m_operator</a>[0].GetCoefficient()) &lt; zeroTol)</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    {</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <span class="comment">//  Add terms to the inner product only if the ket is non-zero</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">int</span> <a class="code" href="gamma_8cpp.html#acb559820d9ca11295b4500f179ef6392">i</a>=0; <a class="code" href="gamma_8cpp.html#acb559820d9ca11295b4500f179ef6392">i</a>&lt;size; ++<a class="code" href="gamma_8cpp.html#acb559820d9ca11295b4500f179ef6392">i</a>)</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        {</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;            innerProduct += <a class="code" href="list__of__terms_8cpp.html#aab13aa74fabd32a8232ccb84eaff3eb7">InnerProduct</a>(bra, (ket.<a class="code" href="classListOfTerms.html#a297a1152dce3880ad70f6c3c08202808">m_operator</a>[<a class="code" href="gamma_8cpp.html#acb559820d9ca11295b4500f179ef6392">i</a>]));        </div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        }</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    }</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordflow">return</span> innerProduct;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;}</div>
+<div class="ttc" id="classListOfTerms_html_a297a1152dce3880ad70f6c3c08202808"><div class="ttname"><a href="classListOfTerms.html#a297a1152dce3880ad70f6c3c08202808">ListOfTerms::m_operator</a></div><div class="ttdeci">std::vector&lt; Term &gt; m_operator</div><div class="ttdoc">The Hamiltonian is represented by a vector of Term objects. </div><div class="ttdef"><b>Definition:</b> <a href="list__of__terms_8hpp_source.html#l00058">list_of_terms.hpp:58</a></div></div>
 <div class="ttc" id="gamma_8cpp_html_acb559820d9ca11295b4500f179ef6392"><div class="ttname"><a href="gamma_8cpp.html#acb559820d9ca11295b4500f179ef6392">i</a></div><div class="ttdeci">int i</div><div class="ttdef"><b>Definition:</b> <a href="gamma_8cpp_source.html#l00023">gamma.cpp:23</a></div></div>
-<div class="ttc" id="list__of__terms_8cpp_html_aab13aa74fabd32a8232ccb84eaff3eb7"><div class="ttname"><a href="list__of__terms_8cpp.html#aab13aa74fabd32a8232ccb84eaff3eb7">InnerProduct</a></div><div class="ttdeci">double InnerProduct(const Term &amp;bra, const ListOfTerms &amp;ket)</div><div class="ttdoc">Calculate the inner product between a Term object and a Virasoro object. </div><div class="ttdef"><b>Definition:</b> <a href="list__of__terms_8cpp_source.html#l00039">list_of_terms.cpp:39</a></div></div>
+<div class="ttc" id="list__of__terms_8cpp_html_aab13aa74fabd32a8232ccb84eaff3eb7"><div class="ttname"><a href="list__of__terms_8cpp.html#aab13aa74fabd32a8232ccb84eaff3eb7">InnerProduct</a></div><div class="ttdeci">double InnerProduct(const Term &amp;bra, const ListOfTerms &amp;ket)</div><div class="ttdoc">Calculate the inner product between a Term object and a Virasoro object. </div><div class="ttdef"><b>Definition:</b> <a href="list__of__terms_8cpp_source.html#l00033">list_of_terms.cpp:33</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -197,7 +191,7 @@ Functions</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_33f546ffef7a131d933d8bb7558b3921.html">src</a></li><li class="navelem"><a class="el" href="dir_00dd3524cfce1b2284ca7fd5371c6d53.html">fqhe_entanglement_hamiltonian_method</a></li><li class="navelem"><a class="el" href="dir_b278d03cdbd778f919e70bc1a6aead03.html">entanglement_hamiltonian</a></li><li class="navelem"><a class="el" href="list__of__terms_8cpp.html">list_of_terms.cpp</a></li>
+    <li class="navelem"><a class="el" href="dir_1eca84005c97d3b15b646b4fdfe728e2.html">src</a></li><li class="navelem"><a class="el" href="dir_7a5812ff0f8d3f42bc4ce2b267abc8ec.html">fqhe_entanglement_hamiltonian_method</a></li><li class="navelem"><a class="el" href="dir_87064efbeb0a0ba82e7e0a777ab3100b.html">entanglement_hamiltonian</a></li><li class="navelem"><a class="el" href="list__of__terms_8cpp.html">list_of_terms.cpp</a></li>
     <li class="footer">Generated by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>

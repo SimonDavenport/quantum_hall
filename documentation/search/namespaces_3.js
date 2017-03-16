@@ -1,4 +1,7 @@
 var searchData=
 [
-  ['occupationbasis',['occupationBasis',['../namespaceoccupationBasis.html',1,'']]]
+  ['binary',['binary',['../namespaceutilities_1_1binary.html',1,'utilities']]],
+  ['linearalgebra',['linearAlgebra',['../namespaceutilities_1_1linearAlgebra.html',1,'utilities']]],
+  ['thetafunction',['thetaFunction',['../namespaceutilities_1_1thetaFunction.html',1,'utilities']]],
+  ['utilities',['utilities',['../namespaceutilities.html',1,'']]]
 ];

@@ -1,17 +1,15 @@
 var searchData=
 [
-  ['s_5f',['s_',['../classMersenneTwister.html#a606ff6dabe6b19da91c6eb8438799a56',1,'MersenneTwister']]],
-  ['samplefreq',['sampleFreq',['../structFQHE_1_1MonteCarloData.html#a4d73f9df1a628e2bd16b4b6f0e2f824b',1,'FQHE::MonteCarloData']]],
-  ['secllcoulomb',['secllCoulomb',['../structanalysis__options__t.html#a97e56ed8986c511a75d3594866888599',1,'analysis_options_t']]],
-  ['seclltype',['secllType',['../structanalysis__options__t.html#a29e2a9580dbae334174110c70bed8d0f',1,'analysis_options_t']]],
-  ['seed',['seed',['../classAnalysisMethods.html#aa402df86c8638c6a8d1d30222fd5ad4e',1,'AnalysisMethods']]],
-  ['seeded_5fby_5farray_5f',['seeded_by_array_',['../classMersenneTwister.html#a72195748b3bf5840a9e5d85c4190179a',1,'MersenneTwister']]],
-  ['seeded_5fby_5fint_5f',['seeded_by_int_',['../classMersenneTwister.html#a257df452f5cd337768731d944b2b6cfe',1,'MersenneTwister']]],
-  ['shift',['shift',['../structFQHE_1_1WaveFunctionData.html#ac16dca84bc87e8fdfc31dab0845af9e9',1,'FQHE::WaveFunctionData::shift()'],['../structwavefunction__data__t.html#a07fb52f038e994c80989c3fd047e14c8',1,'wavefunction_data_t::shift()']]],
-  ['size_5fof_5fdouble',['SIZE_OF_DOUBLE',['../namespaceFQHE.html#a1b8f8542c505673f13a1c3b29edea400',1,'FQHE::SIZE_OF_DOUBLE()'],['../fqhe__monte__carlo__analysis_8h.html#aaa8dbd02654cf5f1ce460ad57326fe6a',1,'SIZE_OF_DOUBLE():&#160;fqhe_monte_carlo_analysis.h']]],
-  ['size_5fof_5fint',['SIZE_OF_INT',['../namespaceFQHE.html#a9ab47a741eb3a3d46d8aa978cca06551',1,'FQHE::SIZE_OF_INT()'],['../fqhe__monte__carlo__analysis_8h.html#a077ed361b17b3331f4506422a383aaae',1,'SIZE_OF_INT():&#160;fqhe_monte_carlo_analysis.h']]],
-  ['skip',['skip',['../structanalysis__options__t.html#a650a735ba6b936bd706e886b23de832d',1,'analysis_options_t']]],
-  ['spinpolarised',['spinPolarised',['../structFQHE_1_1CompositeFermionData.html#a2aeeaa306f0d5db11224fe15a0ba3425',1,'FQHE::CompositeFermionData::spinPolarised()'],['../structwavefunction__data__t.html#aa1b9e8b744e27659fd70f47d8de908a2',1,'wavefunction_data_t::spinPolarised()']]],
-  ['statistics',['statistics',['../structFQHE_1_1WaveFunctionData.html#af01ebbe8e77d92cd96f28631c25062b9',1,'FQHE::WaveFunctionData']]],
-  ['stddevenergy',['stdDevEnergy',['../classFQHE_1_1Metropolis.html#a1916b2335ca9f0d3d546ed070a604cca',1,'FQHE::Metropolis']]]
+  ['theta',['theta',['../classFQHE_1_1Metropolis.html#a3844d1c9d90e235b25127118facd33a8',1,'FQHE::Metropolis::theta()'],['../classAnalysisMethods.html#ac93e22cd6bfc0d5278a7d114c246f7c0',1,'AnalysisMethods::theta()']]],
+  ['thetafile',['thetaFile',['../classFQHE_1_1Metropolis.html#abf2c453b12406f10396372c585b00198',1,'FQHE::Metropolis']]],
+  ['thetalookuptable',['thetaLookUpTable',['../classutilities_1_1ThetaLookUp.html#acc0fb37828b450049d98d55139160a68',1,'utilities::ThetaLookUp']]],
+  ['thetanew',['thetaNew',['../classFQHE_1_1Metropolis.html#ac629d442064949b3a01c36e4a4d240ed',1,'FQHE::Metropolis']]],
+  ['thetatol',['thetaTol',['../theta__functions_8hpp.html#a23539c6fce54135c8eddbb7b0186b734',1,'theta_functions.hpp']]],
+  ['thickness_5fbg_5fsize',['THICKNESS_BG_SIZE',['../fqhe__monte__carlo__analysis_8hpp.html#acc9e6bc0c47a8d6fb371b741020d201a',1,'fqhe_monte_carlo_analysis.hpp']]],
+  ['thickness_5fpotential_5ffile_5fsize',['THICKNESS_POTENTIAL_FILE_SIZE',['../fqhe__monte__carlo__analysis_8hpp.html#a33dd9b9711f6e8c3505d5390cbb6dba8',1,'fqhe_monte_carlo_analysis.hpp']]],
+  ['thicknessstepsize',['thicknessStepSize',['../structAnalysisOptions.html#ad99009dafeaa6f74bf0f0493b3055848',1,'AnalysisOptions']]],
+  ['to_5fdelete',['to_delete',['../classGnuplot.html#a6326ff7aa2076001a4c2cf9c44b0e3db',1,'Gnuplot']]],
+  ['tol',['tol',['../namespaceFQHE.html#aa4350f3980f88e662239153dc4e1eb23',1,'FQHE']]],
+  ['tomove',['toMove',['../classFQHE_1_1Metropolis.html#a7554ad07393eef4303151157d62c5b49',1,'FQHE::Metropolis']]],
+  ['type',['type',['../structFQHE_1_1WaveFunctionData.html#a362a29f085fcee58fa7a704ef25cd231',1,'FQHE::WaveFunctionData']]]
 ];

@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Quantum Hall entanglement program suite: binary_number_tools.cpp File Reference</title>
+<title>Quantum Hall Programs: binary_number_tools.cpp File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -29,7 +29,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Quantum Hall entanglement program suite
+   <div id="projectname">Quantum Hall Programs
    &#160;<span id="projectnumber">Version 1.0</span>
    </div>
   </td>
@@ -110,17 +110,15 @@ $(document).ready(function(){initNavTree('binary__number__tools_8cpp.html','');}
 <div class="title">binary_number_tools.cpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="binary__number__tools_8h_source.html">binary_number_tools.h</a>&quot;</code><br/>
+<div class="textblock"><code>#include &quot;<a class="el" href="binary__number__tools_8hpp_source.html">binary_number_tools.hpp</a>&quot;</code><br/>
 </div>
 <p><a href="binary__number__tools_8cpp_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
 <tr class="memitem:namespaceutilities"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceutilities.html">utilities</a></td></tr>
-<tr class="memdesc:namespaceutilities"><td class="mdescLeft">&#160;</td><td class="mdescRight">A namespace to contain any functions and utilities that I have written for use with any c++ program. <br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:namespaceutilities_1_1binary"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceutilities_1_1binary.html">utilities::binary</a></td></tr>
-<tr class="memdesc:namespaceutilities_1_1binary"><td class="mdescLeft">&#160;</td><td class="mdescRight">A namespace to contain functions and variables for performing binary number-based manipulations. <br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
@@ -143,18 +141,17 @@ Functions</h2></td></tr>
 <tr class="memitem:a8fd3dff4fc13e185f5537680fc4de9a1"><td class="memItemLeft" align="right" valign="top">uint64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceutilities_1_1binary.html#a8fd3dff4fc13e185f5537680fc4de9a1">utilities::binary::NextHammingNumber64</a> (const uint64_t <a class="el" href="gamma_8cpp.html#af88b946fb90d5f08b5fb740c70e98c10">x</a>)</td></tr>
 <tr class="memdesc:a8fd3dff4fc13e185f5537680fc4de9a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate the next lexicographic permutation of numbers with the same Hamming weight.  <a href="#a8fd3dff4fc13e185f5537680fc4de9a1">More...</a><br/></td></tr>
 <tr class="separator:a8fd3dff4fc13e185f5537680fc4de9a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a148334b428941b0b6656e0a4963c97a3"><td class="memItemLeft" align="right" valign="top">uint64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceutilities_1_1binary.html#a148334b428941b0b6656e0a4963c97a3">utilities::binary::IndexHammingNumber64</a> (const unsigned int hammingWeight,const uint64_t <a class="el" href="gamma_8cpp.html#af88b946fb90d5f08b5fb740c70e98c10">x</a>)</td></tr>
-<tr class="memdesc:a148334b428941b0b6656e0a4963c97a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate the index in the list of lexicographically ordered Hamming numbers assuming all possible numbers are included in order.  <a href="#a148334b428941b0b6656e0a4963c97a3">More...</a><br/></td></tr>
-<tr class="separator:a148334b428941b0b6656e0a4963c97a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:add4813996b3fb49e35dbdb4c6343e2a0"><td class="memItemLeft" align="right" valign="top">uint64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceutilities_1_1binary.html#add4813996b3fb49e35dbdb4c6343e2a0">utilities::binary::GenerateHammingNumber</a> (const unsigned int hammingWeight,const uint64_t index)</td></tr>
-<tr class="memdesc:add4813996b3fb49e35dbdb4c6343e2a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate the Hamming number with the given hamming weight and at a given position in a lexicographic table (without having to generate the full table of lexigographic permutations). This assumes a full list of numbers is going to be indexed.  <a href="#add4813996b3fb49e35dbdb4c6343e2a0">More...</a><br/></td></tr>
-<tr class="separator:add4813996b3fb49e35dbdb4c6343e2a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a49b39eebb3d62e5e6d579d86e3ec0a14"><td class="memItemLeft" align="right" valign="top">uint64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceutilities_1_1binary.html#a49b39eebb3d62e5e6d579d86e3ec0a14">utilities::binary::IndexHammingNumber64</a> (const unsigned int hammingWeight, const uint64_t <a class="el" href="gamma_8cpp.html#af88b946fb90d5f08b5fb740c70e98c10">x</a>)</td></tr>
+<tr class="memdesc:a49b39eebb3d62e5e6d579d86e3ec0a14"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate the index in the list of lexicographically ordered Hamming numbers assuming all possible numbers are included in order.  <a href="#a49b39eebb3d62e5e6d579d86e3ec0a14">More...</a><br/></td></tr>
+<tr class="separator:a49b39eebb3d62e5e6d579d86e3ec0a14"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a39c11644926913e3d2b64bab53fb4f72"><td class="memItemLeft" align="right" valign="top">uint64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceutilities_1_1binary.html#a39c11644926913e3d2b64bab53fb4f72">utilities::binary::GenerateHammingNumber</a> (const unsigned int hammingWeight, const uint64_t index)</td></tr>
+<tr class="memdesc:a39c11644926913e3d2b64bab53fb4f72"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate the Hamming number with the given hamming weight and at a given position in a lexicographic table (without having to generate the full table of lexigographic permutations). This assumes a full list of numbers is going to be indexed.  <a href="#a39c11644926913e3d2b64bab53fb4f72">More...</a><br/></td></tr>
+<tr class="separator:a39c11644926913e3d2b64bab53fb4f72"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><dl class="section author"><dt>Author</dt><dd>Simon C. Davenport</dd></dl>
-<dl class="section date"><dt>Date</dt><dd>Last Modified: 05/04/2014</dd></dl>
 <p>This file contains some efficient algorithms for evaluating the Hamming weight of a binary number - i.e. the number of bits that are set to 1. Also, there are algorithms to generate a list of binary numbers with the same Hamming weight </p>
-<pre class="fragment">           Copyright (C) 2014 Simon C Davenport
+<pre class="fragment">           Copyright (C) Simon C Davenport
 </pre><p>This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.</p>
 <p>This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.</p>
 <p>You should have received a copy of the GNU General Public License along with this program. If not, see <a href="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</a>. </p>
@@ -165,7 +162,7 @@ Functions</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_33f546ffef7a131d933d8bb7558b3921.html">src</a></li><li class="navelem"><a class="el" href="dir_829aefa1eca5cf0116eed6ed557eedfb.html">utilities</a></li><li class="navelem"><a class="el" href="dir_9ee5c71dc167ebbc77b5b8efb95acf4b.html">mathematics</a></li><li class="navelem"><a class="el" href="binary__number__tools_8cpp.html">binary_number_tools.cpp</a></li>
+    <li class="navelem"><a class="el" href="dir_1eca84005c97d3b15b646b4fdfe728e2.html">src</a></li><li class="navelem"><a class="el" href="dir_7cb2ee0345829da386cb0daf8db5d314.html">utilities</a></li><li class="navelem"><a class="el" href="dir_50e42c96d25e3123c968358181f053bf.html">mathematics</a></li><li class="navelem"><a class="el" href="binary__number__tools_8cpp.html">binary_number_tools.cpp</a></li>
     <li class="footer">Generated by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>

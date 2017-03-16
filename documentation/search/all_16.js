@@ -1,9 +1,10 @@
 var searchData=
 [
-  ['v',['v',['../classFQHE_1_1Metropolis.html#a409138468158e98846fb20b4a9c9e3c2',1,'FQHE::Metropolis::v()'],['../classAnalysisMethods.html#a2b90aa7aaaefc0a33c236ce7875e10e7',1,'AnalysisMethods::v()']]],
+  ['v',['v',['../classFQHE_1_1Metropolis.html#ab9b7cf3323200631313ae379950d52e6',1,'FQHE::Metropolis::v()'],['../classAnalysisMethods.html#aa2fb5351fdbef75d01054dd8dbfc802a',1,'AnalysisMethods::v()']]],
+  ['valid',['valid',['../classGnuplot.html#a0155f4026915ed9b05b18c1e89ba9757',1,'Gnuplot']]],
   ['value',['value',['../structutilities_1_1is__same.html#ab673917a2947d1b20eb78a634275118f',1,'utilities::is_same::value()'],['../structutilities_1_1is__same_3_01T_00_01T_01_4.html#a50bbb8aa38b93ee31b90ffb76203b7e8',1,'utilities::is_same&lt; T, T &gt;::value()'],['../structutilities_1_1SizeOfImpl_3_4.html#a3b1f0b484a8427e6f75e33fe3106ba74',1,'utilities::SizeOfImpl&lt;&gt;::Value()'],['../structutilities_1_1SizeOfImpl_3_01T_00_01Ts_8_8_8_4.html#aa7dbf350b28495700f35fc1c7daa6a1d',1,'utilities::SizeOfImpl&lt; T, Ts...&gt;::Value()'],['../structutilities_1_1Compare.html#a89e2246e2af2ed1cd68a012d29a3a2a7',1,'utilities::Compare::Value()'],['../structutilities_1_1Compare_3_01K_00_01__ASCENDING__ORDER___01_4.html#af3e0555bc45423a03a95b3ea8b6ae622',1,'utilities::Compare&lt; K, _ASCENDING_ORDER_ &gt;::Value()'],['../structutilities_1_1Compare_3_01K_00_01__DESCENDING__ORDER___01_4.html#a4e0653a06a30b37d5f4611a24ad6e266',1,'utilities::Compare&lt; K, _DESCENDING_ORDER_ &gt;::Value()'],['../structutilities_1_1Compare_3_01dcmplx_00_01__ASCENDING__ORDER___01_4.html#ae8a81c7dcbe1af4c25274b9dcf1c7e26',1,'utilities::Compare&lt; dcmplx, _ASCENDING_ORDER_ &gt;::Value()'],['../structutilities_1_1Compare_3_01dcmplx_00_01__DESCENDING__ORDER___01_4.html#abd1722332a6c57fddfa4e4f53b5155f1',1,'utilities::Compare&lt; dcmplx, _DESCENDING_ORDER_ &gt;::Value()']]],
   ['vectoroverlap',['VectorOverlap',['../namespaceutilities_1_1linearAlgebra.html#ad13f40cc4a933bcdfc8111ab01b2c24d',1,'utilities::linearAlgebra']]],
   ['vlevel',['vLevel',['../namespaceutilities.html#ab91e73704a0edaa02e48c3aaf68b1e13',1,'utilities']]],
-  ['vnew',['vNew',['../classFQHE_1_1Metropolis.html#aa8654c8e495837f52aec4b051fbe3bc6',1,'FQHE::Metropolis']]],
-  ['vtmp',['vTmp',['../classFQHE_1_1Metropolis.html#ab5b2d76dd572850a0f12340dafc115e1',1,'FQHE::Metropolis']]]
+  ['vnew',['vNew',['../classFQHE_1_1Metropolis.html#a5818f4ce3a9459f6f6293393694a2553',1,'FQHE::Metropolis']]],
+  ['vtmp',['vTmp',['../classFQHE_1_1Metropolis.html#a9039e716aaf99e3899d5f0407ebca6d5',1,'FQHE::Metropolis']]]
 ];

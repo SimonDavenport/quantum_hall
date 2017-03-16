@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['x',['x',['../gamma_8cpp.html#af88b946fb90d5f08b5fb740c70e98c10',1,'gamma.cpp']]]
+  ['y',['y',['../gamma_8cpp.html#ab927965981178aa1fba979a37168db2a',1,'gamma.cpp']]]
 ];

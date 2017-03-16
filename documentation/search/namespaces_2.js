@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['myoptions',['myOptions',['../namespacemyOptions.html',1,'']]]
+  ['occupationbasis',['occupationBasis',['../namespaceoccupationBasis.html',1,'']]]
 ];

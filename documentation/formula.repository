@@ -15,3 +15,4 @@
 \form#14:$ l^i_A = |z|^2 $
 \form#15:$ \sum_i l^i_A=l_z^S $
 \form#16:$ \sum_{-\infty}^{\infty} exp(-\pi*t*(n+a)^2+2*I*\pi(n+a)(z+b)) $
+\form#17:\[ \Phi(L_z^A,Z_A,Z_B) = \int d \phi exp(-2I\pi L_z^A \phi) //! \psi(z_1 exp(2I\pi \phi),\ldots,z_k exp(2I\pi \phi), z_k+1,\ldots z_N) \]

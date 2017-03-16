@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['analysis',['analysis',['../namespaceanalysis.html',1,'']]]
+  ['fqhe',['FQHE',['../namespaceFQHE.html',1,'']]]
 ];

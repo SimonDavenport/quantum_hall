@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Quantum Hall entanglement program suite: gnuplot_i.cpp Source File</title>
+<title>Quantum Hall Programs: gnuplot_i.cpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -29,7 +29,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Quantum Hall entanglement program suite
+   <div id="projectname">Quantum Hall Programs
    &#160;<span id="projectnumber">Version 1.0</span>
    </div>
   </td>
@@ -128,7 +128,7 @@ $(document).ready(function(){initNavTree('gnuplot__i_8cpp_source.html','');});
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment"></span></div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;gnuplot_i.hpp&quot;</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="gnuplot__i_8hpp.html">gnuplot_i.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="gnuplot__i_8cpp.html#a98724840ca52cabedc31eb7a57aca57b">   23</a></span>&#160;<span class="preprocessor">#define PATH_MAXNAMESZ       4096</span></div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">using namespace </span>std;</div>
@@ -172,24 +172,24 @@ $(document).ready(function(){initNavTree('gnuplot__i_8cpp_source.html','');});
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="comment">//</span></div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="comment">// Constructors</span></div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="comment">//</span></div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;Gnuplot::Gnuplot(<span class="keywordtype">void</span>)</div>
+<div class="line"><a name="l00066"></a><span class="lineno"><a class="line" href="classGnuplot.html#a936d27de7b6f57d1f3d61491dc70f1ae">   66</a></span>&#160;<a class="code" href="classGnuplot.html#a936d27de7b6f57d1f3d61491dc70f1ae">Gnuplot::Gnuplot</a>(<span class="keywordtype">void</span>)</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;{</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="keywordflow">if</span> (getenv(<span class="stringliteral">&quot;DISPLAY&quot;</span>) == NULL)</div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;      {</div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        this-&gt;valid = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        <span class="keywordflow">throw</span> GnuplotException(<span class="stringliteral">&quot;cannot find DISPLAY variable&quot;</span>);</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        <span class="keywordflow">throw</span> <a class="code" href="classGnuplotException.html">GnuplotException</a>(<span class="stringliteral">&quot;cannot find DISPLAY variable&quot;</span>);</div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;      }</div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keywordflow">if</span> (!this-&gt;get_program_path(<span class="stringliteral">&quot;gnuplot&quot;</span>))</div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;      {</div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        this-&gt;valid = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        <span class="keywordflow">throw</span> GnuplotException(<span class="stringliteral">&quot;Can&#39;t find gnuplot in your PATH&quot;</span>);</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        <span class="keywordflow">throw</span> <a class="code" href="classGnuplotException.html">GnuplotException</a>(<span class="stringliteral">&quot;Can&#39;t find gnuplot in your PATH&quot;</span>);</div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;      }</div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    </div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    this-&gt;gnucmd = popen(<span class="stringliteral">&quot;gnuplot&quot;</span>,<span class="stringliteral">&quot;w&quot;</span>);</div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="keywordflow">if</span> (!this-&gt;gnucmd)</div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;      {</div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        this-&gt;valid = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        <span class="keywordflow">throw</span> GnuplotException(<span class="stringliteral">&quot;Could&#39;nt open connection to gnuplot&quot;</span>);</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        <span class="keywordflow">throw</span> <a class="code" href="classGnuplotException.html">GnuplotException</a>(<span class="stringliteral">&quot;Could&#39;nt open connection to gnuplot&quot;</span>);</div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;      }</div>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;</div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    this-&gt;set_style(<span class="stringliteral">&quot;points&quot;</span>);</div>
@@ -197,31 +197,31 @@ $(document).ready(function(){initNavTree('gnuplot__i_8cpp_source.html','');});
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    this-&gt;valid = <span class="keyword">true</span>;</div>
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;}</div>
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;Gnuplot::Gnuplot(<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;style)</div>
+<div class="line"><a name="l00091"></a><span class="lineno"><a class="line" href="classGnuplot.html#a4acdc327a6a9eb3c4ab3f37814dce26e">   91</a></span>&#160;<a class="code" href="classGnuplot.html#a936d27de7b6f57d1f3d61491dc70f1ae">Gnuplot::Gnuplot</a>(<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;style)</div>
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;{</div>
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <span class="keywordflow">if</span> (getenv(<span class="stringliteral">&quot;DISPLAY&quot;</span>) == NULL)</div>
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;      {</div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        this-&gt;valid = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        <span class="keywordflow">throw</span> GnuplotException(<span class="stringliteral">&quot;cannot find DISPLAY variable&quot;</span>);</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        <span class="keywordflow">throw</span> <a class="code" href="classGnuplotException.html">GnuplotException</a>(<span class="stringliteral">&quot;cannot find DISPLAY variable&quot;</span>);</div>
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;      }</div>
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    <span class="keywordflow">if</span> (!this-&gt;get_program_path(<span class="stringliteral">&quot;gnuplot&quot;</span>))</div>
 <div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;      {</div>
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;        this-&gt;valid = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        <span class="keywordflow">throw</span> GnuplotException(<span class="stringliteral">&quot;Can&#39;t find gnuplot in your PATH&quot;</span>);</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        <span class="keywordflow">throw</span> <a class="code" href="classGnuplotException.html">GnuplotException</a>(<span class="stringliteral">&quot;Can&#39;t find gnuplot in your PATH&quot;</span>);</div>
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;      }</div>
 <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;</div>
 <div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    this-&gt;gnucmd = popen(<span class="stringliteral">&quot;gnuplot&quot;</span>,<span class="stringliteral">&quot;w&quot;</span>);</div>
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    <span class="keywordflow">if</span> (!this-&gt;gnucmd)</div>
 <div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;      {</div>
 <div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        this-&gt;valid = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        <span class="keywordflow">throw</span> GnuplotException(<span class="stringliteral">&quot;Could&#39;nt open connection to gnuplot&quot;</span>);</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        <span class="keywordflow">throw</span> <a class="code" href="classGnuplotException.html">GnuplotException</a>(<span class="stringliteral">&quot;Could&#39;nt open connection to gnuplot&quot;</span>);</div>
 <div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;      }</div>
 <div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    this-&gt;set_style(style);</div>
 <div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    this-&gt;nplots = 0;</div>
 <div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    this-&gt;valid = <span class="keyword">true</span>;</div>
 <div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;}</div>
 <div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;Gnuplot::Gnuplot(</div>
+<div class="line"><a name="l00115"></a><span class="lineno"><a class="line" href="classGnuplot.html#a93344aa5bd86c3ee4ab37aaa6bff92e0">  115</a></span>&#160;<a class="code" href="classGnuplot.html#a936d27de7b6f57d1f3d61491dc70f1ae">Gnuplot::Gnuplot</a>(</div>
 <div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;         <span class="keyword">const</span> <span class="keywordtype">string</span> &amp;title,</div>
 <div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;         <span class="keyword">const</span> <span class="keywordtype">string</span> &amp;style,</div>
 <div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;         <span class="keyword">const</span> <span class="keywordtype">string</span> &amp;labelx,  <span class="keyword">const</span> <span class="keywordtype">string</span> &amp;labely,</div>
@@ -230,12 +230,12 @@ $(document).ready(function(){initNavTree('gnuplot__i_8cpp_source.html','');});
 <div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    <span class="keywordflow">if</span> (getenv(<span class="stringliteral">&quot;DISPLAY&quot;</span>) == NULL)</div>
 <div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;      {</div>
 <div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;        this-&gt;valid = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;        <span class="keywordflow">throw</span> GnuplotException(<span class="stringliteral">&quot;cannot find DISPLAY variable&quot;</span>);</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;        <span class="keywordflow">throw</span> <a class="code" href="classGnuplotException.html">GnuplotException</a>(<span class="stringliteral">&quot;cannot find DISPLAY variable&quot;</span>);</div>
 <div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;      }</div>
 <div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    <span class="keywordflow">if</span> (!this-&gt;get_program_path(<span class="stringliteral">&quot;gnuplot&quot;</span>))</div>
 <div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;      {</div>
 <div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;        this-&gt;valid = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;        <span class="keywordflow">throw</span> GnuplotException(<span class="stringliteral">&quot;Can&#39;t find gnuplot in your PATH&quot;</span>);</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;        <span class="keywordflow">throw</span> <a class="code" href="classGnuplotException.html">GnuplotException</a>(<span class="stringliteral">&quot;Can&#39;t find gnuplot in your PATH&quot;</span>);</div>
 <div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;      }</div>
 <div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;</div>
 <div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;</div>
@@ -243,14 +243,14 @@ $(document).ready(function(){initNavTree('gnuplot__i_8cpp_source.html','');});
 <div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;    <span class="keywordflow">if</span> (!this-&gt;gnucmd)</div>
 <div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;      {</div>
 <div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;        this-&gt;valid = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;        <span class="keywordflow">throw</span> GnuplotException(<span class="stringliteral">&quot;Could&#39;nt open connection to gnuplot&quot;</span>);</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;        <span class="keywordflow">throw</span> <a class="code" href="classGnuplotException.html">GnuplotException</a>(<span class="stringliteral">&quot;Could&#39;nt open connection to gnuplot&quot;</span>);</div>
 <div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;      }</div>
 <div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;    this-&gt;nplots = 0;</div>
 <div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;    this-&gt;valid = <span class="keyword">true</span>;</div>
 <div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;</div>
 <div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;</div>
 <div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;    <span class="keywordflow">if</span> (x.size() == 0 || y.size() == 0)</div>
-<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;        <span class="keywordflow">throw</span> GnuplotException(<span class="stringliteral">&quot;vectors too small&quot;</span>);</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;        <span class="keywordflow">throw</span> <a class="code" href="classGnuplotException.html">GnuplotException</a>(<span class="stringliteral">&quot;vectors too small&quot;</span>);</div>
 <div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;</div>
 <div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;    <span class="keywordflow">if</span> (style == <span class="stringliteral">&quot;&quot;</span>)</div>
 <div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;        this-&gt;set_style(<span class="stringliteral">&quot;lines&quot;</span>);</div>
@@ -272,21 +272,21 @@ $(document).ready(function(){initNavTree('gnuplot__i_8cpp_source.html','');});
 <div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;    <span class="keywordflow">while</span> (getchar() != <span class="charliteral">&#39;\n&#39;</span>){}</div>
 <div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;}</div>
 <div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;</div>
-<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;Gnuplot::Gnuplot(</div>
+<div class="line"><a name="l00166"></a><span class="lineno"><a class="line" href="classGnuplot.html#a22ec497060171153b0ce321763e9c7f9">  166</a></span>&#160;<a class="code" href="classGnuplot.html#a936d27de7b6f57d1f3d61491dc70f1ae">Gnuplot::Gnuplot</a>(</div>
 <div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;         <span class="keyword">const</span> <span class="keywordtype">string</span> &amp;title,</div>
 <div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;         <span class="keyword">const</span> <span class="keywordtype">string</span> &amp;style,</div>
 <div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;         <span class="keyword">const</span> <span class="keywordtype">string</span> &amp;labelx,  <span class="keyword">const</span> <span class="keywordtype">string</span> &amp;labely,</div>
-<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;         vector&lt;double&gt; x)</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;         vector&lt;double&gt; <a class="code" href="gamma_8cpp.html#af88b946fb90d5f08b5fb740c70e98c10">x</a>)</div>
 <div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;{</div>
 <div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;    <span class="keywordflow">if</span> (getenv(<span class="stringliteral">&quot;DISPLAY&quot;</span>) == NULL)</div>
 <div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;      {</div>
 <div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;        this-&gt;valid = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;        <span class="keywordflow">throw</span> GnuplotException(<span class="stringliteral">&quot;cannot find DISPLAY variable&quot;</span>);</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;        <span class="keywordflow">throw</span> <a class="code" href="classGnuplotException.html">GnuplotException</a>(<span class="stringliteral">&quot;cannot find DISPLAY variable&quot;</span>);</div>
 <div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;      }</div>
 <div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;    <span class="keywordflow">if</span> (!this-&gt;get_program_path(<span class="stringliteral">&quot;gnuplot&quot;</span>))</div>
 <div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;      {</div>
 <div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;        this-&gt;valid = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;        <span class="keywordflow">throw</span> GnuplotException(<span class="stringliteral">&quot;Can&#39;t find gnuplot in your PATH&quot;</span>);</div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;        <span class="keywordflow">throw</span> <a class="code" href="classGnuplotException.html">GnuplotException</a>(<span class="stringliteral">&quot;Can&#39;t find gnuplot in your PATH&quot;</span>);</div>
 <div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;      }</div>
 <div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;</div>
 <div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;</div>
@@ -294,7 +294,7 @@ $(document).ready(function(){initNavTree('gnuplot__i_8cpp_source.html','');});
 <div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;    <span class="keywordflow">if</span> (!this-&gt;gnucmd)</div>
 <div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;      {</div>
 <div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;        this-&gt;valid = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;        <span class="keywordflow">throw</span> GnuplotException(<span class="stringliteral">&quot;Could&#39;nt open connection to gnuplot&quot;</span>);</div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;        <span class="keywordflow">throw</span> <a class="code" href="classGnuplotException.html">GnuplotException</a>(<span class="stringliteral">&quot;Could&#39;nt open connection to gnuplot&quot;</span>);</div>
 <div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;      }</div>
 <div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;    this-&gt;nplots = 0;</div>
 <div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;    this-&gt;valid = <span class="keyword">true</span>;</div>
@@ -304,9 +304,9 @@ $(document).ready(function(){initNavTree('gnuplot__i_8cpp_source.html','');});
 <div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;</div>
 <div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;</div>
 <div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;    <span class="keywordflow">if</span> (x.size() == 0)</div>
-<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;        <span class="keywordflow">throw</span> GnuplotException(<span class="stringliteral">&quot;vector too small&quot;</span>);</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;        <span class="keywordflow">throw</span> <a class="code" href="classGnuplotException.html">GnuplotException</a>(<span class="stringliteral">&quot;vector too small&quot;</span>);</div>
 <div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;    <span class="keywordflow">if</span> (!this-&gt;gnucmd)</div>
-<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;        <span class="keywordflow">throw</span> GnuplotException(<span class="stringliteral">&quot;Could&#39;nt open connection to gnuplot&quot;</span>);</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;        <span class="keywordflow">throw</span> <a class="code" href="classGnuplotException.html">GnuplotException</a>(<span class="stringliteral">&quot;Could&#39;nt open connection to gnuplot&quot;</span>);</div>
 <div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;</div>
 <div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;    <span class="keywordflow">if</span> (style == <span class="stringliteral">&quot;&quot;</span>)</div>
 <div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;        this-&gt;set_style(<span class="stringliteral">&quot;lines&quot;</span>);</div>
@@ -331,7 +331,7 @@ $(document).ready(function(){initNavTree('gnuplot__i_8cpp_source.html','');});
 <div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;<span class="comment">//</span></div>
 <div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;<span class="comment">// Destructor</span></div>
 <div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;<span class="comment">// </span></div>
-<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;Gnuplot::~Gnuplot()</div>
+<div class="line"><a name="l00225"></a><span class="lineno"><a class="line" href="classGnuplot.html#a78a68f621caa87d1f34324fcd093c7bd">  225</a></span>&#160;<a class="code" href="classGnuplot.html#a78a68f621caa87d1f34324fcd093c7bd">Gnuplot::~Gnuplot</a>()</div>
 <div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;{</div>
 <div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;    <span class="keywordflow">if</span> ((this-&gt;to_delete).size() &gt; 0)</div>
 <div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;      {</div>
@@ -344,12 +344,12 @@ $(document).ready(function(){initNavTree('gnuplot__i_8cpp_source.html','');});
 <div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;    <span class="keywordflow">return</span>;</div>
 <div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;}</div>
 <div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;</div>
-<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;<span class="keywordtype">bool</span> Gnuplot::is_valid(<span class="keywordtype">void</span>)</div>
+<div class="line"><a name="l00238"></a><span class="lineno"><a class="line" href="classGnuplot.html#a0daaf54cd8e41dbbd574722f3a831cfd">  238</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classGnuplot.html#a0daaf54cd8e41dbbd574722f3a831cfd">Gnuplot::is_valid</a>(<span class="keywordtype">void</span>)</div>
 <div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;{</div>
 <div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;    <span class="keywordflow">return</span>(this-&gt;valid);</div>
 <div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;}</div>
 <div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;</div>
-<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;<span class="keywordtype">bool</span> Gnuplot::get_program_path(<span class="keyword">const</span> <span class="keywordtype">string</span> pname)</div>
+<div class="line"><a name="l00243"></a><span class="lineno"><a class="line" href="classGnuplot.html#a871da9736b4127535bfd1afe3e23fdae">  243</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classGnuplot.html#a871da9736b4127535bfd1afe3e23fdae">Gnuplot::get_program_path</a>(<span class="keyword">const</span> <span class="keywordtype">string</span> pname)</div>
 <div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;{</div>
 <div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;    list&lt;string&gt; ls;</div>
 <div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;    <span class="keywordtype">char</span> *path;</div>
@@ -374,7 +374,7 @@ $(document).ready(function(){initNavTree('gnuplot__i_8cpp_source.html','');});
 <div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;}</div>
 <div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;</div>
-<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;<span class="keywordtype">void</span> Gnuplot::reset_plot(<span class="keywordtype">void</span>)</div>
+<div class="line"><a name="l00268"></a><span class="lineno"><a class="line" href="classGnuplot.html#ad54976652afe30231a850dd31e1ca70f">  268</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classGnuplot.html#ad54976652afe30231a850dd31e1ca70f">Gnuplot::reset_plot</a>(<span class="keywordtype">void</span>)</div>
 <div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;{       </div>
 <div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;    <span class="keywordflow">if</span> (this-&gt;to_delete.size() &gt; 0)</div>
 <div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;      {</div>
@@ -386,7 +386,7 @@ $(document).ready(function(){initNavTree('gnuplot__i_8cpp_source.html','');});
 <div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;    <span class="keywordflow">return</span>;</div>
 <div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;}</div>
 <div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;</div>
-<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;<span class="keywordtype">void</span> Gnuplot::set_style(<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;stylestr)</div>
+<div class="line"><a name="l00280"></a><span class="lineno"><a class="line" href="classGnuplot.html#accdd7b69237ead4109c74e1e440c185f">  280</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classGnuplot.html#accdd7b69237ead4109c74e1e440c185f">Gnuplot::set_style</a>(<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;stylestr)</div>
 <div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;{</div>
 <div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;    <span class="keywordflow">if</span> (stylestr != <span class="stringliteral">&quot;lines&quot;</span> &amp;&amp;</div>
 <div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;            stylestr != <span class="stringliteral">&quot;points&quot;</span> &amp;&amp;</div>
@@ -402,10 +402,10 @@ $(document).ready(function(){initNavTree('gnuplot__i_8cpp_source.html','');});
 <div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;        this-&gt;pstyle = stylestr;</div>
 <div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;}</div>
 <div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;</div>
-<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;<span class="keywordtype">void</span> Gnuplot::cmd(<span class="keyword">const</span> <span class="keywordtype">char</span> *cmdstr, ...)</div>
+<div class="line"><a name="l00296"></a><span class="lineno"><a class="line" href="classGnuplot.html#a6f299285af0a0ee2cf1722c469aa1a57">  296</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classGnuplot.html#a6f299285af0a0ee2cf1722c469aa1a57">Gnuplot::cmd</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *cmdstr, ...)</div>
 <div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;{</div>
 <div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;    va_list ap;</div>
-<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;    <span class="keywordtype">char</span> local_cmd[GP_CMD_SIZE];</div>
+<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;    <span class="keywordtype">char</span> local_cmd[<a class="code" href="gnuplot__i_8hpp.html#adc74c0a238dd6f2220b0b2839cdda632">GP_CMD_SIZE</a>];</div>
 <div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;</div>
 <div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;    va_start(ap, cmdstr);</div>
 <div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;    vsprintf(local_cmd, cmdstr, ap);</div>
@@ -416,7 +416,7 @@ $(document).ready(function(){initNavTree('gnuplot__i_8cpp_source.html','');});
 <div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;    <span class="keywordflow">return</span>;</div>
 <div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;}</div>
 <div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;</div>
-<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;<span class="keywordtype">void</span> Gnuplot::set_ylabel(<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;label)</div>
+<div class="line"><a name="l00310"></a><span class="lineno"><a class="line" href="classGnuplot.html#af85dd1d368699914112460285ead0fde">  310</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classGnuplot.html#af85dd1d368699914112460285ead0fde">Gnuplot::set_ylabel</a>(<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;label)</div>
 <div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;{</div>
 <div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;    ostringstream cmdstr;</div>
 <div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;</div>
@@ -426,7 +426,7 @@ $(document).ready(function(){initNavTree('gnuplot__i_8cpp_source.html','');});
 <div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;    <span class="keywordflow">return</span>;</div>
 <div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;}</div>
 <div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;</div>
-<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;<span class="keywordtype">void</span> Gnuplot::set_xlabel(<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;label)</div>
+<div class="line"><a name="l00320"></a><span class="lineno"><a class="line" href="classGnuplot.html#ac9b0c04d47e375eb82f50437eda5e46e">  320</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classGnuplot.html#ac9b0c04d47e375eb82f50437eda5e46e">Gnuplot::set_xlabel</a>(<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;label)</div>
 <div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;{</div>
 <div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;    ostringstream cmdstr;</div>
 <div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;</div>
@@ -440,7 +440,7 @@ $(document).ready(function(){initNavTree('gnuplot__i_8cpp_source.html','');});
 <div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;<span class="comment">// Plots a linear equation (where you supply the</span></div>
 <div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;<span class="comment">// slope and intercept)</span></div>
 <div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;<span class="comment">//</span></div>
-<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;<span class="keywordtype">void</span> Gnuplot::plot_slope(<span class="keywordtype">double</span> a, <span class="keywordtype">double</span> b, <span class="keyword">const</span> <span class="keywordtype">string</span> &amp;title)</div>
+<div class="line"><a name="l00334"></a><span class="lineno"><a class="line" href="classGnuplot.html#a80c9d9e6bc3e64db073d9d39d6ec5d5f">  334</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classGnuplot.html#a80c9d9e6bc3e64db073d9d39d6ec5d5f">Gnuplot::plot_slope</a>(<span class="keywordtype">double</span> a, <span class="keywordtype">double</span> b, <span class="keyword">const</span> <span class="keywordtype">string</span> &amp;title)</div>
 <div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;{</div>
 <div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;    ostringstream stitle;</div>
 <div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;    ostringstream cmdstr;</div>
@@ -462,7 +462,7 @@ $(document).ready(function(){initNavTree('gnuplot__i_8cpp_source.html','');});
 <div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;<span class="comment">//</span></div>
 <div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;<span class="comment">// Plot an equation which is supplied as a string</span></div>
 <div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;<span class="comment">// </span></div>
-<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;<span class="keywordtype">void</span> Gnuplot::plot_equation(<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;equation, <span class="keyword">const</span> <span class="keywordtype">string</span> &amp;title)</div>
+<div class="line"><a name="l00356"></a><span class="lineno"><a class="line" href="classGnuplot.html#a55e6430f1329bf8a66f155dcacb9d112">  356</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classGnuplot.html#a55e6430f1329bf8a66f155dcacb9d112">Gnuplot::plot_equation</a>(<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;equation, <span class="keyword">const</span> <span class="keywordtype">string</span> &amp;title)</div>
 <div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;{</div>
 <div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;    <span class="keywordtype">string</span> titlestr, plotstr;</div>
 <div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;    ostringstream cmdstr;</div>
@@ -484,15 +484,15 @@ $(document).ready(function(){initNavTree('gnuplot__i_8cpp_source.html','');});
 <div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;    <span class="keywordflow">return</span>;</div>
 <div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;}</div>
 <div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;</div>
-<div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160;<span class="keywordtype">void</span> Gnuplot::plot_x(vector&lt;double&gt; d, <span class="keyword">const</span> <span class="keywordtype">string</span> &amp;title)</div>
+<div class="line"><a name="l00378"></a><span class="lineno"><a class="line" href="classGnuplot.html#ae3b7c28efb53f636431b9655085906be">  378</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classGnuplot.html#ae3b7c28efb53f636431b9655085906be">Gnuplot::plot_x</a>(vector&lt;double&gt; d, <span class="keyword">const</span> <span class="keywordtype">string</span> &amp;title)</div>
 <div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;{</div>
 <div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160;    ofstream tmp;</div>
 <div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160;    ostringstream cmdstr;</div>
 <div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160;    <span class="keywordtype">char</span> name[] = <span class="stringliteral">&quot;/tmp/gnuplotiXXXXXX&quot;</span>;</div>
 <div class="line"><a name="l00383"></a><span class="lineno">  383</span>&#160;</div>
-<div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160;    <span class="keywordflow">if</span> (this-&gt;to_delete.size() == GP_MAX_TMP_FILES - 1)</div>
+<div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160;    <span class="keywordflow">if</span> (this-&gt;to_delete.size() == <a class="code" href="gnuplot__i_8hpp.html#a0b92738856c4bda43003d1c847483dd2">GP_MAX_TMP_FILES</a> - 1)</div>
 <div class="line"><a name="l00385"></a><span class="lineno">  385</span>&#160;      {</div>
-<div class="line"><a name="l00386"></a><span class="lineno">  386</span>&#160;        cerr &lt;&lt; <span class="stringliteral">&quot;Maximum number of temporary files reached (&quot;</span> &lt;&lt; GP_MAX_TMP_FILES &lt;&lt; <span class="stringliteral">&quot;): cannot open more files&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><a name="l00386"></a><span class="lineno">  386</span>&#160;        cerr &lt;&lt; <span class="stringliteral">&quot;Maximum number of temporary files reached (&quot;</span> &lt;&lt; <a class="code" href="gnuplot__i_8hpp.html#a0b92738856c4bda43003d1c847483dd2">GP_MAX_TMP_FILES</a> &lt;&lt; <span class="stringliteral">&quot;): cannot open more files&quot;</span> &lt;&lt; endl;</div>
 <div class="line"><a name="l00387"></a><span class="lineno">  387</span>&#160;        <span class="keywordflow">return</span>;</div>
 <div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160;      }</div>
 <div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160;</div>
@@ -543,7 +543,7 @@ $(document).ready(function(){initNavTree('gnuplot__i_8cpp_source.html','');});
 <div class="line"><a name="l00434"></a><span class="lineno">  434</span>&#160;    <span class="keywordflow">return</span>;</div>
 <div class="line"><a name="l00435"></a><span class="lineno">  435</span>&#160;}</div>
 <div class="line"><a name="l00436"></a><span class="lineno">  436</span>&#160;    </div>
-<div class="line"><a name="l00437"></a><span class="lineno">  437</span>&#160;<span class="keywordtype">void</span> Gnuplot::plot_xy(vector&lt;double&gt; x, vector&lt;double&gt; y, <span class="keyword">const</span> <span class="keywordtype">string</span> &amp;title)</div>
+<div class="line"><a name="l00437"></a><span class="lineno"><a class="line" href="classGnuplot.html#a1e817a58ef3e40ceaeb128c7e6437e8a">  437</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classGnuplot.html#a1e817a58ef3e40ceaeb128c7e6437e8a">Gnuplot::plot_xy</a>(vector&lt;double&gt; <a class="code" href="gamma_8cpp.html#af88b946fb90d5f08b5fb740c70e98c10">x</a>, vector&lt;double&gt; <a class="code" href="gamma_8cpp.html#ab927965981178aa1fba979a37168db2a">y</a>, <span class="keyword">const</span> <span class="keywordtype">string</span> &amp;title)</div>
 <div class="line"><a name="l00438"></a><span class="lineno">  438</span>&#160;{</div>
 <div class="line"><a name="l00439"></a><span class="lineno">  439</span>&#160;    ofstream tmp;</div>
 <div class="line"><a name="l00440"></a><span class="lineno">  440</span>&#160;    ostringstream cmdstr;</div>
@@ -553,9 +553,9 @@ $(document).ready(function(){initNavTree('gnuplot__i_8cpp_source.html','');});
 <div class="line"><a name="l00444"></a><span class="lineno">  444</span>&#160;    <span class="keywordflow">if</span> (x.size() != x.size())</div>
 <div class="line"><a name="l00445"></a><span class="lineno">  445</span>&#160;        <span class="keywordflow">return</span>;</div>
 <div class="line"><a name="l00446"></a><span class="lineno">  446</span>&#160;</div>
-<div class="line"><a name="l00447"></a><span class="lineno">  447</span>&#160;    <span class="keywordflow">if</span> ((this-&gt;to_delete).size() == GP_MAX_TMP_FILES - 1)</div>
+<div class="line"><a name="l00447"></a><span class="lineno">  447</span>&#160;    <span class="keywordflow">if</span> ((this-&gt;to_delete).size() == <a class="code" href="gnuplot__i_8hpp.html#a0b92738856c4bda43003d1c847483dd2">GP_MAX_TMP_FILES</a> - 1)</div>
 <div class="line"><a name="l00448"></a><span class="lineno">  448</span>&#160;      {</div>
-<div class="line"><a name="l00449"></a><span class="lineno">  449</span>&#160;        cerr &lt;&lt; <span class="stringliteral">&quot;Maximum number of temporary files reached (&quot;</span> &lt;&lt; GP_MAX_TMP_FILES &lt;&lt; <span class="stringliteral">&quot;): cannot open more files&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><a name="l00449"></a><span class="lineno">  449</span>&#160;        cerr &lt;&lt; <span class="stringliteral">&quot;Maximum number of temporary files reached (&quot;</span> &lt;&lt; <a class="code" href="gnuplot__i_8hpp.html#a0b92738856c4bda43003d1c847483dd2">GP_MAX_TMP_FILES</a> &lt;&lt; <span class="stringliteral">&quot;): cannot open more files&quot;</span> &lt;&lt; endl;</div>
 <div class="line"><a name="l00450"></a><span class="lineno">  450</span>&#160;        <span class="keywordflow">return</span>;</div>
 <div class="line"><a name="l00451"></a><span class="lineno">  451</span>&#160;      }</div>
 <div class="line"><a name="l00452"></a><span class="lineno">  452</span>&#160;</div>
@@ -609,16 +609,33 @@ $(document).ready(function(){initNavTree('gnuplot__i_8cpp_source.html','');});
 <div class="line"><a name="l00500"></a><span class="lineno">  500</span>&#160;</div>
 <div class="line"><a name="l00501"></a><span class="lineno">  501</span>&#160;</div>
 <div class="ttc" id="gamma_8cpp_html_ab927965981178aa1fba979a37168db2a"><div class="ttname"><a href="gamma_8cpp.html#ab927965981178aa1fba979a37168db2a">y</a></div><div class="ttdeci">double y</div><div class="ttdef"><b>Definition:</b> <a href="gamma_8cpp_source.html#l00022">gamma.cpp:22</a></div></div>
-<div class="ttc" id="namespaceutilities_html_a8bd217ae821e52872836b15f651f5d9f"><div class="ttname"><a href="namespaceutilities.html#a8bd217ae821e52872836b15f651f5d9f">utilities::cout</a></div><div class="ttdeci">Cout cout</div><div class="ttdef"><b>Definition:</b> <a href="fqhe__entanglement__hamiltonian_8cpp_source.html#l00046">fqhe_entanglement_hamiltonian.cpp:46</a></div></div>
+<div class="ttc" id="gnuplot__i_8hpp_html"><div class="ttname"><a href="gnuplot__i_8hpp.html">gnuplot_i.hpp</a></div></div>
+<div class="ttc" id="classGnuplot_html_a55e6430f1329bf8a66f155dcacb9d112"><div class="ttname"><a href="classGnuplot.html#a55e6430f1329bf8a66f155dcacb9d112">Gnuplot::plot_equation</a></div><div class="ttdeci">void plot_equation(const string &amp;, const string &amp;)</div><div class="ttdef"><b>Definition:</b> <a href="gnuplot__i_8cpp_source.html#l00356">gnuplot_i.cpp:356</a></div></div>
+<div class="ttc" id="classGnuplot_html_a1e817a58ef3e40ceaeb128c7e6437e8a"><div class="ttname"><a href="classGnuplot.html#a1e817a58ef3e40ceaeb128c7e6437e8a">Gnuplot::plot_xy</a></div><div class="ttdeci">void plot_xy(vector&lt; double &gt;, vector&lt; double &gt;, const string &amp;)</div><div class="ttdef"><b>Definition:</b> <a href="gnuplot__i_8cpp_source.html#l00437">gnuplot_i.cpp:437</a></div></div>
+<div class="ttc" id="classGnuplot_html_a936d27de7b6f57d1f3d61491dc70f1ae"><div class="ttname"><a href="classGnuplot.html#a936d27de7b6f57d1f3d61491dc70f1ae">Gnuplot::Gnuplot</a></div><div class="ttdeci">Gnuplot()</div><div class="ttdef"><b>Definition:</b> <a href="gnuplot__i_8cpp_source.html#l00066">gnuplot_i.cpp:66</a></div></div>
+<div class="ttc" id="gnuplot__i_8hpp_html_adc74c0a238dd6f2220b0b2839cdda632"><div class="ttname"><a href="gnuplot__i_8hpp.html#adc74c0a238dd6f2220b0b2839cdda632">GP_CMD_SIZE</a></div><div class="ttdeci">#define GP_CMD_SIZE</div><div class="ttdef"><b>Definition:</b> <a href="gnuplot__i_8hpp_source.html#l00043">gnuplot_i.hpp:43</a></div></div>
+<div class="ttc" id="classGnuplot_html_a0daaf54cd8e41dbbd574722f3a831cfd"><div class="ttname"><a href="classGnuplot.html#a0daaf54cd8e41dbbd574722f3a831cfd">Gnuplot::is_valid</a></div><div class="ttdeci">bool is_valid(void)</div><div class="ttdef"><b>Definition:</b> <a href="gnuplot__i_8cpp_source.html#l00238">gnuplot_i.cpp:238</a></div></div>
+<div class="ttc" id="classGnuplot_html_a871da9736b4127535bfd1afe3e23fdae"><div class="ttname"><a href="classGnuplot.html#a871da9736b4127535bfd1afe3e23fdae">Gnuplot::get_program_path</a></div><div class="ttdeci">bool get_program_path(const string)</div><div class="ttdef"><b>Definition:</b> <a href="gnuplot__i_8cpp_source.html#l00243">gnuplot_i.cpp:243</a></div></div>
+<div class="ttc" id="classGnuplot_html_af85dd1d368699914112460285ead0fde"><div class="ttname"><a href="classGnuplot.html#af85dd1d368699914112460285ead0fde">Gnuplot::set_ylabel</a></div><div class="ttdeci">void set_ylabel(const string &amp;)</div><div class="ttdef"><b>Definition:</b> <a href="gnuplot__i_8cpp_source.html#l00310">gnuplot_i.cpp:310</a></div></div>
+<div class="ttc" id="gnuplot__i_8hpp_html_a0b92738856c4bda43003d1c847483dd2"><div class="ttname"><a href="gnuplot__i_8hpp.html#a0b92738856c4bda43003d1c847483dd2">GP_MAX_TMP_FILES</a></div><div class="ttdeci">#define GP_MAX_TMP_FILES</div><div class="ttdef"><b>Definition:</b> <a href="gnuplot__i_8hpp_source.html#l00041">gnuplot_i.hpp:41</a></div></div>
+<div class="ttc" id="namespaceutilities_html_a8bd217ae821e52872836b15f651f5d9f"><div class="ttname"><a href="namespaceutilities.html#a8bd217ae821e52872836b15f651f5d9f">utilities::cout</a></div><div class="ttdeci">Cout cout</div><div class="ttdef"><b>Definition:</b> <a href="fqhe__entanglement__hamiltonian_8cpp_source.html#l00041">fqhe_entanglement_hamiltonian.cpp:41</a></div></div>
+<div class="ttc" id="classGnuplot_html_a6f299285af0a0ee2cf1722c469aa1a57"><div class="ttname"><a href="classGnuplot.html#a6f299285af0a0ee2cf1722c469aa1a57">Gnuplot::cmd</a></div><div class="ttdeci">void cmd(const char *,...)</div><div class="ttdef"><b>Definition:</b> <a href="gnuplot__i_8cpp_source.html#l00296">gnuplot_i.cpp:296</a></div></div>
+<div class="ttc" id="classGnuplot_html_ad54976652afe30231a850dd31e1ca70f"><div class="ttname"><a href="classGnuplot.html#ad54976652afe30231a850dd31e1ca70f">Gnuplot::reset_plot</a></div><div class="ttdeci">void reset_plot(void)</div><div class="ttdef"><b>Definition:</b> <a href="gnuplot__i_8cpp_source.html#l00268">gnuplot_i.cpp:268</a></div></div>
 <div class="ttc" id="gamma_8cpp_html_acb559820d9ca11295b4500f179ef6392"><div class="ttname"><a href="gamma_8cpp.html#acb559820d9ca11295b4500f179ef6392">i</a></div><div class="ttdeci">int i</div><div class="ttdef"><b>Definition:</b> <a href="gamma_8cpp_source.html#l00023">gamma.cpp:23</a></div></div>
 <div class="ttc" id="gamma_8cpp_html_af88b946fb90d5f08b5fb740c70e98c10"><div class="ttname"><a href="gamma_8cpp.html#af88b946fb90d5f08b5fb740c70e98c10">x</a></div><div class="ttdeci">double x</div><div class="ttdef"><b>Definition:</b> <a href="gamma_8cpp_source.html#l00022">gamma.cpp:22</a></div></div>
 <div class="ttc" id="gnuplot__i_8cpp_html_a1a96d6f33e0d7225eaaf015313e53a4c"><div class="ttname"><a href="gnuplot__i_8cpp.html#a1a96d6f33e0d7225eaaf015313e53a4c">stringtok</a></div><div class="ttdeci">void stringtok(Container &amp;container, string const &amp;in, const char *const delimiters=&quot; \t\n&quot;)</div><div class="ttdef"><b>Definition:</b> <a href="gnuplot__i_8cpp_source.html#l00035">gnuplot_i.cpp:35</a></div></div>
+<div class="ttc" id="classGnuplot_html_accdd7b69237ead4109c74e1e440c185f"><div class="ttname"><a href="classGnuplot.html#accdd7b69237ead4109c74e1e440c185f">Gnuplot::set_style</a></div><div class="ttdeci">void set_style(const string &amp;)</div><div class="ttdef"><b>Definition:</b> <a href="gnuplot__i_8cpp_source.html#l00280">gnuplot_i.cpp:280</a></div></div>
+<div class="ttc" id="classGnuplotException_html"><div class="ttname"><a href="classGnuplotException.html">GnuplotException</a></div><div class="ttdef"><b>Definition:</b> <a href="gnuplot__i_8hpp_source.html#l00048">gnuplot_i.hpp:48</a></div></div>
+<div class="ttc" id="classGnuplot_html_a80c9d9e6bc3e64db073d9d39d6ec5d5f"><div class="ttname"><a href="classGnuplot.html#a80c9d9e6bc3e64db073d9d39d6ec5d5f">Gnuplot::plot_slope</a></div><div class="ttdeci">void plot_slope(double, double, const string &amp;)</div><div class="ttdef"><b>Definition:</b> <a href="gnuplot__i_8cpp_source.html#l00334">gnuplot_i.cpp:334</a></div></div>
+<div class="ttc" id="classGnuplot_html_ae3b7c28efb53f636431b9655085906be"><div class="ttname"><a href="classGnuplot.html#ae3b7c28efb53f636431b9655085906be">Gnuplot::plot_x</a></div><div class="ttdeci">void plot_x(vector&lt; double &gt;, const string &amp;)</div><div class="ttdef"><b>Definition:</b> <a href="gnuplot__i_8cpp_source.html#l00378">gnuplot_i.cpp:378</a></div></div>
+<div class="ttc" id="classGnuplot_html_a78a68f621caa87d1f34324fcd093c7bd"><div class="ttname"><a href="classGnuplot.html#a78a68f621caa87d1f34324fcd093c7bd">Gnuplot::~Gnuplot</a></div><div class="ttdeci">~Gnuplot()</div><div class="ttdef"><b>Definition:</b> <a href="gnuplot__i_8cpp_source.html#l00225">gnuplot_i.cpp:225</a></div></div>
+<div class="ttc" id="classGnuplot_html_ac9b0c04d47e375eb82f50437eda5e46e"><div class="ttname"><a href="classGnuplot.html#ac9b0c04d47e375eb82f50437eda5e46e">Gnuplot::set_xlabel</a></div><div class="ttdeci">void set_xlabel(const string &amp;)</div><div class="ttdef"><b>Definition:</b> <a href="gnuplot__i_8cpp_source.html#l00320">gnuplot_i.cpp:320</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_33f546ffef7a131d933d8bb7558b3921.html">src</a></li><li class="navelem"><a class="el" href="dir_8b8d2be2f42371f39bc34578f71f1d6f.html">fqhe_entanglement_wave_function_method</a></li><li class="navelem"><a class="el" href="dir_d64b93ab04dced5067058a5a79a5cd45.html">gnuplot</a></li><li class="navelem"><a class="el" href="gnuplot__i_8cpp.html">gnuplot_i.cpp</a></li>
+    <li class="navelem"><a class="el" href="dir_1eca84005c97d3b15b646b4fdfe728e2.html">src</a></li><li class="navelem"><a class="el" href="dir_ff36e4c6b1aefa3672f16b4ed194bf4b.html">fqhe_entanglement_wave_function_method</a></li><li class="navelem"><a class="el" href="dir_5c175478dbba39cf4002bca712cc8cf9.html">gnuplot</a></li><li class="navelem"><a class="el" href="gnuplot__i_8cpp.html">gnuplot_i.cpp</a></li>
     <li class="footer">Generated by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>

@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Quantum Hall entanglement program suite: myOptions Namespace Reference</title>
+<title>Quantum Hall Programs: myOptions Namespace Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -29,7 +29,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Quantum Hall entanglement program suite
+   <div id="projectname">Quantum Hall Programs
    &#160;<span id="projectnumber">Version 1.0</span>
    </div>
   </td>
@@ -139,28 +139,26 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="rses__options_8h_source.html#l00038">38</a> of file <a class="el" href="rses__options_8h_source.html">rses_options.h</a>.</p>
-<div class="fragment"><div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    {</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <span class="comment">//  Entanglement spectrum options</span></div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        po::options_description rsesOpt(<span class="stringliteral">&quot;RSES options&quot;</span>);</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        rsesOpt.add_options()</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        (<span class="stringliteral">&quot;nbr-n,n&quot;</span>, po::value&lt;int&gt;()-&gt;default_value(12),</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <span class="stringliteral">&quot;Number of particles\n&quot;</span>)</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        (<span class="stringliteral">&quot;nbr-a,a&quot;</span>, po::value&lt;int&gt;()-&gt;default_value(6),</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <span class="stringliteral">&quot;Number of particles in the A cut\n&quot;</span>)</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        (<span class="stringliteral">&quot;sector,s&quot;</span>, po::value&lt;int&gt;()-&gt;default_value(0),</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <span class="stringliteral">&quot;Specify the sector to obtain OR\n&quot;</span>)</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        (<span class="stringliteral">&quot;multi-sector,m&quot;</span>, po::value&lt;bool&gt;()-&gt;default_value(<span class="keyword">false</span>),</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <span class="stringliteral">&quot;Set to true to use a range of sectors rather than just one, or alternatively specify a maximum and minimum sector to diagonalize.\n&quot;</span>)</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        (<span class="stringliteral">&quot;max-sector&quot;</span>, po::value&lt;int&gt;()-&gt;default_value(0),</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <span class="stringliteral">&quot;Specify the maximum sector to obtain\n&quot;</span>)</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        (<span class="stringliteral">&quot;min-sector&quot;</span>, po::value&lt;int&gt;()-&gt;default_value(0),</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <span class="stringliteral">&quot;Specify the minimum sector to obtain\n&quot;</span>)</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        (<span class="stringliteral">&quot;nbr-ll,l&quot;</span>, po::value&lt;int&gt;()-&gt;default_value(1),</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        <span class="stringliteral">&quot;specify the number of Landau levels (maximum 3 levels currently programmed)\n&quot;</span>);</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <span class="keywordflow">return</span> rsesOpt;</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    };</div>
+<p>Definition at line <a class="el" href="rses__options_8hpp_source.html#l00034">34</a> of file <a class="el" href="rses__options_8hpp_source.html">rses_options.hpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    {</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        po::options_description rsesOpt(<span class="stringliteral">&quot;RSES options&quot;</span>);</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        rsesOpt.add_options()</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        (<span class="stringliteral">&quot;nbr-n,n&quot;</span>, po::value&lt;int&gt;()-&gt;default_value(12),</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <span class="stringliteral">&quot;Number of particles\n&quot;</span>)</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        (<span class="stringliteral">&quot;nbr-a,a&quot;</span>, po::value&lt;int&gt;()-&gt;default_value(6),</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <span class="stringliteral">&quot;Number of particles in the A cut\n&quot;</span>)</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        (<span class="stringliteral">&quot;sector,s&quot;</span>, po::value&lt;int&gt;()-&gt;default_value(0),</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <span class="stringliteral">&quot;Specify the sector to obtain OR\n&quot;</span>)</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        (<span class="stringliteral">&quot;multi-sector,m&quot;</span>, po::value&lt;bool&gt;()-&gt;default_value(<span class="keyword">false</span>),</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <span class="stringliteral">&quot;Set to true to use a range of sectors rather than just one, or alternatively specify a maximum and minimum sector to diagonalize.\n&quot;</span>)</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        (<span class="stringliteral">&quot;max-sector&quot;</span>, po::value&lt;int&gt;()-&gt;default_value(0),</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <span class="stringliteral">&quot;Specify the maximum sector to obtain\n&quot;</span>)</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        (<span class="stringliteral">&quot;min-sector&quot;</span>, po::value&lt;int&gt;()-&gt;default_value(0),</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <span class="stringliteral">&quot;Specify the minimum sector to obtain\n&quot;</span>)</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        (<span class="stringliteral">&quot;nbr-ll,l&quot;</span>, po::value&lt;int&gt;()-&gt;default_value(1),</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        <span class="stringliteral">&quot;specify the number of Landau levels (maximum 3 levels currently programmed)\n&quot;</span>);</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <span class="keywordflow">return</span> rsesOpt;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    };</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -185,21 +183,20 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="general__options_8h_source.html#l00038">38</a> of file <a class="el" href="general__options_8h_source.html">general_options.h</a>.</p>
-<div class="fragment"><div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    {</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        po::options_description generalOpt(<span class="stringliteral">&quot;General Options&quot;</span>);</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        generalOpt.add_options()</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        (<span class="stringliteral">&quot;help,h&quot;</span>,</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;         <span class="stringliteral">&quot;Display this message\n&quot;</span>)</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        (<span class="stringliteral">&quot;verbose,v&quot;</span>,po::value&lt;int&gt;()-&gt;default_value(1),</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;         <span class="stringliteral">&quot;Set a value for the verbosity level:\n\t 0 output off (after command line parsed) \n\t 1 print brief information \n\t 2 print more detailed information \n\t 3 also print loading bars and timings \n\t 4 also print debugging messages.&quot;</span>)</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        (<span class="stringliteral">&quot;in-path&quot;</span>,po::value&lt;std::string&gt;()-&gt;default_value(<span class="stringliteral">&quot;./output/&quot;</span>),</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;         <span class="stringliteral">&quot;Specify the name of the file system path where program input data are stored\n&quot;</span>)</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        (<span class="stringliteral">&quot;out-path&quot;</span>,po::value&lt;std::string&gt;()-&gt;default_value(<span class="stringliteral">&quot;./output/&quot;</span>),</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;         <span class="stringliteral">&quot;Specify the name of the file system path where program output data are stored\n&quot;</span>);</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        <span class="keywordflow">return</span> generalOpt;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    };</div>
+<p>Definition at line <a class="el" href="general__options_8hpp_source.html#l00034">34</a> of file <a class="el" href="general__options_8hpp_source.html">general_options.hpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    {</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        po::options_description generalOpt(<span class="stringliteral">&quot;General Options&quot;</span>);</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        generalOpt.add_options()</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        (<span class="stringliteral">&quot;help,h&quot;</span>,</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;         <span class="stringliteral">&quot;Display this message\n&quot;</span>)</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        (<span class="stringliteral">&quot;verbose,v&quot;</span>,po::value&lt;int&gt;()-&gt;default_value(1),</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;         <span class="stringliteral">&quot;Set a value for the verbosity level:\n\t 0 output off (after command line parsed) \n\t 1 print brief information \n\t 2 print more detailed information \n\t 3 also print loading bars and timings \n\t 4 also print debugging messages.&quot;</span>)</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        (<span class="stringliteral">&quot;in-path&quot;</span>,po::value&lt;std::string&gt;()-&gt;default_value(<span class="stringliteral">&quot;./output/&quot;</span>),</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;         <span class="stringliteral">&quot;Specify the name of the file system path where program input data are stored\n&quot;</span>)</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        (<span class="stringliteral">&quot;out-path&quot;</span>,po::value&lt;std::string&gt;()-&gt;default_value(<span class="stringliteral">&quot;./output/&quot;</span>),</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;         <span class="stringliteral">&quot;Specify the name of the file system path where program output data are stored\n&quot;</span>);</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <span class="keywordflow">return</span> generalOpt;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    };</div>
 </div><!-- fragment -->
 </div>
 </div>

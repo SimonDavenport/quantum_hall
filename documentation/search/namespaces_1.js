@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['fqhe',['FQHE',['../namespaceFQHE.html',1,'']]]
+  ['myoptions',['myOptions',['../namespacemyOptions.html',1,'']]]
 ];

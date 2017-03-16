@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Quantum Hall entanglement program suite: utilities::Script Class Reference</title>
+<title>Quantum Hall Programs: utilities::Script Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -29,7 +29,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Quantum Hall entanglement program suite
+   <div id="projectname">Quantum Hall Programs
    &#160;<span id="projectnumber">Version 1.0</span>
    </div>
   </td>
@@ -117,7 +117,7 @@ $(document).ready(function(){initNavTree('classutilities_1_1Script.html','');});
 <p>A class to convert a given string to a text file and execute it as a script.  
  <a href="classutilities_1_1Script.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="run__script_8h_source.html">run_script.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="run__script_8hpp_source.html">run_script.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -152,7 +152,7 @@ Private Attributes</h2></td></tr>
 <div class="textblock"><p>A class to convert a given string to a text file and execute it as a script. </p>
 <p>The class contains a function to write the string to a temporary file name, tagged uniquely by the system time, a function to attempt to execute the script, and a function to remove the file name after execution is completed. </p>
 
-<p>Definition at line <a class="el" href="run__script_8h_source.html#l00055">55</a> of file <a class="el" href="run__script_8h_source.html">run_script.h</a>.</p>
+<p>Definition at line <a class="el" href="run__script_8hpp_source.html#l00050">50</a> of file <a class="el" href="run__script_8hpp_source.html">run_script.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a3163ae808b50f38b60a7d70905df704c"></a>
 <div class="memitem">
@@ -175,16 +175,16 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="run__script_8h_source.html#l00122">122</a> of file <a class="el" href="run__script_8h_source.html">run_script.h</a>.</p>
-<div class="fragment"><div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    :</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;        <a class="code" href="classutilities_1_1Script.html#abf9b90a7229684a1c25f8e1287f5c89e">m_scriptText</a>(<span class="stringliteral">&quot;&quot;</span>),</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;        <a class="code" href="classutilities_1_1Script.html#aa68612d606692ae3d20ad91fed613d11">m_fileNameStem</a>(<span class="stringliteral">&quot;./temp_script_file&quot;</span>)</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    {</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;        this-&gt;<a class="code" href="classutilities_1_1Script.html#a7c07e4390cd60f385e2211e3b127cf25">GenFileName</a>();</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    };</div>
-<div class="ttc" id="classutilities_1_1Script_html_aa68612d606692ae3d20ad91fed613d11"><div class="ttname"><a href="classutilities_1_1Script.html#aa68612d606692ae3d20ad91fed613d11">utilities::Script::m_fileNameStem</a></div><div class="ttdeci">std::string m_fileNameStem</div><div class="ttdef"><b>Definition:</b> <a href="run__script_8h_source.html#l00060">run_script.h:60</a></div></div>
-<div class="ttc" id="classutilities_1_1Script_html_abf9b90a7229684a1c25f8e1287f5c89e"><div class="ttname"><a href="classutilities_1_1Script.html#abf9b90a7229684a1c25f8e1287f5c89e">utilities::Script::m_scriptText</a></div><div class="ttdeci">std::string m_scriptText</div><div class="ttdef"><b>Definition:</b> <a href="run__script_8h_source.html#l00059">run_script.h:59</a></div></div>
-<div class="ttc" id="classutilities_1_1Script_html_a7c07e4390cd60f385e2211e3b127cf25"><div class="ttname"><a href="classutilities_1_1Script.html#a7c07e4390cd60f385e2211e3b127cf25">utilities::Script::GenFileName</a></div><div class="ttdeci">void GenFileName()</div><div class="ttdef"><b>Definition:</b> <a href="run__script_8h_source.html#l00063">run_script.h:63</a></div></div>
+<p>Definition at line <a class="el" href="run__script_8hpp_source.html#l00091">91</a> of file <a class="el" href="run__script_8hpp_source.html">run_script.hpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        :</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;            <a class="code" href="classutilities_1_1Script.html#abf9b90a7229684a1c25f8e1287f5c89e">m_scriptText</a>(<span class="stringliteral">&quot;&quot;</span>),</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;            <a class="code" href="classutilities_1_1Script.html#aa68612d606692ae3d20ad91fed613d11">m_fileNameStem</a>(<span class="stringliteral">&quot;./temp_script_file&quot;</span>)</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        {</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;            this-&gt;<a class="code" href="classutilities_1_1Script.html#a7c07e4390cd60f385e2211e3b127cf25">GenFileName</a>();</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        };</div>
+<div class="ttc" id="classutilities_1_1Script_html_aa68612d606692ae3d20ad91fed613d11"><div class="ttname"><a href="classutilities_1_1Script.html#aa68612d606692ae3d20ad91fed613d11">utilities::Script::m_fileNameStem</a></div><div class="ttdeci">std::string m_fileNameStem</div><div class="ttdef"><b>Definition:</b> <a href="run__script_8hpp_source.html#l00054">run_script.hpp:54</a></div></div>
+<div class="ttc" id="classutilities_1_1Script_html_abf9b90a7229684a1c25f8e1287f5c89e"><div class="ttname"><a href="classutilities_1_1Script.html#abf9b90a7229684a1c25f8e1287f5c89e">utilities::Script::m_scriptText</a></div><div class="ttdeci">std::string m_scriptText</div><div class="ttdef"><b>Definition:</b> <a href="run__script_8hpp_source.html#l00053">run_script.hpp:53</a></div></div>
+<div class="ttc" id="classutilities_1_1Script_html_a7c07e4390cd60f385e2211e3b127cf25"><div class="ttname"><a href="classutilities_1_1Script.html#a7c07e4390cd60f385e2211e3b127cf25">utilities::Script::GenFileName</a></div><div class="ttdeci">void GenFileName()</div><div class="ttdef"><b>Definition:</b> <a href="run__script_8hpp_source.html#l00056">run_script.hpp:56</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -210,29 +210,18 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="run__script_8h_source.html#l00148">148</a> of file <a class="el" href="run__script_8h_source.html">run_script.h</a>.</p>
-<div class="fragment"><div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;    {</div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;        <span class="comment">//  put the current script text in an executable file</span></div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;    </div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;        this-&gt;<a class="code" href="classutilities_1_1Script.html#aff9fd5e54ab20e3014c3d14e4438da53">ScriptToFile</a>();</div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;        </div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;        <span class="comment">//  call the system command to run the script</span></div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;</div>
-<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;        this-&gt;<a class="code" href="classutilities_1_1Script.html#af844ea35785f687d185c3779be200864">RunSystemCommand</a>(<a class="code" href="classutilities_1_1Script.html#af8e19e776f30918951b2d20949843b59">m_tempFileName</a>);</div>
-<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;        </div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;        <span class="comment">//  call the system command to remove the temporary file</span></div>
-<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;        </div>
-<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;        std::stringstream command;</div>
-<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;        </div>
-<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;        command.str(<span class="stringliteral">&quot;&quot;</span>);</div>
-<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;        </div>
-<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;        command&lt;&lt;<span class="stringliteral">&quot;rm &quot;</span>&lt;&lt;<a class="code" href="classutilities_1_1Script.html#af8e19e776f30918951b2d20949843b59">m_tempFileName</a>;</div>
-<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;        </div>
-<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;        this-&gt;<a class="code" href="classutilities_1_1Script.html#af844ea35785f687d185c3779be200864">RunSystemCommand</a>(command.str());</div>
-<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;    };</div>
-<div class="ttc" id="classutilities_1_1Script_html_aff9fd5e54ab20e3014c3d14e4438da53"><div class="ttname"><a href="classutilities_1_1Script.html#aff9fd5e54ab20e3014c3d14e4438da53">utilities::Script::ScriptToFile</a></div><div class="ttdeci">void ScriptToFile() const </div><div class="ttdef"><b>Definition:</b> <a href="run__script_8h_source.html#l00089">run_script.h:89</a></div></div>
-<div class="ttc" id="classutilities_1_1Script_html_af844ea35785f687d185c3779be200864"><div class="ttname"><a href="classutilities_1_1Script.html#af844ea35785f687d185c3779be200864">utilities::Script::RunSystemCommand</a></div><div class="ttdeci">void RunSystemCommand(const std::string command) const </div><div class="ttdef"><b>Definition:</b> <a href="run__script_8h_source.html#l00082">run_script.h:82</a></div></div>
-<div class="ttc" id="classutilities_1_1Script_html_af8e19e776f30918951b2d20949843b59"><div class="ttname"><a href="classutilities_1_1Script.html#af8e19e776f30918951b2d20949843b59">utilities::Script::m_tempFileName</a></div><div class="ttdeci">std::string m_tempFileName</div><div class="ttdef"><b>Definition:</b> <a href="run__script_8h_source.html#l00061">run_script.h:61</a></div></div>
+<p>Definition at line <a class="el" href="run__script_8hpp_source.html#l00113">113</a> of file <a class="el" href="run__script_8hpp_source.html">run_script.hpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;        {</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;            this-&gt;<a class="code" href="classutilities_1_1Script.html#aff9fd5e54ab20e3014c3d14e4438da53">ScriptToFile</a>();</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;            this-&gt;<a class="code" href="classutilities_1_1Script.html#af844ea35785f687d185c3779be200864">RunSystemCommand</a>(<a class="code" href="classutilities_1_1Script.html#af8e19e776f30918951b2d20949843b59">m_tempFileName</a>);</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;            std::stringstream command;</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;            command.str(<span class="stringliteral">&quot;&quot;</span>);</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;            command&lt;&lt;<span class="stringliteral">&quot;rm &quot;</span>&lt;&lt;<a class="code" href="classutilities_1_1Script.html#af8e19e776f30918951b2d20949843b59">m_tempFileName</a>;</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;            this-&gt;<a class="code" href="classutilities_1_1Script.html#af844ea35785f687d185c3779be200864">RunSystemCommand</a>(command.str());</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;        };</div>
+<div class="ttc" id="classutilities_1_1Script_html_aff9fd5e54ab20e3014c3d14e4438da53"><div class="ttname"><a href="classutilities_1_1Script.html#aff9fd5e54ab20e3014c3d14e4438da53">utilities::Script::ScriptToFile</a></div><div class="ttdeci">void ScriptToFile() const </div><div class="ttdef"><b>Definition:</b> <a href="run__script_8hpp_source.html#l00073">run_script.hpp:73</a></div></div>
+<div class="ttc" id="classutilities_1_1Script_html_af844ea35785f687d185c3779be200864"><div class="ttname"><a href="classutilities_1_1Script.html#af844ea35785f687d185c3779be200864">utilities::Script::RunSystemCommand</a></div><div class="ttdeci">void RunSystemCommand(const std::string command) const </div><div class="ttdef"><b>Definition:</b> <a href="run__script_8hpp_source.html#l00067">run_script.hpp:67</a></div></div>
+<div class="ttc" id="classutilities_1_1Script_html_af8e19e776f30918951b2d20949843b59"><div class="ttname"><a href="classutilities_1_1Script.html#af8e19e776f30918951b2d20949843b59">utilities::Script::m_tempFileName</a></div><div class="ttdeci">std::string m_tempFileName</div><div class="ttdef"><b>Definition:</b> <a href="run__script_8hpp_source.html#l00055">run_script.hpp:55</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -257,26 +246,18 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="run__script_8h_source.html#l00063">63</a> of file <a class="el" href="run__script_8h_source.html">run_script.h</a>.</p>
-<div class="fragment"><div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    {</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        <span class="comment">//  Tag the script file name with the full system time</span></div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    </div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        std::stringstream tempFileName;</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        </div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        tempFileName.str(<span class="stringliteral">&quot;&quot;</span>);</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        tempFileName.precision(10);</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        </div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        time_t now;</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        </div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        time(&amp;now);</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        </div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        tempFileName&lt;&lt;<a class="code" href="classutilities_1_1Script.html#aa68612d606692ae3d20ad91fed613d11">m_fileNameStem</a>&lt;&lt;<span class="stringliteral">&quot;_&quot;</span>&lt;&lt;now&lt;&lt;<span class="stringliteral">&quot;.py&quot;</span>;</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        </div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        <a class="code" href="classutilities_1_1Script.html#af8e19e776f30918951b2d20949843b59">m_tempFileName</a> = tempFileName.str();</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    };</div>
-<div class="ttc" id="classutilities_1_1Script_html_aa68612d606692ae3d20ad91fed613d11"><div class="ttname"><a href="classutilities_1_1Script.html#aa68612d606692ae3d20ad91fed613d11">utilities::Script::m_fileNameStem</a></div><div class="ttdeci">std::string m_fileNameStem</div><div class="ttdef"><b>Definition:</b> <a href="run__script_8h_source.html#l00060">run_script.h:60</a></div></div>
-<div class="ttc" id="classutilities_1_1Script_html_af8e19e776f30918951b2d20949843b59"><div class="ttname"><a href="classutilities_1_1Script.html#af8e19e776f30918951b2d20949843b59">utilities::Script::m_tempFileName</a></div><div class="ttdeci">std::string m_tempFileName</div><div class="ttdef"><b>Definition:</b> <a href="run__script_8h_source.html#l00061">run_script.h:61</a></div></div>
+<p>Definition at line <a class="el" href="run__script_8hpp_source.html#l00056">56</a> of file <a class="el" href="run__script_8hpp_source.html">run_script.hpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        {</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;            std::stringstream tempFileName;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;            tempFileName.str(<span class="stringliteral">&quot;&quot;</span>);</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;            tempFileName.precision(10);</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;            time_t now;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;            time(&amp;now);</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;            tempFileName&lt;&lt;<a class="code" href="classutilities_1_1Script.html#aa68612d606692ae3d20ad91fed613d11">m_fileNameStem</a>&lt;&lt;<span class="stringliteral">&quot;_&quot;</span>&lt;&lt;now&lt;&lt;<span class="stringliteral">&quot;.py&quot;</span>;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;            <a class="code" href="classutilities_1_1Script.html#af8e19e776f30918951b2d20949843b59">m_tempFileName</a> = tempFileName.str();</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        };</div>
+<div class="ttc" id="classutilities_1_1Script_html_aa68612d606692ae3d20ad91fed613d11"><div class="ttname"><a href="classutilities_1_1Script.html#aa68612d606692ae3d20ad91fed613d11">utilities::Script::m_fileNameStem</a></div><div class="ttdeci">std::string m_fileNameStem</div><div class="ttdef"><b>Definition:</b> <a href="run__script_8hpp_source.html#l00054">run_script.hpp:54</a></div></div>
+<div class="ttc" id="classutilities_1_1Script_html_af8e19e776f30918951b2d20949843b59"><div class="ttname"><a href="classutilities_1_1Script.html#af8e19e776f30918951b2d20949843b59">utilities::Script::m_tempFileName</a></div><div class="ttdeci">std::string m_tempFileName</div><div class="ttdef"><b>Definition:</b> <a href="run__script_8hpp_source.html#l00055">run_script.hpp:55</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -302,14 +283,13 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="run__script_8h_source.html#l00082">82</a> of file <a class="el" href="run__script_8h_source.html">run_script.h</a>.</p>
-<div class="fragment"><div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    {</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        <span class="keywordtype">int</span> sysReturn = system(command.c_str());</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        </div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        <a class="code" href="namespaceutilities.html#a8bd217ae821e52872836b15f651f5d9f">utilities::cout</a>.<a class="code" href="classutilities_1_1Cout.html#a9ebb8ca78b6ddca88653622f0331b599">DebuggingInfo</a>()&lt;&lt;<span class="stringliteral">&quot;\n\tScript run info: system returned value &quot;</span>&lt;&lt;sysReturn&lt;&lt;std::endl;</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    };</div>
-<div class="ttc" id="classutilities_1_1Cout_html_a9ebb8ca78b6ddca88653622f0331b599"><div class="ttname"><a href="classutilities_1_1Cout.html#a9ebb8ca78b6ddca88653622f0331b599">utilities::Cout::DebuggingInfo</a></div><div class="ttdeci">std::ostream &amp; DebuggingInfo()</div><div class="ttdef"><b>Definition:</b> <a href="cout__tools_8h_source.html#l00157">cout_tools.h:157</a></div></div>
-<div class="ttc" id="namespaceutilities_html_a8bd217ae821e52872836b15f651f5d9f"><div class="ttname"><a href="namespaceutilities.html#a8bd217ae821e52872836b15f651f5d9f">utilities::cout</a></div><div class="ttdeci">Cout cout</div><div class="ttdef"><b>Definition:</b> <a href="fqhe__entanglement__hamiltonian_8cpp_source.html#l00046">fqhe_entanglement_hamiltonian.cpp:46</a></div></div>
+<p>Definition at line <a class="el" href="run__script_8hpp_source.html#l00067">67</a> of file <a class="el" href="run__script_8hpp_source.html">run_script.hpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        {</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;            <span class="keywordtype">int</span> sysReturn = system(command.c_str()); </div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;            <a class="code" href="namespaceutilities.html#a8bd217ae821e52872836b15f651f5d9f">utilities::cout</a>.<a class="code" href="classutilities_1_1Cout.html#a9ebb8ca78b6ddca88653622f0331b599">DebuggingInfo</a>()&lt;&lt;<span class="stringliteral">&quot;\n\tScript run info: system returned value &quot;</span>&lt;&lt;sysReturn&lt;&lt;std::endl;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        };</div>
+<div class="ttc" id="classutilities_1_1Cout_html_a9ebb8ca78b6ddca88653622f0331b599"><div class="ttname"><a href="classutilities_1_1Cout.html#a9ebb8ca78b6ddca88653622f0331b599">utilities::Cout::DebuggingInfo</a></div><div class="ttdeci">std::ostream &amp; DebuggingInfo()</div><div class="ttdef"><b>Definition:</b> <a href="cout__tools_8hpp_source.html#l00139">cout_tools.hpp:139</a></div></div>
+<div class="ttc" id="namespaceutilities_html_a8bd217ae821e52872836b15f651f5d9f"><div class="ttname"><a href="namespaceutilities.html#a8bd217ae821e52872836b15f651f5d9f">utilities::cout</a></div><div class="ttdeci">Cout cout</div><div class="ttdef"><b>Definition:</b> <a href="fqhe__entanglement__hamiltonian_8cpp_source.html#l00041">fqhe_entanglement_hamiltonian.cpp:41</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -334,37 +314,25 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="run__script_8h_source.html#l00089">89</a> of file <a class="el" href="run__script_8h_source.html">run_script.h</a>.</p>
-<div class="fragment"><div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    {</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        <span class="comment">//  Put the script in an executable output file</span></div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    </div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        std::ofstream f_script;</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160; </div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        f_script.open(<a class="code" href="classutilities_1_1Script.html#af8e19e776f30918951b2d20949843b59">m_tempFileName</a>.c_str(),std::ios::out);</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        <span class="keywordflow">if</span>(!f_script.is_open())</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;        {</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;            std::cerr&lt;&lt;<span class="stringliteral">&quot;ERROR: file &quot;</span>&lt;&lt;<a class="code" href="classutilities_1_1Script.html#af8e19e776f30918951b2d20949843b59">m_tempFileName</a>&lt;&lt;<span class="stringliteral">&quot; could not be generated&quot;</span>&lt;&lt;std::endl;</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;            exit(EXIT_FAILURE);</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        }</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        f_script&lt;&lt;<a class="code" href="classutilities_1_1Script.html#abf9b90a7229684a1c25f8e1287f5c89e">m_scriptText</a>.c_str();</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;        </div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;        f_script.close();</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        </div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        <span class="comment">//  Run a system command to change the executable bit on the output file</span></div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        </div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;        std::stringstream command;</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;        </div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;        command.str(<span class="stringliteral">&quot;&quot;</span>);</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;        </div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;        command&lt;&lt;<span class="stringliteral">&quot;chmod +x &quot;</span>&lt;&lt;<a class="code" href="classutilities_1_1Script.html#af8e19e776f30918951b2d20949843b59">m_tempFileName</a>;</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;        </div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;        this-&gt;<a class="code" href="classutilities_1_1Script.html#af844ea35785f687d185c3779be200864">RunSystemCommand</a>(command.str());</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    };</div>
-<div class="ttc" id="classutilities_1_1Script_html_af844ea35785f687d185c3779be200864"><div class="ttname"><a href="classutilities_1_1Script.html#af844ea35785f687d185c3779be200864">utilities::Script::RunSystemCommand</a></div><div class="ttdeci">void RunSystemCommand(const std::string command) const </div><div class="ttdef"><b>Definition:</b> <a href="run__script_8h_source.html#l00082">run_script.h:82</a></div></div>
-<div class="ttc" id="classutilities_1_1Script_html_abf9b90a7229684a1c25f8e1287f5c89e"><div class="ttname"><a href="classutilities_1_1Script.html#abf9b90a7229684a1c25f8e1287f5c89e">utilities::Script::m_scriptText</a></div><div class="ttdeci">std::string m_scriptText</div><div class="ttdef"><b>Definition:</b> <a href="run__script_8h_source.html#l00059">run_script.h:59</a></div></div>
-<div class="ttc" id="classutilities_1_1Script_html_af8e19e776f30918951b2d20949843b59"><div class="ttname"><a href="classutilities_1_1Script.html#af8e19e776f30918951b2d20949843b59">utilities::Script::m_tempFileName</a></div><div class="ttdeci">std::string m_tempFileName</div><div class="ttdef"><b>Definition:</b> <a href="run__script_8h_source.html#l00061">run_script.h:61</a></div></div>
+<p>Definition at line <a class="el" href="run__script_8hpp_source.html#l00073">73</a> of file <a class="el" href="run__script_8hpp_source.html">run_script.hpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        {</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;            std::ofstream f_script;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;            f_script.open(<a class="code" href="classutilities_1_1Script.html#af8e19e776f30918951b2d20949843b59">m_tempFileName</a>.c_str(),std::ios::out);</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;            <span class="keywordflow">if</span>(!f_script.is_open())</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;            {</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;                std::cerr&lt;&lt;<span class="stringliteral">&quot;ERROR: file &quot;</span>&lt;&lt;<a class="code" href="classutilities_1_1Script.html#af8e19e776f30918951b2d20949843b59">m_tempFileName</a>&lt;&lt;<span class="stringliteral">&quot; could not be generated&quot;</span>&lt;&lt;std::endl;</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;                exit(EXIT_FAILURE);</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;            }</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;            f_script&lt;&lt;<a class="code" href="classutilities_1_1Script.html#abf9b90a7229684a1c25f8e1287f5c89e">m_scriptText</a>.c_str();</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;            f_script.close();</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;            std::stringstream command;</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;            command.str(<span class="stringliteral">&quot;&quot;</span>);</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;            command&lt;&lt;<span class="stringliteral">&quot;chmod +x &quot;</span>&lt;&lt;<a class="code" href="classutilities_1_1Script.html#af8e19e776f30918951b2d20949843b59">m_tempFileName</a>;</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;            this-&gt;<a class="code" href="classutilities_1_1Script.html#af844ea35785f687d185c3779be200864">RunSystemCommand</a>(command.str());</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        };</div>
+<div class="ttc" id="classutilities_1_1Script_html_af844ea35785f687d185c3779be200864"><div class="ttname"><a href="classutilities_1_1Script.html#af844ea35785f687d185c3779be200864">utilities::Script::RunSystemCommand</a></div><div class="ttdeci">void RunSystemCommand(const std::string command) const </div><div class="ttdef"><b>Definition:</b> <a href="run__script_8hpp_source.html#l00067">run_script.hpp:67</a></div></div>
+<div class="ttc" id="classutilities_1_1Script_html_abf9b90a7229684a1c25f8e1287f5c89e"><div class="ttname"><a href="classutilities_1_1Script.html#abf9b90a7229684a1c25f8e1287f5c89e">utilities::Script::m_scriptText</a></div><div class="ttdeci">std::string m_scriptText</div><div class="ttdef"><b>Definition:</b> <a href="run__script_8hpp_source.html#l00053">run_script.hpp:53</a></div></div>
+<div class="ttc" id="classutilities_1_1Script_html_af8e19e776f30918951b2d20949843b59"><div class="ttname"><a href="classutilities_1_1Script.html#af8e19e776f30918951b2d20949843b59">utilities::Script::m_tempFileName</a></div><div class="ttdeci">std::string m_tempFileName</div><div class="ttdef"><b>Definition:</b> <a href="run__script_8hpp_source.html#l00055">run_script.hpp:55</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -390,20 +358,16 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="run__script_8h_source.html#l00135">135</a> of file <a class="el" href="run__script_8h_source.html">run_script.h</a>.</p>
-<div class="fragment"><div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;    {</div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;        std::stringstream stem;</div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;        </div>
-<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;        stem.str(<span class="stringliteral">&quot;&quot;</span>);</div>
-<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;        </div>
-<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;        stem&lt;&lt;<span class="stringliteral">&quot;./&quot;</span>&lt;&lt;newStem;</div>
-<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;        </div>
-<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;        <a class="code" href="classutilities_1_1Script.html#aa68612d606692ae3d20ad91fed613d11">m_fileNameStem</a> = stem.str();</div>
-<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;        </div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;        this-&gt;<a class="code" href="classutilities_1_1Script.html#a7c07e4390cd60f385e2211e3b127cf25">GenFileName</a>();</div>
-<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;    };</div>
-<div class="ttc" id="classutilities_1_1Script_html_aa68612d606692ae3d20ad91fed613d11"><div class="ttname"><a href="classutilities_1_1Script.html#aa68612d606692ae3d20ad91fed613d11">utilities::Script::m_fileNameStem</a></div><div class="ttdeci">std::string m_fileNameStem</div><div class="ttdef"><b>Definition:</b> <a href="run__script_8h_source.html#l00060">run_script.h:60</a></div></div>
-<div class="ttc" id="classutilities_1_1Script_html_a7c07e4390cd60f385e2211e3b127cf25"><div class="ttname"><a href="classutilities_1_1Script.html#a7c07e4390cd60f385e2211e3b127cf25">utilities::Script::GenFileName</a></div><div class="ttdeci">void GenFileName()</div><div class="ttdef"><b>Definition:</b> <a href="run__script_8h_source.html#l00063">run_script.h:63</a></div></div>
+<p>Definition at line <a class="el" href="run__script_8hpp_source.html#l00104">104</a> of file <a class="el" href="run__script_8hpp_source.html">run_script.hpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;        {</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;            std::stringstream stem;</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;            stem.str(<span class="stringliteral">&quot;&quot;</span>);</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;            stem&lt;&lt;<span class="stringliteral">&quot;./&quot;</span>&lt;&lt;newStem;</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;            <a class="code" href="classutilities_1_1Script.html#aa68612d606692ae3d20ad91fed613d11">m_fileNameStem</a> = stem.str();</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;            this-&gt;<a class="code" href="classutilities_1_1Script.html#a7c07e4390cd60f385e2211e3b127cf25">GenFileName</a>();</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;        };</div>
+<div class="ttc" id="classutilities_1_1Script_html_aa68612d606692ae3d20ad91fed613d11"><div class="ttname"><a href="classutilities_1_1Script.html#aa68612d606692ae3d20ad91fed613d11">utilities::Script::m_fileNameStem</a></div><div class="ttdeci">std::string m_fileNameStem</div><div class="ttdef"><b>Definition:</b> <a href="run__script_8hpp_source.html#l00054">run_script.hpp:54</a></div></div>
+<div class="ttc" id="classutilities_1_1Script_html_a7c07e4390cd60f385e2211e3b127cf25"><div class="ttname"><a href="classutilities_1_1Script.html#a7c07e4390cd60f385e2211e3b127cf25">utilities::Script::GenFileName</a></div><div class="ttdeci">void GenFileName()</div><div class="ttdef"><b>Definition:</b> <a href="run__script_8hpp_source.html#l00056">run_script.hpp:56</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -429,11 +393,11 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="run__script_8h_source.html#l00130">130</a> of file <a class="el" href="run__script_8h_source.html">run_script.h</a>.</p>
-<div class="fragment"><div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    {</div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;        <a class="code" href="classutilities_1_1Script.html#abf9b90a7229684a1c25f8e1287f5c89e">m_scriptText</a> = newText;</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;    };</div>
-<div class="ttc" id="classutilities_1_1Script_html_abf9b90a7229684a1c25f8e1287f5c89e"><div class="ttname"><a href="classutilities_1_1Script.html#abf9b90a7229684a1c25f8e1287f5c89e">utilities::Script::m_scriptText</a></div><div class="ttdeci">std::string m_scriptText</div><div class="ttdef"><b>Definition:</b> <a href="run__script_8h_source.html#l00059">run_script.h:59</a></div></div>
+<p>Definition at line <a class="el" href="run__script_8hpp_source.html#l00099">99</a> of file <a class="el" href="run__script_8hpp_source.html">run_script.hpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;        {</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;            <a class="code" href="classutilities_1_1Script.html#abf9b90a7229684a1c25f8e1287f5c89e">m_scriptText</a> = newText;</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        };</div>
+<div class="ttc" id="classutilities_1_1Script_html_abf9b90a7229684a1c25f8e1287f5c89e"><div class="ttname"><a href="classutilities_1_1Script.html#abf9b90a7229684a1c25f8e1287f5c89e">utilities::Script::m_scriptText</a></div><div class="ttdeci">std::string m_scriptText</div><div class="ttdef"><b>Definition:</b> <a href="run__script_8hpp_source.html#l00053">run_script.hpp:53</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -456,7 +420,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="run__script_8h_source.html#l00060">60</a> of file <a class="el" href="run__script_8h_source.html">run_script.h</a>.</p>
+<p>Definition at line <a class="el" href="run__script_8hpp_source.html#l00054">54</a> of file <a class="el" href="run__script_8hpp_source.html">run_script.hpp</a>.</p>
 
 </div>
 </div>
@@ -478,7 +442,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="run__script_8h_source.html#l00059">59</a> of file <a class="el" href="run__script_8h_source.html">run_script.h</a>.</p>
+<p>Definition at line <a class="el" href="run__script_8hpp_source.html#l00053">53</a> of file <a class="el" href="run__script_8hpp_source.html">run_script.hpp</a>.</p>
 
 </div>
 </div>
@@ -500,12 +464,12 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="run__script_8h_source.html#l00061">61</a> of file <a class="el" href="run__script_8h_source.html">run_script.h</a>.</p>
+<p>Definition at line <a class="el" href="run__script_8hpp_source.html#l00055">55</a> of file <a class="el" href="run__script_8hpp_source.html">run_script.hpp</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li><a class="el" href="run__script_8h_source.html">run_script.h</a></li>
+<li><a class="el" href="run__script_8hpp_source.html">run_script.hpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

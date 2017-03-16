@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Quantum Hall entanglement program suite: FQHE::CompositeFermionData Struct Reference</title>
+<title>Quantum Hall Programs: FQHE::CompositeFermionData Struct Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -29,7 +29,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Quantum Hall entanglement program suite
+   <div id="projectname">Quantum Hall Programs
    &#160;<span id="projectnumber">Version 1.0</span>
    </div>
   </td>
@@ -113,10 +113,7 @@ $(document).ready(function(){initNavTree('structFQHE_1_1CompositeFermionData.htm
 </div><!--header-->
 <div class="contents">
 
-<p>A data structure to contain a basic set of composite fermion wave function data.  
- <a href="structFQHE_1_1CompositeFermionData.html#details">More...</a></p>
-
-<p><code>#include &lt;<a class="el" href="composite__fermion_8h_source.html">composite_fermion.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="composite__fermion_8hpp_source.html">composite_fermion.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -124,7 +121,6 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:ad8ad7a45424fae06a08a710faf64f85c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor for the composite fermion data struct.  <a href="#ad8ad7a45424fae06a08a710faf64f85c">More...</a><br/></td></tr>
 <tr class="separator:ad8ad7a45424fae06a08a710faf64f85c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5be603974fe2d349c92b6c44c85a068a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structFQHE_1_1CompositeFermionData.html#a5be603974fe2d349c92b6c44c85a068a">InitFromCommandLine</a> (boost::program_options::variables_map *vm)</td></tr>
-<tr class="memdesc:a5be603974fe2d349c92b6c44c85a068a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets parameter values using command line arguments.  <a href="#a5be603974fe2d349c92b6c44c85a068a">More...</a><br/></td></tr>
 <tr class="separator:a5be603974fe2d349c92b6c44c85a068a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
@@ -150,9 +146,9 @@ Public Attributes</h2></td></tr>
 <tr class="separator:aaee48700bd266df2d0bdd18e991355fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>A data structure to contain a basic set of composite fermion wave function data. </p>
+<div class="textblock"><p>A data structure to contain a basic set of composite fermion wave function data </p>
 
-<p>Definition at line <a class="el" href="composite__fermion_8h_source.html#l00113">113</a> of file <a class="el" href="composite__fermion_8h_source.html">composite_fermion.h</a>.</p>
+<p>Definition at line <a class="el" href="composite__fermion_8hpp_source.html#l00088">88</a> of file <a class="el" href="composite__fermion_8hpp_source.html">composite_fermion.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="ad8ad7a45424fae06a08a710faf64f85c"></a>
 <div class="memitem">
@@ -170,27 +166,27 @@ Public Attributes</h2></td></tr>
 <p>Default constructor for the composite fermion data struct. </p>
 <p>Sets default parameter values </p>
 
-<p>Definition at line <a class="el" href="composite__fermion_8cpp_source.html#l00038">38</a> of file <a class="el" href="composite__fermion_8cpp_source.html">composite_fermion.cpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    :</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <a class="code" href="structFQHE_1_1CompositeFermionData.html#a7ca1acd0437d539983bd81ff8f482a47">halfFluxAttatched</a>(1),</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <a class="code" href="structFQHE_1_1CompositeFermionData.html#ac08ab3f514928fbf677ebd500a6c0b2d">effectiveMonopole</a>(1),</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <a class="code" href="structFQHE_1_1CompositeFermionData.html#a3eb734300257ae9dc3b7ad8425906bb4">LLup</a>(2),</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <a class="code" href="structFQHE_1_1CompositeFermionData.html#a93c6d0b9850c7ecb4c27731c15ed7a07">LLdown</a>(0),</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <a class="code" href="structFQHE_1_1CompositeFermionData.html#a9623ec768320f755b814cc102d98ab86">NEF</a>(<span class="keyword">false</span>),</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <a class="code" href="structFQHE_1_1CompositeFermionData.html#a2aeeaa306f0d5db11224fe15a0ba3425">spinPolarised</a>(<span class="keyword">true</span>),</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <a class="code" href="structFQHE_1_1CompositeFermionData.html#a4311eb87b27aa19d1f6e7694bc976f93">altProjection</a>(<span class="keyword">false</span>),</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <a class="code" href="structFQHE_1_1CompositeFermionData.html#a975294c80375fa5259480c4a1bc57027">bsMode</a>(<span class="keyword">false</span>),</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <a class="code" href="structFQHE_1_1CompositeFermionData.html#aaee48700bd266df2d0bdd18e991355fb">unprojMode</a>(<span class="keyword">false</span>)</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;{}</div>
-<div class="ttc" id="structFQHE_1_1CompositeFermionData_html_a9623ec768320f755b814cc102d98ab86"><div class="ttname"><a href="structFQHE_1_1CompositeFermionData.html#a9623ec768320f755b814cc102d98ab86">FQHE::CompositeFermionData::NEF</a></div><div class="ttdeci">bool NEF</div><div class="ttdef"><b>Definition:</b> <a href="composite__fermion_8h_source.html#l00121">composite_fermion.h:121</a></div></div>
-<div class="ttc" id="structFQHE_1_1CompositeFermionData_html_a3eb734300257ae9dc3b7ad8425906bb4"><div class="ttname"><a href="structFQHE_1_1CompositeFermionData.html#a3eb734300257ae9dc3b7ad8425906bb4">FQHE::CompositeFermionData::LLup</a></div><div class="ttdeci">int LLup</div><div class="ttdoc">magnetic field. </div><div class="ttdef"><b>Definition:</b> <a href="composite__fermion_8h_source.html#l00119">composite_fermion.h:119</a></div></div>
-<div class="ttc" id="structFQHE_1_1CompositeFermionData_html_aaee48700bd266df2d0bdd18e991355fb"><div class="ttname"><a href="structFQHE_1_1CompositeFermionData.html#aaee48700bd266df2d0bdd18e991355fb">FQHE::CompositeFermionData::unprojMode</a></div><div class="ttdeci">bool unprojMode</div><div class="ttdef"><b>Definition:</b> <a href="composite__fermion_8h_source.html#l00129">composite_fermion.h:129</a></div></div>
-<div class="ttc" id="structFQHE_1_1CompositeFermionData_html_a4311eb87b27aa19d1f6e7694bc976f93"><div class="ttname"><a href="structFQHE_1_1CompositeFermionData.html#a4311eb87b27aa19d1f6e7694bc976f93">FQHE::CompositeFermionData::altProjection</a></div><div class="ttdeci">bool altProjection</div><div class="ttdef"><b>Definition:</b> <a href="composite__fermion_8h_source.html#l00125">composite_fermion.h:125</a></div></div>
-<div class="ttc" id="structFQHE_1_1CompositeFermionData_html_a93c6d0b9850c7ecb4c27731c15ed7a07"><div class="ttname"><a href="structFQHE_1_1CompositeFermionData.html#a93c6d0b9850c7ecb4c27731c15ed7a07">FQHE::CompositeFermionData::LLdown</a></div><div class="ttdeci">int LLdown</div><div class="ttdef"><b>Definition:</b> <a href="composite__fermion_8h_source.html#l00119">composite_fermion.h:119</a></div></div>
-<div class="ttc" id="structFQHE_1_1CompositeFermionData_html_ac08ab3f514928fbf677ebd500a6c0b2d"><div class="ttname"><a href="structFQHE_1_1CompositeFermionData.html#ac08ab3f514928fbf677ebd500a6c0b2d">FQHE::CompositeFermionData::effectiveMonopole</a></div><div class="ttdeci">double effectiveMonopole</div><div class="ttdef"><b>Definition:</b> <a href="composite__fermion_8h_source.html#l00117">composite_fermion.h:117</a></div></div>
-<div class="ttc" id="structFQHE_1_1CompositeFermionData_html_a2aeeaa306f0d5db11224fe15a0ba3425"><div class="ttname"><a href="structFQHE_1_1CompositeFermionData.html#a2aeeaa306f0d5db11224fe15a0ba3425">FQHE::CompositeFermionData::spinPolarised</a></div><div class="ttdeci">bool spinPolarised</div><div class="ttdef"><b>Definition:</b> <a href="composite__fermion_8h_source.html#l00123">composite_fermion.h:123</a></div></div>
-<div class="ttc" id="structFQHE_1_1CompositeFermionData_html_a7ca1acd0437d539983bd81ff8f482a47"><div class="ttname"><a href="structFQHE_1_1CompositeFermionData.html#a7ca1acd0437d539983bd81ff8f482a47">FQHE::CompositeFermionData::halfFluxAttatched</a></div><div class="ttdeci">int halfFluxAttatched</div><div class="ttdef"><b>Definition:</b> <a href="composite__fermion_8h_source.html#l00115">composite_fermion.h:115</a></div></div>
-<div class="ttc" id="structFQHE_1_1CompositeFermionData_html_a975294c80375fa5259480c4a1bc57027"><div class="ttname"><a href="structFQHE_1_1CompositeFermionData.html#a975294c80375fa5259480c4a1bc57027">FQHE::CompositeFermionData::bsMode</a></div><div class="ttdeci">bool bsMode</div><div class="ttdef"><b>Definition:</b> <a href="composite__fermion_8h_source.html#l00127">composite_fermion.h:127</a></div></div>
+<p>Definition at line <a class="el" href="composite__fermion_8cpp_source.html#l00032">32</a> of file <a class="el" href="composite__fermion_8cpp_source.html">composite_fermion.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    :</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <a class="code" href="structFQHE_1_1CompositeFermionData.html#a7ca1acd0437d539983bd81ff8f482a47">halfFluxAttatched</a>(1),</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <a class="code" href="structFQHE_1_1CompositeFermionData.html#ac08ab3f514928fbf677ebd500a6c0b2d">effectiveMonopole</a>(1),</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <a class="code" href="structFQHE_1_1CompositeFermionData.html#a3eb734300257ae9dc3b7ad8425906bb4">LLup</a>(2),</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <a class="code" href="structFQHE_1_1CompositeFermionData.html#a93c6d0b9850c7ecb4c27731c15ed7a07">LLdown</a>(0),</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <a class="code" href="structFQHE_1_1CompositeFermionData.html#a9623ec768320f755b814cc102d98ab86">NEF</a>(<span class="keyword">false</span>),</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <a class="code" href="structFQHE_1_1CompositeFermionData.html#a2aeeaa306f0d5db11224fe15a0ba3425">spinPolarised</a>(<span class="keyword">true</span>),</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <a class="code" href="structFQHE_1_1CompositeFermionData.html#a4311eb87b27aa19d1f6e7694bc976f93">altProjection</a>(<span class="keyword">false</span>),</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <a class="code" href="structFQHE_1_1CompositeFermionData.html#a975294c80375fa5259480c4a1bc57027">bsMode</a>(<span class="keyword">false</span>),</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <a class="code" href="structFQHE_1_1CompositeFermionData.html#aaee48700bd266df2d0bdd18e991355fb">unprojMode</a>(<span class="keyword">false</span>)</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;{}</div>
+<div class="ttc" id="structFQHE_1_1CompositeFermionData_html_a9623ec768320f755b814cc102d98ab86"><div class="ttname"><a href="structFQHE_1_1CompositeFermionData.html#a9623ec768320f755b814cc102d98ab86">FQHE::CompositeFermionData::NEF</a></div><div class="ttdeci">bool NEF</div><div class="ttdef"><b>Definition:</b> <a href="composite__fermion_8hpp_source.html#l00096">composite_fermion.hpp:96</a></div></div>
+<div class="ttc" id="structFQHE_1_1CompositeFermionData_html_a3eb734300257ae9dc3b7ad8425906bb4"><div class="ttname"><a href="structFQHE_1_1CompositeFermionData.html#a3eb734300257ae9dc3b7ad8425906bb4">FQHE::CompositeFermionData::LLup</a></div><div class="ttdeci">int LLup</div><div class="ttdoc">magnetic field. </div><div class="ttdef"><b>Definition:</b> <a href="composite__fermion_8hpp_source.html#l00094">composite_fermion.hpp:94</a></div></div>
+<div class="ttc" id="structFQHE_1_1CompositeFermionData_html_aaee48700bd266df2d0bdd18e991355fb"><div class="ttname"><a href="structFQHE_1_1CompositeFermionData.html#aaee48700bd266df2d0bdd18e991355fb">FQHE::CompositeFermionData::unprojMode</a></div><div class="ttdeci">bool unprojMode</div><div class="ttdef"><b>Definition:</b> <a href="composite__fermion_8hpp_source.html#l00104">composite_fermion.hpp:104</a></div></div>
+<div class="ttc" id="structFQHE_1_1CompositeFermionData_html_a4311eb87b27aa19d1f6e7694bc976f93"><div class="ttname"><a href="structFQHE_1_1CompositeFermionData.html#a4311eb87b27aa19d1f6e7694bc976f93">FQHE::CompositeFermionData::altProjection</a></div><div class="ttdeci">bool altProjection</div><div class="ttdef"><b>Definition:</b> <a href="composite__fermion_8hpp_source.html#l00100">composite_fermion.hpp:100</a></div></div>
+<div class="ttc" id="structFQHE_1_1CompositeFermionData_html_a93c6d0b9850c7ecb4c27731c15ed7a07"><div class="ttname"><a href="structFQHE_1_1CompositeFermionData.html#a93c6d0b9850c7ecb4c27731c15ed7a07">FQHE::CompositeFermionData::LLdown</a></div><div class="ttdeci">int LLdown</div><div class="ttdef"><b>Definition:</b> <a href="composite__fermion_8hpp_source.html#l00094">composite_fermion.hpp:94</a></div></div>
+<div class="ttc" id="structFQHE_1_1CompositeFermionData_html_ac08ab3f514928fbf677ebd500a6c0b2d"><div class="ttname"><a href="structFQHE_1_1CompositeFermionData.html#ac08ab3f514928fbf677ebd500a6c0b2d">FQHE::CompositeFermionData::effectiveMonopole</a></div><div class="ttdeci">double effectiveMonopole</div><div class="ttdef"><b>Definition:</b> <a href="composite__fermion_8hpp_source.html#l00092">composite_fermion.hpp:92</a></div></div>
+<div class="ttc" id="structFQHE_1_1CompositeFermionData_html_a2aeeaa306f0d5db11224fe15a0ba3425"><div class="ttname"><a href="structFQHE_1_1CompositeFermionData.html#a2aeeaa306f0d5db11224fe15a0ba3425">FQHE::CompositeFermionData::spinPolarised</a></div><div class="ttdeci">bool spinPolarised</div><div class="ttdef"><b>Definition:</b> <a href="composite__fermion_8hpp_source.html#l00098">composite_fermion.hpp:98</a></div></div>
+<div class="ttc" id="structFQHE_1_1CompositeFermionData_html_a7ca1acd0437d539983bd81ff8f482a47"><div class="ttname"><a href="structFQHE_1_1CompositeFermionData.html#a7ca1acd0437d539983bd81ff8f482a47">FQHE::CompositeFermionData::halfFluxAttatched</a></div><div class="ttdeci">int halfFluxAttatched</div><div class="ttdef"><b>Definition:</b> <a href="composite__fermion_8hpp_source.html#l00090">composite_fermion.hpp:90</a></div></div>
+<div class="ttc" id="structFQHE_1_1CompositeFermionData_html_a975294c80375fa5259480c4a1bc57027"><div class="ttname"><a href="structFQHE_1_1CompositeFermionData.html#a975294c80375fa5259480c4a1bc57027">FQHE::CompositeFermionData::bsMode</a></div><div class="ttdeci">bool bsMode</div><div class="ttdef"><b>Definition:</b> <a href="composite__fermion_8hpp_source.html#l00102">composite_fermion.hpp:102</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -208,8 +204,7 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Sets parameter values using command line arguments. </p>
+<p>Sets parameter values using command line arguments </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">options</td><td>Command line argument list </td></tr>
@@ -217,30 +212,28 @@ Public Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="composite__fermion_8cpp_source.html#l00058">58</a> of file <a class="el" href="composite__fermion_8cpp_source.html">composite_fermion.cpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;{</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="preprocessor">    #if _ENABLE_MPI_</span></div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="preprocessor"></span>    <span class="keywordflow">if</span>(0 == <a class="code" href="fqhe__entanglement__spectrum_8cpp.html#a1a7112d51c59f426cab52975031ff6e7">mpi</a>.<a class="code" href="structutilities_1_1MpiWrapper.html#a0f670cb88d82d9c815e111de5e76ae3e">m_id</a>)    <span class="comment">//  For the master node</span></div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="preprocessor">    #endif</span></div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="preprocessor"></span>    {</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        <a class="code" href="structFQHE_1_1CompositeFermionData.html#a3eb734300257ae9dc3b7ad8425906bb4">LLup</a>          = (*options)[<span class="stringliteral">&quot;llup&quot;</span>].as&lt;<span class="keywordtype">int</span>&gt;();</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        <a class="code" href="structFQHE_1_1CompositeFermionData.html#a93c6d0b9850c7ecb4c27731c15ed7a07">LLdown</a>        = (*options)[<span class="stringliteral">&quot;lldown&quot;</span>].as&lt;<span class="keywordtype">int</span>&gt;();    </div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        <a class="code" href="structFQHE_1_1CompositeFermionData.html#a4311eb87b27aa19d1f6e7694bc976f93">altProjection</a> = (*options)[<span class="stringliteral">&quot;altProjection&quot;</span>].as&lt;<span class="keywordtype">bool</span>&gt;();</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        <a class="code" href="structFQHE_1_1CompositeFermionData.html#aaee48700bd266df2d0bdd18e991355fb">unprojMode</a>    = (*options)[<span class="stringliteral">&quot;un-proj&quot;</span>].as&lt;<span class="keywordtype">bool</span>&gt;();        </div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    }</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    </div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="preprocessor">    #if _ENABLE_MPI_</span></div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="preprocessor"></span>    this-&gt;MpiSync(0,<a class="code" href="fqhe__entanglement__spectrum_8cpp.html#a1a7112d51c59f426cab52975031ff6e7">mpi</a>);</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="preprocessor">    #endif</span></div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="preprocessor"></span>    </div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;}</div>
+<p>Definition at line <a class="el" href="composite__fermion_8cpp_source.html#l00048">48</a> of file <a class="el" href="composite__fermion_8cpp_source.html">composite_fermion.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;{</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="preprocessor">    #if _ENABLE_MPI_</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="preprocessor"></span>    <span class="keywordflow">if</span>(0 == <a class="code" href="fqhe__entanglement__spectrum_8cpp.html#a1a7112d51c59f426cab52975031ff6e7">mpi</a>.<a class="code" href="structutilities_1_1MpiWrapper.html#a0f670cb88d82d9c815e111de5e76ae3e">m_id</a>)    <span class="comment">//  For the master node</span></div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="preprocessor">    #endif</span></div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="preprocessor"></span>    {</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        <a class="code" href="structFQHE_1_1CompositeFermionData.html#a3eb734300257ae9dc3b7ad8425906bb4">LLup</a>          = (*options)[<span class="stringliteral">&quot;llup&quot;</span>].as&lt;<span class="keywordtype">int</span>&gt;();</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        <a class="code" href="structFQHE_1_1CompositeFermionData.html#a93c6d0b9850c7ecb4c27731c15ed7a07">LLdown</a>        = (*options)[<span class="stringliteral">&quot;lldown&quot;</span>].as&lt;<span class="keywordtype">int</span>&gt;();    </div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <a class="code" href="structFQHE_1_1CompositeFermionData.html#a4311eb87b27aa19d1f6e7694bc976f93">altProjection</a> = (*options)[<span class="stringliteral">&quot;altProjection&quot;</span>].as&lt;<span class="keywordtype">bool</span>&gt;();</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        <a class="code" href="structFQHE_1_1CompositeFermionData.html#aaee48700bd266df2d0bdd18e991355fb">unprojMode</a>    = (*options)[<span class="stringliteral">&quot;un-proj&quot;</span>].as&lt;<span class="keywordtype">bool</span>&gt;();        </div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    }</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="preprocessor">    #if _ENABLE_MPI_</span></div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="preprocessor"></span>    this-&gt;MpiSync(0,<a class="code" href="fqhe__entanglement__spectrum_8cpp.html#a1a7112d51c59f426cab52975031ff6e7">mpi</a>);</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="preprocessor">    #endif</span></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="preprocessor"></span>    <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;}</div>
 <div class="ttc" id="fqhe__entanglement__spectrum_8cpp_html_a1a7112d51c59f426cab52975031ff6e7"><div class="ttname"><a href="fqhe__entanglement__spectrum_8cpp.html#a1a7112d51c59f426cab52975031ff6e7">mpi</a></div><div class="ttdeci">utilities::MpiWrapper mpi(utilities::cout)</div></div>
-<div class="ttc" id="structFQHE_1_1CompositeFermionData_html_a3eb734300257ae9dc3b7ad8425906bb4"><div class="ttname"><a href="structFQHE_1_1CompositeFermionData.html#a3eb734300257ae9dc3b7ad8425906bb4">FQHE::CompositeFermionData::LLup</a></div><div class="ttdeci">int LLup</div><div class="ttdoc">magnetic field. </div><div class="ttdef"><b>Definition:</b> <a href="composite__fermion_8h_source.html#l00119">composite_fermion.h:119</a></div></div>
-<div class="ttc" id="structFQHE_1_1CompositeFermionData_html_aaee48700bd266df2d0bdd18e991355fb"><div class="ttname"><a href="structFQHE_1_1CompositeFermionData.html#aaee48700bd266df2d0bdd18e991355fb">FQHE::CompositeFermionData::unprojMode</a></div><div class="ttdeci">bool unprojMode</div><div class="ttdef"><b>Definition:</b> <a href="composite__fermion_8h_source.html#l00129">composite_fermion.h:129</a></div></div>
-<div class="ttc" id="structFQHE_1_1CompositeFermionData_html_a4311eb87b27aa19d1f6e7694bc976f93"><div class="ttname"><a href="structFQHE_1_1CompositeFermionData.html#a4311eb87b27aa19d1f6e7694bc976f93">FQHE::CompositeFermionData::altProjection</a></div><div class="ttdeci">bool altProjection</div><div class="ttdef"><b>Definition:</b> <a href="composite__fermion_8h_source.html#l00125">composite_fermion.h:125</a></div></div>
-<div class="ttc" id="structFQHE_1_1CompositeFermionData_html_a93c6d0b9850c7ecb4c27731c15ed7a07"><div class="ttname"><a href="structFQHE_1_1CompositeFermionData.html#a93c6d0b9850c7ecb4c27731c15ed7a07">FQHE::CompositeFermionData::LLdown</a></div><div class="ttdeci">int LLdown</div><div class="ttdef"><b>Definition:</b> <a href="composite__fermion_8h_source.html#l00119">composite_fermion.h:119</a></div></div>
-<div class="ttc" id="structutilities_1_1MpiWrapper_html_a0f670cb88d82d9c815e111de5e76ae3e"><div class="ttname"><a href="structutilities_1_1MpiWrapper.html#a0f670cb88d82d9c815e111de5e76ae3e">utilities::MpiWrapper::m_id</a></div><div class="ttdeci">int m_id</div><div class="ttdef"><b>Definition:</b> <a href="mpi__wrapper_8h_source.html#l00062">mpi_wrapper.h:62</a></div></div>
+<div class="ttc" id="structFQHE_1_1CompositeFermionData_html_a3eb734300257ae9dc3b7ad8425906bb4"><div class="ttname"><a href="structFQHE_1_1CompositeFermionData.html#a3eb734300257ae9dc3b7ad8425906bb4">FQHE::CompositeFermionData::LLup</a></div><div class="ttdeci">int LLup</div><div class="ttdoc">magnetic field. </div><div class="ttdef"><b>Definition:</b> <a href="composite__fermion_8hpp_source.html#l00094">composite_fermion.hpp:94</a></div></div>
+<div class="ttc" id="structFQHE_1_1CompositeFermionData_html_aaee48700bd266df2d0bdd18e991355fb"><div class="ttname"><a href="structFQHE_1_1CompositeFermionData.html#aaee48700bd266df2d0bdd18e991355fb">FQHE::CompositeFermionData::unprojMode</a></div><div class="ttdeci">bool unprojMode</div><div class="ttdef"><b>Definition:</b> <a href="composite__fermion_8hpp_source.html#l00104">composite_fermion.hpp:104</a></div></div>
+<div class="ttc" id="structFQHE_1_1CompositeFermionData_html_a4311eb87b27aa19d1f6e7694bc976f93"><div class="ttname"><a href="structFQHE_1_1CompositeFermionData.html#a4311eb87b27aa19d1f6e7694bc976f93">FQHE::CompositeFermionData::altProjection</a></div><div class="ttdeci">bool altProjection</div><div class="ttdef"><b>Definition:</b> <a href="composite__fermion_8hpp_source.html#l00100">composite_fermion.hpp:100</a></div></div>
+<div class="ttc" id="structFQHE_1_1CompositeFermionData_html_a93c6d0b9850c7ecb4c27731c15ed7a07"><div class="ttname"><a href="structFQHE_1_1CompositeFermionData.html#a93c6d0b9850c7ecb4c27731c15ed7a07">FQHE::CompositeFermionData::LLdown</a></div><div class="ttdeci">int LLdown</div><div class="ttdef"><b>Definition:</b> <a href="composite__fermion_8hpp_source.html#l00094">composite_fermion.hpp:94</a></div></div>
+<div class="ttc" id="structutilities_1_1MpiWrapper_html_a0f670cb88d82d9c815e111de5e76ae3e"><div class="ttname"><a href="structutilities_1_1MpiWrapper.html#a0f670cb88d82d9c815e111de5e76ae3e">utilities::MpiWrapper::m_id</a></div><div class="ttdeci">int m_id</div><div class="ttdef"><b>Definition:</b> <a href="mpi__wrapper_8hpp_source.html#l00056">mpi_wrapper.hpp:56</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -256,7 +249,7 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Use alternative projection of spinful CF wave funcs </p>
 
-<p>Definition at line <a class="el" href="composite__fermion_8h_source.html#l00125">125</a> of file <a class="el" href="composite__fermion_8h_source.html">composite_fermion.h</a>.</p>
+<p>Definition at line <a class="el" href="composite__fermion_8hpp_source.html#l00100">100</a> of file <a class="el" href="composite__fermion_8hpp_source.html">composite_fermion.hpp</a>.</p>
 
 </div>
 </div>
@@ -271,7 +264,7 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Instead of CF wave functions, evaluate Bonderson- Slingerland wave functions </p>
 
-<p>Definition at line <a class="el" href="composite__fermion_8h_source.html#l00127">127</a> of file <a class="el" href="composite__fermion_8h_source.html">composite_fermion.h</a>.</p>
+<p>Definition at line <a class="el" href="composite__fermion_8hpp_source.html#l00102">102</a> of file <a class="el" href="composite__fermion_8hpp_source.html">composite_fermion.hpp</a>.</p>
 
 </div>
 </div>
@@ -286,7 +279,7 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>The effective monopole strength for reduced </p>
 
-<p>Definition at line <a class="el" href="composite__fermion_8h_source.html#l00117">117</a> of file <a class="el" href="composite__fermion_8h_source.html">composite_fermion.h</a>.</p>
+<p>Definition at line <a class="el" href="composite__fermion_8hpp_source.html#l00092">92</a> of file <a class="el" href="composite__fermion_8hpp_source.html">composite_fermion.hpp</a>.</p>
 
 </div>
 </div>
@@ -301,7 +294,7 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Amount of flux attached to CF wave function </p>
 
-<p>Definition at line <a class="el" href="composite__fermion_8h_source.html#l00115">115</a> of file <a class="el" href="composite__fermion_8h_source.html">composite_fermion.h</a>.</p>
+<p>Definition at line <a class="el" href="composite__fermion_8hpp_source.html#l00090">90</a> of file <a class="el" href="composite__fermion_8hpp_source.html">composite_fermion.hpp</a>.</p>
 
 </div>
 </div>
@@ -316,7 +309,7 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Number of filled spin-up and spin-down CF effective Landau Levels </p>
 
-<p>Definition at line <a class="el" href="composite__fermion_8h_source.html#l00119">119</a> of file <a class="el" href="composite__fermion_8h_source.html">composite_fermion.h</a>.</p>
+<p>Definition at line <a class="el" href="composite__fermion_8hpp_source.html#l00094">94</a> of file <a class="el" href="composite__fermion_8hpp_source.html">composite_fermion.hpp</a>.</p>
 
 </div>
 </div>
@@ -332,7 +325,7 @@ Public Attributes</h2></td></tr>
 
 <p>magnetic field. </p>
 
-<p>Definition at line <a class="el" href="composite__fermion_8h_source.html#l00119">119</a> of file <a class="el" href="composite__fermion_8h_source.html">composite_fermion.h</a>.</p>
+<p>Definition at line <a class="el" href="composite__fermion_8hpp_source.html#l00094">94</a> of file <a class="el" href="composite__fermion_8hpp_source.html">composite_fermion.hpp</a>.</p>
 
 </div>
 </div>
@@ -347,7 +340,7 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Option to use negative or positive effective field </p>
 
-<p>Definition at line <a class="el" href="composite__fermion_8h_source.html#l00121">121</a> of file <a class="el" href="composite__fermion_8h_source.html">composite_fermion.h</a>.</p>
+<p>Definition at line <a class="el" href="composite__fermion_8hpp_source.html#l00096">96</a> of file <a class="el" href="composite__fermion_8hpp_source.html">composite_fermion.hpp</a>.</p>
 
 </div>
 </div>
@@ -362,7 +355,7 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Option to specify spin polarised electrons or not </p>
 
-<p>Definition at line <a class="el" href="composite__fermion_8h_source.html#l00123">123</a> of file <a class="el" href="composite__fermion_8h_source.html">composite_fermion.h</a>.</p>
+<p>Definition at line <a class="el" href="composite__fermion_8hpp_source.html#l00098">98</a> of file <a class="el" href="composite__fermion_8hpp_source.html">composite_fermion.hpp</a>.</p>
 
 </div>
 </div>
@@ -377,12 +370,12 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Instead of standard CF wave functions, evaluate unprojected versions (IQHE*jastrow factor) </p>
 
-<p>Definition at line <a class="el" href="composite__fermion_8h_source.html#l00129">129</a> of file <a class="el" href="composite__fermion_8h_source.html">composite_fermion.h</a>.</p>
+<p>Definition at line <a class="el" href="composite__fermion_8hpp_source.html#l00104">104</a> of file <a class="el" href="composite__fermion_8hpp_source.html">composite_fermion.hpp</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following files:<ul>
-<li><a class="el" href="composite__fermion_8h_source.html">composite_fermion.h</a></li>
+<li><a class="el" href="composite__fermion_8hpp_source.html">composite_fermion.hpp</a></li>
 <li><a class="el" href="composite__fermion_8cpp_source.html">composite_fermion.cpp</a></li>
 </ul>
 </div><!-- contents -->

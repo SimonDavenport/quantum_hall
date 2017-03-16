@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['i',['i',['../gamma_8cpp.html#acb559820d9ca11295b4500f179ef6392',1,'i():&#160;gamma.cpp'],['../i__const__def_8h.html#ab03128f28254e912f824640e69fc85ad',1,'I():&#160;i_const_def.h']]],
-  ['init_5farray_5fsize',['INIT_ARRAY_SIZE',['../fqhe__monte__carlo__analysis_8h.html#ad169f3fced13da7546ad6b6f268a59ad',1,'fqhe_monte_carlo_analysis.h']]],
+  ['i',['i',['../gamma_8cpp.html#acb559820d9ca11295b4500f179ef6392',1,'i():&#160;gamma.cpp'],['../i__const__def_8hpp.html#ab03128f28254e912f824640e69fc85ad',1,'I():&#160;i_const_def.hpp']]],
+  ['init_5farray_5fsize',['INIT_ARRAY_SIZE',['../fqhe__monte__carlo__analysis_8hpp.html#ad169f3fced13da7546ad6b6f268a59ad',1,'fqhe_monte_carlo_analysis.hpp']]],
   ['init_5fkey_5f',['init_key_',['../classMersenneTwister.html#aaf482dbceb6e8b0a42a1a12de3bd7f4b',1,'MersenneTwister']]],
   ['initfilename',['initFileName',['../structFQHE_1_1MonteCarloData.html#aebeaab0912d3c8a60fd3435a38e90fd7',1,'FQHE::MonteCarloData']]],
   ['initial_5fnormal',['initial_normal',['../structParams.html#aa5663f88f3dbb831814dddab84e0ca8e',1,'Params']]],

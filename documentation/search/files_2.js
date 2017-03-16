@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['combinatorics_2eh',['combinatorics.h',['../combinatorics_8h.html',1,'']]],
+  ['combinatorics_2ehpp',['combinatorics.hpp',['../combinatorics_8hpp.html',1,'']]],
   ['composite_5ffermion_2ecpp',['composite_fermion.cpp',['../composite__fermion_8cpp.html',1,'']]],
-  ['composite_5ffermion_2eh',['composite_fermion.h',['../composite__fermion_8h.html',1,'']]],
-  ['cout_5ftools_2eh',['cout_tools.h',['../cout__tools_8h.html',1,'']]]
+  ['composite_5ffermion_2ehpp',['composite_fermion.hpp',['../composite__fermion_8hpp.html',1,'']]],
+  ['cout_5ftools_2ehpp',['cout_tools.hpp',['../cout__tools_8hpp.html',1,'']]]
 ];

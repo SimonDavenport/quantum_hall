@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Quantum Hall entanglement program suite: utilities::LoadBar Class Reference</title>
+<title>Quantum Hall Programs: utilities::LoadBar Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -29,7 +29,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Quantum Hall entanglement program suite
+   <div id="projectname">Quantum Hall Programs
    &#160;<span id="projectnumber">Version 1.0</span>
    </div>
   </td>
@@ -117,7 +117,7 @@ $(document).ready(function(){initNavTree('classutilities_1_1LoadBar.html','');})
 <p>A class to display a progress bar.  
  <a href="classutilities_1_1LoadBar.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="load__bar_8h_source.html">load_bar.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="load__bar_8hpp_source.html">load_bar.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -148,7 +148,7 @@ Static Private Attributes</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A class to display a progress bar. </p>
 
-<p>Definition at line <a class="el" href="load__bar_8h_source.html#l00043">43</a> of file <a class="el" href="load__bar_8h_source.html">load_bar.h</a>.</p>
+<p>Definition at line <a class="el" href="load__bar_8hpp_source.html#l00039">39</a> of file <a class="el" href="load__bar_8hpp_source.html">load_bar.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a314ed07d356b679dce4b2a783e7c8066"></a>
 <div class="memitem">
@@ -172,13 +172,13 @@ Static Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Default constructor </p>
 
-<p>Definition at line <a class="el" href="load__bar_8h_source.html#l00056">56</a> of file <a class="el" href="load__bar_8h_source.html">load_bar.h</a>.</p>
-<div class="fragment"><div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    :</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <a class="code" href="classutilities_1_1LoadBar.html#a3f634a02d5c0a833ceff461acd70713b">m_max</a>(0),</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <a class="code" href="classutilities_1_1LoadBar.html#a15adab367873567f4d60bbef15c2e2d9">m_onePercent</a>(0)</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    {}</div>
-<div class="ttc" id="classutilities_1_1LoadBar_html_a15adab367873567f4d60bbef15c2e2d9"><div class="ttname"><a href="classutilities_1_1LoadBar.html#a15adab367873567f4d60bbef15c2e2d9">utilities::LoadBar::m_onePercent</a></div><div class="ttdeci">long int m_onePercent</div><div class="ttdoc">An integer closest to 1% of the total. </div><div class="ttdef"><b>Definition:</b> <a href="load__bar_8h_source.html#l00048">load_bar.h:48</a></div></div>
-<div class="ttc" id="classutilities_1_1LoadBar_html_a3f634a02d5c0a833ceff461acd70713b"><div class="ttname"><a href="classutilities_1_1LoadBar.html#a3f634a02d5c0a833ceff461acd70713b">utilities::LoadBar::m_max</a></div><div class="ttdeci">long int m_max</div><div class="ttdoc">Number corresponding to 100% completion. </div><div class="ttdef"><b>Definition:</b> <a href="load__bar_8h_source.html#l00047">load_bar.h:47</a></div></div>
+<p>Definition at line <a class="el" href="load__bar_8hpp_source.html#l00050">50</a> of file <a class="el" href="load__bar_8hpp_source.html">load_bar.hpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    :</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <a class="code" href="classutilities_1_1LoadBar.html#a3f634a02d5c0a833ceff461acd70713b">m_max</a>(0),</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        <a class="code" href="classutilities_1_1LoadBar.html#a15adab367873567f4d60bbef15c2e2d9">m_onePercent</a>(0)</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    {}</div>
+<div class="ttc" id="classutilities_1_1LoadBar_html_a15adab367873567f4d60bbef15c2e2d9"><div class="ttname"><a href="classutilities_1_1LoadBar.html#a15adab367873567f4d60bbef15c2e2d9">utilities::LoadBar::m_onePercent</a></div><div class="ttdeci">long int m_onePercent</div><div class="ttdoc">An integer closest to 1% of the total. </div><div class="ttdef"><b>Definition:</b> <a href="load__bar_8hpp_source.html#l00043">load_bar.hpp:43</a></div></div>
+<div class="ttc" id="classutilities_1_1LoadBar_html_a3f634a02d5c0a833ceff461acd70713b"><div class="ttname"><a href="classutilities_1_1LoadBar.html#a3f634a02d5c0a833ceff461acd70713b">utilities::LoadBar::m_max</a></div><div class="ttdeci">long int m_max</div><div class="ttdoc">Number corresponding to 100% completion. </div><div class="ttdef"><b>Definition:</b> <a href="load__bar_8hpp_source.html#l00042">load_bar.hpp:42</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -204,10 +204,10 @@ Static Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Destructor </p>
 
-<p>Definition at line <a class="el" href="load__bar_8h_source.html#l00075">75</a> of file <a class="el" href="load__bar_8h_source.html">load_bar.h</a>.</p>
-<div class="fragment"><div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    {</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        <span class="comment">//utilities::cout.AdditionalInfo()&lt;&lt;std::endl;</span></div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    }</div>
+<p>Definition at line <a class="el" href="load__bar_8hpp_source.html#l00067">67</a> of file <a class="el" href="load__bar_8hpp_source.html">load_bar.hpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    {</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        <span class="comment">//utilities::cout.AdditionalInfo()&lt;&lt;std::endl;</span></div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -241,39 +241,31 @@ Static Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="load__bar_8h_source.html#l00083">83</a> of file <a class="el" href="load__bar_8h_source.html">load_bar.h</a>.</p>
-<div class="fragment"><div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    {</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        <span class="comment">// Only update 100 times</span></div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        </div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        <span class="keywordflow">if</span>(<a class="code" href="gamma_8cpp.html#af88b946fb90d5f08b5fb740c70e98c10">x</a> % <a class="code" href="classutilities_1_1LoadBar.html#a15adab367873567f4d60bbef15c2e2d9">m_onePercent</a> != 0 &amp;&amp; (<a class="code" href="classutilities_1_1LoadBar.html#a3f634a02d5c0a833ceff461acd70713b">m_max</a>-<a class="code" href="gamma_8cpp.html#af88b946fb90d5f08b5fb740c70e98c10">x</a>)&gt;<a class="code" href="classutilities_1_1LoadBar.html#a15adab367873567f4d60bbef15c2e2d9">m_onePercent</a>) <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        </div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        <span class="comment">// Calculate the ratio of complete-to-incomplete.</span></div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        <span class="keywordtype">double</span> ratio = (double)<a class="code" href="gamma_8cpp.html#af88b946fb90d5f08b5fb740c70e98c10">x</a>/<a class="code" href="classutilities_1_1LoadBar.html#a3f634a02d5c0a833ceff461acd70713b">m_max</a>;</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        <span class="keywordtype">int</span> c = round(ratio * <a class="code" href="classutilities_1_1LoadBar.html#af14f752152a27bf17175f281ba730ae0">m_barWidth</a>);</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    </div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        <span class="comment">// Show the percentage complete.</span></div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        <a class="code" href="namespaceutilities.html#a8bd217ae821e52872836b15f651f5d9f">utilities::cout</a>.<a class="code" href="classutilities_1_1Cout.html#a2d11fc59d54199d37f4627dc645dff93">AdditionalInfo</a>()&lt;&lt;<span class="stringliteral">&quot;\t&quot;</span>&lt;&lt;(int)(ratio*100)&lt;&lt;<span class="stringliteral">&quot;% [&quot;</span>;</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;     </div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;        <span class="comment">// Show the load bar.</span></div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> <a class="code" href="gamma_8cpp.html#acb559820d9ca11295b4500f179ef6392">i</a>=0; <a class="code" href="gamma_8cpp.html#acb559820d9ca11295b4500f179ef6392">i</a>&lt;c; <a class="code" href="gamma_8cpp.html#acb559820d9ca11295b4500f179ef6392">i</a>++)</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;           <a class="code" href="namespaceutilities.html#a8bd217ae821e52872836b15f651f5d9f">utilities::cout</a>.AdditionalInfo()&lt;&lt;<span class="stringliteral">&quot;=&quot;</span>;</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;     </div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> <a class="code" href="gamma_8cpp.html#acb559820d9ca11295b4500f179ef6392">i</a>=c; <a class="code" href="gamma_8cpp.html#acb559820d9ca11295b4500f179ef6392">i</a>&lt;<a class="code" href="classutilities_1_1LoadBar.html#af14f752152a27bf17175f281ba730ae0">m_barWidth</a>; <a class="code" href="gamma_8cpp.html#acb559820d9ca11295b4500f179ef6392">i</a>++)</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;           <a class="code" href="namespaceutilities.html#a8bd217ae821e52872836b15f651f5d9f">utilities::cout</a>.AdditionalInfo()&lt;&lt;<span class="stringliteral">&quot; &quot;</span>;</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;     </div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;        <a class="code" href="namespaceutilities.html#a8bd217ae821e52872836b15f651f5d9f">utilities::cout</a>.<a class="code" href="classutilities_1_1Cout.html#a2d11fc59d54199d37f4627dc645dff93">AdditionalInfo</a>()&lt;&lt;<span class="stringliteral">&quot;]\r&quot;</span>;</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        </div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        fflush(stdout);</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        </div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;        <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    }</div>
-<div class="ttc" id="namespaceutilities_html_a8bd217ae821e52872836b15f651f5d9f"><div class="ttname"><a href="namespaceutilities.html#a8bd217ae821e52872836b15f651f5d9f">utilities::cout</a></div><div class="ttdeci">Cout cout</div><div class="ttdef"><b>Definition:</b> <a href="fqhe__entanglement__hamiltonian_8cpp_source.html#l00046">fqhe_entanglement_hamiltonian.cpp:46</a></div></div>
-<div class="ttc" id="classutilities_1_1LoadBar_html_a15adab367873567f4d60bbef15c2e2d9"><div class="ttname"><a href="classutilities_1_1LoadBar.html#a15adab367873567f4d60bbef15c2e2d9">utilities::LoadBar::m_onePercent</a></div><div class="ttdeci">long int m_onePercent</div><div class="ttdoc">An integer closest to 1% of the total. </div><div class="ttdef"><b>Definition:</b> <a href="load__bar_8h_source.html#l00048">load_bar.h:48</a></div></div>
-<div class="ttc" id="classutilities_1_1Cout_html_a2d11fc59d54199d37f4627dc645dff93"><div class="ttname"><a href="classutilities_1_1Cout.html#a2d11fc59d54199d37f4627dc645dff93">utilities::Cout::AdditionalInfo</a></div><div class="ttdeci">std::ostream &amp; AdditionalInfo()</div><div class="ttdef"><b>Definition:</b> <a href="cout__tools_8h_source.html#l00148">cout_tools.h:148</a></div></div>
+<p>Definition at line <a class="el" href="load__bar_8hpp_source.html#l00074">74</a> of file <a class="el" href="load__bar_8hpp_source.html">load_bar.hpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    {</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        <span class="keywordflow">if</span>(<a class="code" href="gamma_8cpp.html#af88b946fb90d5f08b5fb740c70e98c10">x</a> % <a class="code" href="classutilities_1_1LoadBar.html#a15adab367873567f4d60bbef15c2e2d9">m_onePercent</a> != 0 &amp;&amp; (<a class="code" href="classutilities_1_1LoadBar.html#a3f634a02d5c0a833ceff461acd70713b">m_max</a>-<a class="code" href="gamma_8cpp.html#af88b946fb90d5f08b5fb740c70e98c10">x</a>)&gt;<a class="code" href="classutilities_1_1LoadBar.html#a15adab367873567f4d60bbef15c2e2d9">m_onePercent</a>) <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        <span class="keywordtype">double</span> ratio = (double)<a class="code" href="gamma_8cpp.html#af88b946fb90d5f08b5fb740c70e98c10">x</a>/<a class="code" href="classutilities_1_1LoadBar.html#a3f634a02d5c0a833ceff461acd70713b">m_max</a>;</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        <span class="keywordtype">int</span> c = round(ratio * <a class="code" href="classutilities_1_1LoadBar.html#af14f752152a27bf17175f281ba730ae0">m_barWidth</a>);</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        <a class="code" href="namespaceutilities.html#a8bd217ae821e52872836b15f651f5d9f">utilities::cout</a>.<a class="code" href="classutilities_1_1Cout.html#a2d11fc59d54199d37f4627dc645dff93">AdditionalInfo</a>()&lt;&lt;<span class="stringliteral">&quot;\t&quot;</span>&lt;&lt;(int)(ratio*100)&lt;&lt;<span class="stringliteral">&quot;% [&quot;</span>;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> <a class="code" href="gamma_8cpp.html#acb559820d9ca11295b4500f179ef6392">i</a>=0; <a class="code" href="gamma_8cpp.html#acb559820d9ca11295b4500f179ef6392">i</a>&lt;c; ++<a class="code" href="gamma_8cpp.html#acb559820d9ca11295b4500f179ef6392">i</a>)</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        {</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;            <a class="code" href="namespaceutilities.html#a8bd217ae821e52872836b15f651f5d9f">utilities::cout</a>.<a class="code" href="classutilities_1_1Cout.html#a2d11fc59d54199d37f4627dc645dff93">AdditionalInfo</a>()&lt;&lt;<span class="stringliteral">&quot;=&quot;</span>;</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        }</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> <a class="code" href="gamma_8cpp.html#acb559820d9ca11295b4500f179ef6392">i</a>=c; <a class="code" href="gamma_8cpp.html#acb559820d9ca11295b4500f179ef6392">i</a>&lt;<a class="code" href="classutilities_1_1LoadBar.html#af14f752152a27bf17175f281ba730ae0">m_barWidth</a>; ++<a class="code" href="gamma_8cpp.html#acb559820d9ca11295b4500f179ef6392">i</a>)</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        {</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;            <a class="code" href="namespaceutilities.html#a8bd217ae821e52872836b15f651f5d9f">utilities::cout</a>.<a class="code" href="classutilities_1_1Cout.html#a2d11fc59d54199d37f4627dc645dff93">AdditionalInfo</a>()&lt;&lt;<span class="stringliteral">&quot; &quot;</span>;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        }</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        <a class="code" href="namespaceutilities.html#a8bd217ae821e52872836b15f651f5d9f">utilities::cout</a>.<a class="code" href="classutilities_1_1Cout.html#a2d11fc59d54199d37f4627dc645dff93">AdditionalInfo</a>()&lt;&lt;<span class="stringliteral">&quot;]\r&quot;</span>;</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        fflush(stdout);</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    }</div>
+<div class="ttc" id="namespaceutilities_html_a8bd217ae821e52872836b15f651f5d9f"><div class="ttname"><a href="namespaceutilities.html#a8bd217ae821e52872836b15f651f5d9f">utilities::cout</a></div><div class="ttdeci">Cout cout</div><div class="ttdef"><b>Definition:</b> <a href="fqhe__entanglement__hamiltonian_8cpp_source.html#l00041">fqhe_entanglement_hamiltonian.cpp:41</a></div></div>
+<div class="ttc" id="classutilities_1_1LoadBar_html_a15adab367873567f4d60bbef15c2e2d9"><div class="ttname"><a href="classutilities_1_1LoadBar.html#a15adab367873567f4d60bbef15c2e2d9">utilities::LoadBar::m_onePercent</a></div><div class="ttdeci">long int m_onePercent</div><div class="ttdoc">An integer closest to 1% of the total. </div><div class="ttdef"><b>Definition:</b> <a href="load__bar_8hpp_source.html#l00043">load_bar.hpp:43</a></div></div>
+<div class="ttc" id="classutilities_1_1Cout_html_a2d11fc59d54199d37f4627dc645dff93"><div class="ttname"><a href="classutilities_1_1Cout.html#a2d11fc59d54199d37f4627dc645dff93">utilities::Cout::AdditionalInfo</a></div><div class="ttdeci">std::ostream &amp; AdditionalInfo()</div><div class="ttdef"><b>Definition:</b> <a href="cout__tools_8hpp_source.html#l00132">cout_tools.hpp:132</a></div></div>
 <div class="ttc" id="gamma_8cpp_html_acb559820d9ca11295b4500f179ef6392"><div class="ttname"><a href="gamma_8cpp.html#acb559820d9ca11295b4500f179ef6392">i</a></div><div class="ttdeci">int i</div><div class="ttdef"><b>Definition:</b> <a href="gamma_8cpp_source.html#l00023">gamma.cpp:23</a></div></div>
-<div class="ttc" id="classutilities_1_1LoadBar_html_a3f634a02d5c0a833ceff461acd70713b"><div class="ttname"><a href="classutilities_1_1LoadBar.html#a3f634a02d5c0a833ceff461acd70713b">utilities::LoadBar::m_max</a></div><div class="ttdeci">long int m_max</div><div class="ttdoc">Number corresponding to 100% completion. </div><div class="ttdef"><b>Definition:</b> <a href="load__bar_8h_source.html#l00047">load_bar.h:47</a></div></div>
+<div class="ttc" id="classutilities_1_1LoadBar_html_a3f634a02d5c0a833ceff461acd70713b"><div class="ttname"><a href="classutilities_1_1LoadBar.html#a3f634a02d5c0a833ceff461acd70713b">utilities::LoadBar::m_max</a></div><div class="ttdeci">long int m_max</div><div class="ttdoc">Number corresponding to 100% completion. </div><div class="ttdef"><b>Definition:</b> <a href="load__bar_8hpp_source.html#l00042">load_bar.hpp:42</a></div></div>
 <div class="ttc" id="gamma_8cpp_html_af88b946fb90d5f08b5fb740c70e98c10"><div class="ttname"><a href="gamma_8cpp.html#af88b946fb90d5f08b5fb740c70e98c10">x</a></div><div class="ttdeci">double x</div><div class="ttdef"><b>Definition:</b> <a href="gamma_8cpp_source.html#l00022">gamma.cpp:22</a></div></div>
-<div class="ttc" id="classutilities_1_1LoadBar_html_af14f752152a27bf17175f281ba730ae0"><div class="ttname"><a href="classutilities_1_1LoadBar.html#af14f752152a27bf17175f281ba730ae0">utilities::LoadBar::m_barWidth</a></div><div class="ttdeci">static const int m_barWidth</div><div class="ttdoc">Character width of the display bar. </div><div class="ttdef"><b>Definition:</b> <a href="load__bar_8h_source.html#l00049">load_bar.h:49</a></div></div>
+<div class="ttc" id="classutilities_1_1LoadBar_html_af14f752152a27bf17175f281ba730ae0"><div class="ttname"><a href="classutilities_1_1LoadBar.html#af14f752152a27bf17175f281ba730ae0">utilities::LoadBar::m_barWidth</a></div><div class="ttdeci">static const int m_barWidth</div><div class="ttdoc">Character width of the display bar. </div><div class="ttdef"><b>Definition:</b> <a href="load__bar_8hpp_source.html#l00044">load_bar.hpp:44</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -306,13 +298,13 @@ Static Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="load__bar_8h_source.html#l00065">65</a> of file <a class="el" href="load__bar_8h_source.html">load_bar.h</a>.</p>
-<div class="fragment"><div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    {</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        <a class="code" href="classutilities_1_1LoadBar.html#a3f634a02d5c0a833ceff461acd70713b">m_max</a> = max;</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        <a class="code" href="classutilities_1_1LoadBar.html#a15adab367873567f4d60bbef15c2e2d9">m_onePercent</a> = ceil((<span class="keywordtype">double</span>)<a class="code" href="classutilities_1_1LoadBar.html#a3f634a02d5c0a833ceff461acd70713b">m_max</a>/100);</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    }</div>
-<div class="ttc" id="classutilities_1_1LoadBar_html_a15adab367873567f4d60bbef15c2e2d9"><div class="ttname"><a href="classutilities_1_1LoadBar.html#a15adab367873567f4d60bbef15c2e2d9">utilities::LoadBar::m_onePercent</a></div><div class="ttdeci">long int m_onePercent</div><div class="ttdoc">An integer closest to 1% of the total. </div><div class="ttdef"><b>Definition:</b> <a href="load__bar_8h_source.html#l00048">load_bar.h:48</a></div></div>
-<div class="ttc" id="classutilities_1_1LoadBar_html_a3f634a02d5c0a833ceff461acd70713b"><div class="ttname"><a href="classutilities_1_1LoadBar.html#a3f634a02d5c0a833ceff461acd70713b">utilities::LoadBar::m_max</a></div><div class="ttdeci">long int m_max</div><div class="ttdoc">Number corresponding to 100% completion. </div><div class="ttdef"><b>Definition:</b> <a href="load__bar_8h_source.html#l00047">load_bar.h:47</a></div></div>
+<p>Definition at line <a class="el" href="load__bar_8hpp_source.html#l00058">58</a> of file <a class="el" href="load__bar_8hpp_source.html">load_bar.hpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    {</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        <a class="code" href="classutilities_1_1LoadBar.html#a3f634a02d5c0a833ceff461acd70713b">m_max</a> = max;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <a class="code" href="classutilities_1_1LoadBar.html#a15adab367873567f4d60bbef15c2e2d9">m_onePercent</a> = ceil((<span class="keywordtype">double</span>)<a class="code" href="classutilities_1_1LoadBar.html#a3f634a02d5c0a833ceff461acd70713b">m_max</a>/100);</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    }</div>
+<div class="ttc" id="classutilities_1_1LoadBar_html_a15adab367873567f4d60bbef15c2e2d9"><div class="ttname"><a href="classutilities_1_1LoadBar.html#a15adab367873567f4d60bbef15c2e2d9">utilities::LoadBar::m_onePercent</a></div><div class="ttdeci">long int m_onePercent</div><div class="ttdoc">An integer closest to 1% of the total. </div><div class="ttdef"><b>Definition:</b> <a href="load__bar_8hpp_source.html#l00043">load_bar.hpp:43</a></div></div>
+<div class="ttc" id="classutilities_1_1LoadBar_html_a3f634a02d5c0a833ceff461acd70713b"><div class="ttname"><a href="classutilities_1_1LoadBar.html#a3f634a02d5c0a833ceff461acd70713b">utilities::LoadBar::m_max</a></div><div class="ttdeci">long int m_max</div><div class="ttdoc">Number corresponding to 100% completion. </div><div class="ttdef"><b>Definition:</b> <a href="load__bar_8hpp_source.html#l00042">load_bar.hpp:42</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -337,7 +329,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>Character width of the display bar. </p>
 
-<p>Definition at line <a class="el" href="load__bar_8h_source.html#l00049">49</a> of file <a class="el" href="load__bar_8h_source.html">load_bar.h</a>.</p>
+<p>Definition at line <a class="el" href="load__bar_8hpp_source.html#l00044">44</a> of file <a class="el" href="load__bar_8hpp_source.html">load_bar.hpp</a>.</p>
 
 </div>
 </div>
@@ -361,7 +353,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>Number corresponding to 100% completion. </p>
 
-<p>Definition at line <a class="el" href="load__bar_8h_source.html#l00047">47</a> of file <a class="el" href="load__bar_8h_source.html">load_bar.h</a>.</p>
+<p>Definition at line <a class="el" href="load__bar_8hpp_source.html#l00042">42</a> of file <a class="el" href="load__bar_8hpp_source.html">load_bar.hpp</a>.</p>
 
 </div>
 </div>
@@ -385,12 +377,12 @@ Static Private Attributes</h2></td></tr>
 
 <p>An integer closest to 1% of the total. </p>
 
-<p>Definition at line <a class="el" href="load__bar_8h_source.html#l00048">48</a> of file <a class="el" href="load__bar_8h_source.html">load_bar.h</a>.</p>
+<p>Definition at line <a class="el" href="load__bar_8hpp_source.html#l00043">43</a> of file <a class="el" href="load__bar_8hpp_source.html">load_bar.hpp</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li><a class="el" href="load__bar_8h_source.html">load_bar.h</a></li>
+<li><a class="el" href="load__bar_8hpp_source.html">load_bar.hpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Quantum Hall entanglement program suite: utilities::HighPrecKahanAccumulation&lt; T &gt; Struct Template Reference</title>
+<title>Quantum Hall Programs: utilities::HighPrecKahanAccumulation&lt; T &gt; Struct Template Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -29,7 +29,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Quantum Hall entanglement program suite
+   <div id="projectname">Quantum Hall Programs
    &#160;<span id="projectnumber">Version 1.0</span>
    </div>
   </td>
@@ -113,10 +113,7 @@ $(document).ready(function(){initNavTree('structutilities_1_1HighPrecKahanAccumu
 </div><!--header-->
 <div class="contents">
 
-<p>A class template to implement the Kahan summation algorithm for objects of the high precision wrapper type.  
- <a href="structutilities_1_1HighPrecKahanAccumulation.html#details">More...</a></p>
-
-<p><code>#include &lt;<a class="el" href="high__precision__wrapper_8h_source.html">high_precision_wrapper.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="high__precision__wrapper_8hpp_source.html">high_precision_wrapper.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -128,10 +125,8 @@ Public Member Functions</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a74a0fe414e7fc67012a2f5016c31c98d"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structutilities_1_1HighPrecKahanAccumulation.html#a74a0fe414e7fc67012a2f5016c31c98d">m_sum</a></td></tr>
-<tr class="memdesc:a74a0fe414e7fc67012a2f5016c31c98d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Current accumulated sum.  <a href="#a74a0fe414e7fc67012a2f5016c31c98d">More...</a><br/></td></tr>
 <tr class="separator:a74a0fe414e7fc67012a2f5016c31c98d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af9db47856142a7ac6b1a09fbf47711e6"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structutilities_1_1HighPrecKahanAccumulation.html#af9db47856142a7ac6b1a09fbf47711e6">m_correction</a></td></tr>
-<tr class="memdesc:af9db47856142a7ac6b1a09fbf47711e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Correction term.  <a href="#af9db47856142a7ac6b1a09fbf47711e6">More...</a><br/></td></tr>
 <tr class="separator:af9db47856142a7ac6b1a09fbf47711e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5151d2ccb3d7966d8d260f465e781b41"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structutilities_1_1HighPrecKahanAccumulation.html#a5151d2ccb3d7966d8d260f465e781b41">m_tempSum</a></td></tr>
 <tr class="separator:a5151d2ccb3d7966d8d260f465e781b41"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -142,9 +137,9 @@ Public Attributes</h2></td></tr>
 <div class="textblock"><h3>template&lt;class T&gt;<br/>
 struct utilities::HighPrecKahanAccumulation&lt; T &gt;</h3>
 
-<p>A class template to implement the Kahan summation algorithm for objects of the high precision wrapper type. </p>
+<p>A class template to implement the Kahan summation algorithm for objects of the high precision wrapper type </p>
 
-<p>Definition at line <a class="el" href="high__precision__wrapper_8h_source.html#l00075">75</a> of file <a class="el" href="high__precision__wrapper_8h_source.html">high_precision_wrapper.h</a>.</p>
+<p>Definition at line <a class="el" href="high__precision__wrapper_8hpp_source.html#l00054">54</a> of file <a class="el" href="high__precision__wrapper_8hpp_source.html">high_precision_wrapper.hpp</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a class="anchor" id="a4b62ca44cb1802c8689f5ca6cf25beab"></a>
 <div class="memitem">
@@ -169,11 +164,11 @@ template&lt;class T&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="high__precision__wrapper_8h_source.html#l00088">88</a> of file <a class="el" href="high__precision__wrapper_8h_source.html">high_precision_wrapper.h</a>.</p>
-<div class="fragment"><div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        {</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="structutilities_1_1HighPrecKahanAccumulation.html#a74a0fe414e7fc67012a2f5016c31c98d">m_sum</a>;</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        }</div>
-<div class="ttc" id="structutilities_1_1HighPrecKahanAccumulation_html_a74a0fe414e7fc67012a2f5016c31c98d"><div class="ttname"><a href="structutilities_1_1HighPrecKahanAccumulation.html#a74a0fe414e7fc67012a2f5016c31c98d">utilities::HighPrecKahanAccumulation::m_sum</a></div><div class="ttdeci">T m_sum</div><div class="ttdoc">Current accumulated sum. </div><div class="ttdef"><b>Definition:</b> <a href="high__precision__wrapper_8h_source.html#l00077">high_precision_wrapper.h:77</a></div></div>
+<p>Definition at line <a class="el" href="high__precision__wrapper_8hpp_source.html#l00065">65</a> of file <a class="el" href="high__precision__wrapper_8hpp_source.html">high_precision_wrapper.hpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        {</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="structutilities_1_1HighPrecKahanAccumulation.html#a74a0fe414e7fc67012a2f5016c31c98d">m_sum</a>;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        }</div>
+<div class="ttc" id="structutilities_1_1HighPrecKahanAccumulation_html_a74a0fe414e7fc67012a2f5016c31c98d"><div class="ttname"><a href="structutilities_1_1HighPrecKahanAccumulation.html#a74a0fe414e7fc67012a2f5016c31c98d">utilities::HighPrecKahanAccumulation::m_sum</a></div><div class="ttdeci">T m_sum</div><div class="ttdef"><b>Definition:</b> <a href="high__precision__wrapper_8hpp_source.html#l00056">high_precision_wrapper.hpp:56</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -200,13 +195,13 @@ template&lt;class T&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="high__precision__wrapper_8h_source.html#l00082">82</a> of file <a class="el" href="high__precision__wrapper_8h_source.html">high_precision_wrapper.h</a>.</p>
-<div class="fragment"><div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        {</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;            <a class="code" href="structutilities_1_1HighPrecKahanAccumulation.html#a74a0fe414e7fc67012a2f5016c31c98d">m_sum</a>.Set(0.0);</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;            <a class="code" href="structutilities_1_1HighPrecKahanAccumulation.html#af9db47856142a7ac6b1a09fbf47711e6">m_correction</a>.Set(0.0);</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        }</div>
-<div class="ttc" id="structutilities_1_1HighPrecKahanAccumulation_html_af9db47856142a7ac6b1a09fbf47711e6"><div class="ttname"><a href="structutilities_1_1HighPrecKahanAccumulation.html#af9db47856142a7ac6b1a09fbf47711e6">utilities::HighPrecKahanAccumulation::m_correction</a></div><div class="ttdeci">T m_correction</div><div class="ttdoc">Correction term. </div><div class="ttdef"><b>Definition:</b> <a href="high__precision__wrapper_8h_source.html#l00078">high_precision_wrapper.h:78</a></div></div>
-<div class="ttc" id="structutilities_1_1HighPrecKahanAccumulation_html_a74a0fe414e7fc67012a2f5016c31c98d"><div class="ttname"><a href="structutilities_1_1HighPrecKahanAccumulation.html#a74a0fe414e7fc67012a2f5016c31c98d">utilities::HighPrecKahanAccumulation::m_sum</a></div><div class="ttdeci">T m_sum</div><div class="ttdoc">Current accumulated sum. </div><div class="ttdef"><b>Definition:</b> <a href="high__precision__wrapper_8h_source.html#l00077">high_precision_wrapper.h:77</a></div></div>
+<p>Definition at line <a class="el" href="high__precision__wrapper_8hpp_source.html#l00060">60</a> of file <a class="el" href="high__precision__wrapper_8hpp_source.html">high_precision_wrapper.hpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        {</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;            <a class="code" href="structutilities_1_1HighPrecKahanAccumulation.html#a74a0fe414e7fc67012a2f5016c31c98d">m_sum</a>.Set(0.0);</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;            <a class="code" href="structutilities_1_1HighPrecKahanAccumulation.html#af9db47856142a7ac6b1a09fbf47711e6">m_correction</a>.Set(0.0);</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        }</div>
+<div class="ttc" id="structutilities_1_1HighPrecKahanAccumulation_html_af9db47856142a7ac6b1a09fbf47711e6"><div class="ttname"><a href="structutilities_1_1HighPrecKahanAccumulation.html#af9db47856142a7ac6b1a09fbf47711e6">utilities::HighPrecKahanAccumulation::m_correction</a></div><div class="ttdeci">T m_correction</div><div class="ttdef"><b>Definition:</b> <a href="high__precision__wrapper_8hpp_source.html#l00057">high_precision_wrapper.hpp:57</a></div></div>
+<div class="ttc" id="structutilities_1_1HighPrecKahanAccumulation_html_a74a0fe414e7fc67012a2f5016c31c98d"><div class="ttname"><a href="structutilities_1_1HighPrecKahanAccumulation.html#a74a0fe414e7fc67012a2f5016c31c98d">utilities::HighPrecKahanAccumulation::m_sum</a></div><div class="ttdeci">T m_sum</div><div class="ttdef"><b>Definition:</b> <a href="high__precision__wrapper_8hpp_source.html#l00056">high_precision_wrapper.hpp:56</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -223,9 +218,7 @@ template&lt;class T&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Correction term. </p>
-
-<p>Definition at line <a class="el" href="high__precision__wrapper_8h_source.html#l00078">78</a> of file <a class="el" href="high__precision__wrapper_8h_source.html">high_precision_wrapper.h</a>.</p>
+<p>Definition at line <a class="el" href="high__precision__wrapper_8hpp_source.html#l00057">57</a> of file <a class="el" href="high__precision__wrapper_8hpp_source.html">high_precision_wrapper.hpp</a>.</p>
 
 </div>
 </div>
@@ -241,9 +234,7 @@ template&lt;class T&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Current accumulated sum. </p>
-
-<p>Definition at line <a class="el" href="high__precision__wrapper_8h_source.html#l00077">77</a> of file <a class="el" href="high__precision__wrapper_8h_source.html">high_precision_wrapper.h</a>.</p>
+<p>Definition at line <a class="el" href="high__precision__wrapper_8hpp_source.html#l00056">56</a> of file <a class="el" href="high__precision__wrapper_8hpp_source.html">high_precision_wrapper.hpp</a>.</p>
 
 </div>
 </div>
@@ -259,7 +250,7 @@ template&lt;class T&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="high__precision__wrapper_8h_source.html#l00080">80</a> of file <a class="el" href="high__precision__wrapper_8h_source.html">high_precision_wrapper.h</a>.</p>
+<p>Definition at line <a class="el" href="high__precision__wrapper_8hpp_source.html#l00059">59</a> of file <a class="el" href="high__precision__wrapper_8hpp_source.html">high_precision_wrapper.hpp</a>.</p>
 
 </div>
 </div>
@@ -275,12 +266,12 @@ template&lt;class T&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="high__precision__wrapper_8h_source.html#l00079">79</a> of file <a class="el" href="high__precision__wrapper_8h_source.html">high_precision_wrapper.h</a>.</p>
+<p>Definition at line <a class="el" href="high__precision__wrapper_8hpp_source.html#l00058">58</a> of file <a class="el" href="high__precision__wrapper_8hpp_source.html">high_precision_wrapper.hpp</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li><a class="el" href="high__precision__wrapper_8h_source.html">high_precision_wrapper.h</a></li>
+<li><a class="el" href="high__precision__wrapper_8hpp_source.html">high_precision_wrapper.hpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

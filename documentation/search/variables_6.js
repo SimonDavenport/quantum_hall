@@ -1,21 +1,20 @@
 var searchData=
 [
   ['f_5fconfig',['f_config',['../classAnalysisMethods.html#a88c3a8b8acc011c72d3dda0f32942109',1,'AnalysisMethods']]],
-  ['f_5felbg',['f_elbg',['../classFQHE_1_1Metropolis.html#ad1bd48f0460f1818791d71134da19d37',1,'FQHE::Metropolis::f_elbg()'],['../classAnalysisMethods.html#ab0ed563d437ed94ce0ce3b8ba9d55f9b',1,'AnalysisMethods::f_elbg()']]],
+  ['f_5felbg',['f_elbg',['../classFQHE_1_1Metropolis.html#ad1bd48f0460f1818791d71134da19d37',1,'FQHE::Metropolis']]],
   ['f_5finit',['f_init',['../classFQHE_1_1Metropolis.html#a255d11389fcb8cfe2285b32ccdb3a7f0',1,'FQHE::Metropolis']]],
   ['f_5flatticeconfig',['f_latticeConfig',['../classFQHE_1_1Metropolis.html#a6eba9a05feba6b1cc1e7b3f46ddb5618',1,'FQHE::Metropolis']]],
   ['f_5fphi',['f_phi',['../classFQHE_1_1Metropolis.html#a071ec7b2b2c09299fc6dc2bca5155978',1,'FQHE::Metropolis::f_phi()'],['../classAnalysisMethods.html#a5c98f448e3f713d33fbcee7fb45b5170',1,'AnalysisMethods::f_phi()']]],
   ['f_5fr',['f_r',['../classFQHE_1_1Metropolis.html#aa8cbf4712df1c16660e6780a30a68da2',1,'FQHE::Metropolis::f_r()'],['../classAnalysisMethods.html#a1d359e3b2aa450bf2d3eb56285030367',1,'AnalysisMethods::f_r()']]],
   ['f_5ftheta',['f_theta',['../classFQHE_1_1Metropolis.html#a98adeb1e74b4ac527b48715f9dd5935f',1,'FQHE::Metropolis::f_theta()'],['../classAnalysisMethods.html#afd74d311fd650a439f427e63f488da2d',1,'AnalysisMethods::f_theta()']]],
   ['f_5fwave',['f_wave',['../classFQHE_1_1Metropolis.html#af1acd3d485f82ba703d954b01a5d9e0e',1,'FQHE::Metropolis']]],
-  ['filename',['fileName',['../classFQHE_1_1Metropolis.html#adebe2abfff9a756ee348c768d19349fb',1,'FQHE::Metropolis::fileName()'],['../classAnalysisMethods.html#ae6880e88223322723607ae9d86c47518',1,'AnalysisMethods::fileName()']]],
-  ['fill',['fill',['../structwavefunction__data__t.html#afcd9da6813a9e5249a58e91bd0aa0760',1,'wavefunction_data_t']]],
-  ['filldenominator',['fillDenominator',['../structFQHE_1_1WaveFunctionData.html#a2312c6ac7c34aa94fcc960cd273eacea',1,'FQHE::WaveFunctionData::fillDenominator()'],['../structwavefunction__data__t.html#af14306155e25e2b32e0e6b0cee7bbf10',1,'wavefunction_data_t::fillDenominator()']]],
+  ['filename',['fileName',['../classFQHE_1_1Metropolis.html#adebe2abfff9a756ee348c768d19349fb',1,'FQHE::Metropolis']]],
+  ['filldenominator',['fillDenominator',['../structFQHE_1_1WaveFunctionData.html#a2312c6ac7c34aa94fcc960cd273eacea',1,'FQHE::WaveFunctionData']]],
   ['fillingfactor',['fillingFactor',['../structFQHE_1_1WaveFunctionData.html#af60b2dce336abb39ee8e072be6d7e8f5',1,'FQHE::WaveFunctionData']]],
-  ['fillnumerator',['fillNumerator',['../structFQHE_1_1WaveFunctionData.html#a94d41c668db3e1d13879b4bc54b22d04',1,'FQHE::WaveFunctionData::fillNumerator()'],['../structwavefunction__data__t.html#a4e95cfb1f52927aaca2b1977f4c792e1',1,'wavefunction_data_t::fillNumerator()']]],
-  ['finitethickness',['finiteThickness',['../structanalysis__options__t.html#a2f9e1a98f68b60d96511dcfccc53e010',1,'analysis_options_t']]],
-  ['finitetype',['finiteType',['../structanalysis__options__t.html#a9de21872788b6da576f8e997640f7d25',1,'analysis_options_t']]],
-  ['flux',['flux',['../structFQHE_1_1WaveFunctionData.html#a879f9c32c9a4fb9f8d588780fb316164',1,'FQHE::WaveFunctionData::flux()'],['../structwavefunction__data__t.html#a6d5e0ed8cf839a51834fbf2d9902001c',1,'wavefunction_data_t::flux()'],['../classWave__Functions.html#a3a7505dedc867e6ac622c622fca856be',1,'Wave_Functions::flux()']]],
+  ['fillnumerator',['fillNumerator',['../structFQHE_1_1WaveFunctionData.html#a94d41c668db3e1d13879b4bc54b22d04',1,'FQHE::WaveFunctionData']]],
+  ['finitethickness',['finiteThickness',['../structAnalysisOptions.html#afb03059be0b938209d028dc5daf51816',1,'AnalysisOptions']]],
+  ['finitetype',['finiteType',['../structAnalysisOptions.html#a13923b60aa75a01e25e3e8377e5c49bb',1,'AnalysisOptions']]],
+  ['flux',['flux',['../structFQHE_1_1WaveFunctionData.html#a879f9c32c9a4fb9f8d588780fb316164',1,'FQHE::WaveFunctionData::flux()'],['../classWave__Functions.html#a3a7505dedc867e6ac622c622fca856be',1,'Wave_Functions::flux()']]],
   ['foldername',['folderName',['../structFQHE_1_1MonteCarloData.html#a9d11d299599f8062de49d7b437106d2b',1,'FQHE::MonteCarloData']]],
   ['fusionchannels',['fusionChannels',['../structFQHE_1_1WaveFunctionData.html#a3db8addf6531985b0c819052b2aae2b3',1,'FQHE::WaveFunctionData']]]
 ];

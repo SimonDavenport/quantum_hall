@@ -2,7 +2,7 @@
 //!
 //!					\author Simon C Davenport
 //!
-//!  \mainpage 
+//!  \file 
 //!		The purpose of this program is to generate statistically random sample
 //!		configurations of particle co-ordinates, based on the probability
 //!		distribution |psi|^2 associated with a given ground state fractional 

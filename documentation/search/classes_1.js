@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['cmurmurhash2a',['CMurmurHash2A',['../classCMurmurHash2A.html',1,'']]],
   ['colouredpartition',['ColouredPartition',['../classutilities_1_1ColouredPartition.html',1,'utilities']]],
   ['compare',['Compare',['../structutilities_1_1Compare.html',1,'utilities']]],
   ['compare_3c_20dcmplx_2c_20_5fascending_5forder_5f_20_3e',['Compare&lt; dcmplx, _ASCENDING_ORDER_ &gt;',['../structutilities_1_1Compare_3_01dcmplx_00_01__ASCENDING__ORDER___01_4.html',1,'utilities']]],

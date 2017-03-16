@@ -1,12 +1,12 @@
 var searchData=
 [
   ['_5fadditional_5finfo_5f',['_ADDITIONAL_INFO_',['../namespaceutilities.html#ab91e73704a0edaa02e48c3aaf68b1e13a06c96eabb42a12a9377cd5a6c2622f52',1,'utilities']]],
-  ['_5fascending_5forder_5f',['_ASCENDING_ORDER_',['../quick__sort_8h.html#a6c7dd10fb53eaa1cb9705e4ee36f5fcbaea9537dccc6fe0a37f95cb07414cd090',1,'quick_sort.h']]],
+  ['_5fascending_5forder_5f',['_ASCENDING_ORDER_',['../quick__sort_8hpp.html#a6c7dd10fb53eaa1cb9705e4ee36f5fcbaea9537dccc6fe0a37f95cb07414cd090',1,'quick_sort.hpp']]],
   ['_5fbonderson_5fslingerland_5f',['_BONDERSON_SLINGERLAND_',['../namespaceFQHE.html#a3d54f65fb4b3aac13d4f55269fdba331a06516dab31ca752733042e9ed20d9c9e',1,'FQHE']]],
   ['_5fbosons_5f',['_BOSONS_',['../namespaceFQHE.html#a3f9a8e19815918cf7b5c815350c9d61ea15a3c0d40b0742c7ff9e471f5b9282c2',1,'FQHE']]],
   ['_5fcomposite_5ffermion_5f',['_COMPOSITE_FERMION_',['../namespaceFQHE.html#a3d54f65fb4b3aac13d4f55269fdba331a4e4313cb3d86f4bb4752871adb0662e2',1,'FQHE']]],
   ['_5fdebugging_5finfo_5f',['_DEBUGGING_INFO_',['../namespaceutilities.html#ab91e73704a0edaa02e48c3aaf68b1e13a9f19fd5fdb2d15fa16757d29ef5121b6',1,'utilities']]],
-  ['_5fdescending_5forder_5f',['_DESCENDING_ORDER_',['../quick__sort_8h.html#a6c7dd10fb53eaa1cb9705e4ee36f5fcbadf6156e71385401cb8a13a08691e0328',1,'quick_sort.h']]],
+  ['_5fdescending_5forder_5f',['_DESCENDING_ORDER_',['../quick__sort_8hpp.html#a6c7dd10fb53eaa1cb9705e4ee36f5fcbadf6156e71385401cb8a13a08691e0328',1,'quick_sort.hpp']]],
   ['_5fdisc_5f',['_DISC_',['../namespaceFQHE.html#a72930fae38d8076b26b5e75a3424e810a23690eee0e4c4b4595f3079114372fc9',1,'FQHE']]],
   ['_5ffermions_5f',['_FERMIONS_',['../namespaceFQHE.html#a3f9a8e19815918cf7b5c815350c9d61ea357806d8b89d714cfb52ebf5caf970b6',1,'FQHE']]],
   ['_5flaughlin_5f',['_LAUGHLIN_',['../namespaceFQHE.html#a3d54f65fb4b3aac13d4f55269fdba331a85283611dcd7128afb0916ce5ca967ed',1,'FQHE']]],

@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Quantum Hall entanglement program suite: Params Struct Reference</title>
+<title>Quantum Hall Programs: Params Struct Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -29,7 +29,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Quantum Hall entanglement program suite
+   <div id="projectname">Quantum Hall Programs
    &#160;<span id="projectnumber">Version 1.0</span>
    </div>
   </td>
@@ -157,7 +157,7 @@ Public Attributes</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>gnuplot </p>
 
-<p>Definition at line <a class="el" href="entanglement__wave__function_8cpp_source.html#l00048">48</a> of file <a class="el" href="entanglement__wave__function_8cpp_source.html">entanglement_wave_function.cpp</a>.</p>
+<p>Definition at line <a class="el" href="entanglement__wave__function_8cpp_source.html#l00044">44</a> of file <a class="el" href="entanglement__wave__function_8cpp_source.html">entanglement_wave_function.cpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="ab90b30fcdf98ff6d65e67e9ca2c3c64a"></a>
 <div class="memitem">
@@ -191,165 +191,165 @@ Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="entanglement__wave__function_8cpp_source.html#l00071">71</a> of file <a class="el" href="entanglement__wave__function_8cpp_source.html">entanglement_wave_function.cpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    {</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        <span class="keyword">namespace </span>po = boost::program_options;</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        po::variables_map vm;</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;     </div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        <span class="keywordtype">int</span> rank;</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        <span class="keywordtype">bool</span> exitFlag = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        <a class="code" href="structParams.html#a1a334e01515241d8152c6ce65708c7ea">path</a> = <span class="stringliteral">&quot;&quot;</span>;</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;   </div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;     </div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        MPI_Comm_rank(MPI_COMM_WORLD, &amp;rank);</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;         </div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        <span class="keywordflow">if</span>(rank == 0)   <span class="comment">// FOR THE MASTER NODE</span></div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        {      </div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;            <span class="comment">//  General options</span></div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;            po::options_description general_opt(<span class="stringliteral">&quot;General Options&quot;</span>);</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;            general_opt.add_options()</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;            (<span class="stringliteral">&quot;help,h&quot;</span>,</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;             <span class="stringliteral">&quot;Display this message\n&quot;</span>)</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;            (<span class="stringliteral">&quot;path,p&quot;</span>,po::value&lt;std::string&gt;()-&gt;default_value(<span class="stringliteral">&quot;./Eigen/&quot;</span>),</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;             <span class="stringliteral">&quot;Set path to output files\n&quot;</span>)</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;            (<span class="stringliteral">&quot;nbr-n,n&quot;</span>,po::value&lt;int&gt;()-&gt;default_value(12),</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;             <span class="stringliteral">&quot;Set number of particles\n&quot;</span>)</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;            (<span class="stringliteral">&quot;nbr-i,i&quot;</span>,po::value&lt;int&gt;()-&gt;default_value(6),</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;             <span class="stringliteral">&quot;Set number of particles in the A subsystem (default 6). Set to -1 for all NA sectors.\n&quot;</span>)</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;            (<span class="stringliteral">&quot;nbr-f,f&quot;</span>,po::value&lt;int&gt;()-&gt;default_value(6),</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;             <span class="stringliteral">&quot;Set number of particles in the A subsystem (default 6). Set to -1 for all NA sectors\n&quot;</span>)</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;            (<span class="stringliteral">&quot;nu&quot;</span>,po::value&lt;int&gt;()-&gt;default_value(2),</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;             <span class="stringliteral">&quot; Laughlin state = prod_{i&lt;j} (z_i - z_j)^nu  -- Jain state = IQH state(with filling = LL) * prod_{i&lt;j} (z_i - z_j)^nu \n&quot;</span>)</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;            (<span class="stringliteral">&quot;LL&quot;</span>,po::value&lt;int&gt;()-&gt;default_value(1),</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;             <span class="stringliteral">&quot;Number of effective Landau levels\n&quot;</span>)</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;            (<span class="stringliteral">&quot;sector,s&quot;</span>,po::value&lt;int&gt;()-&gt;default_value(8),</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;             <span class="stringliteral">&quot;number of Lz_A sectors. Set to -1 for all LzA sectors\n&quot;</span>)</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;            (<span class="stringliteral">&quot;mp-inter-rho&quot;</span>,po::value&lt;int&gt;()-&gt;default_value(40),</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;             <span class="stringliteral">&quot;Metropolis internal iterations for P and Q matrices\n&quot;</span>)</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;            (<span class="stringliteral">&quot;mp-iter-rho&quot;</span>,po::value&lt;int&gt;()-&gt;default_value(40),</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;             <span class="stringliteral">&quot;Metropolis iterations for P and Q matrices = mp-inter-rho x mp-iter-rho\n&quot;</span>)</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;            (<span class="stringliteral">&quot;mp-therm-rho&quot;</span>,po::value&lt;int&gt;()-&gt;default_value(200),</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;             <span class="stringliteral">&quot;Metropolis thermalization for Q and P matrices\n&quot;</span>)</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;            (<span class="stringliteral">&quot;mp-inter-gs&quot;</span>,po::value&lt;int&gt;()-&gt;default_value(40),</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;             <span class="stringliteral">&quot;Metropolis internal iterations for g.state norm\n&quot;</span>)</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;            (<span class="stringliteral">&quot;mp-iter-gs&quot;</span>,po::value&lt;int&gt;()-&gt;default_value(40),</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;             <span class="stringliteral">&quot;Metropolis iterations for g.state norm = mp-inter-gs x mp-iter-gs\n&quot;</span>)</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;            (<span class="stringliteral">&quot;mp-therm-gs&quot;</span>,po::value&lt;int&gt;()-&gt;default_value(200),</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;             <span class="stringliteral">&quot;Metropolis thermalization for g.state norm\n&quot;</span>)</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;            (<span class="stringliteral">&quot;plot,p&quot;</span>,po::value&lt;char&gt;()-&gt;default_value(<span class="charliteral">&#39;N&#39;</span>),</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;             <span class="stringliteral">&quot;y: to save plot (default = N) \n&quot;</span>);</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160; </div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;            <span class="comment">//  Map the command line argument onto the option set</span></div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;            po::variables_map vm;</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;            po::store(po::parse_command_line(argc, argv,general_opt), vm);</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;            po::notify(vm);</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160; </div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;            <span class="comment">//  Respond to help request</span></div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;            <span class="keywordflow">if</span>(vm.count(<span class="stringliteral">&quot;help&quot;</span>))</div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;            {</div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;                <a class="code" href="namespaceutilities.html#a8bd217ae821e52872836b15f651f5d9f">std::cout</a> &lt;&lt; general_opt &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;                exitFlag=<span class="keyword">true</span>;</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;            }</div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;</div>
+<p>Definition at line <a class="el" href="entanglement__wave__function_8cpp_source.html#l00067">67</a> of file <a class="el" href="entanglement__wave__function_8cpp_source.html">entanglement_wave_function.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    {</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        <span class="keyword">namespace </span>po = boost::program_options;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        po::variables_map vm;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;     </div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        <span class="keywordtype">int</span> rank;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        <span class="keywordtype">bool</span> exitFlag = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        <a class="code" href="structParams.html#a1a334e01515241d8152c6ce65708c7ea">path</a> = <span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;   </div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;     </div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        MPI_Comm_rank(MPI_COMM_WORLD, &amp;rank);</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;         </div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        <span class="keywordflow">if</span>(rank == 0)   <span class="comment">// FOR THE MASTER NODE</span></div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        {      </div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;            <span class="comment">//  General options</span></div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;            po::options_description general_opt(<span class="stringliteral">&quot;General Options&quot;</span>);</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;            general_opt.add_options()</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;            (<span class="stringliteral">&quot;help,h&quot;</span>,</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;             <span class="stringliteral">&quot;Display this message\n&quot;</span>)</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;            (<span class="stringliteral">&quot;path,p&quot;</span>,po::value&lt;std::string&gt;()-&gt;default_value(<span class="stringliteral">&quot;./Eigen/&quot;</span>),</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;             <span class="stringliteral">&quot;Set path to output files\n&quot;</span>)</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;            (<span class="stringliteral">&quot;nbr-n,n&quot;</span>,po::value&lt;int&gt;()-&gt;default_value(12),</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;             <span class="stringliteral">&quot;Set number of particles\n&quot;</span>)</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;            (<span class="stringliteral">&quot;nbr-i,i&quot;</span>,po::value&lt;int&gt;()-&gt;default_value(6),</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;             <span class="stringliteral">&quot;Set number of particles in the A subsystem (default 6). Set to -1 for all NA sectors.\n&quot;</span>)</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;            (<span class="stringliteral">&quot;nbr-f,f&quot;</span>,po::value&lt;int&gt;()-&gt;default_value(6),</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;             <span class="stringliteral">&quot;Set number of particles in the A subsystem (default 6). Set to -1 for all NA sectors\n&quot;</span>)</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;            (<span class="stringliteral">&quot;nu&quot;</span>,po::value&lt;int&gt;()-&gt;default_value(2),</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;             <span class="stringliteral">&quot; Laughlin state = prod_{i&lt;j} (z_i - z_j)^nu  -- Jain state = IQH state(with filling = LL) * prod_{i&lt;j} (z_i - z_j)^nu \n&quot;</span>)</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;            (<span class="stringliteral">&quot;LL&quot;</span>,po::value&lt;int&gt;()-&gt;default_value(1),</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;             <span class="stringliteral">&quot;Number of effective Landau levels\n&quot;</span>)</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;            (<span class="stringliteral">&quot;sector,s&quot;</span>,po::value&lt;int&gt;()-&gt;default_value(8),</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;             <span class="stringliteral">&quot;number of Lz_A sectors. Set to -1 for all LzA sectors\n&quot;</span>)</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;            (<span class="stringliteral">&quot;mp-inter-rho&quot;</span>,po::value&lt;int&gt;()-&gt;default_value(40),</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;             <span class="stringliteral">&quot;Metropolis internal iterations for P and Q matrices\n&quot;</span>)</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;            (<span class="stringliteral">&quot;mp-iter-rho&quot;</span>,po::value&lt;int&gt;()-&gt;default_value(40),</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;             <span class="stringliteral">&quot;Metropolis iterations for P and Q matrices = mp-inter-rho x mp-iter-rho\n&quot;</span>)</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;            (<span class="stringliteral">&quot;mp-therm-rho&quot;</span>,po::value&lt;int&gt;()-&gt;default_value(200),</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;             <span class="stringliteral">&quot;Metropolis thermalization for Q and P matrices\n&quot;</span>)</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;            (<span class="stringliteral">&quot;mp-inter-gs&quot;</span>,po::value&lt;int&gt;()-&gt;default_value(40),</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;             <span class="stringliteral">&quot;Metropolis internal iterations for g.state norm\n&quot;</span>)</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;            (<span class="stringliteral">&quot;mp-iter-gs&quot;</span>,po::value&lt;int&gt;()-&gt;default_value(40),</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;             <span class="stringliteral">&quot;Metropolis iterations for g.state norm = mp-inter-gs x mp-iter-gs\n&quot;</span>)</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;            (<span class="stringliteral">&quot;mp-therm-gs&quot;</span>,po::value&lt;int&gt;()-&gt;default_value(200),</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;             <span class="stringliteral">&quot;Metropolis thermalization for g.state norm\n&quot;</span>)</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;            (<span class="stringliteral">&quot;plot,p&quot;</span>,po::value&lt;char&gt;()-&gt;default_value(<span class="charliteral">&#39;N&#39;</span>),</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;             <span class="stringliteral">&quot;y: to save plot (default = N) \n&quot;</span>);</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160; </div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;            <span class="comment">//  Map the command line argument onto the option set</span></div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;            po::variables_map vm;</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;            po::store(po::parse_command_line(argc, argv,general_opt), vm);</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;            po::notify(vm);</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160; </div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;            <span class="comment">//  Respond to help request</span></div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;            <span class="keywordflow">if</span>(vm.count(<span class="stringliteral">&quot;help&quot;</span>))</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;            {</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;                <a class="code" href="namespaceutilities.html#a8bd217ae821e52872836b15f651f5d9f">std::cout</a> &lt;&lt; general_opt &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;                exitFlag=<span class="keyword">true</span>;</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;            }</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160; </div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;            <a class="code" href="structParams.html#a1a334e01515241d8152c6ce65708c7ea">path</a>             = vm[<span class="stringliteral">&quot;path&quot;</span>].as&lt;std::string&gt;();</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;            <a class="code" href="structParams.html#a35bed9c4eb92949e086592b4746e5ed8">ne</a>               = vm[<span class="stringliteral">&quot;nbr-n&quot;</span>].as&lt;<span class="keywordtype">int</span>&gt;();</div>
 <div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;</div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160; </div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;            <a class="code" href="structParams.html#a1a334e01515241d8152c6ce65708c7ea">path</a>             = vm[<span class="stringliteral">&quot;path&quot;</span>].as&lt;std::string&gt;();</div>
-<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;            <a class="code" href="structParams.html#a35bed9c4eb92949e086592b4746e5ed8">ne</a>               = vm[<span class="stringliteral">&quot;nbr-n&quot;</span>].as&lt;<span class="keywordtype">int</span>&gt;();</div>
-<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;</div>
-<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;            <a class="code" href="structParams.html#ac363bb7a521251c9fe6acb44b67cd1bc">npart_i</a>          = vm[<span class="stringliteral">&quot;nbr-i&quot;</span>].as&lt;<span class="keywordtype">int</span>&gt;();</div>
-<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;            <a class="code" href="structParams.html#a7397073cabdd149948f9ae09032524fa">npart_f</a>          = vm[<span class="stringliteral">&quot;nbr-f&quot;</span>].as&lt;<span class="keywordtype">int</span>&gt;();</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;            <a class="code" href="structParams.html#ac363bb7a521251c9fe6acb44b67cd1bc">npart_i</a>          = vm[<span class="stringliteral">&quot;nbr-i&quot;</span>].as&lt;<span class="keywordtype">int</span>&gt;();</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;            <a class="code" href="structParams.html#a7397073cabdd149948f9ae09032524fa">npart_f</a>          = vm[<span class="stringliteral">&quot;nbr-f&quot;</span>].as&lt;<span class="keywordtype">int</span>&gt;();</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;            <a class="code" href="structParams.html#a444c810322d1e1f627370c8ada89cb9f">nu</a>               = vm[<span class="stringliteral">&quot;nu&quot;</span>].as&lt;<span class="keywordtype">int</span>&gt;();</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;            <a class="code" href="structParams.html#a094fe4bd9b70a9061ee48899425a72f4">LL</a>               = vm[<span class="stringliteral">&quot;LL&quot;</span>].as&lt;<span class="keywordtype">int</span>&gt;();</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;            <a class="code" href="structParams.html#ab264f91291bec7f38ae6a62d31a9b8ac">num_Lz_sectors</a>   = vm[<span class="stringliteral">&quot;sector&quot;</span>].as&lt;<span class="keywordtype">int</span>&gt;();</div>
 <div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;</div>
-<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;            <a class="code" href="structParams.html#a444c810322d1e1f627370c8ada89cb9f">nu</a>               = vm[<span class="stringliteral">&quot;nu&quot;</span>].as&lt;<span class="keywordtype">int</span>&gt;();</div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;            <a class="code" href="structParams.html#a094fe4bd9b70a9061ee48899425a72f4">LL</a>               = vm[<span class="stringliteral">&quot;LL&quot;</span>].as&lt;<span class="keywordtype">int</span>&gt;();</div>
-<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;            <a class="code" href="structParams.html#ab264f91291bec7f38ae6a62d31a9b8ac">num_Lz_sectors</a>   = vm[<span class="stringliteral">&quot;sector&quot;</span>].as&lt;<span class="keywordtype">int</span>&gt;();</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;            <a class="code" href="structParams.html#acf988ff476c4d98b767766ee8f6cc3f1">iter</a>             = vm[<span class="stringliteral">&quot;mp-inter-rho&quot;</span>].as&lt;<span class="keywordtype">int</span>&gt;();   </div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;            <a class="code" href="structParams.html#a84a63b38453bf42cacefe88e3f022037">num_iter_metrop</a>  = vm[<span class="stringliteral">&quot;mp-iter-rho&quot;</span>].as&lt;<span class="keywordtype">int</span>&gt;();   </div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;            <a class="code" href="structParams.html#a7e59717d3f9879692c5facf9e046a563">metrop_initial</a>   = vm[<span class="stringliteral">&quot;mp-therm-rho&quot;</span>].as&lt;<span class="keywordtype">int</span>&gt;();</div>
 <div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;</div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;            <a class="code" href="structParams.html#acf988ff476c4d98b767766ee8f6cc3f1">iter</a>             = vm[<span class="stringliteral">&quot;mp-inter-rho&quot;</span>].as&lt;<span class="keywordtype">int</span>&gt;();   </div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;            <a class="code" href="structParams.html#a84a63b38453bf42cacefe88e3f022037">num_iter_metrop</a>  = vm[<span class="stringliteral">&quot;mp-iter-rho&quot;</span>].as&lt;<span class="keywordtype">int</span>&gt;();   </div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;            <a class="code" href="structParams.html#a7e59717d3f9879692c5facf9e046a563">metrop_initial</a>   = vm[<span class="stringliteral">&quot;mp-therm-rho&quot;</span>].as&lt;<span class="keywordtype">int</span>&gt;();</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;            <a class="code" href="structParams.html#a8f18be9631ac411b8e186e48346b0e27">iter_normal</a>  = vm[<span class="stringliteral">&quot;mp-inter-gs&quot;</span>].as&lt;<span class="keywordtype">int</span>&gt;();   </div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;            <a class="code" href="structParams.html#a11adfcf9aa316f3c6418cb0484021335">num_L</a>  = vm[<span class="stringliteral">&quot;mp-iter-gs&quot;</span>].as&lt;<span class="keywordtype">int</span>&gt;();   </div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;            <a class="code" href="structParams.html#aa5663f88f3dbb831814dddab84e0ca8e">initial_normal</a>   = vm[<span class="stringliteral">&quot;mp-therm-gs&quot;</span>].as&lt;<span class="keywordtype">int</span>&gt;();</div>
 <div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;</div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;            <a class="code" href="structParams.html#a8f18be9631ac411b8e186e48346b0e27">iter_normal</a>  = vm[<span class="stringliteral">&quot;mp-inter-gs&quot;</span>].as&lt;<span class="keywordtype">int</span>&gt;();   </div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;            <a class="code" href="structParams.html#a11adfcf9aa316f3c6418cb0484021335">num_L</a>  = vm[<span class="stringliteral">&quot;mp-iter-gs&quot;</span>].as&lt;<span class="keywordtype">int</span>&gt;();   </div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;            <a class="code" href="structParams.html#aa5663f88f3dbb831814dddab84e0ca8e">initial_normal</a>   = vm[<span class="stringliteral">&quot;mp-therm-gs&quot;</span>].as&lt;<span class="keywordtype">int</span>&gt;();</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;            <a class="code" href="structParams.html#ac9ec9a4a0a2eeff4c2376fd732c61201">plot</a> = vm[<span class="stringliteral">&quot;plot&quot;</span>].as&lt;<span class="keywordtype">char</span>&gt;();</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;</div>
 <div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;</div>
-<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;            <a class="code" href="structParams.html#ac9ec9a4a0a2eeff4c2376fd732c61201">plot</a> = vm[<span class="stringliteral">&quot;plot&quot;</span>].as&lt;<span class="keywordtype">char</span>&gt;();</div>
-<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;</div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;</div>
-<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;</div>
-<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;</div>
-<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160; </div>
-<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160; </div>
-<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;        }</div>
-<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;         </div>
-<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;        MPI_Bcast(&amp;exitFlag,1,MPI_C_BOOL,0,MPI_COMM_WORLD);</div>
-<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;         </div>
-<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;        <span class="keywordflow">if</span>(exitFlag)</div>
-<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;        {</div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;            MPI_Finalize();</div>
-<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;            exit(EXIT_FAILURE);</div>
-<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;        }</div>
-<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;         </div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;        <span class="comment">//  Print parameters</span></div>
-<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;        <span class="keywordflow">if</span>(0 == rank)   <span class="comment">// FOR THE MASTER NODE</span></div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;        {</div>
-<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;            <a class="code" href="namespaceutilities.html#a8bd217ae821e52872836b15f651f5d9f">std::cout</a>&lt;&lt;<span class="stringliteral">&quot;path to save Eigenvalues\t\t\t\t= &quot;</span>&lt;&lt;<a class="code" href="structParams.html#a1a334e01515241d8152c6ce65708c7ea">path</a>&lt;&lt;std::endl;</div>
-<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;            <a class="code" href="namespaceutilities.html#a8bd217ae821e52872836b15f651f5d9f">std::cout</a>&lt;&lt;<span class="stringliteral">&quot;ne \t\t\t\t\t\t\t= &quot;</span>&lt;&lt;<a class="code" href="structParams.html#a35bed9c4eb92949e086592b4746e5ed8">ne</a>&lt;&lt;std::endl;</div>
-<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;            <a class="code" href="namespaceutilities.html#a8bd217ae821e52872836b15f651f5d9f">std::cout</a>&lt;&lt;<span class="stringliteral">&quot;NA initial \t\t\t\t\t\t= &quot;</span>&lt;&lt;<a class="code" href="structParams.html#ac363bb7a521251c9fe6acb44b67cd1bc">npart_i</a>&lt;&lt;std::endl;</div>
-<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;            <a class="code" href="namespaceutilities.html#a8bd217ae821e52872836b15f651f5d9f">std::cout</a>&lt;&lt;<span class="stringliteral">&quot;NA final \t\t\t\t\t\t= &quot;</span>&lt;&lt;<a class="code" href="structParams.html#a7397073cabdd149948f9ae09032524fa">npart_f</a>&lt;&lt;std::endl;</div>
-<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;            <a class="code" href="namespaceutilities.html#a8bd217ae821e52872836b15f651f5d9f">std::cout</a>&lt;&lt;<span class="stringliteral">&quot;nu \t\t\t\t\t\t\t= &quot;</span>&lt;&lt;<a class="code" href="structParams.html#a444c810322d1e1f627370c8ada89cb9f">nu</a>&lt;&lt;std::endl;</div>
-<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;            <a class="code" href="namespaceutilities.html#a8bd217ae821e52872836b15f651f5d9f">std::cout</a>&lt;&lt;<span class="stringliteral">&quot;LL \t\t\t\t\t\t\t= &quot;</span>&lt;&lt;<a class="code" href="structParams.html#a094fe4bd9b70a9061ee48899425a72f4">LL</a>&lt;&lt;std::endl;</div>
-<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;            <a class="code" href="namespaceutilities.html#a8bd217ae821e52872836b15f651f5d9f">std::cout</a>&lt;&lt;<span class="stringliteral">&quot;num_Lz_sectors\t\t\t\t\t\t= &quot;</span>&lt;&lt;<a class="code" href="structParams.html#ab264f91291bec7f38ae6a62d31a9b8ac">num_Lz_sectors</a>&lt;&lt;std::endl;</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160; </div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160; </div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;        }</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;         </div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;        MPI_Bcast(&amp;exitFlag,1,MPI_C_BOOL,0,MPI_COMM_WORLD);</div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;         </div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;        <span class="keywordflow">if</span>(exitFlag)</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;        {</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;            MPI_Finalize();</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;            exit(EXIT_FAILURE);</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;        }</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;         </div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;        <span class="comment">//  Print parameters</span></div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;        <span class="keywordflow">if</span>(0 == rank)   <span class="comment">// FOR THE MASTER NODE</span></div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;        {</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;            <a class="code" href="namespaceutilities.html#a8bd217ae821e52872836b15f651f5d9f">std::cout</a>&lt;&lt;<span class="stringliteral">&quot;path to save Eigenvalues\t\t\t\t= &quot;</span>&lt;&lt;<a class="code" href="structParams.html#a1a334e01515241d8152c6ce65708c7ea">path</a>&lt;&lt;std::endl;</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;            <a class="code" href="namespaceutilities.html#a8bd217ae821e52872836b15f651f5d9f">std::cout</a>&lt;&lt;<span class="stringliteral">&quot;ne \t\t\t\t\t\t\t= &quot;</span>&lt;&lt;<a class="code" href="structParams.html#a35bed9c4eb92949e086592b4746e5ed8">ne</a>&lt;&lt;std::endl;</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;            <a class="code" href="namespaceutilities.html#a8bd217ae821e52872836b15f651f5d9f">std::cout</a>&lt;&lt;<span class="stringliteral">&quot;NA initial \t\t\t\t\t\t= &quot;</span>&lt;&lt;<a class="code" href="structParams.html#ac363bb7a521251c9fe6acb44b67cd1bc">npart_i</a>&lt;&lt;std::endl;</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;            <a class="code" href="namespaceutilities.html#a8bd217ae821e52872836b15f651f5d9f">std::cout</a>&lt;&lt;<span class="stringliteral">&quot;NA final \t\t\t\t\t\t= &quot;</span>&lt;&lt;<a class="code" href="structParams.html#a7397073cabdd149948f9ae09032524fa">npart_f</a>&lt;&lt;std::endl;</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;            <a class="code" href="namespaceutilities.html#a8bd217ae821e52872836b15f651f5d9f">std::cout</a>&lt;&lt;<span class="stringliteral">&quot;nu \t\t\t\t\t\t\t= &quot;</span>&lt;&lt;<a class="code" href="structParams.html#a444c810322d1e1f627370c8ada89cb9f">nu</a>&lt;&lt;std::endl;</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;            <a class="code" href="namespaceutilities.html#a8bd217ae821e52872836b15f651f5d9f">std::cout</a>&lt;&lt;<span class="stringliteral">&quot;LL \t\t\t\t\t\t\t= &quot;</span>&lt;&lt;<a class="code" href="structParams.html#a094fe4bd9b70a9061ee48899425a72f4">LL</a>&lt;&lt;std::endl;</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;            <a class="code" href="namespaceutilities.html#a8bd217ae821e52872836b15f651f5d9f">std::cout</a>&lt;&lt;<span class="stringliteral">&quot;num_Lz_sectors\t\t\t\t\t\t= &quot;</span>&lt;&lt;<a class="code" href="structParams.html#ab264f91291bec7f38ae6a62d31a9b8ac">num_Lz_sectors</a>&lt;&lt;std::endl;</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;</div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;            <a class="code" href="namespaceutilities.html#a8bd217ae821e52872836b15f651f5d9f">std::cout</a>&lt;&lt;<span class="stringliteral">&quot;metropolis thermalization for P and Q matrices \t\t= &quot;</span>&lt;&lt;<a class="code" href="structParams.html#a7e59717d3f9879692c5facf9e046a563">metrop_initial</a>&lt;&lt;std::endl;</div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;            <a class="code" href="namespaceutilities.html#a8bd217ae821e52872836b15f651f5d9f">std::cout</a>&lt;&lt;<span class="stringliteral">&quot;number of metroplis iteartions per PC for P and Q\t= &quot;</span>&lt;&lt;<a class="code" href="structParams.html#a84a63b38453bf42cacefe88e3f022037">num_iter_metrop</a>*<a class="code" href="structParams.html#acf988ff476c4d98b767766ee8f6cc3f1">iter</a>&lt;&lt;std::endl;</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;</div>
 <div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;</div>
-<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;            <a class="code" href="namespaceutilities.html#a8bd217ae821e52872836b15f651f5d9f">std::cout</a>&lt;&lt;<span class="stringliteral">&quot;metropolis thermalization for P and Q matrices \t\t= &quot;</span>&lt;&lt;<a class="code" href="structParams.html#a7e59717d3f9879692c5facf9e046a563">metrop_initial</a>&lt;&lt;std::endl;</div>
-<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;            <a class="code" href="namespaceutilities.html#a8bd217ae821e52872836b15f651f5d9f">std::cout</a>&lt;&lt;<span class="stringliteral">&quot;number of metroplis iteartions per PC for P and Q\t= &quot;</span>&lt;&lt;<a class="code" href="structParams.html#a84a63b38453bf42cacefe88e3f022037">num_iter_metrop</a>*<a class="code" href="structParams.html#acf988ff476c4d98b767766ee8f6cc3f1">iter</a>&lt;&lt;std::endl;</div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;            <a class="code" href="namespaceutilities.html#a8bd217ae821e52872836b15f651f5d9f">std::cout</a>&lt;&lt;<span class="stringliteral">&quot;metropolis thermalization for G.state \t\t\t= &quot;</span>&lt;&lt;<a class="code" href="structParams.html#aa5663f88f3dbb831814dddab84e0ca8e">initial_normal</a>&lt;&lt;std::endl;</div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;            <a class="code" href="namespaceutilities.html#a8bd217ae821e52872836b15f651f5d9f">std::cout</a>&lt;&lt;<span class="stringliteral">&quot;number of metroplis iteartions per PC for G.state\t= &quot;</span>&lt;&lt;<a class="code" href="structParams.html#a8f18be9631ac411b8e186e48346b0e27">iter_normal</a>*<a class="code" href="structParams.html#a11adfcf9aa316f3c6418cb0484021335">num_L</a>&lt;&lt;std::endl;</div>
 <div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;</div>
-<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;</div>
-<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;            <a class="code" href="namespaceutilities.html#a8bd217ae821e52872836b15f651f5d9f">std::cout</a>&lt;&lt;<span class="stringliteral">&quot;metropolis thermalization for G.state \t\t\t= &quot;</span>&lt;&lt;<a class="code" href="structParams.html#aa5663f88f3dbb831814dddab84e0ca8e">initial_normal</a>&lt;&lt;std::endl;</div>
-<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;            <a class="code" href="namespaceutilities.html#a8bd217ae821e52872836b15f651f5d9f">std::cout</a>&lt;&lt;<span class="stringliteral">&quot;number of metroplis iteartions per PC for G.state\t= &quot;</span>&lt;&lt;<a class="code" href="structParams.html#a8f18be9631ac411b8e186e48346b0e27">iter_normal</a>*<a class="code" href="structParams.html#a11adfcf9aa316f3c6418cb0484021335">num_L</a>&lt;&lt;std::endl;</div>
-<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;</div>
-<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;            <a class="code" href="namespaceutilities.html#a8bd217ae821e52872836b15f651f5d9f">std::cout</a>&lt;&lt;<span class="stringliteral">&quot;save plot to ./Plots/ \t\t\t\t\t= &quot;</span>&lt;&lt;<a class="code" href="structParams.html#ac9ec9a4a0a2eeff4c2376fd732c61201">plot</a>&lt;&lt;std::endl;</div>
-<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;     </div>
-<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;        }</div>
-<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;         </div>
-<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;        <span class="comment">//  MPI synchronize all parameters except the file path</span></div>
-<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;</div>
-<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;         </div>
-<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;        MPI_Bcast(&amp;<a class="code" href="structParams.html#a35bed9c4eb92949e086592b4746e5ed8">ne</a>,1,MPI_INT,0,MPI_COMM_WORLD);</div>
-<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;        MPI_Bcast(&amp;<a class="code" href="structParams.html#ac363bb7a521251c9fe6acb44b67cd1bc">npart_i</a>,1,MPI_INT,0,MPI_COMM_WORLD);</div>
-<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;        MPI_Bcast(&amp;<a class="code" href="structParams.html#a7397073cabdd149948f9ae09032524fa">npart_f</a>,1,MPI_INT,0,MPI_COMM_WORLD);</div>
-<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;        MPI_Bcast(&amp;<a class="code" href="structParams.html#a444c810322d1e1f627370c8ada89cb9f">nu</a>,1,MPI_INT,0,MPI_COMM_WORLD);</div>
-<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;        MPI_Bcast(&amp;<a class="code" href="structParams.html#a094fe4bd9b70a9061ee48899425a72f4">LL</a>,1,MPI_INT,0,MPI_COMM_WORLD);</div>
-<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;        MPI_Bcast(&amp;<a class="code" href="structParams.html#ab264f91291bec7f38ae6a62d31a9b8ac">num_Lz_sectors</a>,1,MPI_INT,0,MPI_COMM_WORLD);</div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;            <a class="code" href="namespaceutilities.html#a8bd217ae821e52872836b15f651f5d9f">std::cout</a>&lt;&lt;<span class="stringliteral">&quot;save plot to ./Plots/ \t\t\t\t\t= &quot;</span>&lt;&lt;<a class="code" href="structParams.html#ac9ec9a4a0a2eeff4c2376fd732c61201">plot</a>&lt;&lt;std::endl;</div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;     </div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;        }</div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;         </div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;        <span class="comment">//  MPI synchronize all parameters except the file path</span></div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;</div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;         </div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;        MPI_Bcast(&amp;<a class="code" href="structParams.html#a35bed9c4eb92949e086592b4746e5ed8">ne</a>,1,MPI_INT,0,MPI_COMM_WORLD);</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;        MPI_Bcast(&amp;<a class="code" href="structParams.html#ac363bb7a521251c9fe6acb44b67cd1bc">npart_i</a>,1,MPI_INT,0,MPI_COMM_WORLD);</div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;        MPI_Bcast(&amp;<a class="code" href="structParams.html#a7397073cabdd149948f9ae09032524fa">npart_f</a>,1,MPI_INT,0,MPI_COMM_WORLD);</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;        MPI_Bcast(&amp;<a class="code" href="structParams.html#a444c810322d1e1f627370c8ada89cb9f">nu</a>,1,MPI_INT,0,MPI_COMM_WORLD);</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;        MPI_Bcast(&amp;<a class="code" href="structParams.html#a094fe4bd9b70a9061ee48899425a72f4">LL</a>,1,MPI_INT,0,MPI_COMM_WORLD);</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;        MPI_Bcast(&amp;<a class="code" href="structParams.html#ab264f91291bec7f38ae6a62d31a9b8ac">num_Lz_sectors</a>,1,MPI_INT,0,MPI_COMM_WORLD);</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;</div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;        MPI_Bcast(&amp;<a class="code" href="structParams.html#acf988ff476c4d98b767766ee8f6cc3f1">iter</a>,1,MPI_INT,0,MPI_COMM_WORLD);</div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;        MPI_Bcast(&amp;<a class="code" href="structParams.html#a84a63b38453bf42cacefe88e3f022037">num_iter_metrop</a>,1,MPI_INT,0,MPI_COMM_WORLD);</div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;        MPI_Bcast(&amp;<a class="code" href="structParams.html#a7e59717d3f9879692c5facf9e046a563">metrop_initial</a>,1,MPI_INT,0,MPI_COMM_WORLD);</div>
 <div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;</div>
-<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;        MPI_Bcast(&amp;<a class="code" href="structParams.html#acf988ff476c4d98b767766ee8f6cc3f1">iter</a>,1,MPI_INT,0,MPI_COMM_WORLD);</div>
-<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;        MPI_Bcast(&amp;<a class="code" href="structParams.html#a84a63b38453bf42cacefe88e3f022037">num_iter_metrop</a>,1,MPI_INT,0,MPI_COMM_WORLD);</div>
-<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;        MPI_Bcast(&amp;<a class="code" href="structParams.html#a7e59717d3f9879692c5facf9e046a563">metrop_initial</a>,1,MPI_INT,0,MPI_COMM_WORLD);</div>
-<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;</div>
-<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;        MPI_Bcast(&amp;<a class="code" href="structParams.html#a8f18be9631ac411b8e186e48346b0e27">iter_normal</a>,1,MPI_INT,0,MPI_COMM_WORLD);</div>
-<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;        MPI_Bcast(&amp;<a class="code" href="structParams.html#a11adfcf9aa316f3c6418cb0484021335">num_L</a>,1,MPI_INT,0,MPI_COMM_WORLD);</div>
-<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;        MPI_Bcast(&amp;<a class="code" href="structParams.html#aa5663f88f3dbb831814dddab84e0ca8e">initial_normal</a>,1,MPI_INT,0,MPI_COMM_WORLD);</div>
-<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;        MPI_Bcast(&amp;<a class="code" href="structParams.html#ac9ec9a4a0a2eeff4c2376fd732c61201">plot</a>,1,MPI_CHAR,0,MPI_COMM_WORLD);</div>
-<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;</div>
-<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;    }</div>
-<div class="ttc" id="structParams_html_a1a334e01515241d8152c6ce65708c7ea"><div class="ttname"><a href="structParams.html#a1a334e01515241d8152c6ce65708c7ea">Params::path</a></div><div class="ttdeci">std::string path</div><div class="ttdef"><b>Definition:</b> <a href="entanglement__wave__function_8cpp_source.html#l00050">entanglement_wave_function.cpp:50</a></div></div>
-<div class="ttc" id="structParams_html_a094fe4bd9b70a9061ee48899425a72f4"><div class="ttname"><a href="structParams.html#a094fe4bd9b70a9061ee48899425a72f4">Params::LL</a></div><div class="ttdeci">int LL</div><div class="ttdef"><b>Definition:</b> <a href="entanglement__wave__function_8cpp_source.html#l00056">entanglement_wave_function.cpp:56</a></div></div>
-<div class="ttc" id="structParams_html_a11adfcf9aa316f3c6418cb0484021335"><div class="ttname"><a href="structParams.html#a11adfcf9aa316f3c6418cb0484021335">Params::num_L</a></div><div class="ttdeci">int num_L</div><div class="ttdef"><b>Definition:</b> <a href="entanglement__wave__function_8cpp_source.html#l00062">entanglement_wave_function.cpp:62</a></div></div>
-<div class="ttc" id="structParams_html_a444c810322d1e1f627370c8ada89cb9f"><div class="ttname"><a href="structParams.html#a444c810322d1e1f627370c8ada89cb9f">Params::nu</a></div><div class="ttdeci">int nu</div><div class="ttdef"><b>Definition:</b> <a href="entanglement__wave__function_8cpp_source.html#l00055">entanglement_wave_function.cpp:55</a></div></div>
-<div class="ttc" id="structParams_html_a8f18be9631ac411b8e186e48346b0e27"><div class="ttname"><a href="structParams.html#a8f18be9631ac411b8e186e48346b0e27">Params::iter_normal</a></div><div class="ttdeci">int iter_normal</div><div class="ttdef"><b>Definition:</b> <a href="entanglement__wave__function_8cpp_source.html#l00061">entanglement_wave_function.cpp:61</a></div></div>
-<div class="ttc" id="namespaceutilities_html_a8bd217ae821e52872836b15f651f5d9f"><div class="ttname"><a href="namespaceutilities.html#a8bd217ae821e52872836b15f651f5d9f">utilities::cout</a></div><div class="ttdeci">Cout cout</div><div class="ttdef"><b>Definition:</b> <a href="fqhe__entanglement__hamiltonian_8cpp_source.html#l00046">fqhe_entanglement_hamiltonian.cpp:46</a></div></div>
-<div class="ttc" id="structParams_html_aa5663f88f3dbb831814dddab84e0ca8e"><div class="ttname"><a href="structParams.html#aa5663f88f3dbb831814dddab84e0ca8e">Params::initial_normal</a></div><div class="ttdeci">int initial_normal</div><div class="ttdef"><b>Definition:</b> <a href="entanglement__wave__function_8cpp_source.html#l00063">entanglement_wave_function.cpp:63</a></div></div>
-<div class="ttc" id="structParams_html_a7397073cabdd149948f9ae09032524fa"><div class="ttname"><a href="structParams.html#a7397073cabdd149948f9ae09032524fa">Params::npart_f</a></div><div class="ttdeci">int npart_f</div><div class="ttdef"><b>Definition:</b> <a href="entanglement__wave__function_8cpp_source.html#l00053">entanglement_wave_function.cpp:53</a></div></div>
-<div class="ttc" id="structParams_html_a35bed9c4eb92949e086592b4746e5ed8"><div class="ttname"><a href="structParams.html#a35bed9c4eb92949e086592b4746e5ed8">Params::ne</a></div><div class="ttdeci">int ne</div><div class="ttdef"><b>Definition:</b> <a href="entanglement__wave__function_8cpp_source.html#l00051">entanglement_wave_function.cpp:51</a></div></div>
-<div class="ttc" id="structParams_html_ab264f91291bec7f38ae6a62d31a9b8ac"><div class="ttname"><a href="structParams.html#ab264f91291bec7f38ae6a62d31a9b8ac">Params::num_Lz_sectors</a></div><div class="ttdeci">int num_Lz_sectors</div><div class="ttdef"><b>Definition:</b> <a href="entanglement__wave__function_8cpp_source.html#l00057">entanglement_wave_function.cpp:57</a></div></div>
-<div class="ttc" id="structParams_html_a84a63b38453bf42cacefe88e3f022037"><div class="ttname"><a href="structParams.html#a84a63b38453bf42cacefe88e3f022037">Params::num_iter_metrop</a></div><div class="ttdeci">int num_iter_metrop</div><div class="ttdef"><b>Definition:</b> <a href="entanglement__wave__function_8cpp_source.html#l00058">entanglement_wave_function.cpp:58</a></div></div>
-<div class="ttc" id="structParams_html_ac9ec9a4a0a2eeff4c2376fd732c61201"><div class="ttname"><a href="structParams.html#ac9ec9a4a0a2eeff4c2376fd732c61201">Params::plot</a></div><div class="ttdeci">char plot</div><div class="ttdef"><b>Definition:</b> <a href="entanglement__wave__function_8cpp_source.html#l00064">entanglement_wave_function.cpp:64</a></div></div>
-<div class="ttc" id="structParams_html_a7e59717d3f9879692c5facf9e046a563"><div class="ttname"><a href="structParams.html#a7e59717d3f9879692c5facf9e046a563">Params::metrop_initial</a></div><div class="ttdeci">int metrop_initial</div><div class="ttdef"><b>Definition:</b> <a href="entanglement__wave__function_8cpp_source.html#l00059">entanglement_wave_function.cpp:59</a></div></div>
-<div class="ttc" id="structParams_html_acf988ff476c4d98b767766ee8f6cc3f1"><div class="ttname"><a href="structParams.html#acf988ff476c4d98b767766ee8f6cc3f1">Params::iter</a></div><div class="ttdeci">int iter</div><div class="ttdef"><b>Definition:</b> <a href="entanglement__wave__function_8cpp_source.html#l00060">entanglement_wave_function.cpp:60</a></div></div>
-<div class="ttc" id="structParams_html_ac363bb7a521251c9fe6acb44b67cd1bc"><div class="ttname"><a href="structParams.html#ac363bb7a521251c9fe6acb44b67cd1bc">Params::npart_i</a></div><div class="ttdeci">int npart_i</div><div class="ttdef"><b>Definition:</b> <a href="entanglement__wave__function_8cpp_source.html#l00052">entanglement_wave_function.cpp:52</a></div></div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;        MPI_Bcast(&amp;<a class="code" href="structParams.html#a8f18be9631ac411b8e186e48346b0e27">iter_normal</a>,1,MPI_INT,0,MPI_COMM_WORLD);</div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;        MPI_Bcast(&amp;<a class="code" href="structParams.html#a11adfcf9aa316f3c6418cb0484021335">num_L</a>,1,MPI_INT,0,MPI_COMM_WORLD);</div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;        MPI_Bcast(&amp;<a class="code" href="structParams.html#aa5663f88f3dbb831814dddab84e0ca8e">initial_normal</a>,1,MPI_INT,0,MPI_COMM_WORLD);</div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;        MPI_Bcast(&amp;<a class="code" href="structParams.html#ac9ec9a4a0a2eeff4c2376fd732c61201">plot</a>,1,MPI_CHAR,0,MPI_COMM_WORLD);</div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;</div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;    }</div>
+<div class="ttc" id="structParams_html_a1a334e01515241d8152c6ce65708c7ea"><div class="ttname"><a href="structParams.html#a1a334e01515241d8152c6ce65708c7ea">Params::path</a></div><div class="ttdeci">std::string path</div><div class="ttdef"><b>Definition:</b> <a href="entanglement__wave__function_8cpp_source.html#l00046">entanglement_wave_function.cpp:46</a></div></div>
+<div class="ttc" id="structParams_html_a094fe4bd9b70a9061ee48899425a72f4"><div class="ttname"><a href="structParams.html#a094fe4bd9b70a9061ee48899425a72f4">Params::LL</a></div><div class="ttdeci">int LL</div><div class="ttdef"><b>Definition:</b> <a href="entanglement__wave__function_8cpp_source.html#l00052">entanglement_wave_function.cpp:52</a></div></div>
+<div class="ttc" id="structParams_html_a11adfcf9aa316f3c6418cb0484021335"><div class="ttname"><a href="structParams.html#a11adfcf9aa316f3c6418cb0484021335">Params::num_L</a></div><div class="ttdeci">int num_L</div><div class="ttdef"><b>Definition:</b> <a href="entanglement__wave__function_8cpp_source.html#l00058">entanglement_wave_function.cpp:58</a></div></div>
+<div class="ttc" id="structParams_html_a444c810322d1e1f627370c8ada89cb9f"><div class="ttname"><a href="structParams.html#a444c810322d1e1f627370c8ada89cb9f">Params::nu</a></div><div class="ttdeci">int nu</div><div class="ttdef"><b>Definition:</b> <a href="entanglement__wave__function_8cpp_source.html#l00051">entanglement_wave_function.cpp:51</a></div></div>
+<div class="ttc" id="structParams_html_a8f18be9631ac411b8e186e48346b0e27"><div class="ttname"><a href="structParams.html#a8f18be9631ac411b8e186e48346b0e27">Params::iter_normal</a></div><div class="ttdeci">int iter_normal</div><div class="ttdef"><b>Definition:</b> <a href="entanglement__wave__function_8cpp_source.html#l00057">entanglement_wave_function.cpp:57</a></div></div>
+<div class="ttc" id="namespaceutilities_html_a8bd217ae821e52872836b15f651f5d9f"><div class="ttname"><a href="namespaceutilities.html#a8bd217ae821e52872836b15f651f5d9f">utilities::cout</a></div><div class="ttdeci">Cout cout</div><div class="ttdef"><b>Definition:</b> <a href="fqhe__entanglement__hamiltonian_8cpp_source.html#l00041">fqhe_entanglement_hamiltonian.cpp:41</a></div></div>
+<div class="ttc" id="structParams_html_aa5663f88f3dbb831814dddab84e0ca8e"><div class="ttname"><a href="structParams.html#aa5663f88f3dbb831814dddab84e0ca8e">Params::initial_normal</a></div><div class="ttdeci">int initial_normal</div><div class="ttdef"><b>Definition:</b> <a href="entanglement__wave__function_8cpp_source.html#l00059">entanglement_wave_function.cpp:59</a></div></div>
+<div class="ttc" id="structParams_html_a7397073cabdd149948f9ae09032524fa"><div class="ttname"><a href="structParams.html#a7397073cabdd149948f9ae09032524fa">Params::npart_f</a></div><div class="ttdeci">int npart_f</div><div class="ttdef"><b>Definition:</b> <a href="entanglement__wave__function_8cpp_source.html#l00049">entanglement_wave_function.cpp:49</a></div></div>
+<div class="ttc" id="structParams_html_a35bed9c4eb92949e086592b4746e5ed8"><div class="ttname"><a href="structParams.html#a35bed9c4eb92949e086592b4746e5ed8">Params::ne</a></div><div class="ttdeci">int ne</div><div class="ttdef"><b>Definition:</b> <a href="entanglement__wave__function_8cpp_source.html#l00047">entanglement_wave_function.cpp:47</a></div></div>
+<div class="ttc" id="structParams_html_ab264f91291bec7f38ae6a62d31a9b8ac"><div class="ttname"><a href="structParams.html#ab264f91291bec7f38ae6a62d31a9b8ac">Params::num_Lz_sectors</a></div><div class="ttdeci">int num_Lz_sectors</div><div class="ttdef"><b>Definition:</b> <a href="entanglement__wave__function_8cpp_source.html#l00053">entanglement_wave_function.cpp:53</a></div></div>
+<div class="ttc" id="structParams_html_a84a63b38453bf42cacefe88e3f022037"><div class="ttname"><a href="structParams.html#a84a63b38453bf42cacefe88e3f022037">Params::num_iter_metrop</a></div><div class="ttdeci">int num_iter_metrop</div><div class="ttdef"><b>Definition:</b> <a href="entanglement__wave__function_8cpp_source.html#l00054">entanglement_wave_function.cpp:54</a></div></div>
+<div class="ttc" id="structParams_html_ac9ec9a4a0a2eeff4c2376fd732c61201"><div class="ttname"><a href="structParams.html#ac9ec9a4a0a2eeff4c2376fd732c61201">Params::plot</a></div><div class="ttdeci">char plot</div><div class="ttdef"><b>Definition:</b> <a href="entanglement__wave__function_8cpp_source.html#l00060">entanglement_wave_function.cpp:60</a></div></div>
+<div class="ttc" id="structParams_html_a7e59717d3f9879692c5facf9e046a563"><div class="ttname"><a href="structParams.html#a7e59717d3f9879692c5facf9e046a563">Params::metrop_initial</a></div><div class="ttdeci">int metrop_initial</div><div class="ttdef"><b>Definition:</b> <a href="entanglement__wave__function_8cpp_source.html#l00055">entanglement_wave_function.cpp:55</a></div></div>
+<div class="ttc" id="structParams_html_acf988ff476c4d98b767766ee8f6cc3f1"><div class="ttname"><a href="structParams.html#acf988ff476c4d98b767766ee8f6cc3f1">Params::iter</a></div><div class="ttdeci">int iter</div><div class="ttdef"><b>Definition:</b> <a href="entanglement__wave__function_8cpp_source.html#l00056">entanglement_wave_function.cpp:56</a></div></div>
+<div class="ttc" id="structParams_html_ac363bb7a521251c9fe6acb44b67cd1bc"><div class="ttname"><a href="structParams.html#ac363bb7a521251c9fe6acb44b67cd1bc">Params::npart_i</a></div><div class="ttdeci">int npart_i</div><div class="ttdef"><b>Definition:</b> <a href="entanglement__wave__function_8cpp_source.html#l00048">entanglement_wave_function.cpp:48</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -364,7 +364,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="entanglement__wave__function_8cpp_source.html#l00063">63</a> of file <a class="el" href="entanglement__wave__function_8cpp_source.html">entanglement_wave_function.cpp</a>.</p>
+<p>Definition at line <a class="el" href="entanglement__wave__function_8cpp_source.html#l00059">59</a> of file <a class="el" href="entanglement__wave__function_8cpp_source.html">entanglement_wave_function.cpp</a>.</p>
 
 </div>
 </div>
@@ -378,7 +378,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="entanglement__wave__function_8cpp_source.html#l00060">60</a> of file <a class="el" href="entanglement__wave__function_8cpp_source.html">entanglement_wave_function.cpp</a>.</p>
+<p>Definition at line <a class="el" href="entanglement__wave__function_8cpp_source.html#l00056">56</a> of file <a class="el" href="entanglement__wave__function_8cpp_source.html">entanglement_wave_function.cpp</a>.</p>
 
 </div>
 </div>
@@ -392,7 +392,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="entanglement__wave__function_8cpp_source.html#l00061">61</a> of file <a class="el" href="entanglement__wave__function_8cpp_source.html">entanglement_wave_function.cpp</a>.</p>
+<p>Definition at line <a class="el" href="entanglement__wave__function_8cpp_source.html#l00057">57</a> of file <a class="el" href="entanglement__wave__function_8cpp_source.html">entanglement_wave_function.cpp</a>.</p>
 
 </div>
 </div>
@@ -406,7 +406,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="entanglement__wave__function_8cpp_source.html#l00056">56</a> of file <a class="el" href="entanglement__wave__function_8cpp_source.html">entanglement_wave_function.cpp</a>.</p>
+<p>Definition at line <a class="el" href="entanglement__wave__function_8cpp_source.html#l00052">52</a> of file <a class="el" href="entanglement__wave__function_8cpp_source.html">entanglement_wave_function.cpp</a>.</p>
 
 </div>
 </div>
@@ -420,7 +420,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="entanglement__wave__function_8cpp_source.html#l00059">59</a> of file <a class="el" href="entanglement__wave__function_8cpp_source.html">entanglement_wave_function.cpp</a>.</p>
+<p>Definition at line <a class="el" href="entanglement__wave__function_8cpp_source.html#l00055">55</a> of file <a class="el" href="entanglement__wave__function_8cpp_source.html">entanglement_wave_function.cpp</a>.</p>
 
 </div>
 </div>
@@ -434,7 +434,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="entanglement__wave__function_8cpp_source.html#l00051">51</a> of file <a class="el" href="entanglement__wave__function_8cpp_source.html">entanglement_wave_function.cpp</a>.</p>
+<p>Definition at line <a class="el" href="entanglement__wave__function_8cpp_source.html#l00047">47</a> of file <a class="el" href="entanglement__wave__function_8cpp_source.html">entanglement_wave_function.cpp</a>.</p>
 
 </div>
 </div>
@@ -448,7 +448,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="entanglement__wave__function_8cpp_source.html#l00054">54</a> of file <a class="el" href="entanglement__wave__function_8cpp_source.html">entanglement_wave_function.cpp</a>.</p>
+<p>Definition at line <a class="el" href="entanglement__wave__function_8cpp_source.html#l00050">50</a> of file <a class="el" href="entanglement__wave__function_8cpp_source.html">entanglement_wave_function.cpp</a>.</p>
 
 </div>
 </div>
@@ -462,7 +462,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="entanglement__wave__function_8cpp_source.html#l00053">53</a> of file <a class="el" href="entanglement__wave__function_8cpp_source.html">entanglement_wave_function.cpp</a>.</p>
+<p>Definition at line <a class="el" href="entanglement__wave__function_8cpp_source.html#l00049">49</a> of file <a class="el" href="entanglement__wave__function_8cpp_source.html">entanglement_wave_function.cpp</a>.</p>
 
 </div>
 </div>
@@ -476,7 +476,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="entanglement__wave__function_8cpp_source.html#l00052">52</a> of file <a class="el" href="entanglement__wave__function_8cpp_source.html">entanglement_wave_function.cpp</a>.</p>
+<p>Definition at line <a class="el" href="entanglement__wave__function_8cpp_source.html#l00048">48</a> of file <a class="el" href="entanglement__wave__function_8cpp_source.html">entanglement_wave_function.cpp</a>.</p>
 
 </div>
 </div>
@@ -490,7 +490,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="entanglement__wave__function_8cpp_source.html#l00055">55</a> of file <a class="el" href="entanglement__wave__function_8cpp_source.html">entanglement_wave_function.cpp</a>.</p>
+<p>Definition at line <a class="el" href="entanglement__wave__function_8cpp_source.html#l00051">51</a> of file <a class="el" href="entanglement__wave__function_8cpp_source.html">entanglement_wave_function.cpp</a>.</p>
 
 </div>
 </div>
@@ -504,7 +504,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="entanglement__wave__function_8cpp_source.html#l00058">58</a> of file <a class="el" href="entanglement__wave__function_8cpp_source.html">entanglement_wave_function.cpp</a>.</p>
+<p>Definition at line <a class="el" href="entanglement__wave__function_8cpp_source.html#l00054">54</a> of file <a class="el" href="entanglement__wave__function_8cpp_source.html">entanglement_wave_function.cpp</a>.</p>
 
 </div>
 </div>
@@ -518,7 +518,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="entanglement__wave__function_8cpp_source.html#l00062">62</a> of file <a class="el" href="entanglement__wave__function_8cpp_source.html">entanglement_wave_function.cpp</a>.</p>
+<p>Definition at line <a class="el" href="entanglement__wave__function_8cpp_source.html#l00058">58</a> of file <a class="el" href="entanglement__wave__function_8cpp_source.html">entanglement_wave_function.cpp</a>.</p>
 
 </div>
 </div>
@@ -532,7 +532,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="entanglement__wave__function_8cpp_source.html#l00057">57</a> of file <a class="el" href="entanglement__wave__function_8cpp_source.html">entanglement_wave_function.cpp</a>.</p>
+<p>Definition at line <a class="el" href="entanglement__wave__function_8cpp_source.html#l00053">53</a> of file <a class="el" href="entanglement__wave__function_8cpp_source.html">entanglement_wave_function.cpp</a>.</p>
 
 </div>
 </div>
@@ -546,7 +546,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="entanglement__wave__function_8cpp_source.html#l00050">50</a> of file <a class="el" href="entanglement__wave__function_8cpp_source.html">entanglement_wave_function.cpp</a>.</p>
+<p>Definition at line <a class="el" href="entanglement__wave__function_8cpp_source.html#l00046">46</a> of file <a class="el" href="entanglement__wave__function_8cpp_source.html">entanglement_wave_function.cpp</a>.</p>
 
 </div>
 </div>
@@ -560,7 +560,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="entanglement__wave__function_8cpp_source.html#l00064">64</a> of file <a class="el" href="entanglement__wave__function_8cpp_source.html">entanglement_wave_function.cpp</a>.</p>
+<p>Definition at line <a class="el" href="entanglement__wave__function_8cpp_source.html#l00060">60</a> of file <a class="el" href="entanglement__wave__function_8cpp_source.html">entanglement_wave_function.cpp</a>.</p>
 
 </div>
 </div>

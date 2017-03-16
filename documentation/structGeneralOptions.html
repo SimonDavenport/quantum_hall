@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Quantum Hall entanglement program suite: GeneralOptions Struct Reference</title>
+<title>Quantum Hall Programs: GeneralOptions Struct Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -29,7 +29,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Quantum Hall entanglement program suite
+   <div id="projectname">Quantum Hall Programs
    &#160;<span id="projectnumber">Version 1.0</span>
    </div>
   </td>
@@ -113,18 +113,13 @@ $(document).ready(function(){initNavTree('structGeneralOptions.html','');});
 </div><!--header-->
 <div class="contents">
 
-<p>This struct contains all parameters that are parsed from the command line option set.  
- <a href="structGeneralOptions.html#details">More...</a></p>
-
-<p><code>#include &lt;<a class="el" href="program__options_8h_source.html">program_options.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="program__options_8hpp_source.html">program_options.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a516ffa9f71becbb2b398ec76c41e5d6c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structGeneralOptions.html#a516ffa9f71becbb2b398ec76c41e5d6c">InitFromCommandLine</a> (boost::program_options::variables_map *options, const <a class="el" href="structutilities_1_1MpiWrapper.html">utilities::MpiWrapper</a> &amp;<a class="el" href="fqhe__entanglement__spectrum_8cpp.html#a1a7112d51c59f426cab52975031ff6e7">mpi</a>)</td></tr>
-<tr class="memdesc:a516ffa9f71becbb2b398ec76c41e5d6c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set parameters from command line argument list.  <a href="#a516ffa9f71becbb2b398ec76c41e5d6c">More...</a><br/></td></tr>
 <tr class="separator:a516ffa9f71becbb2b398ec76c41e5d6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1097856f73d0f3138689cf020a9cab7a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structGeneralOptions.html#a1097856f73d0f3138689cf020a9cab7a">MpiSync</a> (const int syncNode, const <a class="el" href="structutilities_1_1MpiWrapper.html">utilities::MpiWrapper</a> &amp;<a class="el" href="fqhe__entanglement__spectrum_8cpp.html#a1a7112d51c59f426cab52975031ff6e7">mpi</a>)</td></tr>
-<tr class="memdesc:a1097856f73d0f3138689cf020a9cab7a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to synchronise all these variables with the value set on syncNode.  <a href="#a1097856f73d0f3138689cf020a9cab7a">More...</a><br/></td></tr>
 <tr class="separator:a1097856f73d0f3138689cf020a9cab7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
@@ -153,7 +148,7 @@ Public Attributes</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This struct contains all parameters that are parsed from the command line option set. </p>
 
-<p>Definition at line <a class="el" href="program__options_8h_source.html#l00108">108</a> of file <a class="el" href="program__options_8h_source.html">program_options.h</a>.</p>
+<p>Definition at line <a class="el" href="program__options_8hpp_source.html#l00085">85</a> of file <a class="el" href="program__options_8hpp_source.html">program_options.hpp</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a class="anchor" id="a516ffa9f71becbb2b398ec76c41e5d6c"></a>
 <div class="memitem">
@@ -186,8 +181,7 @@ Public Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-
-<p>Set parameters from command line argument list. </p>
+<p>Set parameters from command line argument list </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">options</td><td>Command line argument list </td></tr>
@@ -196,45 +190,41 @@ Public Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="program__options_8h_source.html#l00138">138</a> of file <a class="el" href="program__options_8h_source.html">program_options.h</a>.</p>
-<div class="fragment"><div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;    {</div>
-<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;        <span class="keywordflow">if</span>(0 == mpi.<a class="code" href="structutilities_1_1MpiWrapper.html#a0f670cb88d82d9c815e111de5e76ae3e">m_id</a>)    <span class="comment">//  For the master node</span></div>
-<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;        {</div>
-<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;            <a class="code" href="structGeneralOptions.html#a51e5b1e9773bf3901479d2e866a57c0a">path</a>         = (*options)[<span class="stringliteral">&quot;path&quot;</span>].as&lt;std::string&gt;();</div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;            <a class="code" href="structGeneralOptions.html#a7b7fa069b0530aac911c0c9bf9d48f16">choice</a>       = (*options)[<span class="stringliteral">&quot;mode&quot;</span>].as&lt;<span class="keywordtype">int</span>&gt;();</div>
-<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;            <a class="code" href="structGeneralOptions.html#a7b1d6ab6295950bf410a26e4e0c5136b">lzA</a>          = (*options)[<span class="stringliteral">&quot;lza&quot;</span>].as&lt;<span class="keywordtype">int</span>&gt;();</div>
-<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;            <a class="code" href="structGeneralOptions.html#af5380804022cb18f8c8ac234fe45e8e9">realCut</a>      = (*options)[<span class="stringliteral">&quot;real-cut&quot;</span>].as&lt;<span class="keywordtype">int</span>&gt;();</div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;            <a class="code" href="structGeneralOptions.html#a21a21d53dadb71fc4d6ac98915eca539">nbrFixed</a>     = (*options)[<span class="stringliteral">&quot;nbr-fixed&quot;</span>].as&lt;<span class="keywordtype">int</span>&gt;();</div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;            <a class="code" href="structGeneralOptions.html#afaff4f35186daa1688b7f95758cf873c">nbrSect</a>      = (*options)[<span class="stringliteral">&quot;nbr-sect&quot;</span>].as&lt;<span class="keywordtype">int</span>&gt;();</div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;            <a class="code" href="structGeneralOptions.html#aad852ca929f9a1ce5407520690a7435f">nbrFourier</a>   = (*options)[<span class="stringliteral">&quot;nbr-fourier&quot;</span>].as&lt;<span class="keywordtype">int</span>&gt;();</div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;            <a class="code" href="structGeneralOptions.html#a68dcefd0f4eb770ffea8779213b4ae51">rows</a>         = (*options)[<span class="stringliteral">&quot;rows&quot;</span>].as&lt;<span class="keywordtype">int</span>&gt;();</div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;            <a class="code" href="structGeneralOptions.html#a81a1af2bf11b79bb44852c0fdbd4180b">columns</a>      = (*options)[<span class="stringliteral">&quot;columns&quot;</span>].as&lt;<span class="keywordtype">int</span>&gt;();</div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;            <a class="code" href="structGeneralOptions.html#a3f6b3a27f9b101eac72b8a677ebd8102">renormFactor</a> = (*options)[<span class="stringliteral">&quot;renorm&quot;</span>].as&lt;<span class="keywordtype">int</span>&gt;();</div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;        }</div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;        </div>
-<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;        <span class="comment">//  Synchronize all values with those set on the master node</span></div>
-<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;        </div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;        this-&gt;<a class="code" href="structGeneralOptions.html#a1097856f73d0f3138689cf020a9cab7a">MpiSync</a>(0,mpi);</div>
-<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;        </div>
-<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;        <span class="keywordflow">if</span>(0 == <a class="code" href="structGeneralOptions.html#a7b7fa069b0530aac911c0c9bf9d48f16">choice</a>)</div>
-<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;        {</div>
-<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;            exit(EXIT_SUCCESS);</div>
-<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;        }</div>
-<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;        </div>
-<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;        <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;    }</div>
-<div class="ttc" id="structGeneralOptions_html_a81a1af2bf11b79bb44852c0fdbd4180b"><div class="ttname"><a href="structGeneralOptions.html#a81a1af2bf11b79bb44852c0fdbd4180b">GeneralOptions::columns</a></div><div class="ttdeci">int columns</div><div class="ttdef"><b>Definition:</b> <a href="program__options_8h_source.html#l00128">program_options.h:128</a></div></div>
-<div class="ttc" id="structGeneralOptions_html_a1097856f73d0f3138689cf020a9cab7a"><div class="ttname"><a href="structGeneralOptions.html#a1097856f73d0f3138689cf020a9cab7a">GeneralOptions::MpiSync</a></div><div class="ttdeci">void MpiSync(const int syncNode, const utilities::MpiWrapper &amp;mpi)</div><div class="ttdoc">Function to synchronise all these variables with the value set on syncNode. </div><div class="ttdef"><b>Definition:</b> <a href="program__options_8h_source.html#l00174">program_options.h:174</a></div></div>
-<div class="ttc" id="structGeneralOptions_html_a68dcefd0f4eb770ffea8779213b4ae51"><div class="ttname"><a href="structGeneralOptions.html#a68dcefd0f4eb770ffea8779213b4ae51">GeneralOptions::rows</a></div><div class="ttdeci">int rows</div><div class="ttdef"><b>Definition:</b> <a href="program__options_8h_source.html#l00126">program_options.h:126</a></div></div>
-<div class="ttc" id="structGeneralOptions_html_a7b1d6ab6295950bf410a26e4e0c5136b"><div class="ttname"><a href="structGeneralOptions.html#a7b1d6ab6295950bf410a26e4e0c5136b">GeneralOptions::lzA</a></div><div class="ttdeci">int lzA</div><div class="ttdef"><b>Definition:</b> <a href="program__options_8h_source.html#l00116">program_options.h:116</a></div></div>
-<div class="ttc" id="structGeneralOptions_html_a51e5b1e9773bf3901479d2e866a57c0a"><div class="ttname"><a href="structGeneralOptions.html#a51e5b1e9773bf3901479d2e866a57c0a">GeneralOptions::path</a></div><div class="ttdeci">std::string path</div><div class="ttdef"><b>Definition:</b> <a href="program__options_8h_source.html#l00110">program_options.h:110</a></div></div>
-<div class="ttc" id="structGeneralOptions_html_aad852ca929f9a1ce5407520690a7435f"><div class="ttname"><a href="structGeneralOptions.html#aad852ca929f9a1ce5407520690a7435f">GeneralOptions::nbrFourier</a></div><div class="ttdeci">int nbrFourier</div><div class="ttdef"><b>Definition:</b> <a href="program__options_8h_source.html#l00124">program_options.h:124</a></div></div>
-<div class="ttc" id="structGeneralOptions_html_a7b7fa069b0530aac911c0c9bf9d48f16"><div class="ttname"><a href="structGeneralOptions.html#a7b7fa069b0530aac911c0c9bf9d48f16">GeneralOptions::choice</a></div><div class="ttdeci">int choice</div><div class="ttdef"><b>Definition:</b> <a href="program__options_8h_source.html#l00112">program_options.h:112</a></div></div>
-<div class="ttc" id="structGeneralOptions_html_afaff4f35186daa1688b7f95758cf873c"><div class="ttname"><a href="structGeneralOptions.html#afaff4f35186daa1688b7f95758cf873c">GeneralOptions::nbrSect</a></div><div class="ttdeci">int nbrSect</div><div class="ttdef"><b>Definition:</b> <a href="program__options_8h_source.html#l00122">program_options.h:122</a></div></div>
-<div class="ttc" id="structGeneralOptions_html_a21a21d53dadb71fc4d6ac98915eca539"><div class="ttname"><a href="structGeneralOptions.html#a21a21d53dadb71fc4d6ac98915eca539">GeneralOptions::nbrFixed</a></div><div class="ttdeci">int nbrFixed</div><div class="ttdef"><b>Definition:</b> <a href="program__options_8h_source.html#l00120">program_options.h:120</a></div></div>
-<div class="ttc" id="structGeneralOptions_html_a3f6b3a27f9b101eac72b8a677ebd8102"><div class="ttname"><a href="structGeneralOptions.html#a3f6b3a27f9b101eac72b8a677ebd8102">GeneralOptions::renormFactor</a></div><div class="ttdeci">int renormFactor</div><div class="ttdef"><b>Definition:</b> <a href="program__options_8h_source.html#l00130">program_options.h:130</a></div></div>
-<div class="ttc" id="structGeneralOptions_html_af5380804022cb18f8c8ac234fe45e8e9"><div class="ttname"><a href="structGeneralOptions.html#af5380804022cb18f8c8ac234fe45e8e9">GeneralOptions::realCut</a></div><div class="ttdeci">int realCut</div><div class="ttdef"><b>Definition:</b> <a href="program__options_8h_source.html#l00118">program_options.h:118</a></div></div>
-<div class="ttc" id="structutilities_1_1MpiWrapper_html_a0f670cb88d82d9c815e111de5e76ae3e"><div class="ttname"><a href="structutilities_1_1MpiWrapper.html#a0f670cb88d82d9c815e111de5e76ae3e">utilities::MpiWrapper::m_id</a></div><div class="ttdeci">int m_id</div><div class="ttdef"><b>Definition:</b> <a href="mpi__wrapper_8h_source.html#l00062">mpi_wrapper.h:62</a></div></div>
+<p>Definition at line <a class="el" href="program__options_8hpp_source.html#l00113">113</a> of file <a class="el" href="program__options_8hpp_source.html">program_options.hpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    {</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;        <span class="keywordflow">if</span>(0 == mpi.<a class="code" href="structutilities_1_1MpiWrapper.html#a0f670cb88d82d9c815e111de5e76ae3e">m_id</a>)    <span class="comment">//  For the master node</span></div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;        {</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;            <a class="code" href="structGeneralOptions.html#a51e5b1e9773bf3901479d2e866a57c0a">path</a>         = (*options)[<span class="stringliteral">&quot;path&quot;</span>].as&lt;std::string&gt;();</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;            <a class="code" href="structGeneralOptions.html#a7b7fa069b0530aac911c0c9bf9d48f16">choice</a>       = (*options)[<span class="stringliteral">&quot;mode&quot;</span>].as&lt;<span class="keywordtype">int</span>&gt;();</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;            <a class="code" href="structGeneralOptions.html#a7b1d6ab6295950bf410a26e4e0c5136b">lzA</a>          = (*options)[<span class="stringliteral">&quot;lza&quot;</span>].as&lt;<span class="keywordtype">int</span>&gt;();</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;            <a class="code" href="structGeneralOptions.html#af5380804022cb18f8c8ac234fe45e8e9">realCut</a>      = (*options)[<span class="stringliteral">&quot;real-cut&quot;</span>].as&lt;<span class="keywordtype">int</span>&gt;();</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;            <a class="code" href="structGeneralOptions.html#a21a21d53dadb71fc4d6ac98915eca539">nbrFixed</a>     = (*options)[<span class="stringliteral">&quot;nbr-fixed&quot;</span>].as&lt;<span class="keywordtype">int</span>&gt;();</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;            <a class="code" href="structGeneralOptions.html#afaff4f35186daa1688b7f95758cf873c">nbrSect</a>      = (*options)[<span class="stringliteral">&quot;nbr-sect&quot;</span>].as&lt;<span class="keywordtype">int</span>&gt;();</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;            <a class="code" href="structGeneralOptions.html#aad852ca929f9a1ce5407520690a7435f">nbrFourier</a>   = (*options)[<span class="stringliteral">&quot;nbr-fourier&quot;</span>].as&lt;<span class="keywordtype">int</span>&gt;();</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;            <a class="code" href="structGeneralOptions.html#a68dcefd0f4eb770ffea8779213b4ae51">rows</a>         = (*options)[<span class="stringliteral">&quot;rows&quot;</span>].as&lt;<span class="keywordtype">int</span>&gt;();</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;            <a class="code" href="structGeneralOptions.html#a81a1af2bf11b79bb44852c0fdbd4180b">columns</a>      = (*options)[<span class="stringliteral">&quot;columns&quot;</span>].as&lt;<span class="keywordtype">int</span>&gt;();</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;            <a class="code" href="structGeneralOptions.html#a3f6b3a27f9b101eac72b8a677ebd8102">renormFactor</a> = (*options)[<span class="stringliteral">&quot;renorm&quot;</span>].as&lt;<span class="keywordtype">int</span>&gt;();</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;        }</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;        <span class="comment">//  Synchronize all values with those set on the master node</span></div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;        this-&gt;<a class="code" href="structGeneralOptions.html#a1097856f73d0f3138689cf020a9cab7a">MpiSync</a>(0, mpi);</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;        <span class="keywordflow">if</span>(0 == <a class="code" href="structGeneralOptions.html#a7b7fa069b0530aac911c0c9bf9d48f16">choice</a>)</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;        {</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;            exit(EXIT_SUCCESS);</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;        }</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;        <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;    }</div>
+<div class="ttc" id="structGeneralOptions_html_a81a1af2bf11b79bb44852c0fdbd4180b"><div class="ttname"><a href="structGeneralOptions.html#a81a1af2bf11b79bb44852c0fdbd4180b">GeneralOptions::columns</a></div><div class="ttdeci">int columns</div><div class="ttdef"><b>Definition:</b> <a href="program__options_8hpp_source.html#l00105">program_options.hpp:105</a></div></div>
+<div class="ttc" id="structGeneralOptions_html_a1097856f73d0f3138689cf020a9cab7a"><div class="ttname"><a href="structGeneralOptions.html#a1097856f73d0f3138689cf020a9cab7a">GeneralOptions::MpiSync</a></div><div class="ttdeci">void MpiSync(const int syncNode, const utilities::MpiWrapper &amp;mpi)</div><div class="ttdef"><b>Definition:</b> <a href="program__options_8hpp_source.html#l00143">program_options.hpp:143</a></div></div>
+<div class="ttc" id="structGeneralOptions_html_a68dcefd0f4eb770ffea8779213b4ae51"><div class="ttname"><a href="structGeneralOptions.html#a68dcefd0f4eb770ffea8779213b4ae51">GeneralOptions::rows</a></div><div class="ttdeci">int rows</div><div class="ttdef"><b>Definition:</b> <a href="program__options_8hpp_source.html#l00103">program_options.hpp:103</a></div></div>
+<div class="ttc" id="structGeneralOptions_html_a7b1d6ab6295950bf410a26e4e0c5136b"><div class="ttname"><a href="structGeneralOptions.html#a7b1d6ab6295950bf410a26e4e0c5136b">GeneralOptions::lzA</a></div><div class="ttdeci">int lzA</div><div class="ttdef"><b>Definition:</b> <a href="program__options_8hpp_source.html#l00093">program_options.hpp:93</a></div></div>
+<div class="ttc" id="structGeneralOptions_html_a51e5b1e9773bf3901479d2e866a57c0a"><div class="ttname"><a href="structGeneralOptions.html#a51e5b1e9773bf3901479d2e866a57c0a">GeneralOptions::path</a></div><div class="ttdeci">std::string path</div><div class="ttdef"><b>Definition:</b> <a href="program__options_8hpp_source.html#l00087">program_options.hpp:87</a></div></div>
+<div class="ttc" id="structGeneralOptions_html_aad852ca929f9a1ce5407520690a7435f"><div class="ttname"><a href="structGeneralOptions.html#aad852ca929f9a1ce5407520690a7435f">GeneralOptions::nbrFourier</a></div><div class="ttdeci">int nbrFourier</div><div class="ttdef"><b>Definition:</b> <a href="program__options_8hpp_source.html#l00101">program_options.hpp:101</a></div></div>
+<div class="ttc" id="structGeneralOptions_html_a7b7fa069b0530aac911c0c9bf9d48f16"><div class="ttname"><a href="structGeneralOptions.html#a7b7fa069b0530aac911c0c9bf9d48f16">GeneralOptions::choice</a></div><div class="ttdeci">int choice</div><div class="ttdef"><b>Definition:</b> <a href="program__options_8hpp_source.html#l00089">program_options.hpp:89</a></div></div>
+<div class="ttc" id="structGeneralOptions_html_afaff4f35186daa1688b7f95758cf873c"><div class="ttname"><a href="structGeneralOptions.html#afaff4f35186daa1688b7f95758cf873c">GeneralOptions::nbrSect</a></div><div class="ttdeci">int nbrSect</div><div class="ttdef"><b>Definition:</b> <a href="program__options_8hpp_source.html#l00099">program_options.hpp:99</a></div></div>
+<div class="ttc" id="structGeneralOptions_html_a21a21d53dadb71fc4d6ac98915eca539"><div class="ttname"><a href="structGeneralOptions.html#a21a21d53dadb71fc4d6ac98915eca539">GeneralOptions::nbrFixed</a></div><div class="ttdeci">int nbrFixed</div><div class="ttdef"><b>Definition:</b> <a href="program__options_8hpp_source.html#l00097">program_options.hpp:97</a></div></div>
+<div class="ttc" id="structGeneralOptions_html_a3f6b3a27f9b101eac72b8a677ebd8102"><div class="ttname"><a href="structGeneralOptions.html#a3f6b3a27f9b101eac72b8a677ebd8102">GeneralOptions::renormFactor</a></div><div class="ttdeci">int renormFactor</div><div class="ttdef"><b>Definition:</b> <a href="program__options_8hpp_source.html#l00107">program_options.hpp:107</a></div></div>
+<div class="ttc" id="structGeneralOptions_html_af5380804022cb18f8c8ac234fe45e8e9"><div class="ttname"><a href="structGeneralOptions.html#af5380804022cb18f8c8ac234fe45e8e9">GeneralOptions::realCut</a></div><div class="ttdeci">int realCut</div><div class="ttdef"><b>Definition:</b> <a href="program__options_8hpp_source.html#l00095">program_options.hpp:95</a></div></div>
+<div class="ttc" id="structutilities_1_1MpiWrapper_html_a0f670cb88d82d9c815e111de5e76ae3e"><div class="ttname"><a href="structutilities_1_1MpiWrapper.html#a0f670cb88d82d9c815e111de5e76ae3e">utilities::MpiWrapper::m_id</a></div><div class="ttdeci">int m_id</div><div class="ttdef"><b>Definition:</b> <a href="mpi__wrapper_8hpp_source.html#l00056">mpi_wrapper.hpp:56</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -269,8 +259,7 @@ Public Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-
-<p>Function to synchronise all these variables with the value set on syncNode. </p>
+<p>Function to synchronise all these variables with the value set on syncNode </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">syncNode</td><td>Node to sync with </td></tr>
@@ -279,30 +268,30 @@ Public Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="program__options_8h_source.html#l00174">174</a> of file <a class="el" href="program__options_8h_source.html">program_options.h</a>.</p>
-<div class="fragment"><div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;    {   </div>
-<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;        mpi.<a class="code" href="structutilities_1_1MpiWrapper.html#ab7c5634cdbed7e4436b54b9ef619f85b">Sync</a>(<a class="code" href="structGeneralOptions.html#a51e5b1e9773bf3901479d2e866a57c0a">path</a>,syncNode);</div>
-<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;        mpi.<a class="code" href="structutilities_1_1MpiWrapper.html#ab7c5634cdbed7e4436b54b9ef619f85b">Sync</a>(&amp;<a class="code" href="structGeneralOptions.html#a7b7fa069b0530aac911c0c9bf9d48f16">choice</a>,1,syncNode);</div>
-<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;        mpi.<a class="code" href="structutilities_1_1MpiWrapper.html#ab7c5634cdbed7e4436b54b9ef619f85b">Sync</a>(&amp;<a class="code" href="structGeneralOptions.html#a7b1d6ab6295950bf410a26e4e0c5136b">lzA</a>,1,syncNode);</div>
-<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;        mpi.<a class="code" href="structutilities_1_1MpiWrapper.html#ab7c5634cdbed7e4436b54b9ef619f85b">Sync</a>(&amp;<a class="code" href="structGeneralOptions.html#af5380804022cb18f8c8ac234fe45e8e9">realCut</a>,1,syncNode);</div>
-<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;        mpi.<a class="code" href="structutilities_1_1MpiWrapper.html#ab7c5634cdbed7e4436b54b9ef619f85b">Sync</a>(&amp;<a class="code" href="structGeneralOptions.html#a21a21d53dadb71fc4d6ac98915eca539">nbrFixed</a>,1,syncNode);</div>
-<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;        mpi.<a class="code" href="structutilities_1_1MpiWrapper.html#ab7c5634cdbed7e4436b54b9ef619f85b">Sync</a>(&amp;<a class="code" href="structGeneralOptions.html#afaff4f35186daa1688b7f95758cf873c">nbrSect</a>,1,syncNode);</div>
-<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;        mpi.<a class="code" href="structutilities_1_1MpiWrapper.html#ab7c5634cdbed7e4436b54b9ef619f85b">Sync</a>(&amp;<a class="code" href="structGeneralOptions.html#aad852ca929f9a1ce5407520690a7435f">nbrFourier</a>,1,syncNode);</div>
-<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;        mpi.<a class="code" href="structutilities_1_1MpiWrapper.html#ab7c5634cdbed7e4436b54b9ef619f85b">Sync</a>(&amp;<a class="code" href="structGeneralOptions.html#a68dcefd0f4eb770ffea8779213b4ae51">rows</a>,1,syncNode);</div>
-<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;        mpi.<a class="code" href="structutilities_1_1MpiWrapper.html#ab7c5634cdbed7e4436b54b9ef619f85b">Sync</a>(&amp;<a class="code" href="structGeneralOptions.html#a81a1af2bf11b79bb44852c0fdbd4180b">columns</a>,1,syncNode);</div>
-<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;        mpi.<a class="code" href="structutilities_1_1MpiWrapper.html#ab7c5634cdbed7e4436b54b9ef619f85b">Sync</a>(&amp;<a class="code" href="structGeneralOptions.html#a3f6b3a27f9b101eac72b8a677ebd8102">renormFactor</a>,1,syncNode);</div>
-<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;    }       </div>
-<div class="ttc" id="structGeneralOptions_html_a81a1af2bf11b79bb44852c0fdbd4180b"><div class="ttname"><a href="structGeneralOptions.html#a81a1af2bf11b79bb44852c0fdbd4180b">GeneralOptions::columns</a></div><div class="ttdeci">int columns</div><div class="ttdef"><b>Definition:</b> <a href="program__options_8h_source.html#l00128">program_options.h:128</a></div></div>
-<div class="ttc" id="structGeneralOptions_html_a68dcefd0f4eb770ffea8779213b4ae51"><div class="ttname"><a href="structGeneralOptions.html#a68dcefd0f4eb770ffea8779213b4ae51">GeneralOptions::rows</a></div><div class="ttdeci">int rows</div><div class="ttdef"><b>Definition:</b> <a href="program__options_8h_source.html#l00126">program_options.h:126</a></div></div>
-<div class="ttc" id="structGeneralOptions_html_a7b1d6ab6295950bf410a26e4e0c5136b"><div class="ttname"><a href="structGeneralOptions.html#a7b1d6ab6295950bf410a26e4e0c5136b">GeneralOptions::lzA</a></div><div class="ttdeci">int lzA</div><div class="ttdef"><b>Definition:</b> <a href="program__options_8h_source.html#l00116">program_options.h:116</a></div></div>
-<div class="ttc" id="structGeneralOptions_html_a51e5b1e9773bf3901479d2e866a57c0a"><div class="ttname"><a href="structGeneralOptions.html#a51e5b1e9773bf3901479d2e866a57c0a">GeneralOptions::path</a></div><div class="ttdeci">std::string path</div><div class="ttdef"><b>Definition:</b> <a href="program__options_8h_source.html#l00110">program_options.h:110</a></div></div>
-<div class="ttc" id="structGeneralOptions_html_aad852ca929f9a1ce5407520690a7435f"><div class="ttname"><a href="structGeneralOptions.html#aad852ca929f9a1ce5407520690a7435f">GeneralOptions::nbrFourier</a></div><div class="ttdeci">int nbrFourier</div><div class="ttdef"><b>Definition:</b> <a href="program__options_8h_source.html#l00124">program_options.h:124</a></div></div>
-<div class="ttc" id="structGeneralOptions_html_a7b7fa069b0530aac911c0c9bf9d48f16"><div class="ttname"><a href="structGeneralOptions.html#a7b7fa069b0530aac911c0c9bf9d48f16">GeneralOptions::choice</a></div><div class="ttdeci">int choice</div><div class="ttdef"><b>Definition:</b> <a href="program__options_8h_source.html#l00112">program_options.h:112</a></div></div>
-<div class="ttc" id="structGeneralOptions_html_afaff4f35186daa1688b7f95758cf873c"><div class="ttname"><a href="structGeneralOptions.html#afaff4f35186daa1688b7f95758cf873c">GeneralOptions::nbrSect</a></div><div class="ttdeci">int nbrSect</div><div class="ttdef"><b>Definition:</b> <a href="program__options_8h_source.html#l00122">program_options.h:122</a></div></div>
-<div class="ttc" id="structGeneralOptions_html_a21a21d53dadb71fc4d6ac98915eca539"><div class="ttname"><a href="structGeneralOptions.html#a21a21d53dadb71fc4d6ac98915eca539">GeneralOptions::nbrFixed</a></div><div class="ttdeci">int nbrFixed</div><div class="ttdef"><b>Definition:</b> <a href="program__options_8h_source.html#l00120">program_options.h:120</a></div></div>
-<div class="ttc" id="structGeneralOptions_html_a3f6b3a27f9b101eac72b8a677ebd8102"><div class="ttname"><a href="structGeneralOptions.html#a3f6b3a27f9b101eac72b8a677ebd8102">GeneralOptions::renormFactor</a></div><div class="ttdeci">int renormFactor</div><div class="ttdef"><b>Definition:</b> <a href="program__options_8h_source.html#l00130">program_options.h:130</a></div></div>
-<div class="ttc" id="structGeneralOptions_html_af5380804022cb18f8c8ac234fe45e8e9"><div class="ttname"><a href="structGeneralOptions.html#af5380804022cb18f8c8ac234fe45e8e9">GeneralOptions::realCut</a></div><div class="ttdeci">int realCut</div><div class="ttdef"><b>Definition:</b> <a href="program__options_8h_source.html#l00118">program_options.h:118</a></div></div>
-<div class="ttc" id="structutilities_1_1MpiWrapper_html_ab7c5634cdbed7e4436b54b9ef619f85b"><div class="ttname"><a href="structutilities_1_1MpiWrapper.html#ab7c5634cdbed7e4436b54b9ef619f85b">utilities::MpiWrapper::Sync</a></div><div class="ttdeci">void Sync(std::string &amp;buffer, int syncNode) const </div><div class="ttdoc">A function to MPI synchronize a string. </div><div class="ttdef"><b>Definition:</b> <a href="mpi__wrapper_8cpp_source.html#l00429">mpi_wrapper.cpp:429</a></div></div>
+<p>Definition at line <a class="el" href="program__options_8hpp_source.html#l00143">143</a> of file <a class="el" href="program__options_8hpp_source.html">program_options.hpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;    {   </div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;        mpi.<a class="code" href="structutilities_1_1MpiWrapper.html#ab7c5634cdbed7e4436b54b9ef619f85b">Sync</a>(<a class="code" href="structGeneralOptions.html#a51e5b1e9773bf3901479d2e866a57c0a">path</a>, syncNode);</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;        mpi.<a class="code" href="structutilities_1_1MpiWrapper.html#ab7c5634cdbed7e4436b54b9ef619f85b">Sync</a>(&amp;<a class="code" href="structGeneralOptions.html#a7b7fa069b0530aac911c0c9bf9d48f16">choice</a>, 1, syncNode);</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;        mpi.<a class="code" href="structutilities_1_1MpiWrapper.html#ab7c5634cdbed7e4436b54b9ef619f85b">Sync</a>(&amp;<a class="code" href="structGeneralOptions.html#a7b1d6ab6295950bf410a26e4e0c5136b">lzA</a>, 1, syncNode);</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;        mpi.<a class="code" href="structutilities_1_1MpiWrapper.html#ab7c5634cdbed7e4436b54b9ef619f85b">Sync</a>(&amp;<a class="code" href="structGeneralOptions.html#af5380804022cb18f8c8ac234fe45e8e9">realCut</a>, 1, syncNode);</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;        mpi.<a class="code" href="structutilities_1_1MpiWrapper.html#ab7c5634cdbed7e4436b54b9ef619f85b">Sync</a>(&amp;<a class="code" href="structGeneralOptions.html#a21a21d53dadb71fc4d6ac98915eca539">nbrFixed</a>, 1, syncNode);</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;        mpi.<a class="code" href="structutilities_1_1MpiWrapper.html#ab7c5634cdbed7e4436b54b9ef619f85b">Sync</a>(&amp;<a class="code" href="structGeneralOptions.html#afaff4f35186daa1688b7f95758cf873c">nbrSect</a>, 1, syncNode);</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;        mpi.<a class="code" href="structutilities_1_1MpiWrapper.html#ab7c5634cdbed7e4436b54b9ef619f85b">Sync</a>(&amp;<a class="code" href="structGeneralOptions.html#aad852ca929f9a1ce5407520690a7435f">nbrFourier</a>, 1, syncNode);</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;        mpi.<a class="code" href="structutilities_1_1MpiWrapper.html#ab7c5634cdbed7e4436b54b9ef619f85b">Sync</a>(&amp;<a class="code" href="structGeneralOptions.html#a68dcefd0f4eb770ffea8779213b4ae51">rows</a>, 1, syncNode);</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;        mpi.<a class="code" href="structutilities_1_1MpiWrapper.html#ab7c5634cdbed7e4436b54b9ef619f85b">Sync</a>(&amp;<a class="code" href="structGeneralOptions.html#a81a1af2bf11b79bb44852c0fdbd4180b">columns</a>, 1, syncNode);</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;        mpi.<a class="code" href="structutilities_1_1MpiWrapper.html#ab7c5634cdbed7e4436b54b9ef619f85b">Sync</a>(&amp;<a class="code" href="structGeneralOptions.html#a3f6b3a27f9b101eac72b8a677ebd8102">renormFactor</a>, 1, syncNode);</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;    }       </div>
+<div class="ttc" id="structGeneralOptions_html_a81a1af2bf11b79bb44852c0fdbd4180b"><div class="ttname"><a href="structGeneralOptions.html#a81a1af2bf11b79bb44852c0fdbd4180b">GeneralOptions::columns</a></div><div class="ttdeci">int columns</div><div class="ttdef"><b>Definition:</b> <a href="program__options_8hpp_source.html#l00105">program_options.hpp:105</a></div></div>
+<div class="ttc" id="structGeneralOptions_html_a68dcefd0f4eb770ffea8779213b4ae51"><div class="ttname"><a href="structGeneralOptions.html#a68dcefd0f4eb770ffea8779213b4ae51">GeneralOptions::rows</a></div><div class="ttdeci">int rows</div><div class="ttdef"><b>Definition:</b> <a href="program__options_8hpp_source.html#l00103">program_options.hpp:103</a></div></div>
+<div class="ttc" id="structGeneralOptions_html_a7b1d6ab6295950bf410a26e4e0c5136b"><div class="ttname"><a href="structGeneralOptions.html#a7b1d6ab6295950bf410a26e4e0c5136b">GeneralOptions::lzA</a></div><div class="ttdeci">int lzA</div><div class="ttdef"><b>Definition:</b> <a href="program__options_8hpp_source.html#l00093">program_options.hpp:93</a></div></div>
+<div class="ttc" id="structGeneralOptions_html_a51e5b1e9773bf3901479d2e866a57c0a"><div class="ttname"><a href="structGeneralOptions.html#a51e5b1e9773bf3901479d2e866a57c0a">GeneralOptions::path</a></div><div class="ttdeci">std::string path</div><div class="ttdef"><b>Definition:</b> <a href="program__options_8hpp_source.html#l00087">program_options.hpp:87</a></div></div>
+<div class="ttc" id="structGeneralOptions_html_aad852ca929f9a1ce5407520690a7435f"><div class="ttname"><a href="structGeneralOptions.html#aad852ca929f9a1ce5407520690a7435f">GeneralOptions::nbrFourier</a></div><div class="ttdeci">int nbrFourier</div><div class="ttdef"><b>Definition:</b> <a href="program__options_8hpp_source.html#l00101">program_options.hpp:101</a></div></div>
+<div class="ttc" id="structGeneralOptions_html_a7b7fa069b0530aac911c0c9bf9d48f16"><div class="ttname"><a href="structGeneralOptions.html#a7b7fa069b0530aac911c0c9bf9d48f16">GeneralOptions::choice</a></div><div class="ttdeci">int choice</div><div class="ttdef"><b>Definition:</b> <a href="program__options_8hpp_source.html#l00089">program_options.hpp:89</a></div></div>
+<div class="ttc" id="structGeneralOptions_html_afaff4f35186daa1688b7f95758cf873c"><div class="ttname"><a href="structGeneralOptions.html#afaff4f35186daa1688b7f95758cf873c">GeneralOptions::nbrSect</a></div><div class="ttdeci">int nbrSect</div><div class="ttdef"><b>Definition:</b> <a href="program__options_8hpp_source.html#l00099">program_options.hpp:99</a></div></div>
+<div class="ttc" id="structGeneralOptions_html_a21a21d53dadb71fc4d6ac98915eca539"><div class="ttname"><a href="structGeneralOptions.html#a21a21d53dadb71fc4d6ac98915eca539">GeneralOptions::nbrFixed</a></div><div class="ttdeci">int nbrFixed</div><div class="ttdef"><b>Definition:</b> <a href="program__options_8hpp_source.html#l00097">program_options.hpp:97</a></div></div>
+<div class="ttc" id="structGeneralOptions_html_a3f6b3a27f9b101eac72b8a677ebd8102"><div class="ttname"><a href="structGeneralOptions.html#a3f6b3a27f9b101eac72b8a677ebd8102">GeneralOptions::renormFactor</a></div><div class="ttdeci">int renormFactor</div><div class="ttdef"><b>Definition:</b> <a href="program__options_8hpp_source.html#l00107">program_options.hpp:107</a></div></div>
+<div class="ttc" id="structGeneralOptions_html_af5380804022cb18f8c8ac234fe45e8e9"><div class="ttname"><a href="structGeneralOptions.html#af5380804022cb18f8c8ac234fe45e8e9">GeneralOptions::realCut</a></div><div class="ttdeci">int realCut</div><div class="ttdef"><b>Definition:</b> <a href="program__options_8hpp_source.html#l00095">program_options.hpp:95</a></div></div>
+<div class="ttc" id="structutilities_1_1MpiWrapper_html_ab7c5634cdbed7e4436b54b9ef619f85b"><div class="ttname"><a href="structutilities_1_1MpiWrapper.html#ab7c5634cdbed7e4436b54b9ef619f85b">utilities::MpiWrapper::Sync</a></div><div class="ttdeci">void Sync(std::string &amp;buffer, int syncNode) const </div><div class="ttdoc">A function to MPI synchronize a string. </div><div class="ttdef"><b>Definition:</b> <a href="mpi__wrapper_8cpp_source.html#l00345">mpi_wrapper.cpp:345</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -323,7 +312,7 @@ Public Attributes</h2></td></tr>
 <li>3: calculate SVD from file of matrix values </li>
 </ul>
 
-<p>Definition at line <a class="el" href="program__options_8h_source.html#l00112">112</a> of file <a class="el" href="program__options_8h_source.html">program_options.h</a>.</p>
+<p>Definition at line <a class="el" href="program__options_8hpp_source.html#l00089">89</a> of file <a class="el" href="program__options_8hpp_source.html">program_options.hpp</a>.</p>
 
 </div>
 </div>
@@ -338,7 +327,7 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>No. columns in pseudo-reduced density matrix </p>
 
-<p>Definition at line <a class="el" href="program__options_8h_source.html#l00128">128</a> of file <a class="el" href="program__options_8h_source.html">program_options.h</a>.</p>
+<p>Definition at line <a class="el" href="program__options_8hpp_source.html#l00105">105</a> of file <a class="el" href="program__options_8hpp_source.html">program_options.hpp</a>.</p>
 
 </div>
 </div>
@@ -353,7 +342,7 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>z component of angular momentum for group A </p>
 
-<p>Definition at line <a class="el" href="program__options_8h_source.html#l00116">116</a> of file <a class="el" href="program__options_8h_source.html">program_options.h</a>.</p>
+<p>Definition at line <a class="el" href="program__options_8hpp_source.html#l00093">93</a> of file <a class="el" href="program__options_8hpp_source.html">program_options.hpp</a>.</p>
 
 </div>
 </div>
@@ -368,7 +357,7 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>No. particles in B group (traced over to get ES) </p>
 
-<p>Definition at line <a class="el" href="program__options_8h_source.html#l00120">120</a> of file <a class="el" href="program__options_8h_source.html">program_options.h</a>.</p>
+<p>Definition at line <a class="el" href="program__options_8hpp_source.html#l00097">97</a> of file <a class="el" href="program__options_8hpp_source.html">program_options.hpp</a>.</p>
 
 </div>
 </div>
@@ -383,7 +372,7 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Number of Fourier components </p>
 
-<p>Definition at line <a class="el" href="program__options_8h_source.html#l00124">124</a> of file <a class="el" href="program__options_8h_source.html">program_options.h</a>.</p>
+<p>Definition at line <a class="el" href="program__options_8hpp_source.html#l00101">101</a> of file <a class="el" href="program__options_8hpp_source.html">program_options.hpp</a>.</p>
 
 </div>
 </div>
@@ -398,7 +387,7 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Number of sectors in the spectrum </p>
 
-<p>Definition at line <a class="el" href="program__options_8h_source.html#l00122">122</a> of file <a class="el" href="program__options_8h_source.html">program_options.h</a>.</p>
+<p>Definition at line <a class="el" href="program__options_8hpp_source.html#l00099">99</a> of file <a class="el" href="program__options_8hpp_source.html">program_options.hpp</a>.</p>
 
 </div>
 </div>
@@ -413,7 +402,7 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Specify path to file directory for input/output files </p>
 
-<p>Definition at line <a class="el" href="program__options_8h_source.html#l00110">110</a> of file <a class="el" href="program__options_8h_source.html">program_options.h</a>.</p>
+<p>Definition at line <a class="el" href="program__options_8hpp_source.html#l00087">87</a> of file <a class="el" href="program__options_8hpp_source.html">program_options.hpp</a>.</p>
 
 </div>
 </div>
@@ -428,7 +417,7 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>The particle entanglement spectrum cut </p>
 
-<p>Definition at line <a class="el" href="program__options_8h_source.html#l00118">118</a> of file <a class="el" href="program__options_8h_source.html">program_options.h</a>.</p>
+<p>Definition at line <a class="el" href="program__options_8hpp_source.html#l00095">95</a> of file <a class="el" href="program__options_8hpp_source.html">program_options.hpp</a>.</p>
 
 </div>
 </div>
@@ -443,7 +432,7 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>10^Factor by which to renormalise the wave function to avoid overflows </p>
 
-<p>Definition at line <a class="el" href="program__options_8h_source.html#l00130">130</a> of file <a class="el" href="program__options_8h_source.html">program_options.h</a>.</p>
+<p>Definition at line <a class="el" href="program__options_8hpp_source.html#l00107">107</a> of file <a class="el" href="program__options_8hpp_source.html">program_options.hpp</a>.</p>
 
 </div>
 </div>
@@ -458,12 +447,12 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>No. rows in pseudo-reduced density matrix </p>
 
-<p>Definition at line <a class="el" href="program__options_8h_source.html#l00126">126</a> of file <a class="el" href="program__options_8h_source.html">program_options.h</a>.</p>
+<p>Definition at line <a class="el" href="program__options_8hpp_source.html#l00103">103</a> of file <a class="el" href="program__options_8hpp_source.html">program_options.hpp</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li><a class="el" href="program__options_8h_source.html">program_options.h</a></li>
+<li><a class="el" href="program__options_8hpp_source.html">program_options.hpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

@@ -1,13 +1,14 @@
 var hierarchy =
 [
-    [ "analysis_options_t", "structanalysis__options__t.html", null ],
     [ "AnalysisMethods", "classAnalysisMethods.html", null ],
+    [ "AnalysisOptions", "structAnalysisOptions.html", null ],
     [ "FQHE::ArbitraryPrecisionCfWavefunctions< U, V, P >", "classFQHE_1_1ArbitraryPrecisionCfWavefunctions.html", null ],
     [ "FQHE::ArbitraryPrecisionCfWavefunctions< dcmplx, double, 64 >", "classFQHE_1_1ArbitraryPrecisionCfWavefunctions.html", null ],
     [ "FQHE::ArbitraryPrecisionCfWavefunctions< mpfCmplx, mpf_t, _PREC_LEVEL1_ >", "classFQHE_1_1ArbitraryPrecisionCfWavefunctions.html", null ],
     [ "FQHE::ArbitraryPrecisionCfWavefunctions< mpfCmplx, mpf_t, _PREC_LEVEL2_ >", "classFQHE_1_1ArbitraryPrecisionCfWavefunctions.html", null ],
     [ "FQHE::ArbitraryPrecisionCfWavefunctions< mpfCmplx, mpf_t, _PREC_LEVEL3_ >", "classFQHE_1_1ArbitraryPrecisionCfWavefunctions.html", null ],
     [ "FQHE::ArbitraryPrecisionCfWavefunctions< mpfCmplx, mpf_t, _PREC_LEVEL4_ >", "classFQHE_1_1ArbitraryPrecisionCfWavefunctions.html", null ],
+    [ "CMurmurHash2A", "classCMurmurHash2A.html", null ],
     [ "utilities::ColouredPartition", "classutilities_1_1ColouredPartition.html", null ],
     [ "utilities::Compare< K, O >", "structutilities_1_1Compare.html", null ],
     [ "utilities::Compare< dcmplx, _ASCENDING_ORDER_ >", "structutilities_1_1Compare_3_01dcmplx_00_01__ASCENDING__ORDER___01_4.html", null ],
@@ -18,6 +19,7 @@ var hierarchy =
     [ "utilities::Cout", "classutilities_1_1Cout.html", null ],
     [ "EntanglementEnergyModel", "classEntanglementEnergyModel.html", null ],
     [ "GeneralOptions", "structGeneralOptions.html", null ],
+    [ "Gnuplot", "classGnuplot.html", null ],
     [ "utilities::HighPrecKahanAccumulation< T >", "structutilities_1_1HighPrecKahanAccumulation.html", null ],
     [ "HilbertSpace", "classHilbertSpace.html", null ],
     [ "utilities::HpWrap< U, P >", "classutilities_1_1HpWrap.html", null ],
@@ -35,15 +37,21 @@ var hierarchy =
     [ "ListOfTerms", "classListOfTerms.html", null ],
     [ "utilities::LoadBar", "classutilities_1_1LoadBar.html", null ],
     [ "MersenneTwister", "classMersenneTwister.html", null ],
-    [ "FQHE::Metropolis", "classFQHE_1_1Metropolis.html", null ],
     [ "metropolis", "classmetropolis.html", null ],
+    [ "FQHE::Metropolis", "classFQHE_1_1Metropolis.html", null ],
     [ "MetropOptions", "structMetropOptions.html", null ],
     [ "FQHE::MonteCarloData", "structFQHE_1_1MonteCarloData.html", null ],
     [ "utilities::MpiWrapper", "structutilities_1_1MpiWrapper.html", null ],
+    [ "utilities::MurmurHasher128Wrapper< T >", "structutilities_1_1MurmurHasher128Wrapper.html", null ],
+    [ "utilities::MurmurHasher32Wrapper< T >", "structutilities_1_1MurmurHasher32Wrapper.html", null ],
+    [ "utilities::MurmurHasher64Wrapper< T >", "structutilities_1_1MurmurHasher64Wrapper.html", null ],
     [ "Params", "structParams.html", null ],
     [ "utilities::PartitionData", "structutilities_1_1PartitionData.html", null ],
     [ "FQHE::PreData", "structFQHE_1_1PreData.html", null ],
     [ "utilities::Random", "classutilities_1_1Random.html", null ],
+    [ "runtime_error", null, [
+      [ "GnuplotException", "classGnuplotException.html", null ]
+    ] ],
     [ "utilities::Script", "classutilities_1_1Script.html", null ],
     [ "utilities::SizeOfImpl< Ts >", "structutilities_1_1SizeOfImpl.html", null ],
     [ "utilities::SizeOfImpl< T, Ts...>", "structutilities_1_1SizeOfImpl_3_01T_00_01Ts_8_8_8_4.html", null ],
@@ -59,6 +67,5 @@ var hierarchy =
       [ "FQHE::NonAbelianSpinSinglet", "classFQHE_1_1NonAbelianSpinSinglet.html", null ],
       [ "FQHE::Parafermion", "classFQHE_1_1Parafermion.html", null ]
     ] ],
-    [ "wavefunction_data_t", "structwavefunction__data__t.html", null ],
     [ "FQHE::WaveFunctionData", "structFQHE_1_1WaveFunctionData.html", null ]
 ];

@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Quantum Hall entanglement program suite: mt_wrapper.cpp Source File</title>
+<title>Quantum Hall Programs: mt_wrapper.cpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -29,7 +29,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Quantum Hall entanglement program suite
+   <div id="projectname">Quantum Hall Programs
    &#160;<span id="projectnumber">Version 1.0</span>
    </div>
   </td>
@@ -134,88 +134,88 @@ $(document).ready(function(){initNavTree('mt__wrapper_8cpp_source.html','');});
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="comment"></span><span class="comment">////////////////////////////////////////////////////////////////////////////////</span></div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="comment"></span><span class="comment"></span></div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="comment">///////     LIBRARY INCLUSIONS     /////////////////////////////////////////////</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="mt__wrapper_8h.html">mt_wrapper.h</a>&quot;</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keyword">namespace </span>utilities</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;{</div>
-<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="classutilities_1_1Random.html#afc24163f03d8a53019f5a2bedc0210f3">   33</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classutilities_1_1Random.html#afc24163f03d8a53019f5a2bedc0210f3">Random::Seed</a>(</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        <span class="keywordtype">int</span> seedOffset) <span class="comment">//!&lt;    Offset in the random seed compared to the default</span></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="comment"></span><span class="comment">                        //!      obtained from the job ID or system time</span></div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="comment"></span>    {</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        <span class="comment">//  Seed the standard random number generator</span></div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;            </div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <span class="keywordtype">int</span> seed;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="comment"></span><span class="preprocessor">#include &quot;<a class="code" href="mt__wrapper_8hpp.html">mt_wrapper.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">namespace </span>utilities</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;{<span class="comment"></span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="comment">    //!</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="comment">    //! Generate a random seed and use that to seed the Mersenne Twister</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="comment">    //! random number generator</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="comment">    //!</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="classutilities_1_1Random.html#afc24163f03d8a53019f5a2bedc0210f3">   36</a></span>&#160;<span class="comment"></span>    <span class="keywordtype">void</span> <a class="code" href="classutilities_1_1Random.html#afc24163f03d8a53019f5a2bedc0210f3">Random::Seed</a>(</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        <span class="keywordtype">int</span> seedOffset) <span class="comment">//!&lt;    Offset in the random seed compared to the default</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="comment"></span><span class="comment">                        //!      obtained from the job ID or system time</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="comment"></span>    {</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <span class="keywordtype">int</span> seed;</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <span class="keywordflow">if</span>(getenv(<span class="stringliteral">&quot;PBS_JOBID&quot;</span>)!=NULL)</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        {</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;            seed=atoi(getenv(<span class="stringliteral">&quot;PBS_JOBID&quot;</span>));</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;            seed = atoi(getenv(<span class="stringliteral">&quot;PBS_JOBID&quot;</span>));</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        }</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <span class="keywordflow">else</span> <span class="keywordflow">if</span>(getenv(<span class="stringliteral">&quot;SLURM_JOB_ID&quot;</span>)!=NULL)</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        {</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;            seed=atoi(getenv(<span class="stringliteral">&quot;SLURM_JOB_ID&quot;</span>));</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;            seed = atoi(getenv(<span class="stringliteral">&quot;SLURM_JOB_ID&quot;</span>));</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        }</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <span class="keywordflow">else</span></div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        {</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;            seed=time(0);</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        }                   </div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        </div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        seed += seedOffset;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        </div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        srand(seed);</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        </div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <span class="comment">//  Now seed the Mersenne Twister random number generator using</span></div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <span class="comment">//  an array of these standard random numbers</span></div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        <span class="keywordtype">int</span> initArraySize=100;</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <span class="keywordtype">long</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> initArray[initArraySize];</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">int</span> <a class="code" href="gamma_8cpp.html#acb559820d9ca11295b4500f179ef6392">i</a>=0;<a class="code" href="gamma_8cpp.html#acb559820d9ca11295b4500f179ef6392">i</a>&lt;initArraySize;<a class="code" href="gamma_8cpp.html#acb559820d9ca11295b4500f179ef6392">i</a>++)</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        {</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;            initArray[<a class="code" href="gamma_8cpp.html#acb559820d9ca11295b4500f179ef6392">i</a>]=rand();</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        }</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        <a class="code" href="classutilities_1_1Random.html#aacb9fbcb6455d9d548c9ecb8d72a9e48">mt</a>.<a class="code" href="classMersenneTwister.html#a8e6c5040de6d01ca01cc5518f6374724">init_by_array</a>(initArray,initArraySize);</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    }</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div>
-<div class="line"><a name="l00072"></a><span class="lineno"><a class="line" href="classutilities_1_1Random.html#a7415170bae03d80e1565516ef8e37eb6">   72</a></span>&#160;    <span class="keywordtype">double</span> <a class="code" href="classutilities_1_1Random.html#a7415170bae03d80e1565516ef8e37eb6">Random::GenerateDouble</a>()</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    {</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="classutilities_1_1Random.html#aacb9fbcb6455d9d548c9ecb8d72a9e48">mt</a>.<a class="code" href="classMersenneTwister.html#a6fe90ddaea2363949c41daa902f688a8">random</a>();</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    }</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;</div>
-<div class="line"><a name="l00077"></a><span class="lineno"><a class="line" href="classutilities_1_1Random.html#aaa1b0a1a756bfd0c42e0ea1b888743de">   77</a></span>&#160;    <a class="code" href="dcmplx__type__def_8h.html#a52196b4b274b585226e0614490f7defc">dcmplx</a> <a class="code" href="classutilities_1_1Random.html#aaa1b0a1a756bfd0c42e0ea1b888743de">Random::GenerateComplex</a>()</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;            seed = time(0);</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        }       </div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        seed += seedOffset;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        srand(seed);</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        <span class="comment">//  Now seed the Mersenne Twister random number generator using</span></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        <span class="comment">//  an array of these standard random numbers</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        <span class="keywordtype">int</span> initArraySize = 100;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <span class="keywordtype">long</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> initArray[initArraySize];</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">int</span> <a class="code" href="gamma_8cpp.html#acb559820d9ca11295b4500f179ef6392">i</a>=0; <a class="code" href="gamma_8cpp.html#acb559820d9ca11295b4500f179ef6392">i</a>&lt;initArraySize; ++<a class="code" href="gamma_8cpp.html#acb559820d9ca11295b4500f179ef6392">i</a>)</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        {</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;            initArray[<a class="code" href="gamma_8cpp.html#acb559820d9ca11295b4500f179ef6392">i</a>] = rand();</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        }</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        <a class="code" href="classutilities_1_1Random.html#aacb9fbcb6455d9d548c9ecb8d72a9e48">mt</a>.<a class="code" href="classMersenneTwister.html#a8e6c5040de6d01ca01cc5518f6374724">init_by_array</a>(initArray, initArraySize);</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    }</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="comment"></span></div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="comment">    //!</span></div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="comment">    //! Generate a random double using the Merseene Twister method</span></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="comment">    //!</span></div>
+<div class="line"><a name="l00069"></a><span class="lineno"><a class="line" href="classutilities_1_1Random.html#a7415170bae03d80e1565516ef8e37eb6">   69</a></span>&#160;<span class="comment"></span>    <span class="keywordtype">double</span> <a class="code" href="classutilities_1_1Random.html#a7415170bae03d80e1565516ef8e37eb6">Random::GenerateDouble</a>()</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    {</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="classutilities_1_1Random.html#aacb9fbcb6455d9d548c9ecb8d72a9e48">mt</a>.<a class="code" href="classMersenneTwister.html#a6fe90ddaea2363949c41daa902f688a8">random</a>();</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    }</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="comment">    //!</span></div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="comment">    //! Generate a random complex double using the Merseene Twister method</span></div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="comment">    //!</span></div>
+<div class="line"><a name="l00077"></a><span class="lineno"><a class="line" href="classutilities_1_1Random.html#aaa1b0a1a756bfd0c42e0ea1b888743de">   77</a></span>&#160;<span class="comment"></span>    <a class="code" href="dcmplx__type__def_8hpp.html#a52196b4b274b585226e0614490f7defc">dcmplx</a> <a class="code" href="classutilities_1_1Random.html#aaa1b0a1a756bfd0c42e0ea1b888743de">Random::GenerateComplex</a>()</div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    {</div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        <span class="keywordtype">double</span> arg = <a class="code" href="classutilities_1_1Random.html#aacb9fbcb6455d9d548c9ecb8d72a9e48">mt</a>.<a class="code" href="classMersenneTwister.html#a6fe90ddaea2363949c41daa902f688a8">random</a>();</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;            <span class="keywordtype">double</span> phase = <a class="code" href="classutilities_1_1Random.html#aacb9fbcb6455d9d548c9ecb8d72a9e48">mt</a>.<a class="code" href="classMersenneTwister.html#a6fe90ddaea2363949c41daa902f688a8">random</a>()*2.0*<a class="code" href="pi__const__def_8h.html#a952eac791b596a61bba0a133a3bb439f">PI</a>;</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        </div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="dcmplx__type__def_8h.html#a52196b4b274b585226e0614490f7defc">dcmplx</a>(arg*cos(phase),arg*sin(phase));</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    }</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;</div>
-<div class="line"><a name="l00085"></a><span class="lineno"><a class="line" href="classutilities_1_1Random.html#ae04a4e52762d9836209aca875462ecf2">   85</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classutilities_1_1Random.html#ae04a4e52762d9836209aca875462ecf2">Random::GenerateInt</a>()</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    {</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="classutilities_1_1Random.html#aacb9fbcb6455d9d548c9ecb8d72a9e48">mt</a>.<a class="code" href="classMersenneTwister.html#a6f2f19c88a511f8bc038d3e4a9fd2276">genrand_int31</a>();</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    }</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;}   <span class="comment">//  End namespace utilities</span></div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        <span class="keywordtype">double</span> phase = <a class="code" href="classutilities_1_1Random.html#aacb9fbcb6455d9d548c9ecb8d72a9e48">mt</a>.<a class="code" href="classMersenneTwister.html#a6fe90ddaea2363949c41daa902f688a8">random</a>()*2.0*<a class="code" href="pi__const__def_8hpp.html#a952eac791b596a61bba0a133a3bb439f">PI</a>;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="dcmplx__type__def_8hpp.html#a52196b4b274b585226e0614490f7defc">dcmplx</a>(arg*cos(phase), arg*sin(phase));</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    }</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="comment">    //!</span></div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="comment">    //! Generate a random integer using the Merseene Twister method</span></div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="comment">    //!</span></div>
+<div class="line"><a name="l00087"></a><span class="lineno"><a class="line" href="classutilities_1_1Random.html#ae04a4e52762d9836209aca875462ecf2">   87</a></span>&#160;<span class="comment"></span>    <span class="keywordtype">int</span> <a class="code" href="classutilities_1_1Random.html#ae04a4e52762d9836209aca875462ecf2">Random::GenerateInt</a>()</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    {</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="classutilities_1_1Random.html#aacb9fbcb6455d9d548c9ecb8d72a9e48">mt</a>.<a class="code" href="classMersenneTwister.html#a6f2f19c88a511f8bc038d3e4a9fd2276">genrand_int31</a>();</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    }</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;}   <span class="comment">//  End namespace utilities</span></div>
+<div class="ttc" id="mt__wrapper_8hpp_html"><div class="ttname"><a href="mt__wrapper_8hpp.html">mt_wrapper.hpp</a></div></div>
 <div class="ttc" id="classMersenneTwister_html_a8e6c5040de6d01ca01cc5518f6374724"><div class="ttname"><a href="classMersenneTwister.html#a8e6c5040de6d01ca01cc5518f6374724">MersenneTwister::init_by_array</a></div><div class="ttdeci">void init_by_array(unsigned long *init_key, int key_length)</div><div class="ttdef"><b>Definition:</b> <a href="mt_8cpp_source.html#l00107">mt.cpp:107</a></div></div>
-<div class="ttc" id="classutilities_1_1Random_html_afc24163f03d8a53019f5a2bedc0210f3"><div class="ttname"><a href="classutilities_1_1Random.html#afc24163f03d8a53019f5a2bedc0210f3">utilities::Random::Seed</a></div><div class="ttdeci">void Seed(int seedOffset)</div><div class="ttdef"><b>Definition:</b> <a href="mt__wrapper_8cpp_source.html#l00033">mt_wrapper.cpp:33</a></div></div>
-<div class="ttc" id="mt__wrapper_8h_html"><div class="ttname"><a href="mt__wrapper_8h.html">mt_wrapper.h</a></div></div>
+<div class="ttc" id="classutilities_1_1Random_html_afc24163f03d8a53019f5a2bedc0210f3"><div class="ttname"><a href="classutilities_1_1Random.html#afc24163f03d8a53019f5a2bedc0210f3">utilities::Random::Seed</a></div><div class="ttdeci">void Seed(int seedOffset)</div><div class="ttdef"><b>Definition:</b> <a href="mt__wrapper_8cpp_source.html#l00036">mt_wrapper.cpp:36</a></div></div>
 <div class="ttc" id="classutilities_1_1Random_html_aaa1b0a1a756bfd0c42e0ea1b888743de"><div class="ttname"><a href="classutilities_1_1Random.html#aaa1b0a1a756bfd0c42e0ea1b888743de">utilities::Random::GenerateComplex</a></div><div class="ttdeci">dcmplx GenerateComplex()</div><div class="ttdef"><b>Definition:</b> <a href="mt__wrapper_8cpp_source.html#l00077">mt_wrapper.cpp:77</a></div></div>
 <div class="ttc" id="classMersenneTwister_html_a6f2f19c88a511f8bc038d3e4a9fd2276"><div class="ttname"><a href="classMersenneTwister.html#a6f2f19c88a511f8bc038d3e4a9fd2276">MersenneTwister::genrand_int31</a></div><div class="ttdeci">long genrand_int31(void)</div><div class="ttdef"><b>Definition:</b> <a href="mt_8cpp_source.html#l00192">mt.cpp:192</a></div></div>
 <div class="ttc" id="gamma_8cpp_html_acb559820d9ca11295b4500f179ef6392"><div class="ttname"><a href="gamma_8cpp.html#acb559820d9ca11295b4500f179ef6392">i</a></div><div class="ttdeci">int i</div><div class="ttdef"><b>Definition:</b> <a href="gamma_8cpp_source.html#l00023">gamma.cpp:23</a></div></div>
-<div class="ttc" id="dcmplx__type__def_8h_html_a52196b4b274b585226e0614490f7defc"><div class="ttname"><a href="dcmplx__type__def_8h.html#a52196b4b274b585226e0614490f7defc">dcmplx</a></div><div class="ttdeci">std::complex&lt; double &gt; dcmplx</div><div class="ttdef"><b>Definition:</b> <a href="dcmplx__type__def_8h_source.html#l00019">dcmplx_type_def.h:19</a></div></div>
-<div class="ttc" id="classutilities_1_1Random_html_aacb9fbcb6455d9d548c9ecb8d72a9e48"><div class="ttname"><a href="classutilities_1_1Random.html#aacb9fbcb6455d9d548c9ecb8d72a9e48">utilities::Random::mt</a></div><div class="ttdeci">MersenneTwister mt</div><div class="ttdef"><b>Definition:</b> <a href="mt__wrapper_8h_source.html#l00043">mt_wrapper.h:43</a></div></div>
-<div class="ttc" id="pi__const__def_8h_html_a952eac791b596a61bba0a133a3bb439f"><div class="ttname"><a href="pi__const__def_8h.html#a952eac791b596a61bba0a133a3bb439f">PI</a></div><div class="ttdeci">static const double PI</div><div class="ttdef"><b>Definition:</b> <a href="pi__const__def_8h_source.html#l00016">pi_const_def.h:16</a></div></div>
-<div class="ttc" id="classutilities_1_1Random_html_ae04a4e52762d9836209aca875462ecf2"><div class="ttname"><a href="classutilities_1_1Random.html#ae04a4e52762d9836209aca875462ecf2">utilities::Random::GenerateInt</a></div><div class="ttdeci">int GenerateInt()</div><div class="ttdef"><b>Definition:</b> <a href="mt__wrapper_8cpp_source.html#l00085">mt_wrapper.cpp:85</a></div></div>
-<div class="ttc" id="classutilities_1_1Random_html_a7415170bae03d80e1565516ef8e37eb6"><div class="ttname"><a href="classutilities_1_1Random.html#a7415170bae03d80e1565516ef8e37eb6">utilities::Random::GenerateDouble</a></div><div class="ttdeci">double GenerateDouble()</div><div class="ttdef"><b>Definition:</b> <a href="mt__wrapper_8cpp_source.html#l00072">mt_wrapper.cpp:72</a></div></div>
-<div class="ttc" id="classMersenneTwister_html_a6fe90ddaea2363949c41daa902f688a8"><div class="ttname"><a href="classMersenneTwister.html#a6fe90ddaea2363949c41daa902f688a8">MersenneTwister::random</a></div><div class="ttdeci">double random(void)</div><div class="ttdef"><b>Definition:</b> <a href="mt_8h_source.html#l00061">mt.h:61</a></div></div>
+<div class="ttc" id="classutilities_1_1Random_html_aacb9fbcb6455d9d548c9ecb8d72a9e48"><div class="ttname"><a href="classutilities_1_1Random.html#aacb9fbcb6455d9d548c9ecb8d72a9e48">utilities::Random::mt</a></div><div class="ttdeci">MersenneTwister mt</div><div class="ttdef"><b>Definition:</b> <a href="mt__wrapper_8hpp_source.html#l00039">mt_wrapper.hpp:39</a></div></div>
+<div class="ttc" id="dcmplx__type__def_8hpp_html_a52196b4b274b585226e0614490f7defc"><div class="ttname"><a href="dcmplx__type__def_8hpp.html#a52196b4b274b585226e0614490f7defc">dcmplx</a></div><div class="ttdeci">std::complex&lt; double &gt; dcmplx</div><div class="ttdef"><b>Definition:</b> <a href="dcmplx__type__def_8hpp_source.html#l00014">dcmplx_type_def.hpp:14</a></div></div>
+<div class="ttc" id="classutilities_1_1Random_html_ae04a4e52762d9836209aca875462ecf2"><div class="ttname"><a href="classutilities_1_1Random.html#ae04a4e52762d9836209aca875462ecf2">utilities::Random::GenerateInt</a></div><div class="ttdeci">int GenerateInt()</div><div class="ttdef"><b>Definition:</b> <a href="mt__wrapper_8cpp_source.html#l00087">mt_wrapper.cpp:87</a></div></div>
+<div class="ttc" id="classutilities_1_1Random_html_a7415170bae03d80e1565516ef8e37eb6"><div class="ttname"><a href="classutilities_1_1Random.html#a7415170bae03d80e1565516ef8e37eb6">utilities::Random::GenerateDouble</a></div><div class="ttdeci">double GenerateDouble()</div><div class="ttdef"><b>Definition:</b> <a href="mt__wrapper_8cpp_source.html#l00069">mt_wrapper.cpp:69</a></div></div>
+<div class="ttc" id="pi__const__def_8hpp_html_a952eac791b596a61bba0a133a3bb439f"><div class="ttname"><a href="pi__const__def_8hpp.html#a952eac791b596a61bba0a133a3bb439f">PI</a></div><div class="ttdeci">static const double PI</div><div class="ttdef"><b>Definition:</b> <a href="pi__const__def_8hpp_source.html#l00013">pi_const_def.hpp:13</a></div></div>
+<div class="ttc" id="classMersenneTwister_html_a6fe90ddaea2363949c41daa902f688a8"><div class="ttname"><a href="classMersenneTwister.html#a6fe90ddaea2363949c41daa902f688a8">MersenneTwister::random</a></div><div class="ttdeci">double random(void)</div><div class="ttdef"><b>Definition:</b> <a href="mt_8hpp_source.html#l00061">mt.hpp:61</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_33f546ffef7a131d933d8bb7558b3921.html">src</a></li><li class="navelem"><a class="el" href="dir_829aefa1eca5cf0116eed6ed557eedfb.html">utilities</a></li><li class="navelem"><a class="el" href="dir_0bba8889fa6aebe1fe93a3ac6b453669.html">wrappers</a></li><li class="navelem"><a class="el" href="mt__wrapper_8cpp.html">mt_wrapper.cpp</a></li>
+    <li class="navelem"><a class="el" href="dir_1eca84005c97d3b15b646b4fdfe728e2.html">src</a></li><li class="navelem"><a class="el" href="dir_7cb2ee0345829da386cb0daf8db5d314.html">utilities</a></li><li class="navelem"><a class="el" href="dir_b7da727430c8dbdddad878a23db0277f.html">wrappers</a></li><li class="navelem"><a class="el" href="mt__wrapper_8cpp.html">mt_wrapper.cpp</a></li>
     <li class="footer">Generated by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>

@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Quantum Hall entanglement program suite: FQHE::MonteCarloData Struct Reference</title>
+<title>Quantum Hall Programs: FQHE::MonteCarloData Struct Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -29,7 +29,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Quantum Hall entanglement program suite
+   <div id="projectname">Quantum Hall Programs
    &#160;<span id="projectnumber">Version 1.0</span>
    </div>
   </td>
@@ -113,15 +113,11 @@ $(document).ready(function(){initNavTree('structFQHE_1_1MonteCarloData.html','')
 </div><!--header-->
 <div class="contents">
 
-<p>Data structure type to contain Monte Carlo simulation information.  
- <a href="structFQHE_1_1MonteCarloData.html#details">More...</a></p>
-
-<p><code>#include &lt;<a class="el" href="fqhe__metropolis_8h_source.html">fqhe_metropolis.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="fqhe__metropolis_8hpp_source.html">fqhe_metropolis.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a9e6b626cddb0d780b7407e7f715981bf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structFQHE_1_1MonteCarloData.html#a9e6b626cddb0d780b7407e7f715981bf">InitFromCommandLine</a> (boost::program_options::variables_map *options)</td></tr>
-<tr class="memdesc:a9e6b626cddb0d780b7407e7f715981bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for the <a class="el" href="classFQHE_1_1Metropolis.html" title="This class contains functions to perform Metropolis Monte Carlo moves for fractional quantum Hall sta...">Metropolis</a> class.  <a href="#a9e6b626cddb0d780b7407e7f715981bf">More...</a><br/></td></tr>
 <tr class="separator:a9e6b626cddb0d780b7407e7f715981bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
@@ -156,9 +152,9 @@ Public Attributes</h2></td></tr>
 <tr class="separator:afad7d0cb2f7d773f77297c8ab03e9b02"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Data structure type to contain Monte Carlo simulation information. </p>
+<div class="textblock"><p>Data structure type to contain Monte Carlo simulation information </p>
 
-<p>Definition at line <a class="el" href="fqhe__metropolis_8h_source.html#l00112">112</a> of file <a class="el" href="fqhe__metropolis_8h_source.html">fqhe_metropolis.h</a>.</p>
+<p>Definition at line <a class="el" href="fqhe__metropolis_8hpp_source.html#l00092">92</a> of file <a class="el" href="fqhe__metropolis_8hpp_source.html">fqhe_metropolis.hpp</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a class="anchor" id="a9e6b626cddb0d780b7407e7f715981bf"></a>
 <div class="memitem">
@@ -173,8 +169,7 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Constructor for the <a class="el" href="classFQHE_1_1Metropolis.html" title="This class contains functions to perform Metropolis Monte Carlo moves for fractional quantum Hall sta...">Metropolis</a> class. </p>
+<p>Constructor for the <a class="el" href="classFQHE_1_1Metropolis.html">Metropolis</a> class </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">options</td><td>Command line argument list </td></tr>
@@ -182,40 +177,39 @@ Public Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="fqhe__metropolis_8cpp_source.html#l00037">37</a> of file <a class="el" href="fqhe__metropolis_8cpp_source.html">fqhe_metropolis.cpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;{</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="preprocessor">    #if _ENABLE_MPI_</span></div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="preprocessor"></span>    <span class="keywordflow">if</span>(0 == <a class="code" href="fqhe__entanglement__spectrum_8cpp.html#a1a7112d51c59f426cab52975031ff6e7">mpi</a>.<a class="code" href="structutilities_1_1MpiWrapper.html#a0f670cb88d82d9c815e111de5e76ae3e">m_id</a>)    <span class="comment">//  For the master node</span></div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="preprocessor">    #endif</span></div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="preprocessor"></span>    {</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <a class="code" href="structFQHE_1_1MonteCarloData.html#ac78058a2c0bbae038d275ed9b5280c5c">nbrTherm</a>     = (*options)[<span class="stringliteral">&quot;nbr-therm&quot;</span>].as&lt;<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&gt;();</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <a class="code" href="structFQHE_1_1MonteCarloData.html#a922cf666a93147e88d5c1d2c205b6efb">nbrSamples</a>   = (*options)[<span class="stringliteral">&quot;nbr-samples&quot;</span>].as&lt;<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&gt;();</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        <a class="code" href="structFQHE_1_1MonteCarloData.html#aac2e05fc7c7a5aa3efa58f8ffdb04442">runLabel</a>     = (*options)[<span class="stringliteral">&quot;run&quot;</span>].as&lt;<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&gt;();</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <a class="code" href="structFQHE_1_1MonteCarloData.html#a317c162db6bda9b390f95ded1c13bcf2">maxDist</a>      = (*options)[<span class="stringliteral">&quot;maxd&quot;</span>].as&lt;<span class="keywordtype">double</span>&gt;();</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        <a class="code" href="structFQHE_1_1MonteCarloData.html#a4d73f9df1a628e2bd16b4b6f0e2f824b">sampleFreq</a>   = (*options)[<span class="stringliteral">&quot;sample-freq&quot;</span>].as&lt;<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&gt;();</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <a class="code" href="structFQHE_1_1MonteCarloData.html#aa16b8a9975212ebf0a0d9e1595ced6d8">nbrToMove</a>    = (*options)[<span class="stringliteral">&quot;nbr-move&quot;</span>].as&lt;<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&gt;(); </div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        <a class="code" href="structFQHE_1_1MonteCarloData.html#a52900da00a7156aedf00d9c900936592">wave</a>         = (*options)[<span class="stringliteral">&quot;wave&quot;</span>].as&lt;<span class="keywordtype">bool</span>&gt;();</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        <a class="code" href="structFQHE_1_1MonteCarloData.html#a24ab7415320c3da01de82239f7672ce6">useInitFile</a>  = (*options)[<span class="stringliteral">&quot;use-init-file&quot;</span>].as&lt;<span class="keywordtype">bool</span>&gt;();  </div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        <a class="code" href="structFQHE_1_1MonteCarloData.html#aebeaab0912d3c8a60fd3435a38e90fd7">initFileName</a> = (*options)[<span class="stringliteral">&quot;init-file&quot;</span>].as&lt;std::string&gt;();</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <a class="code" href="structFQHE_1_1MonteCarloData.html#afad7d0cb2f7d773f77297c8ab03e9b02">path</a>         = (*options)[<span class="stringliteral">&quot;path&quot;</span>].as&lt;std::string&gt;();</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    }</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    </div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="preprocessor">    #if _ENABLE_MPI_</span></div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="preprocessor"></span>    this-&gt;MpiSync(0,<a class="code" href="fqhe__entanglement__spectrum_8cpp.html#a1a7112d51c59f426cab52975031ff6e7">mpi</a>);</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="preprocessor">    #endif</span></div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="preprocessor"></span>}</div>
-<div class="ttc" id="structFQHE_1_1MonteCarloData_html_ac78058a2c0bbae038d275ed9b5280c5c"><div class="ttname"><a href="structFQHE_1_1MonteCarloData.html#ac78058a2c0bbae038d275ed9b5280c5c">FQHE::MonteCarloData::nbrTherm</a></div><div class="ttdeci">unsigned int nbrTherm</div><div class="ttdef"><b>Definition:</b> <a href="fqhe__metropolis_8h_source.html#l00114">fqhe_metropolis.h:114</a></div></div>
-<div class="ttc" id="structFQHE_1_1MonteCarloData_html_a24ab7415320c3da01de82239f7672ce6"><div class="ttname"><a href="structFQHE_1_1MonteCarloData.html#a24ab7415320c3da01de82239f7672ce6">FQHE::MonteCarloData::useInitFile</a></div><div class="ttdeci">bool useInitFile</div><div class="ttdef"><b>Definition:</b> <a href="fqhe__metropolis_8h_source.html#l00136">fqhe_metropolis.h:136</a></div></div>
-<div class="ttc" id="structFQHE_1_1MonteCarloData_html_a922cf666a93147e88d5c1d2c205b6efb"><div class="ttname"><a href="structFQHE_1_1MonteCarloData.html#a922cf666a93147e88d5c1d2c205b6efb">FQHE::MonteCarloData::nbrSamples</a></div><div class="ttdeci">unsigned int nbrSamples</div><div class="ttdef"><b>Definition:</b> <a href="fqhe__metropolis_8h_source.html#l00118">fqhe_metropolis.h:118</a></div></div>
-<div class="ttc" id="structFQHE_1_1MonteCarloData_html_aac2e05fc7c7a5aa3efa58f8ffdb04442"><div class="ttname"><a href="structFQHE_1_1MonteCarloData.html#aac2e05fc7c7a5aa3efa58f8ffdb04442">FQHE::MonteCarloData::runLabel</a></div><div class="ttdeci">unsigned int runLabel</div><div class="ttdef"><b>Definition:</b> <a href="fqhe__metropolis_8h_source.html#l00122">fqhe_metropolis.h:122</a></div></div>
-<div class="ttc" id="structFQHE_1_1MonteCarloData_html_a317c162db6bda9b390f95ded1c13bcf2"><div class="ttname"><a href="structFQHE_1_1MonteCarloData.html#a317c162db6bda9b390f95ded1c13bcf2">FQHE::MonteCarloData::maxDist</a></div><div class="ttdeci">double maxDist</div><div class="ttdef"><b>Definition:</b> <a href="fqhe__metropolis_8h_source.html#l00124">fqhe_metropolis.h:124</a></div></div>
-<div class="ttc" id="structFQHE_1_1MonteCarloData_html_aebeaab0912d3c8a60fd3435a38e90fd7"><div class="ttname"><a href="structFQHE_1_1MonteCarloData.html#aebeaab0912d3c8a60fd3435a38e90fd7">FQHE::MonteCarloData::initFileName</a></div><div class="ttdeci">std::string initFileName</div><div class="ttdef"><b>Definition:</b> <a href="fqhe__metropolis_8h_source.html#l00138">fqhe_metropolis.h:138</a></div></div>
+<p>Definition at line <a class="el" href="fqhe__metropolis_8cpp_source.html#l00031">31</a> of file <a class="el" href="fqhe__metropolis_8cpp_source.html">fqhe_metropolis.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;{</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="preprocessor">    #if _ENABLE_MPI_</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="preprocessor"></span>    <span class="keywordflow">if</span>(0 == <a class="code" href="fqhe__entanglement__spectrum_8cpp.html#a1a7112d51c59f426cab52975031ff6e7">mpi</a>.<a class="code" href="structutilities_1_1MpiWrapper.html#a0f670cb88d82d9c815e111de5e76ae3e">m_id</a>)    <span class="comment">//  For the master node</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="preprocessor">    #endif</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="preprocessor"></span>    {</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <a class="code" href="structFQHE_1_1MonteCarloData.html#ac78058a2c0bbae038d275ed9b5280c5c">nbrTherm</a>     = (*options)[<span class="stringliteral">&quot;nbr-therm&quot;</span>].as&lt;<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&gt;();</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <a class="code" href="structFQHE_1_1MonteCarloData.html#a922cf666a93147e88d5c1d2c205b6efb">nbrSamples</a>   = (*options)[<span class="stringliteral">&quot;nbr-samples&quot;</span>].as&lt;<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&gt;();</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <a class="code" href="structFQHE_1_1MonteCarloData.html#aac2e05fc7c7a5aa3efa58f8ffdb04442">runLabel</a>     = (*options)[<span class="stringliteral">&quot;run&quot;</span>].as&lt;<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&gt;();</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <a class="code" href="structFQHE_1_1MonteCarloData.html#a317c162db6bda9b390f95ded1c13bcf2">maxDist</a>      = (*options)[<span class="stringliteral">&quot;maxd&quot;</span>].as&lt;<span class="keywordtype">double</span>&gt;();</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <a class="code" href="structFQHE_1_1MonteCarloData.html#a4d73f9df1a628e2bd16b4b6f0e2f824b">sampleFreq</a>   = (*options)[<span class="stringliteral">&quot;sample-freq&quot;</span>].as&lt;<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&gt;();</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <a class="code" href="structFQHE_1_1MonteCarloData.html#aa16b8a9975212ebf0a0d9e1595ced6d8">nbrToMove</a>    = (*options)[<span class="stringliteral">&quot;nbr-move&quot;</span>].as&lt;<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&gt;(); </div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <a class="code" href="structFQHE_1_1MonteCarloData.html#a52900da00a7156aedf00d9c900936592">wave</a>         = (*options)[<span class="stringliteral">&quot;wave&quot;</span>].as&lt;<span class="keywordtype">bool</span>&gt;();</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <a class="code" href="structFQHE_1_1MonteCarloData.html#a24ab7415320c3da01de82239f7672ce6">useInitFile</a>  = (*options)[<span class="stringliteral">&quot;use-init-file&quot;</span>].as&lt;<span class="keywordtype">bool</span>&gt;();  </div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        <a class="code" href="structFQHE_1_1MonteCarloData.html#aebeaab0912d3c8a60fd3435a38e90fd7">initFileName</a> = (*options)[<span class="stringliteral">&quot;init-file&quot;</span>].as&lt;std::string&gt;();</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <a class="code" href="structFQHE_1_1MonteCarloData.html#afad7d0cb2f7d773f77297c8ab03e9b02">path</a>         = (*options)[<span class="stringliteral">&quot;path&quot;</span>].as&lt;std::string&gt;();</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    }</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="preprocessor">    #if _ENABLE_MPI_</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="preprocessor"></span>    this-&gt;MpiSync(0, <a class="code" href="fqhe__entanglement__spectrum_8cpp.html#a1a7112d51c59f426cab52975031ff6e7">mpi</a>);</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="preprocessor">    #endif</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="preprocessor"></span>}</div>
+<div class="ttc" id="structFQHE_1_1MonteCarloData_html_ac78058a2c0bbae038d275ed9b5280c5c"><div class="ttname"><a href="structFQHE_1_1MonteCarloData.html#ac78058a2c0bbae038d275ed9b5280c5c">FQHE::MonteCarloData::nbrTherm</a></div><div class="ttdeci">unsigned int nbrTherm</div><div class="ttdef"><b>Definition:</b> <a href="fqhe__metropolis_8hpp_source.html#l00094">fqhe_metropolis.hpp:94</a></div></div>
+<div class="ttc" id="structFQHE_1_1MonteCarloData_html_a24ab7415320c3da01de82239f7672ce6"><div class="ttname"><a href="structFQHE_1_1MonteCarloData.html#a24ab7415320c3da01de82239f7672ce6">FQHE::MonteCarloData::useInitFile</a></div><div class="ttdeci">bool useInitFile</div><div class="ttdef"><b>Definition:</b> <a href="fqhe__metropolis_8hpp_source.html#l00116">fqhe_metropolis.hpp:116</a></div></div>
+<div class="ttc" id="structFQHE_1_1MonteCarloData_html_a922cf666a93147e88d5c1d2c205b6efb"><div class="ttname"><a href="structFQHE_1_1MonteCarloData.html#a922cf666a93147e88d5c1d2c205b6efb">FQHE::MonteCarloData::nbrSamples</a></div><div class="ttdeci">unsigned int nbrSamples</div><div class="ttdef"><b>Definition:</b> <a href="fqhe__metropolis_8hpp_source.html#l00098">fqhe_metropolis.hpp:98</a></div></div>
+<div class="ttc" id="structFQHE_1_1MonteCarloData_html_aac2e05fc7c7a5aa3efa58f8ffdb04442"><div class="ttname"><a href="structFQHE_1_1MonteCarloData.html#aac2e05fc7c7a5aa3efa58f8ffdb04442">FQHE::MonteCarloData::runLabel</a></div><div class="ttdeci">unsigned int runLabel</div><div class="ttdef"><b>Definition:</b> <a href="fqhe__metropolis_8hpp_source.html#l00102">fqhe_metropolis.hpp:102</a></div></div>
+<div class="ttc" id="structFQHE_1_1MonteCarloData_html_a317c162db6bda9b390f95ded1c13bcf2"><div class="ttname"><a href="structFQHE_1_1MonteCarloData.html#a317c162db6bda9b390f95ded1c13bcf2">FQHE::MonteCarloData::maxDist</a></div><div class="ttdeci">double maxDist</div><div class="ttdef"><b>Definition:</b> <a href="fqhe__metropolis_8hpp_source.html#l00104">fqhe_metropolis.hpp:104</a></div></div>
+<div class="ttc" id="structFQHE_1_1MonteCarloData_html_aebeaab0912d3c8a60fd3435a38e90fd7"><div class="ttname"><a href="structFQHE_1_1MonteCarloData.html#aebeaab0912d3c8a60fd3435a38e90fd7">FQHE::MonteCarloData::initFileName</a></div><div class="ttdeci">std::string initFileName</div><div class="ttdef"><b>Definition:</b> <a href="fqhe__metropolis_8hpp_source.html#l00118">fqhe_metropolis.hpp:118</a></div></div>
 <div class="ttc" id="fqhe__entanglement__spectrum_8cpp_html_a1a7112d51c59f426cab52975031ff6e7"><div class="ttname"><a href="fqhe__entanglement__spectrum_8cpp.html#a1a7112d51c59f426cab52975031ff6e7">mpi</a></div><div class="ttdeci">utilities::MpiWrapper mpi(utilities::cout)</div></div>
-<div class="ttc" id="structFQHE_1_1MonteCarloData_html_aa16b8a9975212ebf0a0d9e1595ced6d8"><div class="ttname"><a href="structFQHE_1_1MonteCarloData.html#aa16b8a9975212ebf0a0d9e1595ced6d8">FQHE::MonteCarloData::nbrToMove</a></div><div class="ttdeci">unsigned int nbrToMove</div><div class="ttdef"><b>Definition:</b> <a href="fqhe__metropolis_8h_source.html#l00130">fqhe_metropolis.h:130</a></div></div>
-<div class="ttc" id="structFQHE_1_1MonteCarloData_html_afad7d0cb2f7d773f77297c8ab03e9b02"><div class="ttname"><a href="structFQHE_1_1MonteCarloData.html#afad7d0cb2f7d773f77297c8ab03e9b02">FQHE::MonteCarloData::path</a></div><div class="ttdeci">std::string path</div><div class="ttdef"><b>Definition:</b> <a href="fqhe__metropolis_8h_source.html#l00140">fqhe_metropolis.h:140</a></div></div>
-<div class="ttc" id="structutilities_1_1MpiWrapper_html_a0f670cb88d82d9c815e111de5e76ae3e"><div class="ttname"><a href="structutilities_1_1MpiWrapper.html#a0f670cb88d82d9c815e111de5e76ae3e">utilities::MpiWrapper::m_id</a></div><div class="ttdeci">int m_id</div><div class="ttdef"><b>Definition:</b> <a href="mpi__wrapper_8h_source.html#l00062">mpi_wrapper.h:62</a></div></div>
-<div class="ttc" id="structFQHE_1_1MonteCarloData_html_a4d73f9df1a628e2bd16b4b6f0e2f824b"><div class="ttname"><a href="structFQHE_1_1MonteCarloData.html#a4d73f9df1a628e2bd16b4b6f0e2f824b">FQHE::MonteCarloData::sampleFreq</a></div><div class="ttdeci">unsigned int sampleFreq</div><div class="ttdef"><b>Definition:</b> <a href="fqhe__metropolis_8h_source.html#l00128">fqhe_metropolis.h:128</a></div></div>
-<div class="ttc" id="structFQHE_1_1MonteCarloData_html_a52900da00a7156aedf00d9c900936592"><div class="ttname"><a href="structFQHE_1_1MonteCarloData.html#a52900da00a7156aedf00d9c900936592">FQHE::MonteCarloData::wave</a></div><div class="ttdeci">bool wave</div><div class="ttdef"><b>Definition:</b> <a href="fqhe__metropolis_8h_source.html#l00132">fqhe_metropolis.h:132</a></div></div>
+<div class="ttc" id="structFQHE_1_1MonteCarloData_html_aa16b8a9975212ebf0a0d9e1595ced6d8"><div class="ttname"><a href="structFQHE_1_1MonteCarloData.html#aa16b8a9975212ebf0a0d9e1595ced6d8">FQHE::MonteCarloData::nbrToMove</a></div><div class="ttdeci">unsigned int nbrToMove</div><div class="ttdef"><b>Definition:</b> <a href="fqhe__metropolis_8hpp_source.html#l00110">fqhe_metropolis.hpp:110</a></div></div>
+<div class="ttc" id="structFQHE_1_1MonteCarloData_html_afad7d0cb2f7d773f77297c8ab03e9b02"><div class="ttname"><a href="structFQHE_1_1MonteCarloData.html#afad7d0cb2f7d773f77297c8ab03e9b02">FQHE::MonteCarloData::path</a></div><div class="ttdeci">std::string path</div><div class="ttdef"><b>Definition:</b> <a href="fqhe__metropolis_8hpp_source.html#l00120">fqhe_metropolis.hpp:120</a></div></div>
+<div class="ttc" id="structutilities_1_1MpiWrapper_html_a0f670cb88d82d9c815e111de5e76ae3e"><div class="ttname"><a href="structutilities_1_1MpiWrapper.html#a0f670cb88d82d9c815e111de5e76ae3e">utilities::MpiWrapper::m_id</a></div><div class="ttdeci">int m_id</div><div class="ttdef"><b>Definition:</b> <a href="mpi__wrapper_8hpp_source.html#l00056">mpi_wrapper.hpp:56</a></div></div>
+<div class="ttc" id="structFQHE_1_1MonteCarloData_html_a4d73f9df1a628e2bd16b4b6f0e2f824b"><div class="ttname"><a href="structFQHE_1_1MonteCarloData.html#a4d73f9df1a628e2bd16b4b6f0e2f824b">FQHE::MonteCarloData::sampleFreq</a></div><div class="ttdeci">unsigned int sampleFreq</div><div class="ttdef"><b>Definition:</b> <a href="fqhe__metropolis_8hpp_source.html#l00108">fqhe_metropolis.hpp:108</a></div></div>
+<div class="ttc" id="structFQHE_1_1MonteCarloData_html_a52900da00a7156aedf00d9c900936592"><div class="ttname"><a href="structFQHE_1_1MonteCarloData.html#a52900da00a7156aedf00d9c900936592">FQHE::MonteCarloData::wave</a></div><div class="ttdeci">bool wave</div><div class="ttdef"><b>Definition:</b> <a href="fqhe__metropolis_8hpp_source.html#l00112">fqhe_metropolis.hpp:112</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -231,7 +225,7 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Name of Folder where data are to be stored </p>
 
-<p>Definition at line <a class="el" href="fqhe__metropolis_8h_source.html#l00134">134</a> of file <a class="el" href="fqhe__metropolis_8h_source.html">fqhe_metropolis.h</a>.</p>
+<p>Definition at line <a class="el" href="fqhe__metropolis_8hpp_source.html#l00114">114</a> of file <a class="el" href="fqhe__metropolis_8hpp_source.html">fqhe_metropolis.hpp</a>.</p>
 
 </div>
 </div>
@@ -245,7 +239,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="fqhe__metropolis_8h_source.html#l00138">138</a> of file <a class="el" href="fqhe__metropolis_8h_source.html">fqhe_metropolis.h</a>.</p>
+<p>Definition at line <a class="el" href="fqhe__metropolis_8hpp_source.html#l00118">118</a> of file <a class="el" href="fqhe__metropolis_8hpp_source.html">fqhe_metropolis.hpp</a>.</p>
 
 </div>
 </div>
@@ -260,7 +254,7 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Maximum size of MC moves (in units of sphere or disc radius or lattice spacing </p>
 
-<p>Definition at line <a class="el" href="fqhe__metropolis_8h_source.html#l00124">124</a> of file <a class="el" href="fqhe__metropolis_8h_source.html">fqhe_metropolis.h</a>.</p>
+<p>Definition at line <a class="el" href="fqhe__metropolis_8hpp_source.html#l00104">104</a> of file <a class="el" href="fqhe__metropolis_8hpp_source.html">fqhe_metropolis.hpp</a>.</p>
 
 </div>
 </div>
@@ -275,7 +269,7 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>1+Maximum number of lattice spacings for lattice moves </p>
 
-<p>Definition at line <a class="el" href="fqhe__metropolis_8h_source.html#l00126">126</a> of file <a class="el" href="fqhe__metropolis_8h_source.html">fqhe_metropolis.h</a>.</p>
+<p>Definition at line <a class="el" href="fqhe__metropolis_8hpp_source.html#l00106">106</a> of file <a class="el" href="fqhe__metropolis_8hpp_source.html">fqhe_metropolis.hpp</a>.</p>
 
 </div>
 </div>
@@ -290,7 +284,7 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Total number of sample configurations to take </p>
 
-<p>Definition at line <a class="el" href="fqhe__metropolis_8h_source.html#l00118">118</a> of file <a class="el" href="fqhe__metropolis_8h_source.html">fqhe_metropolis.h</a>.</p>
+<p>Definition at line <a class="el" href="fqhe__metropolis_8hpp_source.html#l00098">98</a> of file <a class="el" href="fqhe__metropolis_8hpp_source.html">fqhe_metropolis.hpp</a>.</p>
 
 </div>
 </div>
@@ -305,7 +299,7 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Number of Monte Carlo steps to perform </p>
 
-<p>Definition at line <a class="el" href="fqhe__metropolis_8h_source.html#l00120">120</a> of file <a class="el" href="fqhe__metropolis_8h_source.html">fqhe_metropolis.h</a>.</p>
+<p>Definition at line <a class="el" href="fqhe__metropolis_8hpp_source.html#l00100">100</a> of file <a class="el" href="fqhe__metropolis_8hpp_source.html">fqhe_metropolis.hpp</a>.</p>
 
 </div>
 </div>
@@ -320,7 +314,7 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Number of thermalising configurations </p>
 
-<p>Definition at line <a class="el" href="fqhe__metropolis_8h_source.html#l00114">114</a> of file <a class="el" href="fqhe__metropolis_8h_source.html">fqhe_metropolis.h</a>.</p>
+<p>Definition at line <a class="el" href="fqhe__metropolis_8hpp_source.html#l00094">94</a> of file <a class="el" href="fqhe__metropolis_8hpp_source.html">fqhe_metropolis.hpp</a>.</p>
 
 </div>
 </div>
@@ -335,7 +329,7 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Number of thermalising steps </p>
 
-<p>Definition at line <a class="el" href="fqhe__metropolis_8h_source.html#l00116">116</a> of file <a class="el" href="fqhe__metropolis_8h_source.html">fqhe_metropolis.h</a>.</p>
+<p>Definition at line <a class="el" href="fqhe__metropolis_8hpp_source.html#l00096">96</a> of file <a class="el" href="fqhe__metropolis_8hpp_source.html">fqhe_metropolis.hpp</a>.</p>
 
 </div>
 </div>
@@ -350,7 +344,7 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Number of moves per Monte Carlo step </p>
 
-<p>Definition at line <a class="el" href="fqhe__metropolis_8h_source.html#l00130">130</a> of file <a class="el" href="fqhe__metropolis_8h_source.html">fqhe_metropolis.h</a>.</p>
+<p>Definition at line <a class="el" href="fqhe__metropolis_8hpp_source.html#l00110">110</a> of file <a class="el" href="fqhe__metropolis_8hpp_source.html">fqhe_metropolis.hpp</a>.</p>
 
 </div>
 </div>
@@ -365,7 +359,7 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Name of the path containing initial configuration files Path to output data </p>
 
-<p>Definition at line <a class="el" href="fqhe__metropolis_8h_source.html#l00140">140</a> of file <a class="el" href="fqhe__metropolis_8h_source.html">fqhe_metropolis.h</a>.</p>
+<p>Definition at line <a class="el" href="fqhe__metropolis_8hpp_source.html#l00120">120</a> of file <a class="el" href="fqhe__metropolis_8hpp_source.html">fqhe_metropolis.hpp</a>.</p>
 
 </div>
 </div>
@@ -380,7 +374,7 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>A number labelling the parallel MC run </p>
 
-<p>Definition at line <a class="el" href="fqhe__metropolis_8h_source.html#l00122">122</a> of file <a class="el" href="fqhe__metropolis_8h_source.html">fqhe_metropolis.h</a>.</p>
+<p>Definition at line <a class="el" href="fqhe__metropolis_8hpp_source.html#l00102">102</a> of file <a class="el" href="fqhe__metropolis_8hpp_source.html">fqhe_metropolis.hpp</a>.</p>
 
 </div>
 </div>
@@ -395,7 +389,7 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Number of MC moves to perform between sampling </p>
 
-<p>Definition at line <a class="el" href="fqhe__metropolis_8h_source.html#l00128">128</a> of file <a class="el" href="fqhe__metropolis_8h_source.html">fqhe_metropolis.h</a>.</p>
+<p>Definition at line <a class="el" href="fqhe__metropolis_8hpp_source.html#l00108">108</a> of file <a class="el" href="fqhe__metropolis_8hpp_source.html">fqhe_metropolis.hpp</a>.</p>
 
 </div>
 </div>
@@ -410,7 +404,7 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Option to use initial configuration from a file </p>
 
-<p>Definition at line <a class="el" href="fqhe__metropolis_8h_source.html#l00136">136</a> of file <a class="el" href="fqhe__metropolis_8h_source.html">fqhe_metropolis.h</a>.</p>
+<p>Definition at line <a class="el" href="fqhe__metropolis_8hpp_source.html#l00116">116</a> of file <a class="el" href="fqhe__metropolis_8hpp_source.html">fqhe_metropolis.hpp</a>.</p>
 
 </div>
 </div>
@@ -425,12 +419,12 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Option to store wave function values in a file </p>
 
-<p>Definition at line <a class="el" href="fqhe__metropolis_8h_source.html#l00132">132</a> of file <a class="el" href="fqhe__metropolis_8h_source.html">fqhe_metropolis.h</a>.</p>
+<p>Definition at line <a class="el" href="fqhe__metropolis_8hpp_source.html#l00112">112</a> of file <a class="el" href="fqhe__metropolis_8hpp_source.html">fqhe_metropolis.hpp</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following files:<ul>
-<li><a class="el" href="fqhe__metropolis_8h_source.html">fqhe_metropolis.h</a></li>
+<li><a class="el" href="fqhe__metropolis_8hpp_source.html">fqhe_metropolis.hpp</a></li>
 <li><a class="el" href="fqhe__metropolis_8cpp_source.html">fqhe_metropolis.cpp</a></li>
 </ul>
 </div><!-- contents -->

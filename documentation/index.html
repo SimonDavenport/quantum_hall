@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Quantum Hall entanglement program suite: Main Page</title>
+<title>Quantum Hall Programs: Main Page</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -29,7 +29,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Quantum Hall entanglement program suite
+   <div id="projectname">Quantum Hall Programs
    &#160;<span id="projectnumber">Version 1.0</span>
    </div>
   </td>
@@ -98,47 +98,10 @@ $(document).ready(function(){initNavTree('index.html','');});
 
 <div class="header">
   <div class="headertitle">
-<div class="title">Quantum Hall entanglement program suite Documentation</div>  </div>
+<div class="title">Quantum Hall Programs Documentation</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><dl class="section author"><dt>Author</dt><dd>Simon C Davenport and Ivan D Rodriguez <pre class="fragment">         \date Last Modified: 03/06/2015
-</pre></dd></dl>
-<p>This suite of programs contains a number of codes used to calculate the real space entanglement spectrum (RSES) of model integer and fractional quantum Hall wave functions.</p>
-<p>INSTALLATION:</p>
-<p>To install this code you will first need to download and install the following libraries:</p>
-<ul>
-<li><a href="https://gmplib.org/">https://gmplib.org/</a> (high precision library)</li>
-<li><a href="http://www.mpfr.org/">http://www.mpfr.org/</a> (high precision library)</li>
-<li><a href="http://www.multiprecision.org/">http://www.multiprecision.org/</a> (high precision library)</li>
-<li><a href="http://www.boost.org/">http://www.boost.org/</a> (we only need to the program options)</li>
-<li><a href="https://www.gnu.org/software/gsl/">https://www.gnu.org/software/gsl/</a> (for numerical quadrature)</li>
-<li><a href="http://fftw.org/">http://fftw.org/</a> (for fast Fourier transforms)</li>
-</ul>
-<p>Once this is completed, you can install our codes using a standard GNU build system.</p>
-<ul>
-<li>to see the configuration options run ./configure &ndash;help</li>
-<li>when you are happy run ./configure [options] (note that the installation directory is set with &ndash;prefix)</li>
-<li>modify the options/check library installations until all the configure tests are passed.</li>
-<li>run make -j to compile, and make -j install to move the compiled codes to the installation directory. Run make clean to tidy up the build (and leave the installation unchanged). Run make uninstall to remove the installation.</li>
-</ul>
-<p>Now that the code is installed, several methods are available to you for RSES calculations:</p>
-<ul>
-<li>fqhe entanglement energy method: See <a class="el" href="entanglement__energy__model_8cpp.html">entanglement_energy_model.cpp</a>. Treats the RSES for fractional quanutm Hall states in a non-interacting approximation in terms of a set of single-particle entanglement energy levels. Author: Simon C Davenport</li>
-<li>fqhe entanglement hamiltonian method: See <a class="el" href="fqhe__entanglement__hamiltonian_8cpp.html">fqhe_entanglement_hamiltonian.cpp</a>. Treats the RSES for integer or fractional quantum Hall states in the formalism of Dubail-Read and Rezayi's paper Phys. Rev. B 86, 245310 (2012). The formalism has also been exteneded in an attempt to treat composite fermion fractional quantum Hall states. Author: Simon C Davenport</li>
-<li>fqhe entanglement wave function method: See <a class="el" href="entanglement__wave__function_8cpp.html">entanglement_wave_function.cpp</a>. A specialist method based on the "entanglement wave functions" proposed by Rodriguez et al. in Phys. Rev. B 88, 155307. This method can be used to calculate the RSES of the Laughlin and positive effective field Jain states very very large system sizes. Author: Ivan D Rodriguez</li>
-<li>fqhe pseudo reduced density matrix method: See <a class="el" href="fqhe__entanglement__spectrum_8cpp.html">fqhe_entanglement_spectrum.cpp</a>. A more general method to calculate the approximate RSES associated with quantum Hall states with known trial wave functions. Based on the observations of Rodriguez et al. in Phys. Rev. Lett. 108, 256806. Authors: Ivan D Rodriguez and Simon C Davenport</li>
-<li>iqhe exact entanglement spectrum: See <a class="el" href="iqhe__entanglement__spectrum_8cpp.html">iqhe_entanglement_spectrum.cpp</a>. Calculates the RSES of the integer quanutm Hall states according to the analytical result (but doing the requisite integrals numerically). Author: Simon C Davenport</li>
-</ul>
-<p>There are also several other sets of algorithms and utilities bundelled with the code:</p>
-<ul>
-<li>fqhe wave function algorithms: See the <a class="el" href="namespaceFQHE.html" title="A namespace containing all functions and classes used in fractional quantum Hall effect calculations...">FQHE</a> namespace. A set of fairly state-of-the-art algorithms to evaluate a large number of different types of fractional quantum Hall ground state wave function. Mostly done in the sphere geometry case, but disk and torus geometry is sometimes available. Author: Simon C Davenport</li>
-<li>fqhe wave function monte carlo: See <a class="el" href="fqhe__monte__carlo_8cpp.html">fqhe_monte_carlo.cpp</a>. An older code containing some basic routines to evaluate the ground state energy and ground state correlation functions of fractional quantum Hall states using monte carlo samlpling. Author: Simon C Davenport</li>
-<li>occupation basis: See <a class="el" href="occupation__basis_8cpp.html">occupation_basis.cpp</a>. Some shared utilities for generating the angular momentum basis used by the other RSES calculations in the sphere geometry case. Author: Simon C Davenport</li>
-<li>program_options: See e.g. <a class="el" href="general__options_8h.html">general_options.h</a> Some shared utilities for program option handelling. Author: Simon C Davenport</li>
-<li>python codes: A set of additional python codes that can be used to analyse the RSES data generated by the other programs. In particular "fit_entanglement_spectrum.py" can be used to fit one set of RSES data to one of the models. Author: Simon C Davenport</li>
-<li>utilities: See the utilities namespace. A set of general purpose utility functions required for low level mathematical functions e.g. linear algebra, integer partitions and some C++ hacks. </li>
-</ul>
-</div></div><!-- contents -->
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->

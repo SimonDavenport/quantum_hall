@@ -27,7 +27,7 @@
 
 ///////     LIBRARY INCLUSIONS     /////////////////////////////////////////////
 #include "fqhe_wave_function.hpp"
-#include <utilities/mathematics/binomial_table.hpp>
+#include <utilities/mathematics/binomials.hpp>
 #include <utilities/mathematics/binary_number_tools.hpp>
 #include <utilities/mathematics/dense_linear_algebra.hpp>
 #include <vector> 

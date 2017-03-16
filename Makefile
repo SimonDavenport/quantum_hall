@@ -59,10 +59,10 @@ am__make_running_with_option = \
   test $$has_opt = yes
 am__make_dryrun = (target_option=n; $(am__make_running_with_option))
 am__make_keepgoing = (target_option=k; $(am__make_running_with_option))
-pkgdatadir = $(datadir)/quantum-hall-entanglement-program-suite
-pkgincludedir = $(includedir)/quantum-hall-entanglement-program-suite
-pkglibdir = $(libdir)/quantum-hall-entanglement-program-suite
-pkglibexecdir = $(libexecdir)/quantum-hall-entanglement-program-suite
+pkgdatadir = $(datadir)/quantum-hall-entanglement-and-monte-carlo-programs
+pkgincludedir = $(includedir)/quantum-hall-entanglement-and-monte-carlo-programs
+pkglibdir = $(libdir)/quantum-hall-entanglement-and-monte-carlo-programs
+pkglibexecdir = $(libexecdir)/quantum-hall-entanglement-and-monte-carlo-programs
 am__cd = CDPATH="$${ZSH_VERSION+.}$(PATH_SEPARATOR)" && cd
 install_sh_DATA = $(install_sh) -c -m 644
 install_sh_PROGRAM = $(install_sh) -c
@@ -200,7 +200,7 @@ CXXCPP = mpicxx -E
 CXXDEPMODE = depmode=gcc3
 CXXFLAGS = 
 CYGPATH_W = echo
-DEFS = -DPACKAGE_NAME=\"Quantum\ Hall\ Entanglement\ program\ suite\" -DPACKAGE_TARNAME=\"quantum-hall-entanglement-program-suite\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"Quantum\ Hall\ Entanglement\ program\ suite\ 1.0\" -DPACKAGE_BUGREPORT=\"simon.davenport2@gmail.com\ or\ ivan_ok2000@yahoo.com\" -DPACKAGE_URL=\"\" -DPACKAGE=\"quantum-hall-entanglement-program-suite\" -DVERSION=\"1.0\" -D_DEBUG_=0 -D_ENABLE_MPI_=1 -D_ENABLE_HIGH_PRECISION_=1 -D_ENABLE_SPHERE_GEOMETRY_=1 -D_PYTHON_VERSION_=2 -D_ENABLE_DISC_GEOMETRY_=1 -D_ENABLE_TORUS_GEOMETRY_=1 -D_ENABLE_LATTICE_FQHE_=1 -D_WITH_GENERALISED_THETA_FUNCS_=1 -D_ENABLE_ANALYSIS_METHODS_=1 -D_CF_BENCHMARK_MODE_=0 -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_GMP_H=1 -DHAVE_MPFR_H=1 -DHAVE_MPC_H=1 -DHAVE_FFTW3_H=1 -DHAVE_GSL_GSL_INTEGRATION_H=1 -DHAVE_BOOST_PROGRAM_OPTIONS_HPP=1
+DEFS = -DPACKAGE_NAME=\"Quantum\ Hall\ Entanglement\ and\ Monte\ Carlo\ programs\" -DPACKAGE_TARNAME=\"quantum-hall-entanglement-and-monte-carlo-programs\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"Quantum\ Hall\ Entanglement\ and\ Monte\ Carlo\ programs\ 1.0\" -DPACKAGE_BUGREPORT=\"simon.davenport2@gmail.com\ or\ ivan_ok2000@yahoo.com\" -DPACKAGE_URL=\"\" -DPACKAGE=\"quantum-hall-entanglement-and-monte-carlo-programs\" -DVERSION=\"1.0\" -D_DEBUG_=0 -D_ENABLE_MPI_=1 -D_ENABLE_HIGH_PRECISION_=1 -D_ENABLE_SPHERE_GEOMETRY_=1 -D_PYTHON_VERSION_=2 -D_ENABLE_DISC_GEOMETRY_=1 -D_ENABLE_TORUS_GEOMETRY_=1 -D_ENABLE_LATTICE_FQHE_=1 -D_WITH_GENERALISED_THETA_FUNCS_=1 -D_ENABLE_ANALYSIS_METHODS_=1 -D_CF_BENCHMARK_MODE_=0 -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_GMP_H=1 -DHAVE_MPFR_H=1 -DHAVE_MPC_H=1 -DHAVE_FFTW3_H=1 -DHAVE_GSL_GSL_INTEGRATION_H=1 -DHAVE_BOOST_PROGRAM_OPTIONS_HPP=1
 DEPDIR = .deps
 ECHO_C = 
 ECHO_N = -n
@@ -222,11 +222,11 @@ LTLIBOBJS =
 MAKEINFO = ${SHELL} /home/simon/physics_programs/quantum_hall_entanglement/config/missing makeinfo
 MKDIR_P = /bin/mkdir -p
 OBJEXT = o
-PACKAGE = quantum-hall-entanglement-program-suite
+PACKAGE = quantum-hall-entanglement-and-monte-carlo-programs
 PACKAGE_BUGREPORT = simon.davenport2@gmail.com or ivan_ok2000@yahoo.com
-PACKAGE_NAME = Quantum Hall Entanglement program suite
-PACKAGE_STRING = Quantum Hall Entanglement program suite 1.0
-PACKAGE_TARNAME = quantum-hall-entanglement-program-suite
+PACKAGE_NAME = Quantum Hall Entanglement and Monte Carlo programs
+PACKAGE_STRING = Quantum Hall Entanglement and Monte Carlo programs 1.0
+PACKAGE_TARNAME = quantum-hall-entanglement-and-monte-carlo-programs
 PACKAGE_URL = 
 PACKAGE_VERSION = 1.0
 PATH_SEPARATOR = :

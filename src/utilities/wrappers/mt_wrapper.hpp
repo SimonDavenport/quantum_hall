@@ -2,12 +2,10 @@
 //!
 //!                         \author Simon C. Davenport 
 //!
-//!                         \date Last Modified: 28/04/2015
-//!
 //!  \file
 //!		Contains wrappers around the mt random number generator class
 //!
-//!                    Copyright (C) 2015 Simon C Davenport
+//!                    Copyright (C) Simon C Davenport
 //!                                                                             
 //!     This program is free software: you can redistribute it and/or modify
 //!     it under the terms of the GNU General Public License as published by
@@ -28,20 +26,17 @@
 #define _MT_WRAPPER_HPP_INCLUDED_
 
 ///////     LIBRARY INCLUSIONS     /////////////////////////////////////////////
-
-#include "../mathematics/mt.hpp"          //  Include Mersenne Twister header
-#include "../general/template_tools.hpp"  //  Include template function is_same
-#include "../general/dcmplx_type_def.hpp" //  Include dcmplx data type
-#include "../general/pi_const_def.hpp"    //  Include defintion of Pi
+#include "../mathematics/mt.hpp"
+#include "../general/template_tools.hpp"
+#include "../general/dcmplx_type_def.hpp"
+#include "../general/pi_const_def.hpp"
 
 namespace utilities
 {
     class Random
     {
         private:
-        
         MersenneTwister mt;
-        
         void Seed(int seedOffset);
 
         public:
@@ -59,9 +54,6 @@ namespace utilities
         double GenerateDouble();
         dcmplx GenerateComplex();
         int GenerateInt();
-
     };
-
 }  //  End namespace utilities
-
 #endif

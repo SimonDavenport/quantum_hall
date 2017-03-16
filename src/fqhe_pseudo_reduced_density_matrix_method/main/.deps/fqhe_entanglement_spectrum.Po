@@ -814,7 +814,8 @@ fqhe_pseudo_reduced_density_matrix_method/main/fqhe_entanglement_spectrum.o: \
  utilities/mathematics/../general/pi_const_def.hpp \
  utilities/mathematics/../general/template_tools.hpp \
  utilities/mathematics/../wrappers/high_precision_wrapper.hpp \
- utilities/mathematics/combinatorics.hpp utilities/general/debug.hpp \
+ utilities/mathematics/combinatorics.hpp \
+ utilities/mathematics/binomials.hpp utilities/general/debug.hpp \
  utilities/general/../wrappers/mpi_wrapper.hpp \
  /usr/include/c++/4.8/bitset /usr/local/include/fftw3.h \
  fqhe_pseudo_reduced_density_matrix_method/main/../../utilities/mathematics/mt.hpp \
@@ -2578,6 +2579,8 @@ utilities/mathematics/../general/template_tools.hpp:
 utilities/mathematics/../wrappers/high_precision_wrapper.hpp:
 
 utilities/mathematics/combinatorics.hpp:
+
+utilities/mathematics/binomials.hpp:
 
 utilities/general/debug.hpp:
 

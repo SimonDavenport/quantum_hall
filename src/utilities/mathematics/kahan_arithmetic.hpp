@@ -2,8 +2,6 @@
 //!
 //!                         \author Simon C. Davenport 
 //!
-//!                         \date Last Modified: 16/05/2014
-//!
 //!  \file
 //!		This header file implements a  class template that implements the
 //!     Kahan summation algorithm on all values added to the object with += 
@@ -11,7 +9,7 @@
 //!     The Kahan Summation algorithm is implemented in order to reduce
 //!     numerical errors.
 //!
-//!                    Copyright (C) 2014 Simon C Davenport
+//!                    Copyright (C) Simon C Davenport
 //!
 //!		This program is free software: you can redistribute it and/or modify
 //!		it under the terms of the GNU General Public License as published by
@@ -34,13 +32,9 @@
 namespace utilities
 {
 
-//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\//
-
-    //////////////////////////////////////////////////////////////////////////////// 
-    //! \brief A class template to implement the Kahan summation algorithm
     //!
-    //////////////////////////////////////////////////////////////////////////////// 
-
+    //! A class template to implement the Kahan summation algorithm
+    //!
     template<typename T>
     struct KahanAccumulation
     {
@@ -50,15 +44,12 @@ namespace utilities
         //!
         //! Default constructor initialises sum to zero
         //! 
-        
         KahanAccumulation()
         :
             m_sum(0),
             m_correction(0)
         {}
     };
-
-//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\//
 
     //////////////////////////////////////////////////////////////////////////////// 
     //! \brief Defines a global  template += operator overload for the Kahan 
@@ -67,9 +58,7 @@ namespace utilities
     //! the sum (should be of the same type as the class type)
     //!
     //! \return address to the updated KahanAccumulation object
-    //!
     //////////////////////////////////////////////////////////////////////////////// 
-    
     template<typename T>
     KahanAccumulation<T>& operator+=(KahanAccumulation<T>& a,const T& b)
     {
@@ -77,12 +66,7 @@ namespace utilities
         T tempSum = a.m_sum + tempVal;
         a.m_correction = (tempSum - a.m_sum) - tempVal;
         a.m_sum = tempSum;
-        
         return a;
     }
-
-//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\//
-
-}   //  End namespace utilities
-    
+}   //  End namespace utilities   
 #endif

@@ -30,7 +30,7 @@
 #include "../../occupation_basis/occupation_basis.hpp"
 #include "../../utilities/wrappers/lapack_wrapper.hpp"
 #include "../../utilities/general/pi_const_def.hpp"
-#include "../../utilities/mathematics/binomial_table.hpp"
+#include "../../utilities/mathematics/binomials.hpp"
 #include "../../utilities/general/cout_tools.hpp"
 #include <boost/program_options.hpp>
 #include <gsl/gsl_integration.h>

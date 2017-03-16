@@ -817,10 +817,9 @@ fqhe_wave_function_monte_carlo/main/analyse_monte_carlo.o: \
  utilities/mathematics/../wrappers/../general/dcmplx_type_def.hpp \
  fqhe_wave_function_monte_carlo/main/../analysis/../../fqhe_wave_function_algorithms/nass.hpp \
  fqhe_wave_function_monte_carlo/main/../analysis/../../fqhe_wave_function_algorithms/parafermion.hpp \
- utilities/mathematics/binomial_table.hpp \
- utilities/mathematics/combinatorics.hpp \
+ utilities/mathematics/binomials.hpp \
  utilities/mathematics/binary_number_tools.hpp \
- utilities/mathematics/binomial_table.hpp /usr/include/c++/4.8/bitset \
+ utilities/mathematics/binomials.hpp /usr/include/c++/4.8/bitset \
  fqhe_wave_function_monte_carlo/main/../analysis/../../fqhe_wave_function_algorithms/composite_fermion.hpp \
  utilities/wrappers/high_precision_wrapper.hpp \
  utilities/mathematics/combinatorics.hpp utilities/general/debug.hpp \
@@ -2590,13 +2589,11 @@ fqhe_wave_function_monte_carlo/main/../analysis/../../fqhe_wave_function_algorit
 
 fqhe_wave_function_monte_carlo/main/../analysis/../../fqhe_wave_function_algorithms/parafermion.hpp:
 
-utilities/mathematics/binomial_table.hpp:
-
-utilities/mathematics/combinatorics.hpp:
+utilities/mathematics/binomials.hpp:
 
 utilities/mathematics/binary_number_tools.hpp:
 
-utilities/mathematics/binomial_table.hpp:
+utilities/mathematics/binomials.hpp:
 
 /usr/include/c++/4.8/bitset:
 

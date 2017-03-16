@@ -799,18 +799,18 @@ fqhe_wave_function_algorithms/parafermion.o: \
  utilities/wrappers/../general/cout_tools.hpp \
  utilities/wrappers/../general/template_tools.hpp \
  /usr/include/c++/4.8/iomanip /usr/include/c++/4.8/chrono \
- /usr/include/c++/4.8/ratio utilities/mathematics/binomial_table.hpp \
- utilities/mathematics/combinatorics.hpp \
+ /usr/include/c++/4.8/ratio utilities/mathematics/binomials.hpp \
+ utilities/mathematics/binary_number_tools.hpp \
+ utilities/mathematics/binomials.hpp /usr/include/c++/4.8/bitset \
+ utilities/mathematics/dense_linear_algebra.hpp \
+ utilities/mathematics/../general/dcmplx_type_def.hpp \
+ utilities/mathematics/../general/pi_const_def.hpp \
+ utilities/mathematics/../general/template_tools.hpp \
  utilities/mathematics/../wrappers/high_precision_wrapper.hpp \
  utilities/mathematics/../wrappers/../general/dcmplx_type_def.hpp \
  /usr/local/include/gmp.h /usr/local/include/mpfr.h \
  /usr/local/include/mpc.h /usr/local/include/gmp.h \
- /usr/local/include/mpfr.h utilities/mathematics/binary_number_tools.hpp \
- utilities/mathematics/binomial_table.hpp /usr/include/c++/4.8/bitset \
- utilities/mathematics/dense_linear_algebra.hpp \
- utilities/mathematics/../general/dcmplx_type_def.hpp \
- utilities/mathematics/../general/pi_const_def.hpp \
- utilities/mathematics/../general/template_tools.hpp
+ /usr/local/include/mpfr.h
 
 /usr/include/stdc-predef.h:
 
@@ -2526,9 +2526,21 @@ utilities/wrappers/../general/template_tools.hpp:
 
 /usr/include/c++/4.8/ratio:
 
-utilities/mathematics/binomial_table.hpp:
+utilities/mathematics/binomials.hpp:
 
-utilities/mathematics/combinatorics.hpp:
+utilities/mathematics/binary_number_tools.hpp:
+
+utilities/mathematics/binomials.hpp:
+
+/usr/include/c++/4.8/bitset:
+
+utilities/mathematics/dense_linear_algebra.hpp:
+
+utilities/mathematics/../general/dcmplx_type_def.hpp:
+
+utilities/mathematics/../general/pi_const_def.hpp:
+
+utilities/mathematics/../general/template_tools.hpp:
 
 utilities/mathematics/../wrappers/high_precision_wrapper.hpp:
 
@@ -2543,17 +2555,3 @@ utilities/mathematics/../wrappers/../general/dcmplx_type_def.hpp:
 /usr/local/include/gmp.h:
 
 /usr/local/include/mpfr.h:
-
-utilities/mathematics/binary_number_tools.hpp:
-
-utilities/mathematics/binomial_table.hpp:
-
-/usr/include/c++/4.8/bitset:
-
-utilities/mathematics/dense_linear_algebra.hpp:
-
-utilities/mathematics/../general/dcmplx_type_def.hpp:
-
-utilities/mathematics/../general/pi_const_def.hpp:
-
-utilities/mathematics/../general/template_tools.hpp:

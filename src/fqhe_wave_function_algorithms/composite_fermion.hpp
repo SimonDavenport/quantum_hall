@@ -33,6 +33,7 @@
 #include <utilities/wrappers/high_precision_wrapper.hpp>
 #include <utilities/mathematics/dense_linear_algebra.hpp>
 #include <utilities/mathematics/combinatorics.hpp>
+#include <utilities/mathematics/binomials.hpp>
 #ifdef _ENABLE_MPI_
 #include <utilities/wrappers/mpi_wrapper.hpp>
 #endif

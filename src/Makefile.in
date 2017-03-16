@@ -105,7 +105,7 @@ am_analyse_monte_carlo_OBJECTS = fqhe_wave_function_monte_carlo/main/analyse_mon
 	fqhe_wave_function_algorithms/nass.$(OBJEXT) \
 	fqhe_wave_function_algorithms/parafermion.$(OBJEXT) \
 	utilities/mathematics/mt.$(OBJEXT) \
-	utilities/mathematics/binomial_table.$(OBJEXT) \
+	utilities/mathematics/binomials.$(OBJEXT) \
 	utilities/mathematics/theta_functions.$(OBJEXT) \
 	utilities/mathematics/binary_number_tools.$(OBJEXT) \
 	utilities/mathematics/murmur_hash2.$(OBJEXT) \
@@ -166,7 +166,7 @@ am_fqhe_monte_carlo_OBJECTS = fqhe_wave_function_monte_carlo/main/fqhe_monte_car
 	fqhe_wave_function_algorithms/nass.$(OBJEXT) \
 	fqhe_wave_function_algorithms/parafermion.$(OBJEXT) \
 	utilities/mathematics/mt.$(OBJEXT) \
-	utilities/mathematics/binomial_table.$(OBJEXT) \
+	utilities/mathematics/binomials.$(OBJEXT) \
 	utilities/mathematics/theta_functions.$(OBJEXT) \
 	utilities/mathematics/binary_number_tools.$(OBJEXT) \
 	utilities/wrappers/mpi_wrapper.$(OBJEXT)
@@ -174,7 +174,7 @@ fqhe_monte_carlo_OBJECTS = $(am_fqhe_monte_carlo_OBJECTS)
 fqhe_monte_carlo_LDADD = $(LDADD)
 am_iqhe_entanglement_spectrum_OBJECTS = iqhe_exact_entanglement_spectrum/main/iqhe_entanglement_spectrum.$(OBJEXT) \
 	iqhe_exact_entanglement_spectrum/iqhe_rses/iqhe_rses.$(OBJEXT) \
-	utilities/mathematics/binomial_table.$(OBJEXT) \
+	utilities/mathematics/binomials.$(OBJEXT) \
 	occupation_basis/occupation_basis.$(OBJEXT) \
 	utilities/mathematics/integer_partitions.$(OBJEXT)
 iqhe_entanglement_spectrum_OBJECTS =  \
@@ -379,7 +379,7 @@ fqhe_wave_function_algorithms/moore_read.cpp \
 fqhe_wave_function_algorithms/nass.cpp \
 fqhe_wave_function_algorithms/parafermion.cpp \
 utilities/mathematics/mt.cpp \
-utilities/mathematics/binomial_table.cpp \
+utilities/mathematics/binomials.cpp \
 utilities/mathematics/theta_functions.cpp \
 utilities/mathematics/binary_number_tools.cpp \
 utilities/wrappers/mpi_wrapper.cpp
@@ -394,7 +394,7 @@ fqhe_wave_function_algorithms/moore_read.cpp \
 fqhe_wave_function_algorithms/nass.cpp \
 fqhe_wave_function_algorithms/parafermion.cpp \
 utilities/mathematics/mt.cpp \
-utilities/mathematics/binomial_table.cpp \
+utilities/mathematics/binomials.cpp \
 utilities/mathematics/theta_functions.cpp \
 utilities/mathematics/binary_number_tools.cpp \
 utilities/mathematics/murmur_hash2.cpp \
@@ -420,7 +420,7 @@ fqhe_entanglement_spectrum_LINK = $(FC) $(LDFLAGS) -o fqhe_entanglement_spectrum
 iqhe_entanglement_spectrum_SOURCES = \
 iqhe_exact_entanglement_spectrum/main/iqhe_entanglement_spectrum.cpp \
 iqhe_exact_entanglement_spectrum/iqhe_rses/iqhe_rses.cpp \
-utilities/mathematics/binomial_table.cpp \
+utilities/mathematics/binomials.cpp \
 occupation_basis/occupation_basis.cpp \
 utilities/mathematics/integer_partitions.cpp
 
@@ -438,9 +438,9 @@ $(srcdir)/Makefile.in:  $(srcdir)/Makefile.am  $(am__configure_deps)
 	      exit 1;; \
 	  esac; \
 	done; \
-	echo ' cd $(top_srcdir) && $(AUTOMAKE) --gnu src/Makefile'; \
+	echo ' cd $(top_srcdir) && $(AUTOMAKE) --foreign src/Makefile'; \
 	$(am__cd) $(top_srcdir) && \
-	  $(AUTOMAKE) --gnu src/Makefile
+	  $(AUTOMAKE) --foreign src/Makefile
 .PRECIOUS: Makefile
 Makefile: $(srcdir)/Makefile.in $(top_builddir)/config.status
 	@case '$?' in \
@@ -552,7 +552,7 @@ utilities/mathematics/$(DEPDIR)/$(am__dirstamp):
 utilities/mathematics/mt.$(OBJEXT):  \
 	utilities/mathematics/$(am__dirstamp) \
 	utilities/mathematics/$(DEPDIR)/$(am__dirstamp)
-utilities/mathematics/binomial_table.$(OBJEXT):  \
+utilities/mathematics/binomials.$(OBJEXT):  \
 	utilities/mathematics/$(am__dirstamp) \
 	utilities/mathematics/$(DEPDIR)/$(am__dirstamp)
 utilities/mathematics/theta_functions.$(OBJEXT):  \
@@ -812,7 +812,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@iqhe_exact_entanglement_spectrum/main/$(DEPDIR)/iqhe_entanglement_spectrum.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@occupation_basis/$(DEPDIR)/occupation_basis.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@utilities/mathematics/$(DEPDIR)/binary_number_tools.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@utilities/mathematics/$(DEPDIR)/binomial_table.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@utilities/mathematics/$(DEPDIR)/binomials.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@utilities/mathematics/$(DEPDIR)/integer_partitions.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@utilities/mathematics/$(DEPDIR)/mt.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@utilities/mathematics/$(DEPDIR)/murmur_hash2.Po@am__quote@

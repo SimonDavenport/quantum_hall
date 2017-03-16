@@ -2,8 +2,6 @@
 //!
 //!                         \author Simon C. Davenport 
 //!
-//!                         \date Last Modified: 06/12/2013
-//!
 //!  \file
 //!		 This is the library file containing functions to evaluate
 //!      Jacobi theta functions. The method is based simply on doing a
@@ -12,7 +10,7 @@
 //!      see http://mathworld.wolfram.com/JacobiThetaFunctions.html for 
 //!      more details about theta functions 
 //!
-//!                    Copyright (C) 2013 Simon C Davenport
+//!                    Copyright (C) Simon C Davenport
 //!
 //!		This program is free software: you can redistribute it and/or modify
 //!		it under the terms of the GNU General Public License as published by
@@ -31,8 +29,6 @@
 
 #include "theta_functions.hpp"
 
-//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\//
-
 //////////////////////////////////////////////////////////////////////////////
 //!	\brief  This is the constructor for an object of type ThetaLookUp.
 //!
@@ -41,9 +37,7 @@
 //!  The table is for theta function values in a lattice of size Lx by Ly 
 //!  For complex integer arguments Lx + I Ly. There is an option to include
 //!  a complex double values offset to all values.
-//!
 //////////////////////////////////////////////////////////////////////////////
-	
 utilities::ThetaLookUp::ThetaLookUp(
 	const int Lx,					//!<	 X dimension of the lattice for which
 									//!		 to generate A table of values Theta (Lx + I Ly) 
@@ -60,66 +54,40 @@ utilities::ThetaLookUp::ThetaLookUp(
 									//!		 ALSO increase tau by this factor (for special
 									//!		 application to torus quantum Hall wave functions)
 {
-    double tau=increaseDomain*(double)Ly/Lx;
-
+    double tau = increaseDomain*(double)Ly/Lx;
     if(restrictSign)        //  only generate the positive quadrant (i>0 and j>0)
 	{
-
-	    //	generate a look-up table of theta function values
-
-	    thetaLookUpTable=new dcmplx[Lx*Ly*increaseDomain*increaseDomain];
-	
-	    //	populate the look-up table
-	
-	    for(int i=0;i<Lx*increaseDomain;i++)
+	    thetaLookUpTable = new dcmplx[Lx*Ly*increaseDomain*increaseDomain];
+	    for(int i=0; i<Lx*increaseDomain; ++i)
 	    {
-		    for(int j=0;j<Ly*increaseDomain;j++)
+		    for(int j=0; j<Ly*increaseDomain; ++j)
 		    {
-			    thetaLookUpTable[i*Ly*increaseDomain+j]=thetaFunction::GeneralisedJacobi(arg1,arg2,(dcmplx(i,j)-quasiHoleOffset)/(double)Lx,tau);
-			    
-				#if _DEBUG_
-			    std::cout<<"\tLookup "<<i<<" "<<j<<" = "<<thetaLookUpTable[i*Ly*increaseDomain+j]<<std::endl;
-				#endif
+			    thetaLookUpTable[i*Ly*increaseDomain+j] = thetaFunction::GeneralisedJacobi(
+			        arg1, arg2, (dcmplx(i, j)-quasiHoleOffset)/(double)Lx, tau);
 		    }
 	    }
     }
-    else            		//  store all possible values (takes 4x the memory)
+    else    //  store all possible values (takes 4x the memory)
     {
-        //	generate a look-up table of theta function values
-
 	    thetaLookUpTable=new dcmplx[4*Lx*Ly*increaseDomain*increaseDomain];
-	
-	    //	populate the look-up table
-	
-	    for(int i=0;i<2*Lx*increaseDomain;i++)
+	    for(int i=0; i<2*Lx*increaseDomain; ++i)
 	    {
-		    for(int j=0;j<2*Ly*increaseDomain;j++)
+		    for(int j=0; j<2*Ly*increaseDomain; ++j)
 		    {
-			    thetaLookUpTable[i*(2*Ly*increaseDomain)+j]=thetaFunction::GeneralisedJacobi(arg1,arg2,(dcmplx(i-Lx,j-Ly)-quasiHoleOffset)/(double)Lx,tau);
-			    
-				#if _DEBUG_
-			    std::cout<<"\tLookup argument "<<(dcmplx(i-Lx,j-Ly)-quasiHoleOffset)/(double)Lx<<" with "<<i<<" "<<j<<" = "<<thetaLookUpTable[i*Ly*increaseDomain+j]<<std::endl;
-				#endif
+			    thetaLookUpTable[i*(2*Ly*increaseDomain)+j] = thetaFunction::GeneralisedJacobi(
+			        arg1, arg2, (dcmplx(i-Lx, j-Ly)-quasiHoleOffset)/(double)Lx, tau);
 		    }
 	    }
     }
 }
 
-//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\//
-
-//////////////////////////////////////////////////////////////////////////////
-//!	\brief  Destructor for an object of type ThetaLookUp.
 //!
-//////////////////////////////////////////////////////////////////////////////
-
+//!	Destructor for an object of type ThetaLookUp.
+//!
 utilities::ThetaLookUp::~ThetaLookUp()
 {
-    //  Clears memory space allocated to store the table of theta function values
-
 	delete[] thetaLookUpTable;
 }
-
-//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\//
 
 //////////////////////////////////////////////////////////////////////////////
 //!	\brief  The generalised Jacobi theta function is given by 
@@ -141,9 +109,7 @@ utilities::ThetaLookUp::~ThetaLookUp()
 //!  So it's important to check the convergence of the summations carefully
 //!
 //!	\return   complex LOG of theta function	
-//!
 //////////////////////////////////////////////////////////////////////////////
-
 dcmplx utilities::thetaFunction::GeneralisedJacobi(
 	const double a,		//!<	First parameter in generalized theta function 
 	const double b,		//!<	Second parameter in generalized theta function
@@ -151,252 +117,121 @@ dcmplx utilities::thetaFunction::GeneralisedJacobi(
 	const double t)		//!<	The 'nome' of the theta function, used as
 						//!		written in the description. N.B. sometimes defined as exp(q) 
 {
-    //  Declare local variables
-
     int n;
     int nbrTerms;
     dcmplx thetaFunc,prevTheta,nextTerm;
     dcmplx xShiftFactor=0;
     dcmplx yShiftFactor=0;
-    int extraTerms=5+ceil(a)+ceil(b);			//	set the minimum number of terms
-
-	#if _DEBUG_
-    std::cout<<"\t\t-----START EVALUATION-----\n"<<std::endl;
-
-    std::cout<<"a: "<<a<<" b: "<<b<<std::endl;
-    std::cout<<"z: "<<z<<" t: "<<t<<std::endl;
-	#endif   
-    
+    int extraTerms = 5+ceil(a)+ceil(b);			//	set the minimum number of terms
     //	Shift z to be as close as possible to zero and add in the periodic factors
     //	to compensate.
-
     while(real(z)>=1.0)
     {
-    	z-=1.0;
-    	xShiftFactor+=2*PI*I*a;
+    	z -= 1.0;
+    	xShiftFactor += 2*PI*I*a;
     }
-
     while(real(z)<=-1.0)
 	{
-		z+=1.0;
-		xShiftFactor-=2*PI*I*a;
+		z += 1.0;
+		xShiftFactor -= 2*PI*I*a;
 	}
-
     while(imag(z)>=t)
 	{
-		z-=I*t;
-		yShiftFactor+=(PI*t-2*PI*I*(z+b));
+		z -= I*t;
+		yShiftFactor += (PI*t-2*PI*I*(z+b));
 	}
-
     while(imag(z)<=-t)
 	{
-		z+=I*t;
-		yShiftFactor-=(PI*t-2*PI*I*(z+b));
+		z += I*t;
+		yShiftFactor -= (PI*t-2*PI*I*(z+b));
 	}
-
     //  calculate first term in the sum (n=0 term)
-    
-    thetaFunc=exp(PI*a*(-a*t+2.0*I*(z+b)));
-    
-	#if _DEBUG_
-    std::cout<<std::setprecision(15)<<"\t\tITERATION 1:\t"<<log(thetaFunc)<<std::endl;
-	#endif
-    
-    prevTheta=thetaFunc;
-    
+    thetaFunc = exp(PI*a*(-a*t+2.0*I*(z+b)));
+    prevTheta = thetaFunc;
     //  calculate the next pair of terms (n=+1 and n=-1)
-
-    nextTerm=exp(PI*(a+1.0)*(-(a+1.0)*t+2.0*I*(z+b)))+exp(PI*(a-1.0)*(-(a-1.0)*t+2.0*I*(z+b)));
-    
-    thetaFunc+=nextTerm;
-
-    n=2;
-
-    nbrTerms=2;
-    
-	#if _DEBUG_
-    std::cout<<std::setprecision(15)<<"\t\tITERATION 2:\t"<<log(thetaFunc)<<std::endl;
-	#endif
-    
+    nextTerm = exp(PI*(a+1.0)*(-(a+1.0)*t+2.0*I*(z+b)))+exp(PI*(a-1.0)*(-(a-1.0)*t+2.0*I*(z+b)));
+    thetaFunc += nextTerm;
+    n = 2;
+    nbrTerms = 2;
     //	Keep going until until adding terms does not change the result
-
     while(abs(nextTerm/prevTheta)>thetaTol || extraTerms>0)
     {
-        prevTheta+=nextTerm;
-
-         //  add next pair of terms to the sum
-        
-        nextTerm=exp(PI*(a+n)*(-(a+n)*t+2.0*I*(z+b)));
-        nextTerm+=exp(PI*(a-n)*(-(a-n)*t+2.0*I*(z+b)));
-        
-        thetaFunc+=nextTerm;
-        
-		#if _DEBUG_
-    	std::cout<<std::setprecision(15)<<"\t\tITERATION "<<nbrTerms<<":\t"<<log(thetaFunc)<<"\tCONVERGED?\t"<<(abs(nextTerm/prevTheta)>thetaTol)<<std::endl;
-		#endif
-    	
-        n++;
-        nbrTerms++;
-        extraTerms--;
-
-        //if(real(thetaFunc)==0)	{extraTerms+=2;getchar();}
+        prevTheta += nextTerm;
+        //  add next pair of terms to the sum
+        nextTerm = exp(PI*(a+n)*(-(a+n)*t+2.0*I*(z+b)));
+        nextTerm += exp(PI*(a-n)*(-(a-n)*t+2.0*I*(z+b)));
+        thetaFunc += nextTerm;
+        ++n;
+        ++nbrTerms;
+        --extraTerms;
     }
-	
-	#if _DEBUG_
-    std::cout<<"\n\t\t-----END EVALUATION-----\n"<<std::endl;//getchar();
-	#endif
-
-	thetaFunc=log(thetaFunc)+xShiftFactor+yShiftFactor;
-	
-	#if _DEBUG_
-	std::cout<<"low prec: "<<thetaFunc<<std::endl;getchar();
-	#endif
-	
+	thetaFunc = log(thetaFunc)+xShiftFactor+yShiftFactor;
 	//	Use high precision if the low precision range overflows
-
     if(std::isinf(real(thetaFunc)) || std::isnan(real(thetaFunc)))
     {
 		//	if the double range is overflowed, then we need to use high precision variables
-	
 	    //  Declare local variables
-	
-	    int prec;		            //	precision for high precision version
-	    mpc_t runTot;	            //	running total for high precision version
-	    mpc_t prev,next1,next2;     //	previous and next terms in series approximation	(high prec)
-	    mpc_t compare;	            //	variable to compare differences between terms in series
-	    mpfr_t absCompare;          //  absolute value of difference
-	
-        //std::cout<<"\tWARNING: jacobi_theta_("<<z<<","<<t<<") overflows double range"<<std::endl;getchar();
-		
-		prec=256;
-		
-		mpc_init2(runTot,prec);
-		mpc_init2(prev,prec);
-		mpc_init2(next1,prec);
-		mpc_init2(next2,prec);
-		mpc_init2(compare,prec);
+	    int prec = 256;
+	    mpc_t runTot;
+	    mpc_t prev,next1,next2;
+	    mpc_t compare;
+	    mpfr_t absCompare;
+		mpc_init2(runTot, prec);
+		mpc_init2(prev, prec);
+		mpc_init2(next1, prec);
+		mpc_init2(next2, prec);
+		mpc_init2(compare, prec);
 		mpfr_init(absCompare);
-		
 		//  calculate first term in the sum (n=0 term)
-    
-		nextTerm=PI*a*(-a*t+2.0*I*(z+b));
-		
-		mpc_set_d_d(runTot,real(nextTerm),imag(nextTerm),MPC_RNDNN);
-		mpc_exp(runTot,runTot,MPC_RNDNN);
-		
-		mpc_set(prev,runTot,MPC_RNDNN);
-		
+		nextTerm = PI*a*(-a*t+2.0*I*(z+b));
+		mpc_set_d_d(runTot, real(nextTerm), imag(nextTerm), MPC_RNDNN);
+		mpc_exp(runTot, runTot, MPC_RNDNN);
+		mpc_set(prev, runTot, MPC_RNDNN);
 		//  calculate the next pair of terms (n=+1 and n=-1)
-
-		nextTerm=PI*(a+1.0)*(-(a+1.0)*t+2.0*I*(z+b));
-		mpc_set_d_d(next1,real(nextTerm),imag(nextTerm),MPC_RNDNN);
-		mpc_exp(next1,next1,MPC_RNDNN);
-		mpc_add(runTot,runTot,next1,MPC_RNDNN);
-		
-		nextTerm=PI*(a-1.0)*(-(a-1.0)*t+2.0*I*(z+b));
-		mpc_set_d_d(next2,real(nextTerm),imag(nextTerm),MPC_RNDNN);
-		mpc_exp(next2,next2,MPC_RNDNN);
-		mpc_add(runTot,runTot,next2,MPC_RNDNN);
-
-		n=2;
-
-		nbrTerms=2;
-		
-		mpc_sub(compare,runTot,prev,MPC_RNDNN);
-		mpc_div(compare,compare,runTot,MPC_RNDNN);
-		
-		mpc_abs(absCompare,compare,MPFR_RNDN);
-	
-		while(mpfr_get_d(absCompare,MPFR_RNDN)>thetaTol)
+		nextTerm = PI*(a+1.0)*(-(a+1.0)*t+2.0*I*(z+b));
+		mpc_set_d_d(next1, real(nextTerm), imag(nextTerm), MPC_RNDNN);
+		mpc_exp(next1, next1, MPC_RNDNN);
+		mpc_add(runTot, runTot, next1, MPC_RNDNN);
+		nextTerm = PI*(a-1.0)*(-(a-1.0)*t+2.0*I*(z+b));
+		mpc_set_d_d(next2, real(nextTerm), imag(nextTerm), MPC_RNDNN);
+		mpc_exp(next2, next2, MPC_RNDNN);
+		mpc_add(runTot, runTot, next2, MPC_RNDNN);
+		n = 2;
+		nbrTerms = 2;
+		mpc_sub(compare, runTot, prev, MPC_RNDNN);
+		mpc_div(compare, compare, runTot, MPC_RNDNN);
+		mpc_abs(absCompare, compare, MPFR_RNDN);
+		while(mpfr_get_d(absCompare, MPFR_RNDN)>thetaTol)
 		{
-			mpc_add(prev,prev,next1,MPC_RNDNN);
-			mpc_add(prev,prev,next2,MPC_RNDNN);
-			
+			mpc_add(prev, prev, next1, MPC_RNDNN);
+			mpc_add(prev, prev, next2, MPC_RNDNN);
 			 //  add next pair of terms to the sum
-			
-			nextTerm=PI*(a+n)*(-(a+n)*t+2.0*I*(z+b));
-			mpc_set_d_d(next1,real(nextTerm),imag(nextTerm),MPC_RNDNN);
-			mpc_exp(next1,next1,MPC_RNDNN);
-			mpc_add(runTot,runTot,next1,MPC_RNDNN);
-			
-			nextTerm=PI*(a-n)*(-(a-n)*t+2.0*I*(z+b));
-			mpc_set_d_d(next2,real(nextTerm),imag(nextTerm),MPC_RNDNN);
-			mpc_exp(next2,next2,MPC_RNDNN);
-			mpc_add(runTot,runTot,next2,MPC_RNDNN);
-			
-			mpc_sub(compare,runTot,prev,MPC_RNDNN);
-		
-			mpc_div(compare,compare,runTot,MPC_RNDNN);
-
-			mpc_abs(absCompare,compare,MPFR_RNDN);
-			
-			n++;
-			nbrTerms++;
+			nextTerm = PI*(a+n)*(-(a+n)*t+2.0*I*(z+b));
+			mpc_set_d_d(next1, real(nextTerm), imag(nextTerm), MPC_RNDNN);
+			mpc_exp(next1, next1, MPC_RNDNN);
+			mpc_add(runTot, runTot, next1, MPC_RNDNN);
+			nextTerm = PI*(a-n)*(-(a-n)*t+2.0*I*(z+b));
+			mpc_set_d_d(next2, real(nextTerm), imag(nextTerm), MPC_RNDNN);
+			mpc_exp(next2, next2, MPC_RNDNN);
+			mpc_add(runTot, runTot, next2, MPC_RNDNN);
+			mpc_sub(compare, runTot, prev, MPC_RNDNN);
+			mpc_div(compare, compare, runTot, MPC_RNDNN);
+			mpc_abs(absCompare, compare, MPFR_RNDN);
+			++n;
+			++nbrTerms;
 		}
-		
-		mpc_log(runTot,runTot,MPC_RNDNN);
-		
-		mpc_real(absCompare,runTot,MPFR_RNDN);
-		thetaFunc=mpfr_get_d(absCompare,MPFR_RNDN);
-		
-		mpc_imag(absCompare,runTot,MPFR_RNDN);
-		thetaFunc+=dcmplx(0,mpfr_get_d(absCompare,MPFR_RNDN));
-		
-		thetaFunc+=xShiftFactor+yShiftFactor;
-
+		mpc_log(runTot, runTot, MPC_RNDNN);
+		mpc_real(absCompare, runTot, MPFR_RNDN);
+		thetaFunc = mpfr_get_d(absCompare, MPFR_RNDN);
+		mpc_imag(absCompare, runTot, MPFR_RNDN);
+		thetaFunc += dcmplx(0, mpfr_get_d(absCompare, MPFR_RNDN));
+		thetaFunc += xShiftFactor+yShiftFactor;
 		mpc_clear(runTot);
 		mpc_clear(prev);
 		mpc_clear(next1);
 		mpc_clear(next2);
 		mpc_clear(compare);
 		mpfr_clear(absCompare);
-
-		#if _DEBUG_
-		std::cout<<"high prec: "<<thetaFunc<<std::endl;
-		#endif
-
     }
-   
-	//	return log of theta function
     return thetaFunc;
 }
-
-//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\//
-
-#if 0 
-//	IMPORT PYTHONG IMPLEMENTATION OF THETA FUNCTIONS
-#include <boost/python.hpp>
-
-//	add to compiler commands:
-// -I/opt/local/Library/Frameworks/Python.framework/Versions/2.7/include/python2.7/
-// -lpython2.7 -lboost_python-mt
-
-dcmplx PythonThetaFunction(int n,dcmplx z,double t)
-{
-	using namespace boost::python;
-
-	//	Call a python function to implement the theta function evaluation
-
-	Py_Initialize();
-
-	object main_module = import("__main__");
-
-	object main_namespace = main_module.attr("__dict__");
-
-	main_namespace["q"]=exp(-t*PI);
-	main_namespace["z"]=z*PI;
-
-	object ignored = exec("import mpmath ;  result = complex(mpmath.jtheta(1,z,q,0))", main_namespace);  //
-
-	dcmplx pyResult = extract<dcmplx>(main_namespace["result"]);
-
-	Py_Finalize();
-
-	//std::cout<<pyResult<<std::endl;getchar();
-
-	return log(pyResult);
-}
-
-#endif
-
-//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\//
